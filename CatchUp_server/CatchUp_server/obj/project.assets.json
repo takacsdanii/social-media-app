@@ -4751,11 +4751,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\CatchUp_server.csproj",
+      "projectUniqueName": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\CatchUp_server.csproj",
       "projectName": "CatchUp_server",
-      "projectPath": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\CatchUp_server.csproj",
+      "projectPath": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\CatchUp_server.csproj",
       "packagesPath": "C:\\Users\\latix\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\obj\\",
+      "outputPath": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

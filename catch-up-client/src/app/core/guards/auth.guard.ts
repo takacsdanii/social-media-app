@@ -16,30 +16,6 @@ export class AuthGuard implements CanActivate {
       const loggedInUserId = this.authService.getUserId();
       const userIdFromRoute = route.paramMap.get('id');
 
-      /*if(!isUserLoggedIn) {
-        if(route.routeConfig?.path === 'login' || route.routeConfig?.path === 'register') {
-          return true;
-        }
-        if(route.routeConfig?.path === 'forgot-password' || route.routeConfig?.path === 'reset-password/:email/:reset-token'){
-          return  true;
-        }
-      }
-
-      if(isUserLoggedIn && isAdmin) {
-        if(route.routeConfig?.path === 'users' || route.routeConfig?.path === 'users/:id')
-          return true;
-      }
-
-      if(isUserLoggedIn && (loggedInUserId === userIdFromRoute || isAdmin)) {
-        return true;
-      }
-
-      if(isUserLoggedIn)
-        this.router.navigate([`/users/${loggedInUserId}`]);
-      else
-        this.router.navigate(['/login']);
-      return false;*/
-
       if(!isUserLoggedIn) {
         if(this.isPublicRoute(route))
           return true;

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6IyEZ2IGlAw=",
+  "dgSpecHash": "iTAvyV+LBiA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\CatchUp_server.csproj",
+  "projectFilePath": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\CatchUp_server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\latix\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\latix\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
