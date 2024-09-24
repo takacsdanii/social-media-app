@@ -1,0 +1,56 @@
+$delete-button-color: #f44336; // Red color for delete button
+$background-color: #f5f5f5; // Background color
+$text-color: #333; // Text color
+$button-padding: 12px 24px; // Padding for buttons
+$border-radius: 8px; // Border radius for buttons
+
+.delete-dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: $background-color;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  
+  h4 {
+    color: $text-color;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    width: 100%; // Ensures buttons are aligned properly in the dialog
+
+    button {
+      padding: $button-padding;
+      border-radius: $border-radius; // Makes buttons rounder
+      transition: background-color 0.3s, transform 0.2s;
+
+      &.delete-button {
+        background-color: $delete-button-color;
+        color: white;
+
+        &:hover {
+          background-color: darken($delete-button-color, 10%);
+          cursor: pointer;
+        }
+      }
+
+      &.cancel-button {
+        background-color: $background-color;
+        color: black;
+
+        &:hover {
+          background-color: gray;
+          cursor: pointer;
+        }
+      }
+
+      margin-left: 10px; // Space between buttons
+    }
+  }
+}

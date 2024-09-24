@@ -5,6 +5,8 @@ import { UserHttpService } from '../../../core/services/http/user/user-http.serv
 import { NotificationService } from '../../../core/services/logic/notifications/notification.service';
 import { GenderModel } from '../../../core/models/gender.model';
 import { AuthService } from '../../../core/services/logic/auth/auth.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteDialogComponent } from '../../dialogs/delete-dialog/delete-dialog.component';
 
 @Component({
   selector: 'app-user-details',
@@ -21,8 +23,8 @@ export class UserDetailsComponent implements OnInit {
   constructor(private userHttpService: UserHttpService,
               private authService: AuthService,
               private route: ActivatedRoute,
-              private router: Router,
-              private notificationService: NotificationService) { }
+              private notificationService: NotificationService,
+              private deleteDialog: MatDialog) { }
 
   public ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
@@ -47,19 +49,6 @@ export class UserDetailsComponent implements OnInit {
 
   public getGenderName(gender: number): string {
     return GenderModel[gender];
-  }
-
-  public onDelete(id: string): void {
-    this.userHttpService.deleteUser(id).subscribe(_ => {
-      if(!this.isAdmin) {
-        this.authService.logOut();
-        this.router.navigate(['']);
-      }
-      else {
-        this.router.navigate(['/users']);
-      }
-      this.notificationService.showSuccesSnackBar("Deleted succesfully");
-    });
   }
 
   public startEditing(field: string): void {
@@ -109,5 +98,13 @@ export class UserDetailsComponent implements OnInit {
       }
     );
     this.editingField = null;
+  }
+
+  public openDeleteDialog(userId: string, userName: string): void {
+    this.deleteDialog.open(DeleteDialogComponent, {
+      height: '300px',
+      width: '400px',
+      data: {userId, userName}
+    });
   }
 }

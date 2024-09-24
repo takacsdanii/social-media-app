@@ -8,6 +8,7 @@ import { DeleteDialogComponent } from './dialogs/delete-dialog/delete-dialog.com
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -23,7 +24,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     CommonLayoutsModule,
     MatIconModule,
     FormsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule
   ]
 })
 export class SharedModule { }

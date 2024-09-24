@@ -15,7 +15,7 @@
             <td></td>
             <td></td>
             <td>
-                <mat-icon (click)="onDelete(user.id)" class="action-button" matTooltip="Delete account">delete</mat-icon>
+                <mat-icon (click)="openDeleteDialog(user.id, user.userName)" class="action-button" matTooltip="Delete account">delete</mat-icon>
                 <button [routerLink]="['change-password']" class="action-button">Change password</button>
             </td>
         </tr>
