@@ -1,0 +1,293 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\catchup_server\\catchup_server\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\catchup_server\\catchup_server\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\catchup_server\\catchup_server\\viewmodels\\changepasswordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\viewmodels\\changepasswordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\catchup_server\\catchup_server\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\catchup_server\\catchup_server\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\catchup_server\\catchup_server\\viewmodels\\userviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\viewmodels\\userviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\catchup_server\\catchup_server\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\catchup_server\\catchup_server\\db\\apidbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\db\\apidbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\catchup_server\\catchup_server\\viewmodels\\resetpasswordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\viewmodels\\resetpasswordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\catchup_server\\catchup_server\\models\\gender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\models\\gender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\catchup_server\\catchup_server\\viewmodels\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\viewmodels\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\catchup_server\\catchup_server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\catchup_server\\catchup_server\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\catchup_server\\catchup_server\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\catchup_server\\catchup_server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/catch_up_database/True/SqlTable/dbo.AspNetRoles.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/catch_up_database/True/SqlTable/dbo.AspNetUserRoles.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ChangePasswordViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\ViewModels\\ChangePasswordViewModel.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\ViewModels\\ChangePasswordViewModel.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\ViewModels\\ChangePasswordViewModel.cs",
+              "RelativeToolTip": "CatchUp_server\\ViewModels\\ChangePasswordViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T16:17:54.365Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\Models\\User.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\Models\\User.cs",
+              "RelativeToolTip": "CatchUp_server\\Models\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-18T18:58:26.424Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\Services\\AuthService.cs",
+              "RelativeToolTip": "CatchUp_server\\Services\\AuthService.cs",
+              "ViewState": "AQIAAIsAAAAAAAAAAAAYwKwAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-18T20:04:50.335Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\Services\\UserService.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\Services\\UserService.cs",
+              "RelativeToolTip": "CatchUp_server\\Services\\UserService.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAmwDMAAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T01:19:51.075Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ResetPasswordViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\ViewModels\\ResetPasswordViewModel.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\ViewModels\\ResetPasswordViewModel.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\ViewModels\\ResetPasswordViewModel.cs",
+              "RelativeToolTip": "CatchUp_server\\ViewModels\\ResetPasswordViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T14:38:43.845Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Gender.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\Models\\Gender.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\Models\\Gender.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\Models\\Gender.cs",
+              "RelativeToolTip": "CatchUp_server\\Models\\Gender.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T16:51:42.697Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "RegisterViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\ViewModels\\RegisterViewModel.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\ViewModels\\RegisterViewModel.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\ViewModels\\RegisterViewModel.cs",
+              "RelativeToolTip": "CatchUp_server\\ViewModels\\RegisterViewModel.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAA3wAoAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-18T23:47:31.615Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\Program.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\Program.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\Program.cs",
+              "RelativeToolTip": "CatchUp_server\\Program.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAAiwGwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-18T19:03:05.71Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\ViewModels\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\ViewModels\\LoginViewModel.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\ViewModels\\LoginViewModel.cs",
+              "RelativeToolTip": "CatchUp_server\\ViewModels\\LoginViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-18T23:58:19.148Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ApiDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\Db\\ApiDbContext.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\Db\\ApiDbContext.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\Db\\ApiDbContext.cs",
+              "RelativeToolTip": "CatchUp_server\\Db\\ApiDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-18T18:50:50.015Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "CatchUp_server\\Controllers\\AuthController.cs",
+              "ViewState": "AQIAAE0AAAAAAAAAAAAuwHsAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T00:18:34.797Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\Controllers\\UserController.cs",
+              "RelativeToolTip": "CatchUp_server\\Controllers\\UserController.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAqwCgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T17:57:51.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\Services\\EmailService.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\Services\\EmailService.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\Services\\EmailService.cs",
+              "RelativeToolTip": "CatchUp_server\\Services\\EmailService.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAcwCgAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T11:56:50.745Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\ViewModels\\UserViewModel.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\ViewModels\\UserViewModel.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\ViewModels\\UserViewModel.cs",
+              "RelativeToolTip": "CatchUp_server\\ViewModels\\UserViewModel.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAkwAgAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-20T01:31:29.468Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\appsettings.json",
+              "RelativeDocumentMoniker": "CatchUp_server\\appsettings.json",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\project\\CatchUp_server\\CatchUp_server\\appsettings.json",
+              "RelativeToolTip": "CatchUp_server\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-09-19T10:35:45.023Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "dbo.AspNetRoles [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/catch_up_database/True/SqlTable/dbo.AspNetRoles.sql",
+              "ToolTip": "dbo.AspNetRoles [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-09-16T09:11:21.61Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "dbo.AspNetUserRoles [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/catch_up_database/True/SqlTable/dbo.AspNetUserRoles.sql",
+              "ToolTip": "dbo.AspNetUserRoles [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-09-16T09:12:58.402Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

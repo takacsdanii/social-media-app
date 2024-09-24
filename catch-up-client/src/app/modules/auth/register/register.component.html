@@ -1,0 +1,68 @@
+<app-navigation-header></app-navigation-header>
+
+<form (ngSubmit)="registerUser()" #registerForm="ngForm" class="registration-form">
+
+  <section class="name-section">
+    <div class="form-group">
+      <input type="text" id="firstName" name="firstName" [(ngModel)]="registerModel.firstName" placeholder="First Name" required class="form-control">
+      <input type="text" id="lastName" name="lastName" [(ngModel)]="registerModel.lastName" placeholder="Last Name" required class="form-control">
+    </div>
+  </section>
+  
+  <section class="email-username-section">
+    <div class="form-group">
+      <input type="text" id="userName" name="userName" [(ngModel)]="registerModel.userName" placeholder="Username" required class="form-control">
+      <input type="email" id="email" name="email" [(ngModel)]="registerModel.email" placeholder="Email" required class="form-control">
+    </div>
+  </section>
+
+  <section class="password-section">
+    <div class="form-group">
+      <input type="password" id="password" name="password" [(ngModel)]="registerModel.password" placeholder="Password" required class="form-control">
+      <input type="password" id="passwordConfirmed" name="passwordConfirmed" [(ngModel)]="registerModel.passwordConfirmed" placeholder="Confirm password" required class="form-control">
+    </div>
+  </section>
+
+  <section class="birthdate-gender-section">
+    <div>Birth date</div>
+    <div class="form-group birthdate-group">
+      <mat-form-field>
+        <mat-label>Year</mat-label>
+        <mat-select [(ngModel)]="year" (selectionChange)="onDateChange()" name="year">
+          <mat-option *ngFor="let year of years" [value]="year">{{ year }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Month</mat-label>
+        <mat-select [(ngModel)]="month" (selectionChange)="onDateChange()" name="month">
+          <mat-option *ngFor="let month of months" [value]="month.value">{{ month.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Day</mat-label>
+        <mat-select [(ngModel)]="day" (selectionChange)="onDateChange()" name="day">
+          <mat-option *ngFor="let day of days" [value]="day">{{ day }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group gender-group">
+      <div>Gender</div>
+      <mat-radio-group [(ngModel)]="registerModel.gender" name="gender" required>
+        <mat-radio-button [value]="0">Female</mat-radio-button>
+        <mat-radio-button [value]="1">Male</mat-radio-button>
+        <mat-radio-button [value]="2">Other</mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </section>
+
+  <button mat-stroked-button type="submit" [disabled]="!isEverythingFilled" class="btn btn-primary">Register</button>
+
+  <div class="signup-section">
+    <div class="separator"></div>
+    <div>Already have an account?</div>
+    <button mat-stroked-button type="button" class="btn btn-secondary" [routerLink]="['/login']">Click here to sign in</button>
+  </div>  
+</form>

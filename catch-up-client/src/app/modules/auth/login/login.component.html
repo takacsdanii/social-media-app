@@ -1,0 +1,24 @@
+<app-navigation-header></app-navigation-header>
+
+<form (ngSubmit)="loginToAccount()" #loginForm="ngForm" class="login-form">
+    <section>
+      <div class="form-group">
+        <input type="text" id="userName" name="userName" [(ngModel)]="loginModel.userNameOrEmail" placeholder="Username or email" required class="form-control">
+      </div>
+      <div class="form-group">
+        <input type="password" id="password" name="password" [(ngModel)]="loginModel.password" placeholder="Password" required class="form-control">
+      </div>
+    </section>
+  
+    <button type="submit" [disabled]="!isEverythingFilled" class="btn btn-primary">Login</button>
+
+    <nav>
+      <a [routerLink]="['/forgot-password']" (click)="storeEmailInSessionStorage()">Forgot password?</a>
+    </nav>
+
+    <div class="signup-section">
+        <div class="separator"></div>
+        <div>Not part of the community yet?</div>
+        <button type="button" class="btn btn-secondary" [routerLink]="['/register']">Sign up here!</button>
+    </div>
+</form>

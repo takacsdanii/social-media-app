@@ -1,0 +1,7 @@
+<app-navigation-header></app-navigation-header>
+
+<ng-container *ngFor="let user of users">
+    <div class="user-row">
+        <a [routerLink]="[user.id]">{{ user.userName }}</a>
+    </div>
+</ng-container>

@@ -1,0 +1,31 @@
+<mat-toolbar-row>
+    <div class="logo">
+        <img src="/assets/common/images/logo.png" width="100" alt="logo">
+    </div>
+
+    <ng-container *ngIf="!isLoggedIn">
+        <div class="menu-item">
+            <a routerLink="/login">Login</a>
+        </div>
+    
+        <div class="menu-item">
+            <a routerLink="/register">Register</a>
+        </div>
+    </ng-container>
+    
+    <ng-container *ngIf="isLoggedIn">
+        <div *ngIf="isAdmin" class="menu-item">
+            <a routerLink="/users">Users</a>
+        </div>
+
+        <button mat-fab color="primary" class="fab" [matMenuTriggerFor]="menu">
+            <mat-icon>person</mat-icon>
+        </button>
+
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item [routerLink]="['/users', userId]">Personal Information</button>
+            <button mat-menu-item routerLink="" (click)="logOut()">Logout</button>
+        </mat-menu>
+    </ng-container>
+
+</mat-toolbar-row>

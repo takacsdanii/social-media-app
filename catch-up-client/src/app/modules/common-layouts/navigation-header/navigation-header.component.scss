@@ -1,0 +1,62 @@
+.row {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    width: 100%;
+}
+
+.mat-toolbar-row {
+    height: 100px; 
+    background-color: #FFFDFD;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25); /* Lighter shadow */
+    font-weight: 600;
+    padding: 5px 0; /* Further reduce padding for height */
+    display: flex;
+    flex-wrap: wrap !important;
+    justify-content: flex-start;
+    align-items: center; /* Centered alignment */
+    position: relative; /* Ensure positioning context for FAB */
+}
+
+.menu-item a {
+    padding: 5px 10px; /* Reduced padding */
+    font-size: 15px; /* Smaller font size */
+    color: #808080;
+}
+
+.menu-item a, .mat-icon {
+    padding-right: 4px; /* Reduced right padding */
+    font-size: 22px; /* Smaller icon font size */
+}
+
+.logo {
+    padding: 0; /* Removed padding for more space */
+    width: 150px;
+    margin-right: 0;
+    float: right;
+}
+
+img {
+    padding: 0;
+    margin: 0;
+    float: right;
+}
+
+/* FAB positioning */
+.fab {
+    position: absolute; /* Position it absolutely within the toolbar */
+    right: 16px; /* Align to the right of the toolbar */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Offset to center */
+    width: 56px;  /* Increase the button size */
+    height: 56px; /* Increase the button size */
+}
+
+.mat-fab {
+    font-size: 30px; /* Make the icon inside the button larger */
+}
+
+/* Optional: Add spacing below the navbar for content */
+body {
+    margin-top: 70px; /* Adjust based on the new height of your navbar */
+}

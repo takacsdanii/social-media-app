@@ -1,0 +1,14 @@
+table {
+    mat-icon {
+      cursor: pointer;
+  
+      &:hover {
+        color: #0056b3; // Optional: changes color on hover
+      }
+    }
+  }
+  
+  .action-button {
+    margin-right: 10px; // Optional: gives space between the buttons
+  }
+  

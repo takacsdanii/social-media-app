@@ -1,0 +1,136 @@
+.registration-form {
+  max-width: 500px; /* Width of the form */
+  margin-top: 30px; /* Space above the form */
+  margin-left: auto; /* Center the form */
+  margin-right: auto; /* Center the form */
+  padding: 20px; /* Internal spacing */
+  border: 1px solid #ddd; /* Border for the form */
+  border-radius: 8px; /* Rounded corners */
+  background: #f9f9f9; /* Background color */
+
+  .form-group {
+      margin-bottom: 15px;
+
+      input, mat-form-field {
+          width: 100%; /* Full width for inputs */
+          box-sizing: border-box; /* Include padding and border in width */
+      }
+
+      input {
+          height: 40px; /* Set consistent height for input fields */
+      }
+
+      mat-form-field {
+          height: auto; /* Remove fixed height from mat-form-field */
+      }
+  }
+
+  .name-section, 
+  .password-section {
+      .form-group {
+          display: flex;
+          gap: 15px;
+
+          input {
+              flex: 1;
+              min-width: 0; /* Prevent overflow */
+          }
+
+          mat-form-field {
+              flex: 1;
+          }
+      }
+  }
+
+  .email-username-section {
+      .form-group {
+          display: flex;
+          flex-direction: column;
+          gap: 15px; /* Space between input fields */
+
+          input {
+              width: 100%; /* Full width for inputs */
+              box-sizing: border-box; /* Include padding and border in width */
+          }
+      }
+  }
+
+  mat-select {
+      height: 20px; /* Match the height of input fields */
+      display: flex;
+      align-items: center;
+  }
+
+  .mat-select-trigger {
+      height: 40px; /* Match the same height as mat-select */
+      display: flex;
+      align-items: center;
+  }
+
+  .birthdate-gender-section {
+      .birthdate-group {
+          display: flex;
+          gap: 15px;
+          margin-bottom: 15px;
+
+          mat-form-field {
+              flex: 1;
+          }
+      }
+
+      .gender-group {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+
+          .mat-radio-button {
+              margin-right: 15px;
+          }
+      }
+  }
+
+  .btn-primary {
+      width: 100%; /* Full width for button */
+      text-transform: uppercase; /* Uppercase text */
+      font-weight: bold;
+
+      &:hover {
+          background-color: #3b79a6be; /* Change to color on hover */
+          color: white; /* Text color on hover */
+      }
+  }
+}
+
+.signup-section {
+  margin-top: 20px; /* Space above signup section */
+  text-align: center;
+
+  .separator {
+      width: 100%; /* Full width for separator */
+      height: 1px; /* Height of separator */
+      background-color: #ddd; /* Color of separator */
+      margin-bottom: 15px; /* Space below separator */
+  }
+
+  div {
+      margin-bottom: 10px; /* Space below divs */
+  }
+
+  .btn-secondary {
+      width: 100%; /* Full width for button */
+      text-transform: uppercase; /* Uppercase text */
+      font-weight: bold;
+      padding: 12px; /* Padding for button */
+      font-size: 16px; /* Font size for button */
+      background-color: #479eacbe; /* Background color */
+      border: 1px solid #ddd; /* Border for button */
+      color: #333; /* Text color */
+      border-radius: 50px; /* Rounded corners */
+      cursor: pointer; /* Pointer cursor on hover */
+      box-sizing: border-box; /* Include padding and border in width */
+
+      &:hover {
+          background-color: #6db6eabe; /* Change color on hover */
+      }
+  }
+}
