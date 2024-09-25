@@ -47,7 +47,7 @@ export class AuthGuard implements CanActivate {
   }
 
   private isAdminRoute(route: ActivatedRouteSnapshot): boolean {
-    const adminRoutes = ['users', 'users/:id', 'users/:id/change-password'];
+    const adminRoutes = ['users', 'users/:id'];//, 'users/:id/change-password'];
     return adminRoutes.includes(route.routeConfig?.path || '');
   }
 }

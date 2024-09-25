@@ -15,7 +15,7 @@ import { DeleteDialogComponent } from '../../dialogs/delete-dialog/delete-dialog
 })
 export class UserDetailsComponent implements OnInit {
   public user: UserModel = new UserModel();
-  public isAdmin: boolean = false;
+  public loggedInUserId: string;
 
   public editingField: string | null = null;
   public errorMessages: string[] = [];
@@ -25,16 +25,32 @@ export class UserDetailsComponent implements OnInit {
               private route: ActivatedRoute,
               private notificationService: NotificationService,
               private deleteDialog: MatDialog) { }
-
+  
   public ngOnInit(): void {
+    this.loggedInUserId = this.authService.getUserId()!!;
+  
+    this.route.paramMap.subscribe((params) => {
+      const userIdFromRoute = params.get('id');
+      if (userIdFromRoute) {
+        this.setUser(userIdFromRoute);
+      }
+    });
+  }
+  
+  /**
+   * * test if the above code works
+   * ? if yes, remove the code below
+  */
+
+  /*public ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
     const userIdFromRoute = routeParams.get('id');
 
-    this.isAdmin = this.authService.isAdmin();
+    this.loggedInUserId = this.authService.getUserId()!!;
 
     if(userIdFromRoute)
       this.setUser(userIdFromRoute);
-  }
+  }*/
 
   public setUser(userId: string): void {
     this.userHttpService.getUser(userId).subscribe(
@@ -106,5 +122,9 @@ export class UserDetailsComponent implements OnInit {
       width: '400px',
       data: {userId, userName}
     });
+  }
+
+  public isCurrentUser(): boolean {
+    return this.loggedInUserId === this.user.id;
   }
 }

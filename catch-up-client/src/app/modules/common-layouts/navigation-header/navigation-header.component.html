@@ -19,12 +19,22 @@
         </div>
 
         <button mat-fab color="primary" class="fab" [matMenuTriggerFor]="menu">
-            <mat-icon>person</mat-icon>
+            <mat-icon>more_vert</mat-icon>
         </button>
 
         <mat-menu #menu="matMenu">
-            <button mat-menu-item [routerLink]="['/users', userId]">Personal Information</button>
-            <button mat-menu-item routerLink="" (click)="logOut()">Logout</button>
+            <button mat-menu-item>
+                <mat-icon>dark_mode</mat-icon>Dark mode
+            </button>
+            <button mat-menu-item>
+                <mat-icon>light_mode</mat-icon>Light mode
+            </button>
+            <button mat-menu-item [routerLink]="['/users', userId]">
+                <mat-icon>person</mat-icon>Personal Information
+            </button>
+            <button mat-menu-item routerLink="" (click)="logOut()">
+                <mat-icon allign="end">logout</mat-icon>Logout
+            </button>
         </mat-menu>
     </ng-container>
 
