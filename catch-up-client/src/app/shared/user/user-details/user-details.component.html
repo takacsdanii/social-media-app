@@ -15,8 +15,14 @@
             <td></td>
             <td></td>
             <td>
-                <mat-icon (click)="openDeleteDialog(user.id, user.userName)" class="action-button" matTooltip="Delete account">delete</mat-icon>
-                <mat-icon *ngIf="isCurrentUser()" [routerLink]="['change-password']" class="action-button" matTooltip="Changes password">settings</mat-icon>
+                <mat-icon (click)="openDeleteDialog(user.id, user.userName)"
+                    class="action-button delete" matTooltip="Delete account">
+                    delete
+                </mat-icon>
+                <mat-icon *ngIf="isCurrentUser()" [routerLink]="['change-password']"
+                    class="action-button" matTooltip="Changes password">
+                    settings
+                </mat-icon>
             </td>
         </tr>
 

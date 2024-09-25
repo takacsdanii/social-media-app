@@ -36,21 +36,6 @@ export class UserDetailsComponent implements OnInit {
       }
     });
   }
-  
-  /**
-   * * test if the above code works
-   * ? if yes, remove the code below
-  */
-
-  /*public ngOnInit(): void {
-    const routeParams = this.route.snapshot.paramMap;
-    const userIdFromRoute = routeParams.get('id');
-
-    this.loggedInUserId = this.authService.getUserId()!!;
-
-    if(userIdFromRoute)
-      this.setUser(userIdFromRoute);
-  }*/
 
   public setUser(userId: string): void {
     this.userHttpService.getUser(userId).subscribe(

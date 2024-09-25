@@ -3,5 +3,6 @@
 <ng-container *ngFor="let user of users">
     <div class="user-row">
         <a [routerLink]="[user.id]">{{ user.userName }}</a>
+        <mat-icon (click)="openDeleteDialog(user.id, user.userName)" matTooltip="Delete {{ user.userName }}" matTooltipPosition="right" class="action-btn">delete</mat-icon>
     </div>
 </ng-container>

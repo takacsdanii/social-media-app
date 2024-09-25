@@ -1,6 +1,6 @@
 <mat-toolbar-row>
     <div class="logo">
-        <img src="/assets/common/images/logo.png" width="100" alt="logo">
+        <img src="/assets/common/images/logo3.png" width="100" alt="logo">
     </div>
 
     <ng-container *ngIf="!isLoggedIn">
@@ -14,12 +14,26 @@
     </ng-container>
     
     <ng-container *ngIf="isLoggedIn">
+
+        <div>
+            <mat-icon>home</mat-icon>
+            <mat-icon>apps</mat-icon>
+            <label for="search-box">
+                <mat-icon>search</mat-icon>
+            </label>
+            <input type="text" id="search-box" class="search-box">
+            <mat-icon>mail</mat-icon>
+            <mat-icon>chat</mat-icon>
+            <mat-icon>notifications</mat-icon>
+            <mat-icon>person</mat-icon>
+        </div>
+
         <div *ngIf="isAdmin" class="menu-item">
             <a routerLink="/users">Users</a>
         </div>
 
-        <button mat-fab color="primary" class="fab" [matMenuTriggerFor]="menu">
-            <mat-icon>more_vert</mat-icon>
+        <button mat-fab class="fab" [matMenuTriggerFor]="menu">
+            <mat-icon>menu</mat-icon>
         </button>
 
         <mat-menu #menu="matMenu">
