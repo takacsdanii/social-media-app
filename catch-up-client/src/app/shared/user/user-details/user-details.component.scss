@@ -16,3 +16,19 @@ table {
     color: red;
   }
   
+  .user-details-container {
+    display: flex;
+    justify-content: space-between; /* Ensure content is spread between the sidebars */
+    align-items: center;
+  }
+
+  app-left-side-bar, app-right-side-bar {
+    width: 200px; /* Fixed width for the sidebar */
+  }
+
+  .user-details-content {
+    flex-grow: 1; /* Take up the remaining space between the sidebars */
+    max-width: 500px; /* Limit the max width of the content */
+    margin: auto; /* Center the content horizontally */
+    padding: 20px;
+  }

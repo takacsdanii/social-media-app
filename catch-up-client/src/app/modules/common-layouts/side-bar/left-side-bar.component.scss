@@ -1,0 +1,62 @@
+.sidebar {
+    transition: all 0.5s ease;
+    position: fixed;
+    top: 0;
+    left: 0; /* Stick to the left side of the screen */
+    width: 5rem; /* Width of the sidebar */
+    height: 100vh; /* Full viewport height */
+    background-color: #f8f9fa; /* Optional: Add background color */
+    z-index: 1000; /* Ensure it's above other elements */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align items at the top */
+
+    .container {
+        padding: 20px 0;
+        width: 100%; /* Ensures full sidebar width */
+
+        .menu {
+            display: flex;
+            flex-direction: column; /* Vertical stacking of items */
+            gap: 20px;
+
+            .item {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 5px;
+                width: 100%; /* Take full width of sidebar */
+                color: #343a40; /* Text color */
+                text-align: left;
+                cursor: pointer;
+                transition: background-color 0.3s;
+
+                &:hover {
+                    background-color: #e9ecef; /* Lighter hover effect */
+                }
+            }
+        }
+    }
+}
+
+img {
+    width: 24px;
+    height: auto;
+    margin-right: 10px;
+    margin-left: 10px;
+    display: inline-block;
+}
+
+.menu-item {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #343a40;
+}
+
+span {
+    font-size: 0.9rem;
+}
+
+.user-info {
+    margin-top: 10px;
+}

@@ -8,7 +8,7 @@
     background-color: #f8f9fa; /* Optional: Add background color */
     z-index: 1000; /* Ensure it's above other elements */
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start; /* Align items at the top */
 
     .container {
