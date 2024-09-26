@@ -1,4 +1,5 @@
 <app-navigation-header></app-navigation-header>
+<app-side-bar></app-side-bar>
 
 <table>
     <thead>
@@ -39,7 +40,7 @@
                     <input [(ngModel)]="user.firstName">
                 </td>
                 <td>
-                    <mat-icon *ngIf="editingField !== 'firstName'" (click)="startEditing('firstName')">edit</mat-icon>
+                    <mat-icon *ngIf="editingField == null" (click)="startEditing('firstName')">edit</mat-icon>
                     <mat-icon *ngIf="editingField === 'firstName'" (click)="saveEdit()">check</mat-icon>
                     <mat-icon *ngIf="editingField === 'firstName'" (click)="discardEditing()">close</mat-icon>
                 </td>
@@ -54,7 +55,7 @@
                     <input [(ngModel)]="user.lastName">
                 </td>
                 <td>
-                    <mat-icon *ngIf="editingField !== 'lastName'" (click)="startEditing('lastName')">edit</mat-icon>
+                    <mat-icon *ngIf="editingField == null" (click)="startEditing('lastName')">edit</mat-icon>
                     <mat-icon *ngIf="editingField === 'lastName'" (click)="saveEdit()">check</mat-icon>
                     <mat-icon *ngIf="editingField === 'lastName'" (click)="discardEditing()">close</mat-icon>
                 </td>
@@ -69,7 +70,7 @@
                     <input [(ngModel)]="user.userName">
                 </td>
                 <td>
-                    <mat-icon *ngIf="editingField !== 'userName'" (click)="startEditing('userName')">edit</mat-icon>
+                    <mat-icon *ngIf="editingField == null" (click)="startEditing('userName')">edit</mat-icon>
                     <mat-icon *ngIf="editingField === 'userName'" (click)="saveEdit()">check</mat-icon>
                     <mat-icon *ngIf="editingField === 'userName'" (click)="discardEditing()">close</mat-icon>
                 </td>
@@ -84,7 +85,7 @@
                     <input type="email" [(ngModel)]="user.email">
                 </td>
                 <td>
-                    <mat-icon *ngIf="editingField !== 'email'" (click)="startEditing('email')">edit</mat-icon>
+                    <mat-icon *ngIf="editingField == null" (click)="startEditing('email')">edit</mat-icon>
                     <mat-icon *ngIf="editingField === 'email'" (click)="saveEdit()">check</mat-icon>
                     <mat-icon *ngIf="editingField === 'email'" (click)="discardEditing()">close</mat-icon>
                 </td>
@@ -99,7 +100,7 @@
                     <input type="date" id="editBirthDay" [value]="user.birthDate | date: 'yyyy-MM-dd'">
                 </td>
                 <td>
-                    <mat-icon *ngIf="editingField !== 'birthDate'" (click)="startEditing('birthDate')">edit</mat-icon>
+                    <mat-icon *ngIf="editingField == null" (click)="startEditing('birthDate')">edit</mat-icon>
                     <mat-icon *ngIf="editingField === 'birthDate'" (click)="saveEdit()">check</mat-icon>
                     <mat-icon *ngIf="editingField === 'birthDate'" (click)="discardEditing()">close</mat-icon>
                 </td>
@@ -118,7 +119,7 @@
                     </select>
                 </td>
                 <td>
-                    <mat-icon *ngIf="editingField !== 'gender'" (click)="startEditing('gender')">edit</mat-icon>
+                    <mat-icon *ngIf="editingField == null" (click)="startEditing('gender')">edit</mat-icon>
                     <mat-icon *ngIf="editingField === 'gender'" (click)="saveGenderEdit()">check</mat-icon>
                     <mat-icon *ngIf="editingField === 'gender'" (click)="discardEditing()">close</mat-icon>
                 </td>

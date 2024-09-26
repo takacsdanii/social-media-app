@@ -72,7 +72,7 @@ export class UserDetailsComponent implements OnInit {
         else
           this.errorMessages = ["Something went wrong!"];
 
-        this.notificationService.showErrorSnackBar(`Operation failed: ${this.errorMessages}`);
+        this.notificationService.showErrorSnackBar(`${this.errorMessages}`);
         this.discardEditing();
       }
     );

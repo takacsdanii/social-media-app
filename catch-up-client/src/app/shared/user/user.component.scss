@@ -15,3 +15,10 @@
   .action-btn {
     cursor: pointer;
   }
+
+  .mat-icon {
+
+    &:hover {
+      color: red;
+    }
+  }

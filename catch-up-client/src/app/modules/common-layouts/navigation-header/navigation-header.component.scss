@@ -6,16 +6,18 @@
 }
 
 .mat-toolbar-row {
-    height: 100px; 
+    height: 60px; 
     background-color: #FFFDFD;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25); /* Lighter shadow */
     font-weight: 600;
-    padding: 5px 0; /* Further reduce padding for height */
+    padding: 5px 20px; /* Adjusted padding to give space */
     display: flex;
-    flex-wrap: wrap !important;
-    justify-content: flex-start;
-    align-items: center; /* Centered alignment */
+    flex-wrap: nowrap; /* Ensure no wrapping */
+    justify-content: space-between; /* Distribute space evenly */
+    align-items: center; /* Align items vertically in the center */
     position: relative; /* Ensure positioning context for FAB */
+    width: 100%;
+    box-sizing: border-box; /* Ensure width calculation includes padding */
 }
 
 .menu-item a {
@@ -27,30 +29,71 @@
 .menu-item a, .mat-icon {
     padding-right: 4px; /* Reduced right padding */
     font-size: 22px; /* Smaller icon font size */
+
+    &:hover {
+        cursor: pointer;
+        color: #0056b3;
+    }
 }
 
 .logo {
-    padding: 0; /* Removed padding for more space */
-    width: 150px;
+    padding: 0;
+    width: 100px;
     margin-right: 0;
-    float: right;
+    margin-top: 7px;
 }
 
 img {
     padding: 0;
     margin: 0;
-    float: right;
+    width: 60px;
+    height: auto;
+    border-radius: 30px;
+}
+
+.toolbar-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.toolbar-left,
+.toolbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.toolbar-center {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+    max-width: 500px; /* Optional: restrict max width of the center */
+}
+
+.search-box {
+    padding: 5px;
+    font-size: 16px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+.menu-item a, .mat-icon {
+    padding-right: 10px;
+    font-size: 22px;
 }
 
 /* FAB positioning */
 .fab {
     background-color: white;
-    position: absolute; /* Position it absolutely within the toolbar */
-    right: 16px; /* Align to the right of the toolbar */
-    top: 50%; /* Center vertically */
-    transform: translateY(-50%); /* Offset to center */
-    width: 56px;  /* Increase the button size */
-    height: 56px; /* Increase the button size */
+    color: black;
+    position: relative; /* Changed from absolute */
+    margin-left: 20px;
+    width: 50px;
+    height: 50px;
+    z-index: 1; /* Ensure it stays above content */
 }
 
 .mat-fab {
@@ -59,5 +102,6 @@ img {
 
 /* Optional: Add spacing below the navbar for content */
 body {
-    margin-top: 70px; /* Adjust based on the new height of your navbar */
+    margin-top: 100px; /* Adjust based on the new height of your navbar */
 }
+

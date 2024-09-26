@@ -6,16 +6,20 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
+import { SideBarComponent } from './side-bar/side-bar.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 
 @NgModule({
   declarations: [
-    NavigationHeaderComponent
+    NavigationHeaderComponent,
+    SideBarComponent
   ],
   
   exports: [
-    NavigationHeaderComponent
+    NavigationHeaderComponent,
+    SideBarComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +27,8 @@ import { MatMenuModule } from '@angular/material/menu';
     MatIconModule,
     MatToolbarModule,
     MatButtonModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTooltipModule
   ]
 })
 export class CommonLayoutsModule { }
