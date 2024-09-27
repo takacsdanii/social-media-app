@@ -33,6 +33,7 @@
 
                 &:hover {
                     background-color: #e9ecef; /* Lighter hover effect */
+                    cursor: pointer;
                 }
             }
         }
@@ -45,6 +46,10 @@ img {
     margin-right: 10px;
     margin-left: 10px;
     display: inline-block;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .menu-item {
@@ -59,4 +64,14 @@ span {
 
 .user-info {
     margin-top: 10px;
+}
+
+.menu-name {
+    margin-left: 10px;
+}
+
+.item {
+    &:hover {
+        cursor: pointer;
+    }
 }

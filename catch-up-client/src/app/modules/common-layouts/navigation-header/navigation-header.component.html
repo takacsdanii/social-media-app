@@ -2,16 +2,6 @@
     <div class="logo">
         <img src="/assets/images/logos/logo3.png" alt="logo">
     </div>
-
-    <ng-container *ngIf="!isLoggedIn">
-        <div class="menu-item">
-            <a routerLink="/login">Login</a>
-        </div>
-    
-        <div class="menu-item">
-            <a routerLink="/register">Register</a>
-        </div>
-    </ng-container>
     
     <ng-container *ngIf="isLoggedIn">
 

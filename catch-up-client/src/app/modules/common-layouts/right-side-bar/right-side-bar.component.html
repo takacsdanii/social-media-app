@@ -1,34 +1,47 @@
-<ng-container class="sidebar">
-
+<div class="sidebar">
     <div class="container">
 
-        <div class="menu">
+        <div class=item>
+            <span>Suggestions for you</span>
+            <div *ngFor="let user of users" class="user">
+                <div class="userinfo">
+                    <img src="assets/images/icons/icons8-male-user-50.png" alt="profile picture">
+                    <span>{{ user.userName }}</span>
+                </div>
+                <div class="buttons">
+                        <!-- <img src="assets/images/icons/icons8-add-friend-48.png" alt=""> -->
+                    <button>Follow</button>
+                    <button>Dismiss</button>
+                </div>
+            </div>
+        </div>
 
-            <div class="item">
-                <img src="/assets/images/icons/icons8-chewbacca-50.png" alt="">
-                <span>Chewbacca</span>
+        <div class="item">
+            <span>Latest Activities</span>
+            <div *ngFor="let user of users" class="user">
+                <div class="userinfo">
+                    <img src="assets/images/icons/icons8-male-user-50.png" alt="profile picture">
+                    <p>
+                        <span>{{ user.userName }}</span> Liked your post
+                        <!-- TODO: ide majd az action jön, amit csinált -->
+                    </p>
+                </div>
+                <div class="buttons">
+                    <!-- TODO: mikor történt -->
+                    <span>2 minutes ago</span>
+                </div>
             </div>
-        
-            <div class="item">
-                <img src="/assets/images/icons/icons8-darth-vader-50.png" alt="">
-                <span>Darth Vader</span>
-            </div>
-        
-            <div class="item">
-                <img src="/assets/images/icons/icons8-gollum-50.png" alt="">
-                <span>Gollum</span>
-            </div>
-        
-            <div class="item">
-                <img src="/assets/images/icons/icons8-mando-50.png" alt="">
-                <span>Mandalorian</span>
-            </div>
-        
-            <div class="item">
-                <img src="/assets/images/icons/icons8-minion-2-50.png" alt="">
-                <span>Minions</span>
+        </div>
+
+        <div class="item">
+            <span>Friends online</span>
+            <div *ngFor="let user of users" class="user">
+                <div class="userinfo">
+                    <img src="assets/images/icons/icons8-male-user-50.png" alt="profile picture">
+                    <div class="online"></div>
+                    <span>{{ user.userName }}</span>
+                </div>
             </div>
         </div>
     </div>
-    
-</ng-container>
+</div>
