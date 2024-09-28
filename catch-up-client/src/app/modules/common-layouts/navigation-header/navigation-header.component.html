@@ -1,6 +1,7 @@
-<mat-toolbar-row>
+<!-- ? keeping this one tho, in case the other sucks -->
+<!-- <mat-toolbar-row>
     <div class="logo">
-        <img src="/assets/images/logos/logo3.png" alt="logo">
+        <img routerLink="/users" src="/assets/images/logos/logo3.png" alt="logo">
     </div>
     
     <ng-container *ngIf="isLoggedIn">
@@ -49,3 +50,34 @@
     </ng-container>
 
 </mat-toolbar-row>
+ -->
+
+<div class="navbar">
+
+    <div class="left">
+        <!-- TODO: dont forget the logo -->
+        <!-- <img routerLink="/users" src="/assets/images/logos/logo3.png" alt="logo"> -->
+        <span>CatchUP</span>
+        <mat-icon>home</mat-icon>
+        <mat-icon>apps</mat-icon>
+    </div>
+
+    <div class="center">
+        <mat-icon>search</mat-icon>
+        <input type="text" id="search-box" placeholder="Search users here">
+    </div>
+
+    <div class="right">
+        <!-- ? még az ikonokon gondolkozok -->
+        <mat-icon>mail</mat-icon>
+        <mat-icon>chat</mat-icon>
+        <mat-icon>notifications</mat-icon>
+
+        <div class="user">
+            <mat-icon [routerLink]="['/users', userId]" matTooltip="Personal information">person</mat-icon>
+            <!-- <img src="assets/images/icons/icons8-male-user-50.png" alt="profile picture"> -->
+            <span>{{ userName }}</span>
+        </div>
+    </div>
+    
+</div>

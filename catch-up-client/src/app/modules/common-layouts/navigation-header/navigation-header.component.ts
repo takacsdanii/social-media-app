@@ -10,7 +10,8 @@ import { NotificationService } from '../../../core/services/logic/notifications/
 export class NavigationHeaderComponent implements OnInit {
   public isLoggedIn: boolean = false;
   public isAdmin: boolean = false;
-  public userId: string | null = null;
+  public userId: string;
+  public userName: string;
 
   constructor(private authService: AuthService,
               private notificationService: NotificationService) { }
@@ -18,7 +19,8 @@ export class NavigationHeaderComponent implements OnInit {
   public ngOnInit(): void {
       this.isLoggedIn = this.authService.isLoggedIn();
       this.isAdmin = this.authService.isAdmin();
-      this.userId = this.authService.getUserId();
+      this.userId = this.authService.getUserId()!!;
+      this.userName = this.authService.getUserName()!!;
   }
 
   public logOut(): void {
