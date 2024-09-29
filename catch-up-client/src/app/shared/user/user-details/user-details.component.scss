@@ -27,6 +27,7 @@ table {
   }
 
   .user-details-content {
+    flex: 6;
     flex-grow: 1; /* Take up the remaining space between the sidebars */
     max-width: 500px; /* Limit the max width of the content */
     margin: auto; /* Center the content horizontally */

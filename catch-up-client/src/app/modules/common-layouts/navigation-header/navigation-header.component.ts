@@ -13,6 +13,8 @@ export class NavigationHeaderComponent implements OnInit {
   public userId: string;
   public userName: string;
 
+  public isDarkModeOn: boolean = false;
+
   constructor(private authService: AuthService,
               private notificationService: NotificationService) { }
 
@@ -29,4 +31,7 @@ export class NavigationHeaderComponent implements OnInit {
     this.notificationService.showSuccesSnackBar("Logged out successfuy!");
   }
 
+  public toggleDarkMode(): void {
+    this.isDarkModeOn ? this.isDarkModeOn = false : this.isDarkModeOn = true;
+  }
 }
