@@ -13,7 +13,7 @@ export class NavigationHeaderComponent implements OnInit {
   public userId: string;
   public userName: string;
 
-  public isDarkModeOn: boolean = false;
+  public isDarkModeOn: boolean;
 
   constructor(private authService: AuthService,
               private notificationService: NotificationService) { }
@@ -23,6 +23,9 @@ export class NavigationHeaderComponent implements OnInit {
       this.isAdmin = this.authService.isAdmin();
       this.userId = this.authService.getUserId()!!;
       this.userName = this.authService.getUserName()!!;
+
+      const storedValue = localStorage.getItem('isDarkModeOn');
+      this.isDarkModeOn = storedValue ? JSON.parse(storedValue) : false;
   }
 
   public logOut(): void {
@@ -32,6 +35,7 @@ export class NavigationHeaderComponent implements OnInit {
   }
 
   public toggleDarkMode(): void {
-    this.isDarkModeOn ? this.isDarkModeOn = false : this.isDarkModeOn = true;
+    this.isDarkModeOn = !this.isDarkModeOn;
+    localStorage.setItem('isDarkModeOn', JSON.stringify(this.isDarkModeOn));
   }
 }

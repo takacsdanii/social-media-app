@@ -9,6 +9,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { LeftSideBarComponent } from './side-bar/left-side-bar.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RightSideBarComponent } from './right-side-bar/right-side-bar.component';
+import { StoriesComponent } from './stories/stories.component';
+import { PostsComponent } from './posts/posts.component';
 
 
 
@@ -16,7 +18,9 @@ import { RightSideBarComponent } from './right-side-bar/right-side-bar.component
   declarations: [
     NavigationHeaderComponent,
     LeftSideBarComponent,
-    RightSideBarComponent
+    RightSideBarComponent,
+    StoriesComponent,
+    PostsComponent
   ],
   
   exports: [

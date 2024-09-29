@@ -16,6 +16,7 @@ import { DeleteDialogComponent } from '../../dialogs/delete-dialog/delete-dialog
 export class UserDetailsComponent implements OnInit {
   public user: UserModel = new UserModel();
   public loggedInUserId: string;
+  public isAdmin: boolean = false;
 
   public editingField: string | null = null;
   public errorMessages: string[] = [];
@@ -28,6 +29,7 @@ export class UserDetailsComponent implements OnInit {
   
   public ngOnInit(): void {
     this.loggedInUserId = this.authService.getUserId()!!;
+    this.isAdmin = this.authService.isAdmin();
   
     this.route.paramMap.subscribe((params) => {
       const userIdFromRoute = params.get('id');

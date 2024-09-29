@@ -1,43 +1,17 @@
 <app-navigation-header></app-navigation-header>
 
 <div class="user-details-container">
-    <app-left-side-bar></app-left-side-bar>
   
     <div class="user-details-content">
-        
         <table>
-            <thead>
-                <tr>
-                    <td></td>
-                    <td>specific data</td>
-                    <td>Actions</td>
-                </tr>
-                <tr></tr>
-            </thead>
-
             <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <mat-icon (click)="openDeleteDialog(user.id, user.userName)"
-                            class="action-button delete" matTooltip="Delete account">
-                            delete
-                        </mat-icon>
-                        <mat-icon *ngIf="isCurrentUser()" [routerLink]="['change-password']"
-                            class="action-button" matTooltip="Changes password">
-                            settings
-                        </mat-icon>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>id</td>
+                <tr *ngIf="isAdmin">
+                    <td>User Id</td>
                     <td>{{ user.id }}</td>
                 </tr>
 
                 <tr>
-                    <td>firstName</td>
+                    <td>First name</td>
                     <td *ngIf="editingField !== 'firstName'">{{ user.firstName }}</td>
                     <ng-container *ngIf="isCurrentUser()">
                         <td *ngIf="editingField === 'firstName'">
@@ -52,7 +26,7 @@
                 </tr>
 
                 <tr>
-                    <td>lastName</td>
+                    <td>Last name</td>
                     <td *ngIf="editingField !== 'lastName'">{{ user.lastName }}</td>
                     <ng-container *ngIf="isCurrentUser()">
                         <td *ngIf="editingField === 'lastName'">
@@ -67,7 +41,7 @@
                 </tr>
 
                 <tr>
-                    <td>userName</td>
+                    <td>User name</td>
                     <td *ngIf="editingField !== 'userName'">{{ user.userName }}</td>
                     <ng-container *ngIf="isCurrentUser()">
                         <td *ngIf="editingField === 'userName'">
@@ -82,7 +56,7 @@
                 </tr>
 
                 <tr>
-                    <td>email</td>
+                    <td>Email</td>
                     <td *ngIf="editingField !== 'email'">{{ user.email }}</td>
                     <ng-container *ngIf="isCurrentUser()">
                         <td *ngIf="editingField === 'email'">
@@ -97,7 +71,7 @@
                 </tr>
 
                 <tr>
-                    <td>birthDate</td>
+                    <td>Birth date</td>
                     <td *ngIf="editingField !== 'birthDate'">{{ user.birthDate | date: 'yyyy. MMMM d.' }}</td>
                     <ng-container *ngIf="isCurrentUser()">
                         <td *ngIf="editingField === 'birthDate'">
@@ -112,7 +86,7 @@
                 </tr>
 
                 <tr>
-                    <td>gender</td>
+                    <td>Gender</td>
                     <td *ngIf="editingField !== 'gender'">{{ getGenderName(user.gender) }}</td>
                     <ng-container *ngIf="isCurrentUser()">
                         <td *ngIf="editingField === 'gender'">
@@ -130,46 +104,21 @@
                     </ng-container>
                 </tr>
 
+                <tr>
+                    <td>
+                        <mat-icon (click)="openDeleteDialog(user.id, user.userName)"
+                            class="action-button delete" matTooltip="Delete account">
+                            delete
+                        </mat-icon>
+                        <mat-icon *ngIf="isCurrentUser()" [routerLink]="['change-password']"
+                            class="action-button" matTooltip="Changes password">
+                            settings
+                        </mat-icon>
+                    </td>
+                </tr>
+
             </tbody>
         </table>
-        <!-- * teszteléshez -->
-        <!--<h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1> -->
     </div>
 
-    <app-right-side-bar></app-right-side-bar>
 </div>
