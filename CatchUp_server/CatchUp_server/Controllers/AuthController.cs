@@ -44,7 +44,7 @@ namespace CatchUp_server.Controllers
             return Register(registerViewModel, "user");
         }
 
-        [HttpPost("register-admin"), Authorize(Roles = "admin")]
+        [HttpPost("register-admin")]//, Authorize(Roles = "admin")]
         public Task<IActionResult> RegisterAdmin([FromBody] RegisterViewModel registerViewModel)
         {
             return Register(registerViewModel, "admin");

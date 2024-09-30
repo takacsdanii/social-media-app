@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CatchUp_server.Migrations
 {
     [DbContext(typeof(ApiDbContext))]
-    [Migration("20240818231237_roles")]
-    partial class roles
+    [Migration("20240930234123_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,13 +25,16 @@ namespace CatchUp_server.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CatchUp_server.Models.User", b =>
+            modelBuilder.Entity("CatchUp_server.Models.UserModels.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("BirthDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -47,6 +50,9 @@ namespace CatchUp_server.Migrations
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Gender")
+                        .HasColumnType("int");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -127,13 +133,13 @@ namespace CatchUp_server.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "1a854d28-1d33-4ff5-b846-66c44360faee",
+                            Id = "c1acb7c9-ecd1-4092-9149-bbe574267f79",
                             Name = "admin",
                             NormalizedName = "admin"
                         },
                         new
                         {
-                            Id = "94fcbbce-a7e7-4dbb-ad5b-5053697821db",
+                            Id = "d818c36d-afdd-4073-bf43-8ac0253d66de",
                             Name = "user",
                             NormalizedName = "user"
                         });
@@ -256,7 +262,7 @@ namespace CatchUp_server.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("CatchUp_server.Models.User", null)
+                    b.HasOne("CatchUp_server.Models.UserModels.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -265,7 +271,7 @@ namespace CatchUp_server.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("CatchUp_server.Models.User", null)
+                    b.HasOne("CatchUp_server.Models.UserModels.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -280,7 +286,7 @@ namespace CatchUp_server.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CatchUp_server.Models.User", null)
+                    b.HasOne("CatchUp_server.Models.UserModels.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -289,7 +295,7 @@ namespace CatchUp_server.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("CatchUp_server.Models.User", null)
+                    b.HasOne("CatchUp_server.Models.UserModels.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

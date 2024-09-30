@@ -1,16 +1,24 @@
-﻿using CatchUp_server.Models.UserModels;
+﻿//using CatchUp_server.Models.UserModels;
+//using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CatchUp_server.Models.UserContent
-{
-    public class FriendRequest
-    {
-        public int Id { get; set; }
-        public string SenderId { get; set; }
-        public string RecieverId { get; set; }
+//namespace CatchUp_server.Models.UserContent
+//{
 
-        public UserProfile Sender { get; set; }
-        public UserProfile Reciever { get; set; }
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// LEAVE THIS HERE FOR NOW, WILL DECIDE LATER
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-        public DateTime SentAt { get; set; }
-    }
-}
+//    public class FriendRequest
+//    {
+//        public int Id { get; set; }
+//        public DateTime SentAt { get; set; }
+
+//        [ForeignKey("SenderUser")]
+//        public string SenderUserId { get; set; }
+//        public User SenderUser { get; set; }
+
+//        [ForeignKey("ReceiverUser")]
+//        public string ReceiverUserId { get; set; }
+//        public User ReceiverUser { get; set; }
+//    }
+//}

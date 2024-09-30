@@ -1,20 +1,20 @@
 ﻿using CatchUp_server.Models.UserModels;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CatchUp_server.Models.UserContent
 {
     public class Post
     {
         public int Id { get; set; }
-
-        public string UserId { get; set; }
-        public UserProfile Profile { get; set; }
-
-        public DateTime CreatedAt { get; set; }
         public string Description { get; set; }
-        public List<string> MediaUrl { get; set; } // közös url videókhoz és képekhez
+        public DateTime CreatedAt { get; set; }
+        
+        public ICollection<string> MediaUrls { get; set; }
+        public ICollection<Like> Likes { get; set; }
+        public ICollection<Comment> Comments { get; set; }
 
-        public List<Like> Likes { get; set; }
-        public List<Comment> Comments { get; set; }
-        //public List<Share> Shares { get; set; }
+        [ForeignKey("Profile")]
+        public int ProfileId { get; set; }
+        public UserProfile Profile { get; set; }
     }
 }

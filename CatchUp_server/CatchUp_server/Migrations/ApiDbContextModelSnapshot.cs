@@ -22,7 +22,7 @@ namespace CatchUp_server.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CatchUp_server.Models.User", b =>
+            modelBuilder.Entity("CatchUp_server.Models.UserModels.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -130,13 +130,13 @@ namespace CatchUp_server.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "3c5304f6-dcbd-47be-be61-dd682cc445cb",
+                            Id = "c1acb7c9-ecd1-4092-9149-bbe574267f79",
                             Name = "admin",
                             NormalizedName = "admin"
                         },
                         new
                         {
-                            Id = "3d244674-4a5f-4f49-8b8c-6c70fb837acf",
+                            Id = "d818c36d-afdd-4073-bf43-8ac0253d66de",
                             Name = "user",
                             NormalizedName = "user"
                         });
@@ -259,7 +259,7 @@ namespace CatchUp_server.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("CatchUp_server.Models.User", null)
+                    b.HasOne("CatchUp_server.Models.UserModels.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -268,7 +268,7 @@ namespace CatchUp_server.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("CatchUp_server.Models.User", null)
+                    b.HasOne("CatchUp_server.Models.UserModels.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -283,7 +283,7 @@ namespace CatchUp_server.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CatchUp_server.Models.User", null)
+                    b.HasOne("CatchUp_server.Models.UserModels.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -292,7 +292,7 @@ namespace CatchUp_server.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("CatchUp_server.Models.User", null)
+                    b.HasOne("CatchUp_server.Models.UserModels.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
