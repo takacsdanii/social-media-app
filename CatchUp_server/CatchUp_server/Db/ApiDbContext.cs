@@ -1,4 +1,4 @@
-﻿using CatchUp_server.Models;
+﻿using CatchUp_server.Models.UserModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;

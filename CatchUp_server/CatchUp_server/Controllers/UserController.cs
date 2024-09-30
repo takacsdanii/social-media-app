@@ -1,6 +1,6 @@
-﻿using CatchUp_server.Models;
-using CatchUp_server.Services;
-using CatchUp_server.ViewModels;
+﻿using CatchUp_server.Models.UserModels;
+using CatchUp_server.Services.UserServices;
+using CatchUp_server.ViewModels.UserViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;

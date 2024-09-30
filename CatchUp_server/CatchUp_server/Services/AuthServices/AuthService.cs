@@ -1,14 +1,14 @@
 ﻿using CatchUp_server.Db;
-using CatchUp_server.Models;
-using CatchUp_server.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Identity.Data;
+using CatchUp_server.Models.UserModels;
+using CatchUp_server.ViewModels.AuthViewModels;
 
-namespace CatchUp_server.Services
+namespace CatchUp_server.Services.AuthServices
 {
     public class AuthService
     {
@@ -24,8 +24,8 @@ namespace CatchUp_server.Services
             _userManager = userManager;
             _signInManager = signInManager;
         }
-        
-        
+
+
         private bool IsOldEnough(RegisterViewModel registerViewModel)
         {
             var today = DateTime.Today;
@@ -33,21 +33,21 @@ namespace CatchUp_server.Services
 
             if (registerViewModel.BirthDate.Date > today.AddYears(-age))
                 age--;
-            
+
             return age >= minAge;
         }
 
 
         public async Task<IdentityResult> Register(RegisterViewModel registerViewModel, string role)
         {
-            if(!IsOldEnough(registerViewModel))
+            if (!IsOldEnough(registerViewModel))
             {
                 return IdentityResult.Failed(new IdentityError { Description = "You are not old enough to register!" });
             }
 
             if (registerViewModel.Password != registerViewModel.PasswordConfirmed)
             {
-                return IdentityResult.Failed(new IdentityError { Description = "The given passwords do not match!"});
+                return IdentityResult.Failed(new IdentityError { Description = "The given passwords do not match!" });
             }
 
             var existingUser = await _userManager.FindByNameAsync(registerViewModel.UserName);
@@ -55,7 +55,7 @@ namespace CatchUp_server.Services
                 return IdentityResult.Failed(new IdentityError { Description = "The username is already in use." });
 
             existingUser = await _userManager.FindByEmailAsync(registerViewModel.Email);
-            if(existingUser != null)
+            if (existingUser != null)
                 return IdentityResult.Failed(new IdentityError { Description = "The email is already in use." });
 
             var user = new User
@@ -70,7 +70,7 @@ namespace CatchUp_server.Services
 
             var result = await _userManager.CreateAsync(user, registerViewModel.Password);
             if (result.Succeeded)
-            { 
+            {
                 await _userManager.AddToRoleAsync(user, role);
             }
 
@@ -134,7 +134,7 @@ namespace CatchUp_server.Services
         public async Task<(IdentityResult result, User user, string resetToken)> RequestNewPassword(string email)
         {
             var user = await _userManager.FindByEmailAsync(email);
-            if(user == null)
+            if (user == null)
             {
                 return (IdentityResult.Failed(new IdentityError { Description = "User not found." }), null, null);
             }
@@ -146,7 +146,7 @@ namespace CatchUp_server.Services
         public async Task<(IdentityResult result, string password)> ResetPassword(string email, string token)
         {
             var user = await _userManager.FindByEmailAsync(email);
-            if(user == null)
+            if (user == null)
             {
                 return (IdentityResult.Failed(new IdentityError { Description = "User not found." }), null);
             }

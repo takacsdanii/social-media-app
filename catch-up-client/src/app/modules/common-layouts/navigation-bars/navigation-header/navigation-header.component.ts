@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../../core/services/logic/auth/auth.service';
 import { NotificationService } from '../../../../core/services/logic/notifications/notification.service';
+import { UserHttpService } from '../../../../core/services/http/user/user-http.service';
 
 @Component({
   selector: 'app-navigation-header',
@@ -15,17 +16,20 @@ export class NavigationHeaderComponent implements OnInit {
 
   public isDarkModeOn: boolean;
 
-  constructor(private authService: AuthService,
+  constructor(private authService: AuthService, private userHttpService: UserHttpService,
               private notificationService: NotificationService) { }
 
   public ngOnInit(): void {
-      this.isLoggedIn = this.authService.isLoggedIn();
-      this.isAdmin = this.authService.isAdmin();
-      this.userId = this.authService.getUserId()!!;
-      this.userName = this.authService.getUserName()!!;
+    this.isLoggedIn = this.authService.isLoggedIn();
+    this.isAdmin = this.authService.isAdmin();
+    this.userId = this.authService.getUserId()!!;
 
-      const storedValue = localStorage.getItem('isDarkModeOn');
-      this.isDarkModeOn = storedValue ? JSON.parse(storedValue) : false;
+    this.userHttpService.getUser(this.userId).subscribe(user => {
+      this.userName = user.userName;
+    });
+
+    const storedValue = localStorage.getItem('isDarkModeOn');
+    this.isDarkModeOn = storedValue ? JSON.parse(storedValue) : false;
   }
 
   public logOut(): void {

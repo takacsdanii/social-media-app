@@ -18,6 +18,13 @@
             <!-- <img src="assets/images/logos/logo5.png" alt="">
             <img src="assets/images/other/dream.jpg" alt="">
             <img src="assets/images/other/profile.jpg" alt=""> -->
+            <div class="slider">
+                <img [src]="imageUrls[currentImgIdx]" alt="">
+                <div class="controls">
+                    <button (click)="prevImage()" [disabled]="currentImgIdx === 0">&lt;</button>
+                    <button (click)="nextImage()" [disabled]="currentImgIdx === imageUrls.length - 1">&gt;</button>
+                </div>
+            </div>
         </div>
     
         <div class="info">

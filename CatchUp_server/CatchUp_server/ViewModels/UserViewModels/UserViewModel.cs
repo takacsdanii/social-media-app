@@ -1,6 +1,6 @@
-﻿using CatchUp_server.Models;
+﻿using CatchUp_server.Models.UserModels;
 
-namespace CatchUp_server.ViewModels
+namespace CatchUp_server.ViewModels.UserViewModel
 {
     public class UserViewModel
     {
@@ -11,6 +11,5 @@ namespace CatchUp_server.ViewModels
         public string Email { get; set; }
         public DateTime BirthDate { get; set; }
         public Gender Gender { get; set; }
-
     }
 }

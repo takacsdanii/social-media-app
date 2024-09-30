@@ -1,6 +1,6 @@
-﻿using CatchUp_server.Models;
+﻿using CatchUp_server.Models.UserModels;
 
-namespace CatchUp_server.ViewModels
+namespace CatchUp_server.ViewModels.AuthViewModels
 {
     public class RegisterViewModel
     {

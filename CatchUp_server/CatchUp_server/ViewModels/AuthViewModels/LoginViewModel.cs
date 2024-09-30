@@ -1,4 +1,4 @@
-﻿namespace CatchUp_server.ViewModels
+﻿namespace CatchUp_server.ViewModels.AuthViewModels
 {
     public class LoginViewModel
     {

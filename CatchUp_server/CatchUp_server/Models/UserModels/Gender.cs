@@ -1,4 +1,4 @@
-﻿namespace CatchUp_server.Models
+﻿namespace CatchUp_server.Models.UserModels
 {
     public enum Gender
     {

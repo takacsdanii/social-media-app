@@ -3,33 +3,33 @@ table {
       cursor: pointer;
   
       &:hover {
-        color: #0056b3; // Optional: changes color on hover
+        color: #0056b3; 
       }
     }
   }
   
   .action-button {
-    margin-right: 10px; // Optional: gives space between the buttons
+    margin-right: 10px; 
   }
 
   .delete {
-    color: red;
+    color: rgb(176, 36, 36);
   }
   
   .user-details-container {
     display: flex;
-    justify-content: space-between; /* Ensure content is spread between the sidebars */
+    justify-content: space-between;
     align-items: center;
   }
 
   app-left-side-bar, app-right-side-bar {
-    width: 200px; /* Fixed width for the sidebar */
+    width: 200px;
   }
 
   .user-details-content {
     flex: 6;
-    flex-grow: 1; /* Take up the remaining space between the sidebars */
-    max-width: 500px; /* Limit the max width of the content */
-    margin: auto; /* Center the content horizontally */
+    flex-grow: 1; 
+    max-width: 500px;
+    margin: auto;
     padding: 20px;
   }

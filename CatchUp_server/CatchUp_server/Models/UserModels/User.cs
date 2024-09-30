@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 
-namespace CatchUp_server.Models
+namespace CatchUp_server.Models.UserModels
 {
     public class User : IdentityUser
     {

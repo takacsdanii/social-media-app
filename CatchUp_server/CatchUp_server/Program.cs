@@ -1,4 +1,3 @@
-using CatchUp_server.Models;
 using CatchUp_server.Db;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +8,9 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using CatchUp_server.Models.UserModels;
+using CatchUp_server.Services.AuthServices;
+using CatchUp_server.Services.UserServices;
 
 namespace CatchUp_server
 {

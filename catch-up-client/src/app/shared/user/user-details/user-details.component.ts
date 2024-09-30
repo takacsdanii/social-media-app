@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserModel } from '../../../core/models/user.model';
 import { UserHttpService } from '../../../core/services/http/user/user-http.service';
@@ -7,6 +7,8 @@ import { GenderModel } from '../../../core/models/gender.model';
 import { AuthService } from '../../../core/services/logic/auth/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteDialogComponent } from '../../dialogs/delete-dialog/delete-dialog.component';
+import { NavigationHeaderComponent } from '../../../modules/common-layouts/navigation-bars/navigation-header/navigation-header.component';
+import { LeftSideBarComponent } from '../../../modules/common-layouts/navigation-bars/left-side-bar/left-side-bar.component';
 
 @Component({
   selector: 'app-user-details',
@@ -14,6 +16,9 @@ import { DeleteDialogComponent } from '../../dialogs/delete-dialog/delete-dialog
   styleUrl: './user-details.component.scss'
 })
 export class UserDetailsComponent implements OnInit {
+  @ViewChild(NavigationHeaderComponent) navigationHeaderComponent!: NavigationHeaderComponent;
+  @ViewChild(LeftSideBarComponent) leftSideBarComponent!: LeftSideBarComponent;
+
   public user: UserModel = new UserModel();
   public loggedInUserId: string;
   public isAdmin: boolean = false;
@@ -37,6 +42,11 @@ export class UserDetailsComponent implements OnInit {
         this.setUser(userIdFromRoute);
       }
     });
+  }
+
+  public refreshNavbar(): void {
+    this.navigationHeaderComponent.ngOnInit();
+    this.leftSideBarComponent.ngOnInit();
   }
 
   public setUser(userId: string): void {
@@ -66,6 +76,7 @@ export class UserDetailsComponent implements OnInit {
       (_user) => {
         this.user = _user;
         this.notificationService.showSuccesSnackBar("Changes saved");
+        this.refreshNavbar();
       },
       (err) => {
         this.errorMessages = [];

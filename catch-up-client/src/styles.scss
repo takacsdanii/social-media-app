@@ -4,14 +4,15 @@ $primary-color: #0056b3;
 $error-color: rgb(176, 36, 36);
 $success-color: green;
 
-html, body {
+/* html, body {
     height: 100%;
-}
+} */
 
 body { 
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
 
 .snack-success {
     background-color: green !important;
