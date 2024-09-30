@@ -1,16 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavigationHeaderComponent } from './navigation-header/navigation-header.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
-import { LeftSideBarComponent } from './side-bar/left-side-bar.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { RightSideBarComponent } from './right-side-bar/right-side-bar.component';
-import { StoriesComponent } from './stories/stories.component';
-import { PostsComponent } from './posts/posts.component';
+import { StoriesComponent } from './user-content/stories/stories.component';
+import { PostsComponent } from './user-content/posts/posts.component';
+import { NavigationHeaderComponent } from './navigation-bars/navigation-header/navigation-header.component';
+import { LeftSideBarComponent } from './navigation-bars/left-side-bar/left-side-bar.component';
+import { RightSideBarComponent } from './navigation-bars/right-side-bar/right-side-bar.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { UserPageComponent } from './pages/user-page/user-page.component';
+import { PostComponent } from './user-content/post/post.component';
+import { CommentsComponent } from './user-content/comments/comments.component';
 
 
 
@@ -20,7 +24,11 @@ import { PostsComponent } from './posts/posts.component';
     LeftSideBarComponent,
     RightSideBarComponent,
     StoriesComponent,
-    PostsComponent
+    PostsComponent,
+    HomePageComponent,
+    UserPageComponent,
+    PostComponent,
+    CommentsComponent
   ],
   
   exports: [

@@ -1,0 +1,36 @@
+<div class="post">
+    <div class="container">
+
+        <div class="user">
+            <div class="user-info">
+                <img src="assets/images/icons/icons8-gollum-50.png" alt="">
+                <div class="details">
+                    <!-- todo: a user oldalára vigyen a routerLink -->
+                    <span routerLink="" class="name">username</span>
+                    <span class="date">2 minutes ago</span>
+                </div>
+            </div>
+            <mat-icon>more_horiz</mat-icon>
+        </div>
+    
+        <div class="content">
+            <p>Description goes here</p>
+            <!-- <img src="assets/images/logos/logo5.png" alt="">
+            <img src="assets/images/other/dream.jpg" alt="">
+            <img src="assets/images/other/profile.jpg" alt=""> -->
+        </div>
+    
+        <div class="info">
+            <div (click)="toggleLike()" class="item like-item">
+                <mat-icon [ngClass]="{'liked': isLiked, 'not-liked': !isLiked}">{{ isLiked ? 'favorite' : 'favorite_border'}}</mat-icon>12 likes
+            </div>
+            <div class="item" (click)="toggleOpenCommentSection()">
+                <mat-icon>chat</mat-icon>2 comments
+            </div>
+            <div class="item">
+                <mat-icon>share</mat-icon>Share
+            </div>
+        </div>
+        <app-comments *ngIf="isCommentSectionOpen"></app-comments>
+    </div>
+</div>

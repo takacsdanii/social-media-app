@@ -8,6 +8,8 @@ import { ForgotPasswordComponent } from './modules/auth/forgot-password/forgot-p
 import { ChangePasswordComponent } from './modules/auth/change-password/change-password.component';
 import { ResetPasswordComponent } from './modules/auth/reset-password/reset-password.component';
 import { AuthGuard } from './core/guards/auth.guard';
+import { HomePageComponent } from './modules/common-layouts/pages/home-page/home-page.component';
+import { UserPageComponent } from './modules/common-layouts/pages/user-page/user-page.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent, canActivate: [AuthGuard] },
@@ -17,7 +19,10 @@ const routes: Routes = [
   { path: "login", component: LoginComponent, canActivate: [AuthGuard] },
   { path: "forgot-password", component: ForgotPasswordComponent, canActivate: [AuthGuard] },
   { path: "users/:id/change-password", component: ChangePasswordComponent, canActivate: [AuthGuard]},
-  { path: "reset-password/:email/:reset-token", component: ResetPasswordComponent, canActivate: [AuthGuard]}
+  { path: "reset-password/:email/:reset-token", component: ResetPasswordComponent, canActivate: [AuthGuard]},
+  // TODO: mindkettőhöz kell majd egy /:id, hogy jó legyen
+  { path: "home-page", component: HomePageComponent, canActivate: [AuthGuard]},
+  { path: "user-page", component: UserPageComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

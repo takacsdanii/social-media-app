@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
         this.notificationService.showSuccesSnackBar(`${username} logged in succesfully!`);
 
         const userId = this.authService.getUserId();
-        this.router.navigate([`/users/${userId}`]);
+        this.router.navigate(['home-page']);
       },
       (err) => {
         this.notificationService.showErrorSnackBar('Login failed!');

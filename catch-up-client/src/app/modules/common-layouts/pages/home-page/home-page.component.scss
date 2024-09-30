@@ -1,0 +1,29 @@
+// ! amiatt van itt, mert nem jó a styles.scss
+@mixin mobile {
+    @media (max-width: 480px) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media (max-width: 960px) {
+        @content;
+    }
+}
+
+.sidebar {
+    flex: 3;
+    @include tablet {
+        display: none;
+    }
+}
+.home-page {
+    padding: 20px 20px;
+
+    @include mobile {
+        padding: 10px;;
+    }
+
+    @include tablet {
+        padding: 20px;;
+    }
+}

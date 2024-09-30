@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../core/services/logic/auth/auth.service';
+import { AuthService } from '../../../../core/services/logic/auth/auth.service';
 
 @Component({
   selector: 'app-left-side-bar',

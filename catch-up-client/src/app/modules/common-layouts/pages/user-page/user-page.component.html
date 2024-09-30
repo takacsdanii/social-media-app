@@ -1,0 +1,47 @@
+<app-navigation-header></app-navigation-header>
+
+<div style="display: flex;">
+    <app-left-side-bar style="flex: 2;"></app-left-side-bar>
+
+    <div class="profile" style="flex: 6;">
+
+        <div class="images">
+            <img src="assets/images/other/dream.jpg" alt="cover picture" class="cover-pic">
+            <img src="assets/images/other/profile.jpg" alt="profile picture" class="profile-pic">
+        </div>
+    
+        <div class="profile-container">
+            <div class="user-info">
+                <div class="left">
+                    <a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
+                    <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                    <a href="https://tiktok.com"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://snapchat.com"><i class="fab fa-snapchat"></i></a>
+                </div>
+                <div class="center">
+                    <span>Username</span>
+                    <!-- <span>firstname lastname</span> -->
+                    <div class="info">
+                        <div class="item">
+                            <mat-icon>location_on</mat-icon>
+                            <span>Budapest</span>
+                        </div>
+                        <div class="item">
+                            <mat-icon>language</mat-icon>
+                            <span>Hungary</span>
+                        </div>
+                    </div>
+                    <button>Follow</button>
+                </div>
+                <div class="right">
+                    <mat-icon>mail</mat-icon>
+                    <mat-icon>more_vert</mat-icon>
+                </div>
+            </div>
+        </div>
+        <app-posts></app-posts>
+    </div>
+
+    <app-right-side-bar class="sidebar" style="flex: 3;"></app-right-side-bar>
+</div>

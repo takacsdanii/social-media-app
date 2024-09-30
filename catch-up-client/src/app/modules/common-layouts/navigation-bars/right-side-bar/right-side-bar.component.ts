@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserHttpService } from '../../../core/services/http/user/user-http.service';
-import { UserModel } from '../../../core/models/user.model';
-import { AuthService } from '../../../core/services/logic/auth/auth.service';
+import { UserModel } from '../../../../core/models/user.model';
+import { UserHttpService } from '../../../../core/services/http/user/user-http.service';
+import { AuthService } from '../../../../core/services/logic/auth/auth.service';
 
 @Component({
   selector: 'app-right-side-bar',

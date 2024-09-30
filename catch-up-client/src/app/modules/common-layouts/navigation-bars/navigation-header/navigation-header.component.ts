@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../core/services/logic/auth/auth.service';
-import { NotificationService } from '../../../core/services/logic/notifications/notification.service';
+import { AuthService } from '../../../../core/services/logic/auth/auth.service';
+import { NotificationService } from '../../../../core/services/logic/notifications/notification.service';
 
 @Component({
   selector: 'app-navigation-header',

@@ -1,9 +1,20 @@
+// ! amiatt van itt, mert nem jó a styles.scss
+@mixin mobile {
+    @media (max-width: 480px) {
+        @content;
+    }
+}
+
 .sidebar {
     flex: 2px;
     position: sticky;
     top: 70px;
     height: calc(100vh - 70px);
     overflow: scroll;
+
+    @include mobile {
+        display: none;
+    }
 
     &::-webkit-scrollbar{
         display: none;

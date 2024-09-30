@@ -1,9 +1,9 @@
 <div class="navbar">
 
     <div class="left">
-        <span routerLink="/users">CatchUP</span>
-        <img routerLink="/users" src="/assets/images/logos/logo3.png" alt="logo">
-        <mat-icon [routerLink]="['/users']" matTooltip="Home">home</mat-icon>
+        <img routerLink="/home-page" src="/assets/images/logos/logo3.png" alt="logo">
+        <span routerLink="/home-page">CatchUP</span>
+        <mat-icon routerLink="/home-page" matTooltip="Home">home</mat-icon>
         <mat-icon matTooltip="Apps">apps</mat-icon>
     </div>
 
@@ -18,7 +18,7 @@
         <mat-icon matTooltip="Messages">chat</mat-icon>
         <mat-icon matTooltip="Notifications">notifications</mat-icon>
 
-        <div [routerLink]="['/users', userId]" class="user">
+        <div routerLink="/user-page" class="user">
             <img matTooltip="Personal information" src="assets/images/icons/icons8-male-user-50.png" alt="profile picture">
             <span>{{ userName }}</span>
         </div>
@@ -26,7 +26,10 @@
         <mat-icon mat-fab matTooltip="Menu" [matMenuTriggerFor]="menu">menu</mat-icon>
         <mat-menu #menu="matMenu">
             <button mat-menu-item [routerLink]="['/users', userId]">
-                <mat-icon>person</mat-icon>Personal Information
+                <mat-icon>manage_accounts</mat-icon>Manage my account
+            </button>
+            <button mat-menu-item *ngIf="isAdmin" routerLink="/users">
+                <mat-icon>person_search</mat-icon>Manage accounts
             </button>
             <button mat-menu-item *ngIf="!isDarkModeOn" (click)="toggleDarkMode()">
                 <mat-icon>dark_mode</mat-icon>Dark mode

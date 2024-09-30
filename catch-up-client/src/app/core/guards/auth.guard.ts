@@ -17,7 +17,7 @@ export class AuthGuard implements CanActivate {
       const userIdFromRoute = route.paramMap.get('id');
 
       if(!isUserLoggedIn) {
-        if(this.isPublicRoute(route))
+        if(this.isLoggedOutRoute(route))
           return true;
 
         this.router.navigate(['/login']);
@@ -29,19 +29,23 @@ export class AuthGuard implements CanActivate {
           if(this.isAdminRoute(route))
             return true;
         }
+
+        if(this.isPublicRoute(route)) {
+          return true;
+        }
   
         if(loggedInUserId === userIdFromRoute) {
           return true;
         }
 
-        this.router.navigate([`/users/${loggedInUserId}`]);
+        this.router.navigate(['home-page']);
         return false;
       }
       
       return false;
   }
 
-  private isPublicRoute(route: ActivatedRouteSnapshot): boolean {
+  private isLoggedOutRoute(route: ActivatedRouteSnapshot): boolean {
     const publicRoutes = ['login', 'register', 'forgot-password', 'reset-password/:email/:reset-token'];
     return publicRoutes.includes(route.routeConfig?.path || '');
   }
@@ -49,5 +53,10 @@ export class AuthGuard implements CanActivate {
   private isAdminRoute(route: ActivatedRouteSnapshot): boolean {
     const adminRoutes = ['users', 'users/:id'];//, 'users/:id/change-password'];
     return adminRoutes.includes(route.routeConfig?.path || '');
+  }
+
+  private isPublicRoute(route: ActivatedRouteSnapshot): boolean {
+    const publicRoutes = ['home-page', 'user-page'];
+    return publicRoutes.includes(route.routeConfig?.path || '');
   }
 }
