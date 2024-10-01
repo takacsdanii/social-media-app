@@ -2,8 +2,8 @@
     <div class="container">
 
         <div class=item>
-            <span>Suggestions for you</span>
-            <div *ngFor="let user of users" class="user">
+            <span>Following you</span>
+            <div *ngFor="let user of displayedOneWayFollowers" class="user">
                 <div class="userinfo">
                     <img src="assets/images/icons/icons8-male-user-50.png" alt="profile picture">
                     <span>{{ user.userName }}</span>
@@ -11,8 +11,8 @@
                 <div class="buttons">
                     <!-- ? esetleg jöhetne ide inkább ikon-->
                     <!-- <img src="assets/images/icons/icons8-add-friend-48.png" alt=""> -->
-                    <button>Follow</button>
-                    <button>Dismiss</button>
+                    <button (click)="onFollowPressed(user.id)">Follow</button>
+                    <button (click)="onDismissPressed(user.id)">Dismiss</button>
                 </div>
             </div>
         </div>
@@ -36,11 +36,11 @@
 
         <div class="item">
             <span>Friends online</span>
-            <div *ngFor="let user of users" class="user">
+            <div *ngFor="let friend of friends" class="user">
                 <div class="userinfo">
                     <img src="assets/images/icons/icons8-male-user-50.png" alt="profile picture">
                     <div class="online"></div>
-                    <span>{{ user.userName }}</span>
+                    <span>{{ friend.userName }}</span>
                 </div>
             </div>
         </div>

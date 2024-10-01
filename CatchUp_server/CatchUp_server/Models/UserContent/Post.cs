@@ -9,12 +9,11 @@ namespace CatchUp_server.Models.UserContent
         public string Description { get; set; }
         public DateTime CreatedAt { get; set; }
         
-        public ICollection<string> MediaUrls { get; set; }
+        public ICollection<MediaContent> MediaContents { get; set; }
         public ICollection<Like> Likes { get; set; }
         public ICollection<Comment> Comments { get; set; }
 
-        [ForeignKey("Profile")]
-        public int ProfileId { get; set; }
-        public UserProfile Profile { get; set; }
+        public int Userid { get; set; }
+        public User User { get; set; }
     }
 }

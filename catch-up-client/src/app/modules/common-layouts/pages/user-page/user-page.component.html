@@ -11,35 +11,63 @@
         </div>
     
         <div class="profile-container">
+
             <div class="user-info">
                 <div class="left">
-                    <a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
+                    <!-- <a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
                     <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
                     <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
                     <a href="https://tiktok.com"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://snapchat.com"><i class="fab fa-snapchat"></i></a>
+                    <a href="https://snapchat.com"><i class="fab fa-snapchat"></i></a> -->
+                    <div class="item">
+                        <mat-icon>auto_stories</mat-icon>
+                        <span>{{ user.bio }} text</span>
+                    </div>
+                    <div class="item">
+                        <span>{{ getGenderName(user.gender) }}</span>
+                    </div>
+                    <div class="item">
+                        <span>{{ user.birthDate | date: 'yyyy-MM-dd' }}</span>
+                    </div>
+                    <div class="item">
+                        <span>{{ user.registeredAt| date: 'yyyy-MM-dd' }}</span>
+                    </div>
                 </div>
+
                 <div class="center">
-                    <span>Username</span>
-                    <!-- <span>firstname lastname</span> -->
+                    <span>{{ user.userName }}</span>
                     <div class="info">
                         <div class="item">
-                            <mat-icon>location_on</mat-icon>
-                            <span>Budapest</span>
+                            <mat-icon>language</mat-icon>
+                            <span>{{ user.firstName }} {{ user.lastName }}</span>
                         </div>
                         <div class="item">
+                            <mat-icon>location_on</mat-icon>
+                            <!-- ? location property -->
+                            <span>Budapest</span>
+                        </div>
+                        <!-- <div class="item">
                             <mat-icon>language</mat-icon>
                             <span>Hungary</span>
-                        </div>
+                        </div> -->
                     </div>
-                    <button>Follow</button>
+                    <button *ngIf="!isMypage(userIdFromRoute!!)">Follow</button>
                 </div>
+
                 <div class="right">
                     <mat-icon>mail</mat-icon>
                     <mat-icon>more_vert</mat-icon>
                 </div>
             </div>
         </div>
+
+        <div class="upload-container">
+            <span>Here comes post upload section</span>
+            <div class="left"></div>
+            <div class="center"></div>
+            <div class="right"></div>
+        </div>
+        
         <app-posts></app-posts>
     </div>
 

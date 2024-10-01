@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserModel } from '../../../models/user.model';
 import jwtDecode from 'jwt-decode';
-import { GenderModel } from '../../../models/gender.model';
+import { GenderModel } from '../../../models/enums/gender.model';
 
 @Injectable({
   providedIn: 'root'

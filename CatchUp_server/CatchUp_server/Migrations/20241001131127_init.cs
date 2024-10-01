@@ -36,6 +36,10 @@ namespace CatchUp_server.Migrations
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Gender = table.Column<int>(type: "int", nullable: false),
+                    Bio = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ProfilePicUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CoverPicUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RegisteredAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -162,13 +166,39 @@ namespace CatchUp_server.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "FriendShips",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FollowerUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    FollowedUserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FriendShips", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_FriendShips_AspNetUsers_FollowedUserId",
+                        column: x => x.FollowedUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_FriendShips_AspNetUsers_FollowerUserId",
+                        column: x => x.FollowerUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "c1acb7c9-ecd1-4092-9149-bbe574267f79", null, "admin", "admin" },
-                    { "d818c36d-afdd-4073-bf43-8ac0253d66de", null, "user", "user" }
+                    { "d950beb5-6ee1-458e-a251-08f127ddd954", null, "user", "user" },
+                    { "e775e9f0-062e-4d98-9b23-7589a1b84f32", null, "admin", "admin" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -209,6 +239,16 @@ namespace CatchUp_server.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FriendShips_FollowedUserId",
+                table: "FriendShips",
+                column: "FollowedUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FriendShips_FollowerUserId",
+                table: "FriendShips",
+                column: "FollowerUserId");
         }
 
         /// <inheritdoc />
@@ -228,6 +268,9 @@ namespace CatchUp_server.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "FriendShips");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

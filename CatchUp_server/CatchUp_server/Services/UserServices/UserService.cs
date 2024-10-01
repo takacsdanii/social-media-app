@@ -1,6 +1,7 @@
 ﻿using CatchUp_server.Db;
 using CatchUp_server.Models.UserModels;
 using CatchUp_server.ViewModels.UserViewModel;
+using CatchUp_server.ViewModels.UserViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,6 +27,10 @@ namespace CatchUp_server.Services.UserServices
                 Email = user.Email,
                 BirthDate = user.BirthDate,
                 Gender = user.Gender,
+                Bio = user.Bio,
+                ProfilePicUrl = user.ProfilePicUrl,
+                CoverPicUrl = user.CoverPicUrl,
+                RegisteredAt = user.RegisteredAt
             };
         }
 

@@ -38,7 +38,7 @@ export class AuthGuard implements CanActivate {
           return true;
         }
 
-        this.router.navigate(['home-page']);
+        this.router.navigate([`home-page/${loggedInUserId}`]);
         return false;
       }
       
@@ -56,7 +56,7 @@ export class AuthGuard implements CanActivate {
   }
 
   private isPublicRoute(route: ActivatedRouteSnapshot): boolean {
-    const publicRoutes = ['home-page', 'user-page'];
+    const publicRoutes = ['user-page/:id'];
     return publicRoutes.includes(route.routeConfig?.path || '');
   }
 }

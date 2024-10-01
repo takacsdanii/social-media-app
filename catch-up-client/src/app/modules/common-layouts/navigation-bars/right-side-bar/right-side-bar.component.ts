@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { UserModel } from '../../../../core/models/user.model';
 import { UserHttpService } from '../../../../core/services/http/user/user-http.service';
 import { AuthService } from '../../../../core/services/logic/auth/auth.service';
+import { FriendsHttpService } from '../../../../core/services/http/friends/friends-http.service';
+import { DisplayUserModel } from '../../../../core/models/display.user.model';
+import { map, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-right-side-bar',
@@ -12,17 +15,98 @@ export class RightSideBarComponent implements OnInit {
   public users: UserModel[] = [];
   public loggedInUserId: string;
 
+  public followers: DisplayUserModel[] = [];
+  public following: DisplayUserModel[] = [];
+  public friends: DisplayUserModel[] = [];
+
+  public displayedOneWayFollowers: DisplayUserModel[] = [];
+
   constructor(private userHttpService: UserHttpService,
-              private authService: AuthService) { }
+              private authService: AuthService,
+              private friendsHttpService: FriendsHttpService) { }
 
   public ngOnInit(): void {
     this.loggedInUserId = this.authService.getUserId()!!;
+    // this.getFollowers();
+    // this.getFollowing();
+    this.getFollowersAndFollowing();
+    this.getFriends();
     this.refreshUsers();
   }
 
   private refreshUsers(): void {
+    this.getUsers();
+  }
+
+  // TODO: valszeg törölhető, ha megvan minden
+  private getUsers(): void {
     this.userHttpService.listUsers().subscribe(users => {
       this.users = users.filter(user => user.id != this.loggedInUserId);
+    });
+  }
+
+  // TODO: test this
+  private getFollowersAndFollowing(): void {
+    const dismissedUsers = this.getDismissedUsersFromLocalStorage();
+    this.friendsHttpService.getFollowers(this.loggedInUserId).pipe(
+      switchMap(followers => {
+        this.followers = followers;
+        return this.friendsHttpService.getFollowing(this.loggedInUserId);
+      }),
+      map(following => {
+        this.following = following;
+        this.getOneWayFollowers(dismissedUsers);
+      })
+    ).subscribe();
+  }
+
+  // private getFollowers(): void {
+  //   this.friendsHttpService.getFollowers(this.loggedInUserId).subscribe(followers => {
+  //     this.followers = followers;
+  //     this.getOneWayFollowers();
+  //   });
+  // }
+
+  // private getFollowing(): void {
+  //   this.friendsHttpService.getFollowing(this.loggedInUserId).subscribe(following => {
+  //     this.following = following;
+  //   });
+  // }
+
+  private getFriends(): void {
+    this.friendsHttpService.getFriends(this.loggedInUserId).subscribe(friends => {
+      this.friends = friends;
+    });
+  }
+
+  private getOneWayFollowers(dismissedUsers: string[]): void {
+    this.displayedOneWayFollowers = this.followers.filter(follower =>
+      !this.following.some(followed => followed.id === follower.id) &&
+      !dismissedUsers.includes(follower.id)
+    );
+  }
+
+  public onDismissPressed(userId: string): void {
+    this.displayedOneWayFollowers = this.displayedOneWayFollowers.filter(
+      follower => follower.id !== userId
+    );
+    this.saveDismissedUsersToLocalStorage(userId);
+  }
+
+  private saveDismissedUsersToLocalStorage(userId: string): void{
+    var dismissedUsers = JSON.parse(localStorage.getItem('dismissedUsers') || '[]');
+    dismissedUsers.push(userId);
+    localStorage.setItem('dismissedUsers', JSON.stringify(dismissedUsers));
+  }
+
+  private getDismissedUsersFromLocalStorage(): string[] {
+    return JSON.parse(localStorage.getItem('dismissedUsers') || '[]');
+  }
+
+  public onFollowPressed(targetUserId: string): void {
+    this.friendsHttpService.followUser(this.loggedInUserId, targetUserId).subscribe(_ => {
+      this.onDismissPressed(targetUserId);
+      this.getFriends();
     });
   }
 }

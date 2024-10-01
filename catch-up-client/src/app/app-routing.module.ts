@@ -20,9 +20,8 @@ const routes: Routes = [
   { path: "forgot-password", component: ForgotPasswordComponent, canActivate: [AuthGuard] },
   { path: "users/:id/change-password", component: ChangePasswordComponent, canActivate: [AuthGuard]},
   { path: "reset-password/:email/:reset-token", component: ResetPasswordComponent, canActivate: [AuthGuard]},
-  // TODO: mindkettőhöz kell majd egy /:id, hogy jó legyen
-  { path: "home-page", component: HomePageComponent, canActivate: [AuthGuard]},
-  { path: "user-page", component: UserPageComponent, canActivate: [AuthGuard]}
+  { path: "home-page/:id", component: HomePageComponent, canActivate: [AuthGuard]},
+  { path: "user-page/:id", component: UserPageComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

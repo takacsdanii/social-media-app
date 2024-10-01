@@ -1,4 +1,4 @@
-import { GenderModel } from "./gender.model";
+import { GenderModel } from "./enums/gender.model";
 
 export class UserModel {
     public id: string;
@@ -9,6 +9,11 @@ export class UserModel {
     public birthDate: Date;
     public gender: GenderModel;
     
+    public bio: string | null;
+    public profilePicUrl: string | null;
+    public coverPicUrl: string | null;
+    public registeredAt: Date;
+
     // TODO: extend model with these
     // ? MAYBE
     /* public workPlace: string;

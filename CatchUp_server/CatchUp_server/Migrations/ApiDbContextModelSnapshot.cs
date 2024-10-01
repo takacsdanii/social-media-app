@@ -22,6 +22,31 @@ namespace CatchUp_server.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("CatchUp_server.Models.UserModels.FriendShip", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("FollowedUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("FollowerUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FollowedUserId");
+
+                    b.HasIndex("FollowerUserId");
+
+                    b.ToTable("FriendShips");
+                });
+
             modelBuilder.Entity("CatchUp_server.Models.UserModels.User", b =>
                 {
                     b.Property<string>("Id")
@@ -30,11 +55,17 @@ namespace CatchUp_server.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<string>("Bio")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CoverPicUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -77,6 +108,12 @@ namespace CatchUp_server.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<string>("ProfilePicUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RegisteredAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
@@ -130,13 +167,13 @@ namespace CatchUp_server.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c1acb7c9-ecd1-4092-9149-bbe574267f79",
+                            Id = "e775e9f0-062e-4d98-9b23-7589a1b84f32",
                             Name = "admin",
                             NormalizedName = "admin"
                         },
                         new
                         {
-                            Id = "d818c36d-afdd-4073-bf43-8ac0253d66de",
+                            Id = "d950beb5-6ee1-458e-a251-08f127ddd954",
                             Name = "user",
                             NormalizedName = "user"
                         });
@@ -246,6 +283,25 @@ namespace CatchUp_server.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("CatchUp_server.Models.UserModels.FriendShip", b =>
+                {
+                    b.HasOne("CatchUp_server.Models.UserModels.User", "FollowedUser")
+                        .WithMany()
+                        .HasForeignKey("FollowedUserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("CatchUp_server.Models.UserModels.User", "FollowerUser")
+                        .WithMany()
+                        .HasForeignKey("FollowerUserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("FollowedUser");
+
+                    b.Navigation("FollowerUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

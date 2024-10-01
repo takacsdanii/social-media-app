@@ -1,9 +1,9 @@
 <div class="navbar">
 
     <div class="left">
-        <img routerLink="/home-page" src="/assets/images/logos/logo3.png" alt="logo">
-        <span routerLink="/home-page">CatchUP</span>
-        <mat-icon routerLink="/home-page" matTooltip="Home">home</mat-icon>
+        <img [routerLink]="['/home-page', userId]" src="/assets/images/logos/logo3.png" alt="logo">
+        <span [routerLink]="['/home-page', userId]">CatchUP</span>
+        <mat-icon [routerLink]="['/home-page', userId]" matTooltip="Home">home</mat-icon>
         <mat-icon matTooltip="Apps">apps</mat-icon>
     </div>
 
@@ -18,7 +18,7 @@
         <mat-icon matTooltip="Messages">chat</mat-icon>
         <mat-icon matTooltip="Notifications">notifications</mat-icon>
 
-        <div routerLink="/user-page" class="user">
+        <div [routerLink]="['/user-page', userId]" class="user">
             <img matTooltip="Personal information" src="assets/images/icons/icons8-male-user-50.png" alt="profile picture">
             <span>{{ userName }}</span>
         </div>

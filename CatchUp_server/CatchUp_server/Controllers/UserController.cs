@@ -19,7 +19,7 @@ namespace CatchUp_server.Controllers
             _userService = userService;
         }
 
-        [HttpGet, Authorize]
+        [HttpGet]
         public IEnumerable<UserViewModel> List()
         {
             return _userService.List();

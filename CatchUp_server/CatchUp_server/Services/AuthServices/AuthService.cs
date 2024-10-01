@@ -66,6 +66,7 @@ namespace CatchUp_server.Services.AuthServices
                 UserName = registerViewModel.UserName,
                 BirthDate = registerViewModel.BirthDate,
                 Gender = registerViewModel.Gender,
+                RegisteredAt = DateTime.Now
             };
 
             var result = await _userManager.CreateAsync(user, registerViewModel.Password);

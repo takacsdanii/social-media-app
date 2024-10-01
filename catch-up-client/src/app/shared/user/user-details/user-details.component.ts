@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { UserModel } from '../../../core/models/user.model';
 import { UserHttpService } from '../../../core/services/http/user/user-http.service';
 import { NotificationService } from '../../../core/services/logic/notifications/notification.service';
-import { GenderModel } from '../../../core/models/gender.model';
+import { GenderModel } from '../../../core/models/enums/gender.model';
 import { AuthService } from '../../../core/services/logic/auth/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteDialogComponent } from '../../dialogs/delete-dialog/delete-dialog.component';

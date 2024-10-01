@@ -11,6 +11,7 @@ using System.Text;
 using CatchUp_server.Models.UserModels;
 using CatchUp_server.Services.AuthServices;
 using CatchUp_server.Services.UserServices;
+using CatchUp_server.Services.FriendsService;
 
 namespace CatchUp_server
 {
@@ -26,6 +27,7 @@ namespace CatchUp_server
             builder.Services.AddScoped<AuthService>();
             builder.Services.AddScoped<UserService>();
             builder.Services.AddScoped<EmailService>();
+            builder.Services.AddScoped<FriendsService>();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
 
