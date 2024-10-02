@@ -37,7 +37,7 @@
         <div class="item">
             <span>Friends online</span>
             <div *ngFor="let friend of friends" class="user">
-                <div class="userinfo">
+                <div [routerLink]="['/user-page', friend.id]" class="userinfo">
                     <img src="assets/images/icons/icons8-male-user-50.png" alt="profile picture">
                     <div class="online"></div>
                     <span>{{ friend.userName }}</span>

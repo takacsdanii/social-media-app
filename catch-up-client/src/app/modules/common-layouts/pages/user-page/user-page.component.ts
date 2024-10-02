@@ -38,4 +38,23 @@ export class UserPageComponent implements OnInit {
   public getGenderName(gender: number): string {
     return GenderModel[gender];
   }
+
+  public setProfilePic(): string {
+    var basePath: string = "assets/images/standard";
+    if(this.user.profilePicUrl != null)
+      return this.user.profilePicUrl;
+
+    switch(this.user.gender) {
+      case(0): return `${basePath}/Lois_Griffin.png`;
+      case(1): return `${basePath}/Peter_Griffin.png`;
+      case(2): return `${basePath}/Brian_Griffin.png`;
+    }
+    return "";
+  }
+
+  public setCoverPic(): string {
+    if(this.user.coverPicUrl != null)
+      return this.user.coverPicUrl;
+    return "assets/images/standard/cover.jpg";
+  }
 }

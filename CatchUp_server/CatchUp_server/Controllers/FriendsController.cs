@@ -1,4 +1,4 @@
-﻿using CatchUp_server.Services.FriendsService;
+﻿using CatchUp_server.Services.FriendsServices;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

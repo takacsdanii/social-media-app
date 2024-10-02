@@ -1,12 +1,20 @@
 {
   "Version": 1,
-  "Hash": "mAlimhtZRvc+DjwQgVlnhNENoaHfl4pzxC76SnldqNQ=",
+  "Hash": "+lwXqNmj4bZNEnWVcMpYK6saEj4vq+9ECsGooB0ld3w=",
   "Source": "CatchUp_server",
   "BasePath": "_content/CatchUp_server",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "CatchUp_server\\wwwroot",
+      "Source": "CatchUp_server",
+      "ContentRoot": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\",
+      "BasePath": "_content/CatchUp_server",
+      "Pattern": "**"
+    }
+  ],
   "Assets": [
     {
       "Identity": "C:\\Users\\latix\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.8\\staticwebassets\\V5\\css\\site.css",

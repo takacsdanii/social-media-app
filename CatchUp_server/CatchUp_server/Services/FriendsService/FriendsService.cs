@@ -3,7 +3,7 @@ using CatchUp_server.Models.UserModels;
 using CatchUp_server.ViewModels.UserViewModel;
 using CatchUp_server.ViewModels.UserViewModels;
 
-namespace CatchUp_server.Services.FriendsService
+namespace CatchUp_server.Services.FriendsServices
 {
     public class FriendsService
     {

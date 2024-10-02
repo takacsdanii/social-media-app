@@ -46,6 +46,11 @@ namespace CatchUp_server.Services.UserServices
             var user = _context.Users.SingleOrDefault(u => u.Id == userId);
             if (user != null)
             {
+                var usersFriendShips = _context.FriendShips
+                    .Where(f => f.FollowerUserId == userId || f.FollowedUserId == userId)
+                    .ToList();
+
+                _context.FriendShips.RemoveRange(usersFriendShips);
                 _context.Users.Remove(user);
                 _context.SaveChanges();
             }
