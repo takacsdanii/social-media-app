@@ -1,4 +1,5 @@
 ﻿using CatchUp_server.Services.FriendsServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,28 +16,28 @@ namespace CatchUp_server.Controllers
             _friendsService = friendsService;
         }
 
-        [HttpGet("followers")]
+        [HttpGet("followers"), Authorize]
         public IActionResult GetFollowers(string userId)
         {
             var follower = _friendsService.GetFollowers(userId);
             return (follower != null) ? Ok(follower) : NotFound();
         }
 
-        [HttpGet("following")]
+        [HttpGet("following"), Authorize]
         public IActionResult GetFollowing(string userId)
         {
             var follower = _friendsService.GetFollowing(userId);
             return (follower != null) ? Ok(follower) : NotFound();
         }
 
-        [HttpGet("friends")]
+        [HttpGet("friends"), Authorize]
         public IActionResult GetFriends(string userId)
         {
             var follower = _friendsService.GetFriends(userId);
             return (follower != null) ? Ok(follower) : NotFound();
         }
 
-        [HttpPost]
+        [HttpPost, Authorize]
         public IActionResult FollowUser(string userId, string targetUserId)
         {
             var result = _friendsService.FollowUser(userId, targetUserId);
@@ -45,7 +46,7 @@ namespace CatchUp_server.Controllers
             return NotFound();
         }
 
-        [HttpDelete]
+        [HttpDelete, Authorize]
         public IActionResult UnFollowUser(string userId, string targetUserId)
         {
             var result = _friendsService.UnFollowUser(userId, targetUserId);

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { UserModel } from '../../../models/user.model';
 import jwtDecode from 'jwt-decode';
 import { GenderModel } from '../../../models/enums/gender.model';
+import { SearchUserModel } from '../../../models/search-user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -71,5 +72,14 @@ export class UserHttpService {
     });
 
     return this.http.put<void>(link, null, { headers });
+  }
+
+  public searchUsers(searchString: string): Observable<SearchUserModel> {
+    const link = `${this.url}/search-users?searchString=${searchString}`;
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.getToken()}`
+    });
+
+    return this.http.get<SearchUserModel>(link);
   }
 }

@@ -1,6 +1,7 @@
 ﻿using CatchUp_server.Models.UserModels;
 using CatchUp_server.Services.UserServices;
 using CatchUp_server.ViewModels.UserViewModel;
+using CatchUp_server.ViewModels.UserViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -19,7 +20,7 @@ namespace CatchUp_server.Controllers
             _userService = userService;
         }
 
-        [HttpGet]
+        [HttpGet, Authorize]
         public IEnumerable<UserViewModel> List()
         {
             return _userService.List();
@@ -70,6 +71,13 @@ namespace CatchUp_server.Controllers
         {
             var _gender = _userService.UpdateGender(userId, gender);
             return (_gender != null) ? Ok(_gender) : NotFound();
+        }
+
+        [HttpGet("search-users")]
+        public IEnumerable<SearchUserViewModel> SearchUsers(string searchText)
+        {
+            var users = _userService.SearchUsers(searchText);
+            return users;
         }
     }
 }

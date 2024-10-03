@@ -120,5 +120,23 @@ namespace CatchUp_server.Services.UserServices
             }
             return null;
         }
+
+        public IReadOnlyCollection<SearchUserViewModel> SearchUsers(string searchText)
+        {
+            var users = _context.Users
+                .Where(u => u.UserName.Contains(searchText) ||
+                            u.FirstName.Contains(searchText) ||
+                            u.LastName.Contains(searchText))
+                .Select(u => new SearchUserViewModel
+                {
+                    Id = u.Id,
+                    UserName = u.UserName,
+                    FirstName = u.FirstName,
+                    LastName = u.LastName
+                })
+                .ToList();
+
+            return users;
+        }
     }
 }
