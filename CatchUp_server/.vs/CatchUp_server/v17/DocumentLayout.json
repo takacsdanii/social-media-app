@@ -148,7 +148,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -160,19 +160,6 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "FriendsService.cs",
-              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\FriendsService\\FriendsService.cs",
-              "RelativeDocumentMoniker": "CatchUp_server\\Services\\FriendsService\\FriendsService.cs",
-              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\FriendsService\\FriendsService.cs",
-              "RelativeToolTip": "CatchUp_server\\Services\\FriendsService\\FriendsService.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAAwA0AAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-01T14:21:03.758Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Program.cs",
@@ -181,8 +168,7 @@
               "RelativeToolTip": "CatchUp_server\\Program.cs",
               "ViewState": "AQIAABUAAAAAAAAAAAAQwB8AAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-18T19:03:05.71Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-18T19:03:05.71Z"
             },
             {
               "$type": "Document",
@@ -194,8 +180,7 @@
               "RelativeToolTip": "CatchUp_server\\Models\\UserModels\\FriendShip.cs",
               "ViewState": "AQIAAAEAAAAAAAAAAAAAAAUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-01T12:10:59.102Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-01T12:10:59.102Z"
             },
             {
               "$type": "Document",
@@ -207,8 +192,7 @@
               "RelativeToolTip": "CatchUp_server\\Db\\ApiDbContext.cs",
               "ViewState": "AQIAABcAAAAAAAAAAAAgwAMAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-18T18:50:50.015Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-18T18:50:50.015Z"
             },
             {
               "$type": "Document",
@@ -220,8 +204,7 @@
               "RelativeToolTip": "CatchUp_server\\Services\\AuthServices\\AuthService.cs",
               "ViewState": "AQIAACcAAAAAAAAAAAAYwEUAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-18T20:04:50.335Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-18T20:04:50.335Z"
             },
             {
               "$type": "Document",
@@ -233,8 +216,7 @@
               "RelativeToolTip": "CatchUp_server\\Models\\UserModels\\User.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAA5wA4AAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-18T18:58:26.424Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-18T18:58:26.424Z"
             },
             {
               "$type": "Document",
@@ -251,6 +233,18 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FriendsService.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\FriendsService\\FriendsService.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\Services\\FriendsService\\FriendsService.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\FriendsService\\FriendsService.cs",
+              "RelativeToolTip": "CatchUp_server\\Services\\FriendsService\\FriendsService.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAwA0AAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T14:21:03.758Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\UserServices\\UserService.cs",
@@ -259,8 +253,7 @@
               "RelativeToolTip": "CatchUp_server\\Services\\UserServices\\UserService.cs",
               "ViewState": "AQIAACwAAAAAAAAAAAAUwDEAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T01:19:51.075Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-19T01:19:51.075Z"
             },
             {
               "$type": "Document",
@@ -296,8 +289,7 @@
               "RelativeToolTip": "CatchUp_server\\appsettings.json",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAABAAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-09-19T10:35:45.023Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-19T10:35:45.023Z"
             },
             {
               "$type": "Document",
@@ -321,8 +313,7 @@
               "RelativeToolTip": "CatchUp_server\\Controllers\\FriendsController.cs",
               "ViewState": "AQIAACcAAAAAAAAAAAA1wDQAAABMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-01T14:19:42.907Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-01T14:19:42.907Z"
             },
             {
               "$type": "Document",

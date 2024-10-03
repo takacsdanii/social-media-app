@@ -45,9 +45,9 @@ export class UserPageComponent implements OnInit {
       return this.user.profilePicUrl;
 
     switch(this.user.gender) {
-      case(0): return `${basePath}/Lois_Griffin.png`;
-      case(1): return `${basePath}/Peter_Griffin.png`;
-      case(2): return `${basePath}/Brian_Griffin.png`;
+      case(0): return `${basePath}/woman.png`;
+      case(1): return `${basePath}/man.jpg`;
+      case(2): return `${basePath}/dog.png`;
     }
     return "";
   }
@@ -55,6 +55,6 @@ export class UserPageComponent implements OnInit {
   public setCoverPic(): string {
     if(this.user.coverPicUrl != null)
       return this.user.coverPicUrl;
-    return "assets/images/standard/cover.jpg";
+    return "assets/images/logos/logo3.png";
   }
 }
