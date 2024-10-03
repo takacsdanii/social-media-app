@@ -80,6 +80,6 @@ export class UserHttpService {
       Authorization: `Bearer ${this.getToken()}`
     });
 
-    return this.http.get<SearchUserModel>(link);
+    return this.http.get<SearchUserModel>(link, { headers });
   }
 }
