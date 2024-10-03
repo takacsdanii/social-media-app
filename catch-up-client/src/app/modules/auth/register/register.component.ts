@@ -54,9 +54,9 @@ export class RegisterComponent implements OnInit {
     ).subscribe(
       (next) => {
         localStorage.setItem('token', next.token);
-  
+
         const userId = this.authService.getUserId();
-        this.router.navigate([`/users/${userId}`]);
+        this.router.navigate([`/home-page/${userId}`]);
       },
       (err) => {
         this.errorMessages = [];
