@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DeleteDialogComponent } from '../../dialogs/delete-dialog/delete-dialog.component';
 import { NavigationHeaderComponent } from '../../../modules/common-layouts/navigation-bars/navigation-header/navigation-header.component';
 import { LeftSideBarComponent } from '../../../modules/common-layouts/navigation-bars/left-side-bar/left-side-bar.component';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-user-details',

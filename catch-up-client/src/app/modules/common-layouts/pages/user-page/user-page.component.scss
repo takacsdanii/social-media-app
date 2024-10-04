@@ -125,7 +125,14 @@
                     color: white;
                     cursor: pointer;
                     border-radius: 5px;
+                }
+
+                .follow-btn {
                     background-color: #0056b3;
+                }
+
+                .unfollow-btn {
+                    background-color: rgb(176, 36, 36);
                 }
             }
 

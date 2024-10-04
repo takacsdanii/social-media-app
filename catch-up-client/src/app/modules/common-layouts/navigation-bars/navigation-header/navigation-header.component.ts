@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../../core/services/logic/auth/auth.service';
 import { NotificationService } from '../../../../core/services/logic/notifications/notification.service';
 import { UserHttpService } from '../../../../core/services/http/user/user-http.service';
+import { SearchUserModel } from '../../../../core/models/search-user.model';
+import { UserModel } from '../../../../core/models/user.model';
 
 @Component({
   selector: 'app-navigation-header',
@@ -10,13 +12,17 @@ import { UserHttpService } from '../../../../core/services/http/user/user-http.s
 })
 export class NavigationHeaderComponent implements OnInit {
   public isLoggedIn: boolean = false;
+  public user: UserModel;
   public isAdmin: boolean = false;
   public userId: string;
-  public userName: string;
 
   public isDarkModeOn: boolean;
 
-  constructor(private authService: AuthService, private userHttpService: UserHttpService,
+  public searchString: string;
+  public filteredUsers: SearchUserModel[] = [];
+
+  constructor(private authService: AuthService,
+              private userHttpService: UserHttpService,
               private notificationService: NotificationService) { }
 
   public ngOnInit(): void {
@@ -25,7 +31,7 @@ export class NavigationHeaderComponent implements OnInit {
     this.userId = this.authService.getUserId()!!;
 
     this.userHttpService.getUser(this.userId).subscribe(user => {
-      this.userName = user.userName;
+      this.user = user;
     });
 
     const storedValue = localStorage.getItem('isDarkModeOn');
@@ -42,4 +48,13 @@ export class NavigationHeaderComponent implements OnInit {
     this.isDarkModeOn = !this.isDarkModeOn;
     localStorage.setItem('isDarkModeOn', JSON.stringify(this.isDarkModeOn));
   }
+
+  public onSearchChange(): void {
+    if(this.searchString != "") {
+      this.userHttpService.searchUsers(this.searchString).subscribe(users => {
+        this.filteredUsers = users;
+      });
+    }
+  }
+
 }

@@ -1,126 +1,125 @@
 <app-navigation-header></app-navigation-header>
 
-<div class="user-details-container" style="display: flex;">
-    <app-left-side-bar style="flex: 2;"></app-left-side-bar>
+<div class="user-details-container">
+    <div class="user-details-content">
 
-    <div class="user-details-content" style="flex: 6;">
-        <table>
+        <table class="user-details-table">
             <tbody>
                 <tr *ngIf="isAdmin">
                     <td>User Id</td>
                     <td>{{ user.id }}</td>
+                    <td></td>
                 </tr>
-
                 <tr>
-                    <td>First name</td>
-                    <td *ngIf="editingField !== 'firstName'">{{ user.firstName }}</td>
-                    <ng-container *ngIf="isCurrentUser()">
-                        <td *ngIf="editingField === 'firstName'">
-                            <input [(ngModel)]="user.firstName">
-                        </td>
-                        <td>
-                            <mat-icon *ngIf="editingField == null" (click)="startEditing('firstName')">edit</mat-icon>
-                            <mat-icon *ngIf="editingField === 'firstName'" (click)="saveEdit()">check</mat-icon>
-                            <mat-icon *ngIf="editingField === 'firstName'" (click)="discardEditing()">close</mat-icon>
-                        </td>
-                    </ng-container>
+                    <td>First Name</td>
+                    <td>
+                        <ng-container *ngIf="editingField !== 'firstName'; else editFirstName">
+                            {{ user.firstName }}
+                        </ng-container>
+                        <ng-template #editFirstName>
+                            <input [(ngModel)]="user.firstName" class="edit-input" />
+                        </ng-template>
+                    </td>
+                    <td>
+                        <mat-icon *ngIf="editingField == null" (click)="startEditing('firstName')">edit</mat-icon>
+                        <mat-icon *ngIf="editingField === 'firstName'" (click)="saveEdit()" class="action-button check" matTooltip="Save">check</mat-icon>
+                        <mat-icon *ngIf="editingField === 'firstName'" (click)="discardEditing()" class="action-button close" matTooltip="Cancel">close</mat-icon>
+                    </td>
                 </tr>
-
                 <tr>
-                    <td>Last name</td>
-                    <td *ngIf="editingField !== 'lastName'">{{ user.lastName }}</td>
-                    <ng-container *ngIf="isCurrentUser()">
-                        <td *ngIf="editingField === 'lastName'">
-                            <input [(ngModel)]="user.lastName">
-                        </td>
-                        <td>
-                            <mat-icon *ngIf="editingField == null" (click)="startEditing('lastName')">edit</mat-icon>
-                            <mat-icon *ngIf="editingField === 'lastName'" (click)="saveEdit()">check</mat-icon>
-                            <mat-icon *ngIf="editingField === 'lastName'" (click)="discardEditing()">close</mat-icon>
-                        </td>
-                    </ng-container>
+                    <td>Last Name</td>
+                    <td>
+                        <ng-container *ngIf="editingField !== 'lastName'; else editLastName">
+                            {{ user.lastName }}
+                        </ng-container>
+                        <ng-template #editLastName>
+                            <input [(ngModel)]="user.lastName" class="edit-input" />
+                        </ng-template>
+                    </td>
+                    <td>
+                        <mat-icon *ngIf="editingField == null" (click)="startEditing('lastName')">edit</mat-icon>
+                        <mat-icon *ngIf="editingField === 'lastName'" (click)="saveEdit()" class="action-button check" matTooltip="Save">check</mat-icon>
+                        <mat-icon *ngIf="editingField === 'lastName'" (click)="discardEditing()" class="action-button close" matTooltip="Cancel">close</mat-icon>
+                    </td>
                 </tr>
-
                 <tr>
-                    <td>User name</td>
-                    <td *ngIf="editingField !== 'userName'">{{ user.userName }}</td>
-                    <ng-container *ngIf="isCurrentUser()">
-                        <td *ngIf="editingField === 'userName'">
-                            <input [(ngModel)]="user.userName">
-                        </td>
-                        <td>
-                            <mat-icon *ngIf="editingField == null" (click)="startEditing('userName')">edit</mat-icon>
-                            <mat-icon *ngIf="editingField === 'userName'" (click)="saveEdit()">check</mat-icon>
-                            <mat-icon *ngIf="editingField === 'userName'" (click)="discardEditing()">close</mat-icon>
-                        </td>
-                    </ng-container>
+                    <td>User Name</td>
+                    <td>
+                        <ng-container *ngIf="editingField !== 'userName'; else editUserName">
+                            {{ user.userName }}
+                        </ng-container>
+                        <ng-template #editUserName>
+                            <input [(ngModel)]="user.userName" class="edit-input" />
+                        </ng-template>
+                    </td>
+                    <td>
+                        <mat-icon *ngIf="editingField == null" (click)="startEditing('userName')">edit</mat-icon>
+                        <mat-icon *ngIf="editingField === 'userName'" (click)="saveEdit()" class="action-button check" matTooltip="Save">check</mat-icon>
+                        <mat-icon *ngIf="editingField === 'userName'" (click)="discardEditing()" class="action-button close" matTooltip="Cancel">close</mat-icon>
+                    </td>
                 </tr>
-
                 <tr>
                     <td>Email</td>
-                    <td *ngIf="editingField !== 'email'">{{ user.email }}</td>
-                    <ng-container *ngIf="isCurrentUser()">
-                        <td *ngIf="editingField === 'email'">
-                            <input type="email" [(ngModel)]="user.email">
-                        </td>
-                        <td>
-                            <mat-icon *ngIf="editingField == null" (click)="startEditing('email')">edit</mat-icon>
-                            <mat-icon *ngIf="editingField === 'email'" (click)="saveEdit()">check</mat-icon>
-                            <mat-icon *ngIf="editingField === 'email'" (click)="discardEditing()">close</mat-icon>
-                        </td>
-                    </ng-container>
+                    <td>
+                        <ng-container *ngIf="editingField !== 'email'; else editEmail">
+                            {{ user.email }}
+                        </ng-container>
+                        <ng-template #editEmail>
+                            <input type="email" [(ngModel)]="user.email" class="edit-input" />
+                        </ng-template>
+                    </td>
+                    <td>
+                        <mat-icon *ngIf="editingField == null" (click)="startEditing('email')">edit</mat-icon>
+                        <mat-icon *ngIf="editingField === 'email'" (click)="saveEdit()" class="action-button check" matTooltip="Save">check</mat-icon>
+                        <mat-icon *ngIf="editingField === 'email'" (click)="discardEditing()" class="action-button close" matTooltip="Cancel">close</mat-icon>
+                    </td>
                 </tr>
-
                 <tr>
-                    <td>Birth date</td>
-                    <td *ngIf="editingField !== 'birthDate'">{{ user.birthDate | date: 'yyyy. MMMM d.' }}</td>
-                    <ng-container *ngIf="isCurrentUser()">
-                        <td *ngIf="editingField === 'birthDate'">
-                            <input type="date" id="editBirthDay" [value]="user.birthDate | date: 'yyyy-MM-dd'">
-                        </td>
-                        <td>
-                            <mat-icon *ngIf="editingField == null" (click)="startEditing('birthDate')">edit</mat-icon>
-                            <mat-icon *ngIf="editingField === 'birthDate'" (click)="saveEdit()">check</mat-icon>
-                            <mat-icon *ngIf="editingField === 'birthDate'" (click)="discardEditing()">close</mat-icon>
-                        </td>
-                    </ng-container>
+                    <td>Birth Date</td>
+                    <td>
+                        <ng-container *ngIf="editingField !== 'birthDate'; else editBirthDate">
+                            {{ user.birthDate | date: 'yyyy. MMMM d.' }}
+                        </ng-container>
+                        <ng-template #editBirthDate>
+                            <input type="date" id="editBirthDay" [value]="user.birthDate | date: 'yyyy-MM-dd'" class="edit-input">
+                        </ng-template>
+                    </td>
+                    <td>
+                        <mat-icon *ngIf="editingField == null" (click)="startEditing('birthDate')">edit</mat-icon>
+                        <mat-icon *ngIf="editingField === 'birthDate'" (click)="saveEdit()" class="action-button check" matTooltip="Save">check</mat-icon>
+                        <mat-icon *ngIf="editingField === 'birthDate'" (click)="discardEditing()" class="action-button close" matTooltip="Cancel">close</mat-icon>
+                    </td>
                 </tr>
-
                 <tr>
                     <td>Gender</td>
-                    <td *ngIf="editingField !== 'gender'">{{ getGenderName(user.gender) }}</td>
-                    <ng-container *ngIf="isCurrentUser()">
-                        <td *ngIf="editingField === 'gender'">
-                            <select [(ngModel)]="user.gender">
+                    <td>
+                        <ng-container *ngIf="editingField !== 'gender'; else editGender">
+                            {{ getGenderName(user.gender) }}
+                        </ng-container>
+                        <ng-template #editGender>
+                            <select [(ngModel)]="user.gender" class="edit-input">
                                 <option [value]="0">Female</option>
                                 <option [value]="1">Male</option>
                                 <option [value]="2">Other</option>
                             </select>
-                        </td>
-                        <td>
-                            <mat-icon *ngIf="editingField == null" (click)="startEditing('gender')">edit</mat-icon>
-                            <mat-icon *ngIf="editingField === 'gender'" (click)="saveGenderEdit()">check</mat-icon>
-                            <mat-icon *ngIf="editingField === 'gender'" (click)="discardEditing()">close</mat-icon>
-                        </td>
-                    </ng-container>
-                </tr>
-
-                <tr>
+                        </ng-template>
+                    </td>
                     <td>
-                        <mat-icon (click)="openDeleteDialog(user.id, user.userName)"
-                            class="action-button delete" matTooltip="Delete account">
-                            delete
-                        </mat-icon>
-                        <mat-icon *ngIf="isCurrentUser()" [routerLink]="['change-password']"
-                            class="action-button" matTooltip="Changes password">
-                            settings
-                        </mat-icon>
+                        <mat-icon *ngIf="editingField == null" (click)="startEditing('gender')">edit</mat-icon>
+                        <mat-icon *ngIf="editingField === 'gender'" (click)="saveGenderEdit()" class="action-button check" matTooltip="Save">check</mat-icon>
+                        <mat-icon *ngIf="editingField === 'gender'" (click)="discardEditing()" class="action-button close" matTooltip="Cancel">close</mat-icon>
                     </td>
                 </tr>
-
+                <tr>
+                    <td>Actions</td>
+                    <td></td>
+                    <td class="actions-cell">
+                        <mat-icon *ngIf="isCurrentUser()" [routerLink]="['change-password']" class="action-button" matTooltip="Change password">settings</mat-icon>
+                        <mat-icon (click)="openDeleteDialog(user.id, user.userName)" class="action-button delete" matTooltip="Delete account">delete</mat-icon>
+                    </td>
+                </tr>
             </tbody>
         </table>
-    </div>
 
-    <app-right-side-bar class="sidebar" style="flex: 3;"></app-right-side-bar>
+    </div>
 </div>

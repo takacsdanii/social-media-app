@@ -15,6 +15,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { UserPageComponent } from './pages/user-page/user-page.component';
 import { PostComponent } from './user-content/post/post.component';
 import { CommentsComponent } from './user-content/comments/comments.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -38,6 +39,7 @@ import { CommentsComponent } from './user-content/comments/comments.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     RouterModule,
     MatIconModule,
     MatToolbarModule,

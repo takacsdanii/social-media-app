@@ -39,6 +39,14 @@ export class FriendsHttpService {
     return this.http.get<DisplayUserModel[]>(link, { headers });
   }
 
+  public doesUserFollowTargetUser(userId: string, targetUserId: string): Observable<{result: boolean}> {
+    const link = `${this.url}/following-given-user?userId=${userId}&targetUserId=${targetUserId}`;
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.getToken()}`
+    });
+    return this.http.get<{result: boolean}>(link, { headers });
+  }
+
   public followUser(userId: string, targetUserId: string): Observable<void> {
     const link = `${this.url}?userId=${userId}&targetUserId=${targetUserId}`;
     const headers = new HttpHeaders({

@@ -1,24 +1,7 @@
-.user-row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-  }
-  
-  .user-name {
-    flex: 1;
-  }
-  
-  .action-button {
-    margin-left: 10px;
-  }
-  
-  .action-btn {
+.action-btn {
+  color: #0056b3;
+  &:hover {
+    color: red;
     cursor: pointer;
   }
-
-  .mat-icon {
-
-    &:hover {
-      color: red;
-    }
-  }
+}

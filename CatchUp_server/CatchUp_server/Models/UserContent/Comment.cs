@@ -12,7 +12,7 @@ namespace CatchUp_server.Models.UserContent
         public ICollection<Like> Likes { get; set; }
         public ICollection<Comment> Replies { get; set; }
 
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public User User { get; set; }
 
         public int PostId { get; set; }

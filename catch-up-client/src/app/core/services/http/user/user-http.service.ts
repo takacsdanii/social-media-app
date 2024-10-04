@@ -74,12 +74,12 @@ export class UserHttpService {
     return this.http.put<void>(link, null, { headers });
   }
 
-  public searchUsers(searchString: string): Observable<SearchUserModel> {
+  public searchUsers(searchString: string): Observable<SearchUserModel[]> {
     const link = `${this.url}/search-users?searchString=${searchString}`;
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.getToken()}`
     });
 
-    return this.http.get<SearchUserModel>(link, { headers });
+    return this.http.get<SearchUserModel[]>(link, { headers });
   }
 }

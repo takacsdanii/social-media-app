@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { UserModel } from '../../../../core/models/user.model';
 import { UserHttpService } from '../../../../core/services/http/user/user-http.service';
 import { AuthService } from '../../../../core/services/logic/auth/auth.service';
@@ -21,14 +21,14 @@ export class RightSideBarComponent implements OnInit {
 
   public displayedOneWayFollowers: DisplayUserModel[] = [];
 
+  @Output() followPressed: EventEmitter<void> = new EventEmitter<void>();
+
   constructor(private userHttpService: UserHttpService,
               private authService: AuthService,
               private friendsHttpService: FriendsHttpService) { }
 
   public ngOnInit(): void {
     this.loggedInUserId = this.authService.getUserId()!!;
-    // this.getFollowers();
-    // this.getFollowing();
     this.getFollowersAndFollowing();
     this.getFriends();
     this.refreshUsers();
@@ -60,19 +60,6 @@ export class RightSideBarComponent implements OnInit {
     ).subscribe();
   }
 
-  // private getFollowers(): void {
-  //   this.friendsHttpService.getFollowers(this.loggedInUserId).subscribe(followers => {
-  //     this.followers = followers;
-  //     this.getOneWayFollowers();
-  //   });
-  // }
-
-  // private getFollowing(): void {
-  //   this.friendsHttpService.getFollowing(this.loggedInUserId).subscribe(following => {
-  //     this.following = following;
-  //   });
-  // }
-
   private getFriends(): void {
     this.friendsHttpService.getFriends(this.loggedInUserId).subscribe(friends => {
       this.friends = friends;
@@ -86,10 +73,14 @@ export class RightSideBarComponent implements OnInit {
     );
   }
 
-  public onDismissPressed(userId: string): void {
+  private getDisplayedOneWayFollowers(userId: string): void {
     this.displayedOneWayFollowers = this.displayedOneWayFollowers.filter(
       follower => follower.id !== userId
     );
+  }
+
+  public onDismissPressed(userId: string): void {
+    this.getDisplayedOneWayFollowers(userId);
     this.saveDismissedUsersToLocalStorage(userId);
   }
 
@@ -105,7 +96,8 @@ export class RightSideBarComponent implements OnInit {
 
   public onFollowPressed(targetUserId: string): void {
     this.friendsHttpService.followUser(this.loggedInUserId, targetUserId).subscribe(_ => {
-      this.onDismissPressed(targetUserId);
+      this.followPressed.emit();
+      this.getDisplayedOneWayFollowers(targetUserId);
       this.getFriends();
     });
   }

@@ -37,6 +37,13 @@ namespace CatchUp_server.Controllers
             return (follower != null) ? Ok(follower) : NotFound();
         }
 
+        [HttpGet("following-given-user"), Authorize]
+        public IActionResult doesUserFollowTargetUser(string userId, string targetUserId)
+        {
+            var result = _friendsService.doesUserFollowTargetUser(userId, targetUserId);
+            return result != null ? Ok(new { result }) : NotFound();
+        }
+
         [HttpPost, Authorize]
         public IActionResult FollowUser(string userId, string targetUserId)
         {

@@ -3,8 +3,8 @@
 
         <div class="menu">
             <div [routerLink]="['/user-page', userId]" class="user-info">
-                <img src="assets/images/icons/icons8-male-user-50.png" alt="profile picture">
-                <span>{{ userName }}</span>
+                <img src="{{ user.profilePicUrl }}" alt="profile picture">
+                <span>{{ user.userName }}</span>
             </div>
         </div>
         <hr/>

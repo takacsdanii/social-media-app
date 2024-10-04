@@ -74,6 +74,25 @@ namespace CatchUp_server.Services.FriendsServices
             return friends;
         }
 
+        public bool? doesUserFollowTargetUser(string userId, string targetUserId)
+        {
+            var user = _context.Users.SingleOrDefault(u => u.Id == userId);
+            if (user == null)
+            {
+                return null;
+            }
+            var targetUser = _context.Users.SingleOrDefault(u => u.Id == targetUserId);
+            if (targetUser == null)
+            {
+                return null;
+            }
+
+            var result = _context.FriendShips
+                .SingleOrDefault(f => f.FollowerUserId == userId && f.FollowedUserId == targetUserId);
+
+            return (result != null) ? true : false;
+        }
+
         public bool? FollowUser(string userId, string targetUserId)
         {
             var user = _context.Users.SingleOrDefault(u => u.Id == userId);

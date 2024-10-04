@@ -1,35 +1,78 @@
-table {
-    mat-icon {
-      cursor: pointer;
-  
-      &:hover {
-        color: #0056b3; 
-      }
-    }
-  }
-  
-  .action-button {
-    margin-right: 10px; 
-  }
+.user-details-container {
+  padding: 20px;
+}
 
-  .delete {
-    color: rgb(176, 36, 36);
-  }
-  
-  .user-details-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+.user-details-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+}
 
-  app-left-side-bar, app-right-side-bar {
-    width: 200px;
-  }
+.user-details-table th,
+.user-details-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
 
-  .user-details-content {
-    flex: 6;
-    flex-grow: 1; 
-    max-width: 500px;
-    margin: auto;
-    padding: 20px;
+.user-details-table th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.user-details-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.edit-input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 10px;
+}
+
+mat-icon{
+  color: #007bff;
+  &:hover {
+    cursor: pointer;
   }
+}
+
+.action-button {
+  cursor: pointer;
+  font-size: 25px;
+  color: #007bff;
+}
+
+.action-button:hover {
+  color: #0056b3;
+}
+
+.delete {
+  color: rgb(176, 36, 36);
+  &:hover {
+    color: red;
+  }
+}
+
+.check {
+  color: green;
+  &:hover {
+    color: rgb(56, 201, 56);
+  }
+}
+
+.close {
+  color: rgb(176, 36, 36);
+  &:hover {
+    color: red;
+  }
+}
+
+

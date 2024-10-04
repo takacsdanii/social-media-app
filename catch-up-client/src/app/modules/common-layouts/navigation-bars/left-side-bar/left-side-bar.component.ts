@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../../core/services/logic/auth/auth.service';
 import { UserHttpService } from '../../../../core/services/http/user/user-http.service';
+import { UserModel } from '../../../../core/models/user.model';
 
 @Component({
   selector: 'app-left-side-bar',
@@ -8,7 +9,7 @@ import { UserHttpService } from '../../../../core/services/http/user/user-http.s
   styleUrl: './left-side-bar.component.scss'
 })
 export class LeftSideBarComponent implements OnInit {
-  public userName: string;
+  public user: UserModel;
   public userId: string;
 
   constructor(private authService: AuthService,
@@ -17,7 +18,7 @@ export class LeftSideBarComponent implements OnInit {
   public ngOnInit(): void {
       this.userId = this.authService.getUserId()!!;
       this.userHttpService.getUser(this.userId).subscribe(user => {
-        this.userName = user.userName;
+        this.user = user;
       });
   }
 }

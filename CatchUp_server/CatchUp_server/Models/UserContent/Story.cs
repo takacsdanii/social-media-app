@@ -15,7 +15,7 @@ namespace CatchUp_server.Models.UserContent
         public MediaContent MediaContent { get; set; }
 
 
-        public int UserID { get; set; }
+        public string UserId { get; set; }
         public User User { get; set; }
     }
 }

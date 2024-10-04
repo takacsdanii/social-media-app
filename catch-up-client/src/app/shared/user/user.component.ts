@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserModel } from '../../core/models/user.model';
 import { UserHttpService } from '../../core/services/http/user/user-http.service';
-import { NotificationService } from '../../core/services/logic/notifications/notification.service';
-import { AuthService } from '../../core/services/logic/auth/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteDialogComponent } from '../dialogs/delete-dialog/delete-dialog.component';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-user',
@@ -12,7 +12,10 @@ import { DeleteDialogComponent } from '../dialogs/delete-dialog/delete-dialog.co
   styleUrl: './user.component.scss'
 })
 export class UserComponent implements OnInit{
-  public users: UserModel[] = [];
+  public dataSource = new MatTableDataSource<UserModel>();
+  displayedColumns: string[] = ['userName', 'firstName', 'lastName', 'actions'];
+
+  @ViewChild(MatSort, { static: true }) sort!: MatSort;
 
   constructor(private userHttpService: UserHttpService,
               private deleteDialog: MatDialog) { }
@@ -22,16 +25,21 @@ export class UserComponent implements OnInit{
   }
 
   public getUsers(): void {
-    this.userHttpService.listUsers().subscribe(_users => {
-      this.users = _users;
+    this.userHttpService.listUsers().subscribe(users => {
+      this.dataSource.data = users;
+      this.dataSource.sort = this.sort;
     });
   }
 
   public openDeleteDialog(userId: string, userName: string): void {
-    this.deleteDialog.open(DeleteDialogComponent, {
+    const dialogref = this.deleteDialog.open(DeleteDialogComponent, {
       height: '300px',
       width: '400px',
       data: {userId, userName}
+    });
+
+    dialogref.afterClosed().subscribe(result => {
+      this.getUsers();
     });
   }
 }

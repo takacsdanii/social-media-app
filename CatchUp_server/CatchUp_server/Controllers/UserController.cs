@@ -73,11 +73,10 @@ namespace CatchUp_server.Controllers
             return (_gender != null) ? Ok(_gender) : NotFound();
         }
 
-        [HttpGet("search-users")]
-        public IEnumerable<SearchUserViewModel> SearchUsers(string searchText)
+        [HttpGet("search-users"), Authorize]
+        public IEnumerable<SearchUserViewModel> SearchUsers(string searchString)
         {
-            var users = _userService.SearchUsers(searchText);
-            return users;
+            return _userService.SearchUsers(searchString);
         }
     }
 }

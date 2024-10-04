@@ -51,7 +51,8 @@
                             <span>Hungary</span>
                         </div> -->
                     </div>
-                    <button *ngIf="!isMypage(userIdFromRoute!!)">Follow</button>
+                    <button *ngIf="!isMypage() && !following" (click)="onFollowPressed(user.id)" class="follow-btn">Follow</button>
+                    <button *ngIf="!isMypage() && following" (click)="onUnFollowPressed(user.id)" class="unfollow-btn">Unfollow</button>
                 </div>
 
                 <div class="right">
@@ -71,5 +72,5 @@
         <app-posts></app-posts>
     </div>
 
-    <app-right-side-bar class="sidebar" style="flex: 3;"></app-right-side-bar>
+    <app-right-side-bar (followPressed)="onFollowUpdated()" class="sidebar" style="flex: 3;"></app-right-side-bar>
 </div>

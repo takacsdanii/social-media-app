@@ -5,8 +5,8 @@
             <span>Following you</span>
             <div *ngFor="let user of displayedOneWayFollowers" class="user">
                 <div class="userinfo">
-                    <img src="assets/images/icons/icons8-male-user-50.png" alt="profile picture">
-                    <span>{{ user.userName }}</span>
+                    <img src="{{ user.profilePicUrl }}" alt="profile picture">
+                    <span [routerLink]="['/user-page', user.id]">{{ user.userName }}</span>
                 </div>
                 <div class="buttons">
                     <!-- ? esetleg jöhetne ide inkább ikon-->
@@ -38,7 +38,7 @@
             <span>Friends online</span>
             <div *ngFor="let friend of friends" class="user">
                 <div [routerLink]="['/user-page', friend.id]" class="userinfo">
-                    <img src="assets/images/icons/icons8-male-user-50.png" alt="profile picture">
+                    <img src="{{ friend.profilePicUrl }}" alt="profile picture">
                     <div class="online"></div>
                     <span>{{ friend.userName }}</span>
                 </div>

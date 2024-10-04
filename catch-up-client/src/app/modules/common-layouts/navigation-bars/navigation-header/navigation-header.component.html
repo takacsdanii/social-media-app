@@ -9,7 +9,15 @@
 
     <div class="center">
         <mat-icon>search</mat-icon>
-        <input type="text" id="search-box" placeholder="Search users here">
+        <input type="text" [(ngModel)]="searchString" (input)="onSearchChange()" id="search-box" placeholder="Search users here">
+    </div>
+
+    <!-- TODO: design this -->
+    <div *ngIf="searchString != ''" class="filtered-users">
+        <div *ngFor="let user of filteredUsers">
+            <span [routerLink]="['/user-page', user.id]">{{ user.userName }}</span>
+            <span>{{ user.firstName }} {{ user.lastName }}</span>
+        </div>
     </div>
 
     <div class="right">
@@ -19,8 +27,8 @@
         <mat-icon matTooltip="Notifications">notifications</mat-icon>
 
         <div [routerLink]="['/user-page', userId]" class="user">
-            <img matTooltip="Personal information" src="assets/images/icons/icons8-male-user-50.png" alt="profile picture">
-            <span>{{ userName }}</span>
+            <img matTooltip="Personal information" src="{{ user.profilePicUrl }}" alt="profile picture">
+            <span>{{ user.userName }}</span>
         </div>
 
         <mat-icon mat-fab matTooltip="Menu" [matMenuTriggerFor]="menu">menu</mat-icon>
