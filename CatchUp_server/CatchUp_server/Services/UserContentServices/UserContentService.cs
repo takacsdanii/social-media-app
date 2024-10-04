@@ -2,6 +2,7 @@
 using CatchUp_server.Models.UserContent;
 using CatchUp_server.Models.UserModels;
 using CatchUp_server.ViewModels.UserViewModel;
+using Microsoft.Extensions.FileProviders;
 using System.ComponentModel.Design;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -10,13 +11,15 @@ namespace CatchUp_server.Services.UserContentServices
     public class UserContentService
     {
         private readonly ApiDbContext _context;
+        private readonly MediaFoldersService _mediaFoldersService;
 
-        public UserContentService(ApiDbContext context)
+        public UserContentService(ApiDbContext context, MediaFoldersService mediaFoldersService)
         {
             _context = context;
+            _mediaFoldersService = mediaFoldersService;
         }
 
-        public bool EditProfilePic(string userId, string? imgUrl)
+        public bool EditProfilePic(string userId, IFormFile file)
         {
             var user = _context.Users.SingleOrDefault(u => u.Id == userId);
             if (user == null)
@@ -24,8 +27,11 @@ namespace CatchUp_server.Services.UserContentServices
                 return false;
             }
 
+            var imgUrl = _mediaFoldersService.UploadFile(userId, "ProfilePictures", file);
+
             user.ProfilePicUrl = imgUrl;
             _context.SaveChanges();
+  
             return true;
         }
 

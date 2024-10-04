@@ -7,6 +7,7 @@ using System.Text;
 using Microsoft.AspNetCore.Identity.Data;
 using CatchUp_server.Models.UserModels;
 using CatchUp_server.ViewModels.AuthViewModels;
+using CatchUp_server.Services.UserContentServices;
 
 namespace CatchUp_server.Services.AuthServices
 {

@@ -6,6 +6,7 @@ import { GenderModel } from '../../../../core/models/enums/gender.model';
 import { AuthService } from '../../../../core/services/logic/auth/auth.service';
 import { FriendsHttpService } from '../../../../core/services/http/friends/friends-http.service';
 import { RightSideBarComponent } from '../../navigation-bars/right-side-bar/right-side-bar.component';
+import { UserContentService } from '../../../../core/services/logic/user-conent/user-content.service';
 
 @Component({
   selector: 'app-user-page',
@@ -25,7 +26,8 @@ export class UserPageComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private authService: AuthService,
               private friendsHttpService: FriendsHttpService,
-              private userHttpService: UserHttpService) { }
+              private userHttpService: UserHttpService,
+              private userContentService: UserContentService) { }
 
   public ngOnInit(): void {
     this.myUserId = this.authService.getUserId()!!;
@@ -61,16 +63,7 @@ export class UserPageComponent implements OnInit {
   }
 
   public setProfilePic(): string {
-    var basePath: string = "assets/images/defaults";
-    if(this.user.profilePicUrl != null)
-      return this.user.profilePicUrl;
-
-    switch(this.user.gender) {
-      case(0): return `${basePath}/female.png`;
-      case(1): return `${basePath}/male.png`;
-      case(2): return `${basePath}/other.jpg`;
-    }
-    return "";
+    return this.userContentService.setProfilePic(this.user);
   }
 
   public setCoverPic(): string {

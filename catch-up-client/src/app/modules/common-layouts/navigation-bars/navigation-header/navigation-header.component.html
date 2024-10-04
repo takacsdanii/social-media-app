@@ -15,6 +15,7 @@
     <!-- TODO: design this -->
     <div *ngIf="searchString != ''" class="filtered-users">
         <div *ngFor="let user of filteredUsers">
+            <!-- TODO: need to do this -->
             <img src="{{ user.profilePicUrl }}" alt="prof-pic">
             <span [routerLink]="['/user-page', user.id]">{{ user.userName }}</span>
             <span>{{ user.firstName }} {{ user.lastName }}</span>
@@ -28,8 +29,8 @@
         <mat-icon matTooltip="Notifications">notifications</mat-icon>
 
         <div [routerLink]="['/user-page', userId]" class="user">
-            <img matTooltip="Personal information" src="{{ user.profilePicUrl }}" alt="profile picture">
-            <span>{{ user.userName }}</span>
+            <img matTooltip="Personal information" src="{{ setProfilePic(user!!) }}" alt="profile picture">
+            <span>{{ user?.userName }}</span>
         </div>
 
         <mat-icon mat-fab matTooltip="Menu" [matMenuTriggerFor]="menu">menu</mat-icon>

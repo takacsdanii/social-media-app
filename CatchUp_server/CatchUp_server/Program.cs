@@ -30,6 +30,7 @@ namespace CatchUp_server
             builder.Services.AddScoped<EmailService>();
             builder.Services.AddScoped<FriendsService>();
             builder.Services.AddScoped<UserContentService>();
+            builder.Services.AddScoped<MediaFoldersService>();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
 
@@ -107,6 +108,8 @@ namespace CatchUp_server
             //app.MapIdentityApi<User>();
 
             app.UseHttpsRedirection();
+
+            app.UseStaticFiles();
 
             app.UseAuthorization();
 

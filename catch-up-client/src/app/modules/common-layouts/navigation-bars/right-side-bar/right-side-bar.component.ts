@@ -5,6 +5,7 @@ import { AuthService } from '../../../../core/services/logic/auth/auth.service';
 import { FriendsHttpService } from '../../../../core/services/http/friends/friends-http.service';
 import { DisplayUserModel } from '../../../../core/models/display.user.model';
 import { map, switchMap } from 'rxjs';
+import { UserContentService } from '../../../../core/services/logic/user-conent/user-content.service';
 
 @Component({
   selector: 'app-right-side-bar',
@@ -25,7 +26,8 @@ export class RightSideBarComponent implements OnInit {
 
   constructor(private userHttpService: UserHttpService,
               private authService: AuthService,
-              private friendsHttpService: FriendsHttpService) { }
+              private friendsHttpService: FriendsHttpService,
+              private userContentService: UserContentService) { }
 
   public ngOnInit(): void {
     this.loggedInUserId = this.authService.getUserId()!!;
@@ -100,5 +102,9 @@ export class RightSideBarComponent implements OnInit {
       this.getDisplayedOneWayFollowers(targetUserId);
       this.getFriends();
     });
+  }
+
+  public setProfilePic(user: DisplayUserModel): string {
+    return this.userContentService.setProfilePic2(user);
   }
 }

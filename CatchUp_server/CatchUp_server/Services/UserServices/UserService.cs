@@ -1,5 +1,6 @@
 ﻿using CatchUp_server.Db;
 using CatchUp_server.Models.UserModels;
+using CatchUp_server.Services.UserContentServices;
 using CatchUp_server.ViewModels.UserViewModel;
 using CatchUp_server.ViewModels.UserViewModels;
 using Microsoft.AspNetCore.Identity;
@@ -10,10 +11,12 @@ namespace CatchUp_server.Services.UserServices
     public class UserService
     {
         private readonly ApiDbContext _context;
+        private readonly MediaFoldersService _mediaFoldersService;
 
-        public UserService(ApiDbContext context)
+        public UserService(ApiDbContext context, MediaFoldersService mediaFoldersService)
         {
             _context = context;
+            _mediaFoldersService = mediaFoldersService;
         }
 
         public UserViewModel MapUserToViewModel(User user)
@@ -54,6 +57,9 @@ namespace CatchUp_server.Services.UserServices
                 _context.Users.Remove(user);
                 _context.SaveChanges();
             }
+
+            _mediaFoldersService.DeleteUserMediaFolders(userId);
+
             return user;
         }
 
@@ -131,6 +137,7 @@ namespace CatchUp_server.Services.UserServices
                 {
                     Id = u.Id,
                     UserName = u.UserName,
+                    ProfilePicUrl = u.ProfilePicUrl,
                     FirstName = u.FirstName,
                     LastName = u.LastName
                 })

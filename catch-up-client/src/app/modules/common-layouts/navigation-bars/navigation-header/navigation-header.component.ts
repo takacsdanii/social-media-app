@@ -4,6 +4,7 @@ import { NotificationService } from '../../../../core/services/logic/notificatio
 import { UserHttpService } from '../../../../core/services/http/user/user-http.service';
 import { SearchUserModel } from '../../../../core/models/search-user.model';
 import { UserModel } from '../../../../core/models/user.model';
+import { UserContentService } from '../../../../core/services/logic/user-conent/user-content.service';
 
 @Component({
   selector: 'app-navigation-header',
@@ -12,7 +13,7 @@ import { UserModel } from '../../../../core/models/user.model';
 })
 export class NavigationHeaderComponent implements OnInit {
   public isLoggedIn: boolean = false;
-  public user: UserModel;
+  public user?: UserModel;
   public isAdmin: boolean = false;
   public userId: string;
 
@@ -23,7 +24,8 @@ export class NavigationHeaderComponent implements OnInit {
 
   constructor(private authService: AuthService,
               private userHttpService: UserHttpService,
-              private notificationService: NotificationService) { }
+              private notificationService: NotificationService,
+              private userContentService: UserContentService) { }
 
   public ngOnInit(): void {
     this.isLoggedIn = this.authService.isLoggedIn();
@@ -57,4 +59,7 @@ export class NavigationHeaderComponent implements OnInit {
     }
   }
 
+  public setProfilePic(user: UserModel): string {
+    return this.userContentService.setProfilePic(user);
+  }
 }
