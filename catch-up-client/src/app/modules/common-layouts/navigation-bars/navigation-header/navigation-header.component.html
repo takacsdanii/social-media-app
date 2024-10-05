@@ -10,15 +10,13 @@
     <div class="center">
         <mat-icon>search</mat-icon>
         <input type="text" [(ngModel)]="searchString" (input)="onSearchChange()" id="search-box" placeholder="Search users here">
-    </div>
 
-    <!-- TODO: design this -->
-    <div *ngIf="searchString != ''" class="filtered-users">
-        <div *ngFor="let user of filteredUsers">
-            <!-- TODO: need to do this -->
-            <img src="{{ user.profilePicUrl }}" alt="prof-pic">
-            <span [routerLink]="['/user-page', user.id]">{{ user.userName }}</span>
-            <span>{{ user.firstName }} {{ user.lastName }}</span>
+        <div *ngIf="searchString != ''" class="filtered-users">
+            <div [routerLink]="['/user-page', user.id]" (click)="searchString = ''" *ngFor="let user of filteredUsers">
+                <img [src]="mediaUrlService.getFullUrl(user.profilePicUrl)" alt="prof-pic">
+                <span>{{ user.userName }}</span>
+                <span>| {{ user.firstName }} {{ user.lastName }} |</span>
+            </div>
         </div>
     </div>
 
@@ -29,7 +27,7 @@
         <mat-icon matTooltip="Notifications">notifications</mat-icon>
 
         <div [routerLink]="['/user-page', userId]" class="user">
-            <img matTooltip="Personal information" src="{{ setProfilePic(user!!) }}" alt="profile picture">
+            <img matTooltip="My page" [src]="mediaUrlService.getFullUrl(user?.profilePicUrl)" alt="profile picture">
             <span>{{ user?.userName }}</span>
         </div>
 

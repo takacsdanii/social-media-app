@@ -5,7 +5,7 @@
             <span>Following you</span>
             <div *ngFor="let user of displayedOneWayFollowers" class="user">
                 <div class="userinfo">
-                    <img src="{{ setProfilePic(user) }}" alt="profile picture">
+                    <img [src]="mediaUrlService.getFullUrl(user.profilePicUrl)" alt="profile picture">
                     <span [routerLink]="['/user-page', user.id]">{{ user.userName }}</span>
                 </div>
                 <div class="buttons">
@@ -21,24 +21,25 @@
             <span>Latest Activities</span>
             <div *ngFor="let user of users" class="user">
                 <div class="userinfo">
-                    <img src="assets/images/icons/icons8-male-user-50.png" alt="profile picture">
-                    <p>
-                        <span>{{ user.userName }}</span> Liked your post
-                        <!-- TODO: ide majd az action jön, amit csinált -->
-                    </p>
-                </div>
-                <div class="buttons">
-                    <!-- TODO: mikor történt -->
-                    <span>2 minutes ago</span>
+                    <img [routerLink]="['/user-page', user.id]" [src]="mediaUrlService.getFullUrl(user.profilePicUrl)" alt="profile picture">
+                    <div class="details">
+                        <span [routerLink]="['/user-page', user.id]">{{ user.userName }}</span>
+                        <!-- TODO: ide majd az action jön, amit csinált és hogy mikor -->
+                        <!-- ? klikkelésre itt majd egy postra vigyen külön dialogon -->
+                        <div class="actions">
+                            <span>Liked your post</span>
+                            <span>2m ago</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="item">
-            <span>Friends online</span>
+            <span>Your friends</span>
             <div *ngFor="let friend of friends" class="user">
                 <div [routerLink]="['/user-page', friend.id]" class="userinfo">
-                    <img src="{{ setProfilePic(friend) }}" alt="profile picture">
+                    <img [src]="mediaUrlService.getFullUrl(friend.profilePicUrl)" alt="profile picture">
                     <div class="online"></div>
                     <span>{{ friend.userName }}</span>
                 </div>

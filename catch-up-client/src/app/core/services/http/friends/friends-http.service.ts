@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DisplayUserModel } from '../../../models/display.user.model';
+import { UserPreviewModel } from '../../../models/user-preview.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,28 +15,28 @@ export class FriendsHttpService {
     return localStorage.getItem('token');
   }
 
-  public getFollowers(userId: string): Observable<DisplayUserModel[]> {
+  public getFollowers(userId: string): Observable<UserPreviewModel[]> {
     const link = `${this.url}/followers?userId=${userId}`;
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.getToken()}`
     });
-    return this.http.get<DisplayUserModel[]>(link, { headers });
+    return this.http.get<UserPreviewModel[]>(link, { headers });
   }
 
-  public getFollowing(userId: string): Observable<DisplayUserModel[]> {
+  public getFollowing(userId: string): Observable<UserPreviewModel[]> {
     const link = `${this.url}/following?userId=${userId}`;
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.getToken()}`
     });
-    return this.http.get<DisplayUserModel[]>(link, { headers });
+    return this.http.get<UserPreviewModel[]>(link, { headers });
   }
 
-  public getFriends(userId: string): Observable<DisplayUserModel[]> {
+  public getFriends(userId: string): Observable<UserPreviewModel[]> {
     const link = `${this.url}/friends?userId=${userId}`;
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.getToken()}`
     });
-    return this.http.get<DisplayUserModel[]>(link, { headers });
+    return this.http.get<UserPreviewModel[]>(link, { headers });
   }
 
   public doesUserFollowTargetUser(userId: string, targetUserId: string): Observable<{result: boolean}> {

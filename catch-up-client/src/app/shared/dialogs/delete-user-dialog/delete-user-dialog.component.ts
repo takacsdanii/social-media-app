@@ -6,11 +6,11 @@ import { Router } from '@angular/router';
 import { NotificationService } from '../../../core/services/logic/notifications/notification.service';
 
 @Component({
-  selector: 'app-delete-dialog',
-  templateUrl: './delete-dialog.component.html',
-  styleUrl: './delete-dialog.component.scss'
+  selector: 'app-delete-user-dialog',
+  templateUrl: './delete-user-dialog.component.html',
+  styleUrl: './delete-user-dialog.component.scss'
 })
-export class DeleteDialogComponent implements OnInit {
+export class DeleteUserDialogComponent implements OnInit {
   public isAdmin: boolean = false;
 
   constructor(private userHttpService: UserHttpService,

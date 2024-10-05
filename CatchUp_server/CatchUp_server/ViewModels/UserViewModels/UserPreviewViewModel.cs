@@ -1,6 +1,6 @@
 ﻿namespace CatchUp_server.ViewModels.UserViewModels
 {
-    public class DisplayUserModel
+    public class UserPreviewViewModel
     {
         public string Id { get; set; }
         public string UserName { get; set; }

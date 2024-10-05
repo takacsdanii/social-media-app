@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { AuthService } from '../../../../core/services/logic/auth/auth.service';
 import { NotificationService } from '../../../../core/services/logic/notifications/notification.service';
 import { UserHttpService } from '../../../../core/services/http/user/user-http.service';
 import { SearchUserModel } from '../../../../core/models/search-user.model';
 import { UserModel } from '../../../../core/models/user.model';
-import { UserContentService } from '../../../../core/services/logic/user-conent/user-content.service';
+import { MediaUrlService } from '../../../../core/services/logic/media-urls/media-url.service';
 
 @Component({
   selector: 'app-navigation-header',
@@ -25,7 +25,8 @@ export class NavigationHeaderComponent implements OnInit {
   constructor(private authService: AuthService,
               private userHttpService: UserHttpService,
               private notificationService: NotificationService,
-              private userContentService: UserContentService) { }
+              public mediaUrlService: MediaUrlService,
+              private elementRef: ElementRef) { }
 
   public ngOnInit(): void {
     this.isLoggedIn = this.authService.isLoggedIn();
@@ -59,7 +60,11 @@ export class NavigationHeaderComponent implements OnInit {
     }
   }
 
-  public setProfilePic(user: UserModel): string {
-    return this.userContentService.setProfilePic(user);
+  @HostListener('document:click', ['$event'])
+  public clickout(event: Event): void {
+    if (!this.elementRef.nativeElement.contains(event.target)) {
+      this.searchString = '';
+      this.filteredUsers = [];
+    }
   }
 }

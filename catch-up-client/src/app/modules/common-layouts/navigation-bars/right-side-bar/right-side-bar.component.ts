@@ -3,9 +3,9 @@ import { UserModel } from '../../../../core/models/user.model';
 import { UserHttpService } from '../../../../core/services/http/user/user-http.service';
 import { AuthService } from '../../../../core/services/logic/auth/auth.service';
 import { FriendsHttpService } from '../../../../core/services/http/friends/friends-http.service';
-import { DisplayUserModel } from '../../../../core/models/display.user.model';
+import { UserPreviewModel } from '../../../../core/models/user-preview.model';
 import { map, switchMap } from 'rxjs';
-import { UserContentService } from '../../../../core/services/logic/user-conent/user-content.service';
+import { MediaUrlService } from '../../../../core/services/logic/media-urls/media-url.service';
 
 @Component({
   selector: 'app-right-side-bar',
@@ -16,18 +16,18 @@ export class RightSideBarComponent implements OnInit {
   public users: UserModel[] = [];
   public loggedInUserId: string;
 
-  public followers: DisplayUserModel[] = [];
-  public following: DisplayUserModel[] = [];
-  public friends: DisplayUserModel[] = [];
+  public followers: UserPreviewModel[] = [];
+  public following: UserPreviewModel[] = [];
+  public friends: UserPreviewModel[] = [];
 
-  public displayedOneWayFollowers: DisplayUserModel[] = [];
+  public displayedOneWayFollowers: UserPreviewModel[] = [];
 
   @Output() followPressed: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(private userHttpService: UserHttpService,
               private authService: AuthService,
               private friendsHttpService: FriendsHttpService,
-              private userContentService: UserContentService) { }
+              public mediaUrlService: MediaUrlService) { }
 
   public ngOnInit(): void {
     this.loggedInUserId = this.authService.getUserId()!!;
@@ -47,7 +47,6 @@ export class RightSideBarComponent implements OnInit {
     });
   }
 
-  // TODO: test this
   private getFollowersAndFollowing(): void {
     const dismissedUsers = this.getDismissedUsersFromLocalStorage();
     this.friendsHttpService.getFollowers(this.loggedInUserId).pipe(
@@ -102,9 +101,5 @@ export class RightSideBarComponent implements OnInit {
       this.getDisplayedOneWayFollowers(targetUserId);
       this.getFriends();
     });
-  }
-
-  public setProfilePic(user: DisplayUserModel): string {
-    return this.userContentService.setProfilePic2(user);
   }
 }

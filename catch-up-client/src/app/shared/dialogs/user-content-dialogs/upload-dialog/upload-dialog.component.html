@@ -1,0 +1,15 @@
+<h5>Change {{ data.type }} picture</h5>
+
+<mat-button-toggle-group [(value)]="data.type" (change)="toggleUploadType()" class="toggle-buttons">
+    <mat-button-toggle value="profile">Profile Picture</mat-button-toggle>
+    <mat-button-toggle value="cover">Cover Picture</mat-button-toggle>
+</mat-button-toggle-group>
+
+<div>
+    <input type="file" (change)="onFileSelected($event)" />
+</div>
+
+<mat-dialog-actions align="end" class="action-buttons">
+    <button mat-raised-button matDialogClose (click)="onUpload()" [disabled]="!selectedFile" class="upload-button">Upload</button>
+    <button mat-raised-button matDialogClose class="cancel-button">Cancel</button>
+</mat-dialog-actions>

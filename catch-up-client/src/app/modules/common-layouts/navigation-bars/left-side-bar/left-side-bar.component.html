@@ -3,7 +3,7 @@
 
         <div class="menu">
             <div [routerLink]="['/user-page', userId]" class="user-info">
-                <img src="{{ setProfilePic(user!!) }}" alt="profile picture">
+                <img [src]="mediaUrlService.getFullUrl(user?.profilePicUrl)" alt="profile picture">
                 <span>{{ user?.userName }}</span>
             </div>
         </div>

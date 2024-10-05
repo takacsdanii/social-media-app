@@ -13,10 +13,4 @@ export class UserModel {
     public profilePicUrl: string | null;
     public coverPicUrl: string | null;
     public registeredAt: Date;
-
-    // TODO: extend model with these
-    // ? MAYBE
-    /* public workPlace: string;
-    public schools: string[];
-    public isInRelationship: boolean; */
 }

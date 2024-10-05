@@ -6,8 +6,13 @@
     <div class="profile" style="flex: 6;">
 
         <div class="images">
-            <img src="{{ setCoverPic() }}" alt="cover picture" class="cover-pic">
-            <img src="{{ setProfilePic() }}" alt="profile" class="profile-pic">
+            <img [src]="mediaUrlService.getFullUrl(user.coverPicUrl)"
+            (click)="openUploadDialog(user.id, 'cover')"
+            alt="cover picture" class="cover-pic" [class.my-pic]="isMypage()">
+
+            <img [src]="mediaUrlService.getFullUrl(user.profilePicUrl)"
+            (click)="openUploadDialog(user.id, 'profile')"
+            alt="profile" class="profile-pic" [class.my-pic]="isMypage()">
         </div>
     
         <div class="profile-container">

@@ -14,7 +14,7 @@ namespace CatchUp_server.Services.FriendsServices
             _context = context;
         }
 
-        public IReadOnlyCollection<DisplayUserModel> GetFollowers(string userId)
+        public IReadOnlyCollection<UserPreviewViewModel> GetFollowers(string userId)
         {
             var user = _context.Users.SingleOrDefault(u => u.Id == userId);
             if (user == null)
@@ -24,7 +24,7 @@ namespace CatchUp_server.Services.FriendsServices
 
             var followers = _context.FriendShips
                 .Where(f => f.FollowedUserId == userId)
-                .Select(f => new DisplayUserModel
+                .Select(f => new UserPreviewViewModel
                 {
                     Id = f.FollowerUserId,
                     UserName = f.FollowerUser.UserName,
@@ -35,7 +35,7 @@ namespace CatchUp_server.Services.FriendsServices
             return followers;
         }
 
-        public IReadOnlyCollection<DisplayUserModel> GetFollowing(string userId)
+        public IReadOnlyCollection<UserPreviewViewModel> GetFollowing(string userId)
         {
             var user = _context.Users.SingleOrDefault(u => u.Id == userId);
             if (user == null)
@@ -45,7 +45,7 @@ namespace CatchUp_server.Services.FriendsServices
 
             var following = _context.FriendShips
                 .Where(f => f.FollowerUserId == userId)
-                .Select(f => new DisplayUserModel
+                .Select(f => new UserPreviewViewModel
                 {
                     Id= f.FollowedUserId,
                     UserName = f.FollowedUser.UserName,
@@ -56,7 +56,7 @@ namespace CatchUp_server.Services.FriendsServices
             return following;
         }
 
-        public IReadOnlyCollection<DisplayUserModel> GetFriends(string userId)
+        public IReadOnlyCollection<UserPreviewViewModel> GetFriends(string userId)
         {
             var user = _context.Users.SingleOrDefault(u => u.Id == userId);
             if (user == null)

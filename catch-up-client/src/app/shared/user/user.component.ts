@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserModel } from '../../core/models/user.model';
 import { UserHttpService } from '../../core/services/http/user/user-http.service';
 import { MatDialog } from '@angular/material/dialog';
-import { DeleteDialogComponent } from '../dialogs/delete-dialog/delete-dialog.component';
+import { DeleteUserDialogComponent } from '../dialogs/delete-user-dialog/delete-user-dialog.component';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 
@@ -32,7 +32,7 @@ export class UserComponent implements OnInit{
   }
 
   public openDeleteDialog(userId: string, userName: string): void {
-    const dialogref = this.deleteDialog.open(DeleteDialogComponent, {
+    const dialogref = this.deleteDialog.open(DeleteUserDialogComponent, {
       height: '300px',
       width: '400px',
       data: {userId, userName}

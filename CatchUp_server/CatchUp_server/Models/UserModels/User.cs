@@ -12,8 +12,8 @@ namespace CatchUp_server.Models.UserModels
         public Gender Gender { get; set; }
 
         public string? Bio { get; set; }
-        public string? ProfilePicUrl { get; set; }
-        public string? CoverPicUrl { get; set; }
+        public string ProfilePicUrl { get; set; }
+        public string CoverPicUrl { get; set; }
         public DateTime RegisteredAt { get; set; }
 
         //public ICollection<Post> Posts { get; set; }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserHttpService } from '../../../../core/services/http/user/user-http.service';
 import { UserModel } from '../../../../core/models/user.model';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-home-page',

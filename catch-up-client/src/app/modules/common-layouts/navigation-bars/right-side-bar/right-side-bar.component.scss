@@ -61,8 +61,8 @@
                     }
 
                     img {
-                        width: 24px;
-                        height: auto;
+                        width: 25px;
+                        height: 25px;
                         border-radius: 50%;
                     }
 
@@ -76,12 +76,24 @@
                         left: 20px;
                     }
 
-                    p{
-                        color: gray;
-                    }
-
                     span{
                         font: weight 500px;
+                    }
+
+                    .details {
+
+                        .actions, .dates {
+                            display: flex;
+                            align-items: end; 
+                            margin-left: auto; 
+                    
+                            span {
+                                color: gray;
+                                font-size: 14px; 
+                                padding: 5px;
+                                width: auto; 
+                            }
+                        }
                     }
                 }
 
@@ -110,4 +122,3 @@
         }
     }
 }
-

@@ -6,10 +6,9 @@ import { NotificationService } from '../../../core/services/logic/notifications/
 import { GenderModel } from '../../../core/models/enums/gender.model';
 import { AuthService } from '../../../core/services/logic/auth/auth.service';
 import { MatDialog } from '@angular/material/dialog';
-import { DeleteDialogComponent } from '../../dialogs/delete-dialog/delete-dialog.component';
+import { DeleteUserDialogComponent } from '../../dialogs/delete-user-dialog/delete-user-dialog.component';
 import { NavigationHeaderComponent } from '../../../modules/common-layouts/navigation-bars/navigation-header/navigation-header.component';
 import { LeftSideBarComponent } from '../../../modules/common-layouts/navigation-bars/left-side-bar/left-side-bar.component';
-import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-user-details',
@@ -45,7 +44,7 @@ export class UserDetailsComponent implements OnInit {
     });
   }
 
-  public refreshNavbar(): void {
+  public refreshNavbars(): void {
     this.navigationHeaderComponent.ngOnInit();
     this.leftSideBarComponent.ngOnInit();
   }
@@ -77,7 +76,7 @@ export class UserDetailsComponent implements OnInit {
       (_user) => {
         this.user = _user;
         this.notificationService.showSuccesSnackBar("Changes saved");
-        this.refreshNavbar();
+        this.refreshNavbars();
       },
       (err) => {
         this.errorMessages = [];
@@ -116,7 +115,7 @@ export class UserDetailsComponent implements OnInit {
   }
 
   public openDeleteDialog(userId: string, userName: string): void {
-    this.deleteDialog.open(DeleteDialogComponent, {
+    this.deleteDialog.open(DeleteUserDialogComponent, {
       height: '300px',
       width: '400px',
       data: {userId, userName}
