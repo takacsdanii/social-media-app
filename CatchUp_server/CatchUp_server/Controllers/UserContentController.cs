@@ -1,4 +1,5 @@
 ﻿using CatchUp_server.Services.UserContentServices;
+using CatchUp_server.ViewModels.UserContentViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -30,18 +31,25 @@ namespace CatchUp_server.Controllers
             return (result) ? Ok() : NotFound();
         }
 
-        [HttpDelete("profile-picture")]
+        [HttpDelete("profile-picture"), Authorize]
         public IActionResult DeleteProfilePic(string userId, string fileName)
         {
             var result = _userContentService.DeleteProfilePic(userId, fileName);
             return (result) ? Ok() : NotFound();
         }
 
-        [HttpDelete("cover-picture")]
+        [HttpDelete("cover-picture"), Authorize]
         public IActionResult DeleteCoverPic(string userId, string fileName)
         {
             var result = _userContentService.DeleteCoverPic(userId, fileName);
             return (result) ? Ok() : NotFound();
+        }
+
+        [HttpPut("bio")]
+        public IActionResult EditBio([FromBody] EditBioViewModel editBioViewModel)
+        {
+            var result = _userContentService.EditBio(editBioViewModel);
+            return (result) ? Ok(editBioViewModel) : NotFound();
         }
     }
 }

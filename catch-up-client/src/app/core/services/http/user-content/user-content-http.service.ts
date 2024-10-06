@@ -37,4 +37,29 @@ export class UserContentHttpService {
 
     return this.http.put<void>(link, formData, { headers });
   }
+
+  public deleteProfilePic(userId: string, fileName: string): Observable<void> {
+    const link = `${this.url}/profile-picture?userId=${userId}&fileName=${fileName}`;
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.getToken()}`
+    });
+    return this.http.delete<void>(link, { headers });
+  }
+
+  public deleteCoverPic(userId: string, fileName: string): Observable<void> {
+    const link = `${this.url}/cover-picture?userId=${userId}&fileName=${fileName}`;
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.getToken()}`
+    });
+    return this.http.delete<void>(link, { headers });
+  }
+
+  public editBio(userId: string, bio: string | null): Observable<void> {
+    const link = `${this.url}/bio`;
+    const body = { 'userId': userId, 'bio': bio };
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.getToken()}`
+    });
+    return this.http.put<void>(link, body, { headers });
+  }
 }

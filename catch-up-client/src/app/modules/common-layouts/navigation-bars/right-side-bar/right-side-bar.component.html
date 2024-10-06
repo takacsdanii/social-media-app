@@ -19,7 +19,7 @@
 
         <div class="item">
             <span>Latest Activities</span>
-            <div *ngFor="let user of users" class="user">
+            <div *ngFor="let user of users | slice:0:displayedUsers" class="user">
                 <div class="userinfo">
                     <img [routerLink]="['/user-page', user.id]" [src]="mediaUrlService.getFullUrl(user.profilePicUrl)" alt="profile picture">
                     <div class="details">
@@ -32,6 +32,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="scroll-more" *ngIf="users.length > 3">
+                <span (click)="loadMore()" class="load-more">Load more...</span>
             </div>
         </div>
 

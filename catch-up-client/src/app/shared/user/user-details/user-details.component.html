@@ -21,7 +21,7 @@
                         </ng-template>
                     </td>
                     <td>
-                        <mat-icon *ngIf="editingField == null" (click)="startEditing('firstName')">edit</mat-icon>
+                        <mat-icon *ngIf="editingField == null && isCurrentUser()" (click)="startEditing('firstName')">edit</mat-icon>
                         <mat-icon *ngIf="editingField === 'firstName'" (click)="saveEdit()" class="action-button check" matTooltip="Save">check</mat-icon>
                         <mat-icon *ngIf="editingField === 'firstName'" (click)="discardEditing()" class="action-button close" matTooltip="Cancel">close</mat-icon>
                     </td>
@@ -37,7 +37,7 @@
                         </ng-template>
                     </td>
                     <td>
-                        <mat-icon *ngIf="editingField == null" (click)="startEditing('lastName')">edit</mat-icon>
+                        <mat-icon *ngIf="editingField == null && isCurrentUser()" (click)="startEditing('lastName')">edit</mat-icon>
                         <mat-icon *ngIf="editingField === 'lastName'" (click)="saveEdit()" class="action-button check" matTooltip="Save">check</mat-icon>
                         <mat-icon *ngIf="editingField === 'lastName'" (click)="discardEditing()" class="action-button close" matTooltip="Cancel">close</mat-icon>
                     </td>
@@ -53,7 +53,7 @@
                         </ng-template>
                     </td>
                     <td>
-                        <mat-icon *ngIf="editingField == null" (click)="startEditing('userName')">edit</mat-icon>
+                        <mat-icon *ngIf="editingField == null && isCurrentUser()" (click)="startEditing('userName')">edit</mat-icon>
                         <mat-icon *ngIf="editingField === 'userName'" (click)="saveEdit()" class="action-button check" matTooltip="Save">check</mat-icon>
                         <mat-icon *ngIf="editingField === 'userName'" (click)="discardEditing()" class="action-button close" matTooltip="Cancel">close</mat-icon>
                     </td>
@@ -69,7 +69,7 @@
                         </ng-template>
                     </td>
                     <td>
-                        <mat-icon *ngIf="editingField == null" (click)="startEditing('email')">edit</mat-icon>
+                        <mat-icon *ngIf="editingField == null && isCurrentUser()" (click)="startEditing('email')">edit</mat-icon>
                         <mat-icon *ngIf="editingField === 'email'" (click)="saveEdit()" class="action-button check" matTooltip="Save">check</mat-icon>
                         <mat-icon *ngIf="editingField === 'email'" (click)="discardEditing()" class="action-button close" matTooltip="Cancel">close</mat-icon>
                     </td>
@@ -85,7 +85,7 @@
                         </ng-template>
                     </td>
                     <td>
-                        <mat-icon *ngIf="editingField == null" (click)="startEditing('birthDate')">edit</mat-icon>
+                        <mat-icon *ngIf="editingField == null && isCurrentUser()" (click)="startEditing('birthDate')">edit</mat-icon>
                         <mat-icon *ngIf="editingField === 'birthDate'" (click)="saveEdit()" class="action-button check" matTooltip="Save">check</mat-icon>
                         <mat-icon *ngIf="editingField === 'birthDate'" (click)="discardEditing()" class="action-button close" matTooltip="Cancel">close</mat-icon>
                     </td>
@@ -105,7 +105,7 @@
                         </ng-template>
                     </td>
                     <td>
-                        <mat-icon *ngIf="editingField == null" (click)="startEditing('gender')">edit</mat-icon>
+                        <mat-icon *ngIf="editingField == null && isCurrentUser()" (click)="startEditing('gender')">edit</mat-icon>
                         <mat-icon *ngIf="editingField === 'gender'" (click)="saveGenderEdit()" class="action-button check" matTooltip="Save">check</mat-icon>
                         <mat-icon *ngIf="editingField === 'gender'" (click)="discardEditing()" class="action-button close" matTooltip="Cancel">close</mat-icon>
                     </td>

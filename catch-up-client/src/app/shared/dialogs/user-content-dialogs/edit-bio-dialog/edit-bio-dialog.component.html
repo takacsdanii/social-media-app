@@ -1,0 +1,8 @@
+<h5>Edit bio</h5>
+
+<textarea [(ngModel)]="bio" class="input-field" rows="5"></textarea>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button matDialogClose (click)="onSave()" class="save-btn">Save</button>
+  <button mat-raised-button matDialogClose class="cancel-btn">Cancel</button>
+</mat-dialog-actions>

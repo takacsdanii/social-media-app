@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zVrhenuVNRn1jpICqd6r5xRVzlT76x2YxHuOy8OP+WQ=",
+  "Hash": "zOuUPmmqq5JVufdqmoAxVkTMhi+f7kAV1YJSESvX/tw=",
   "Source": "CatchUp_server",
   "BasePath": "_content/CatchUp_server",
   "Mode": "Default",
@@ -1307,25 +1307,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\CoverPictures\\mycover.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\CoverPictures\\profile.jpg",
-      "SourceId": "CatchUp_server",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\",
-      "BasePath": "_content/CatchUp_server",
-      "RelativePath": "UserMedia/8f59c59e-3740-4d74-9aa6-f66f1083c13a/CoverPictures/profile.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\CoverPictures\\profile.jpg"
     },
     {
       "Identity": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\ProfilePictures\\en.jpg",

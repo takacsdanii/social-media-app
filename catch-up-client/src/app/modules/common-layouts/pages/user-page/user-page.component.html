@@ -24,7 +24,10 @@
                 <mat-icon>visibility</mat-icon>View {{ currentImageType }} picture
             </button>
             <button mat-menu-item (click)="openUploadDialog(user.id, currentImageType)">
-                <mat-icon>edit</mat-icon>Edit {{ currentImageType }} picture
+                <mat-icon>edit</mat-icon>Change {{ currentImageType }} picture
+            </button>
+            <button *ngIf="currentImageType === 'profile' ? hasProfilePic() : hasCoverPic()" mat-menu-item (click)="openDeletePictureDialog(user.id, currentImageType)">
+                <mat-icon>delete</mat-icon>Delete {{ currentImageType }} picture
             </button>
         </mat-menu>
     
@@ -38,17 +41,11 @@
                     <a href="https://tiktok.com"><i class="fab fa-tiktok"></i></a>
                     <a href="https://snapchat.com"><i class="fab fa-snapchat"></i></a> -->
                     <div class="item">
-                        <mat-icon>auto_stories</mat-icon>
-                        <span>{{ user.bio }} text</span>
-                    </div>
-                    <div class="item">
-                        <span>{{ getGenderName(user.gender) }}</span>
-                    </div>
-                    <div class="item">
-                        <span>{{ user.birthDate | date: 'yyyy-MM-dd' }}</span>
-                    </div>
-                    <div class="item">
-                        <span>{{ user.registeredAt| date: 'yyyy-MM-dd' }}</span>
+                        <p *ngIf="user.bio != null" class="bio-display">{{ user.bio }}</p>
+                        <div class="details">
+                            <div>Birth date: {{ user.birthDate | date: 'yyyy-MM-dd' }}</div>
+                            <div>Joined: {{ user.registeredAt| date: 'yyyy-MM-dd' }}</div>
+                        </div>
                     </div>
                 </div>
 
@@ -56,26 +53,30 @@
                     <span>{{ user.userName }}</span>
                     <div class="info">
                         <div class="item">
-                            <mat-icon>language</mat-icon>
+                            <mat-icon>account_circle</mat-icon>
                             <span>{{ user.firstName }} {{ user.lastName }}</span>
                         </div>
                         <div class="item">
                             <mat-icon>location_on</mat-icon>
-                            <!-- ? location property -->
                             <span>Budapest</span>
                         </div>
-                        <!-- <div class="item">
-                            <mat-icon>language</mat-icon>
-                            <span>Hungary</span>
-                        </div> -->
                     </div>
                     <button *ngIf="!isMypage() && !following" (click)="onFollowPressed(user.id)" class="follow-btn">Follow</button>
                     <button *ngIf="!isMypage() && following" (click)="onUnFollowPressed(user.id)" class="unfollow-btn">Unfollow</button>
                 </div>
 
                 <div class="right">
-                    <mat-icon>mail</mat-icon>
-                    <mat-icon>more_vert</mat-icon>
+                    <mat-icon *ngIf="!isMypage()">mail</mat-icon>
+                    <mat-icon *ngIf="isMypage() || isAdmin" [matMenuTriggerFor]="moreMenu">more_vert</mat-icon>
+
+                    <mat-menu #moreMenu="matMenu" class="more-menu">
+                        <button *ngIf="isMypage()" mat-menu-item (click)="openEditBioDialog(user.id, user.bio)">
+                            <mat-icon>edit</mat-icon>Edit bio
+                        </button>
+                        <button *ngIf="isAdmin" mat-menu-item [routerLink]="['/users', user.id]">
+                            <mat-icon>manage_accounts</mat-icon>Manage account
+                        </button>
+                    </mat-menu>
                 </div>
             </div>
         </div>

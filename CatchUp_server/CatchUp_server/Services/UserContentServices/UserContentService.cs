@@ -1,6 +1,7 @@
 ﻿using CatchUp_server.Db;
 using CatchUp_server.Models.UserContent;
 using CatchUp_server.Models.UserModels;
+using CatchUp_server.ViewModels.UserContentViewModels;
 using CatchUp_server.ViewModels.UserViewModel;
 using Microsoft.Extensions.FileProviders;
 using System.ComponentModel.Design;
@@ -109,6 +110,19 @@ namespace CatchUp_server.Services.UserContentServices
             }
 
             setDefaultCoverPic(user);
+            _context.SaveChanges();
+            return true;
+        }
+
+        public bool EditBio(EditBioViewModel editBioViewModel)
+        {
+            var user = _context.Users.SingleOrDefault(u => u.Id == editBioViewModel.userId);
+            if (user == null)
+            {
+                return false;
+            }
+
+            user.Bio = editBioViewModel.Bio;
             _context.SaveChanges();
             return true;
         }

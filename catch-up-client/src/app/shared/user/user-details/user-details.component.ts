@@ -22,7 +22,7 @@ export class UserDetailsComponent implements OnInit {
   public user: UserModel = new UserModel();
   public loggedInUserId: string;
   public isAdmin: boolean = false;
-
+  
   public editingField: string | null = null;
   public errorMessages: string[] = [];
 

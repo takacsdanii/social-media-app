@@ -102,4 +102,9 @@ export class RightSideBarComponent implements OnInit {
       this.getFriends();
     });
   }
+
+  public displayedUsers: number = 3;
+  public loadMore(): void {
+    this.displayedUsers += 3; 
+  }
 }

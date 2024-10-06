@@ -13,6 +13,8 @@ import { LeftSideBarComponent } from '../../navigation-bars/left-side-bar/left-s
 import { NavigationHeaderComponent } from '../../navigation-bars/navigation-header/navigation-header.component';
 import { DisplayContentDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/display-content-dialog/display-content-dialog.component';
 import { ViewportScroller } from '@angular/common';
+import { DeleteContentDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/delete-content-dialog/delete-content-dialog.component';
+import { EditBioDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/edit-bio-dialog/edit-bio-dialog.component';
 
 @Component({
   selector: 'app-user-page',
@@ -28,6 +30,7 @@ export class UserPageComponent implements OnInit {
   public userIdFromRoute: string | null;
   public following: boolean;
 
+  public isAdmin: boolean;
   private myUserId: string
 
   public currentImageType: 'profile' | 'cover';
@@ -42,6 +45,7 @@ export class UserPageComponent implements OnInit {
               private viewportScroller: ViewportScroller) { }
 
   public ngOnInit(): void {
+    this.isAdmin = this.authService.isAdmin();
     this.myUserId = this.authService.getUserId()!!;
 
     this.route.paramMap.subscribe((params) => {
@@ -118,18 +122,53 @@ export class UserPageComponent implements OnInit {
   public openDisplayContentDialog(type: 'cover' | 'profile'): void {
     const imageUrl = (type === 'cover') ? this.user.coverPicUrl : this.user.profilePicUrl;
     if(type === 'profile') {
-      const dialogref = this.displayContentDialog.open(DisplayContentDialogComponent, {
+      this.displayContentDialog.open(DisplayContentDialogComponent, {
         width: 'auto',
         height: '100%',
         data: { imageUrl }
       });
     }
     else {
-      const dialogref = this.displayContentDialog.open(DisplayContentDialogComponent, {
+      this.displayContentDialog.open(DisplayContentDialogComponent, {
         width: '2000px',
         height: 'auto',
         data: { imageUrl }
       });
     }
+  }
+
+  public openDeletePictureDialog(userId: string, type: 'cover' | 'profile') {
+    const imageUrl = (type === 'cover') ? this.user.coverPicUrl : this.user.profilePicUrl;
+    const dialogref = this.displayContentDialog.open(DeleteContentDialogComponent, {
+      height: '250px',
+      width: '450px',
+      data: { userId, type, imageUrl }
+    });
+
+    dialogref.afterClosed().subscribe(result => {
+      this.refreshNavbars();
+      this.ngOnInit();
+    });
+  }
+
+  public hasProfilePic(): boolean {
+    return this.user.profilePicUrl.split('/').pop() != "female.png"
+        && this.user.profilePicUrl.split('/').pop() != "male.png"
+        && this.user.profilePicUrl.split('/').pop() != "other.jpg";
+  }
+
+  public hasCoverPic(): boolean {
+    return this.user?.coverPicUrl?.split('/').pop() != "default-cover.jpg";
+  }
+
+  public openEditBioDialog(userId: string, bio: string | null): void {
+    const dialogref = this.displayContentDialog.open(EditBioDialogComponent, {
+      width: '250px',
+      data: { userId, bio }
+    });
+
+    dialogref.afterClosed().subscribe(_ => {
+      this.ngOnInit();
+    });
   }
 }
