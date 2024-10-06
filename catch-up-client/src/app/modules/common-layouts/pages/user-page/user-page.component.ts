@@ -30,6 +30,7 @@ export class UserPageComponent implements OnInit {
 
   private myUserId: string
 
+  public currentImageType: 'profile' | 'cover';
 
   constructor(private route: ActivatedRoute,
               private authService: AuthService,
@@ -114,10 +115,21 @@ export class UserPageComponent implements OnInit {
     this.rightSideBarComponent.ngOnInit();
   }
 
-  public openDisplayContentDialog(): void {
-    const dialogref = this.displayContentDialog.open(DisplayContentDialogComponent, {
-      height: '1000px',
-      width: '1000px',
-    });
+  public openDisplayContentDialog(type: 'cover' | 'profile'): void {
+    const imageUrl = (type === 'cover') ? this.user.coverPicUrl : this.user.profilePicUrl;
+    if(type === 'profile') {
+      const dialogref = this.displayContentDialog.open(DisplayContentDialogComponent, {
+        width: 'auto',
+        height: '100%',
+        data: { imageUrl }
+      });
+    }
+    else {
+      const dialogref = this.displayContentDialog.open(DisplayContentDialogComponent, {
+        width: '2000px',
+        height: 'auto',
+        data: { imageUrl }
+      });
+    }
   }
 }

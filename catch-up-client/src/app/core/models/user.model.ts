@@ -10,7 +10,7 @@ export class UserModel {
     public gender: GenderModel;
     
     public bio: string | null;
-    public profilePicUrl: string | null;
-    public coverPicUrl: string | null;
+    public profilePicUrl: string;
+    public coverPicUrl: string;
     public registeredAt: Date;
 }

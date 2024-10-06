@@ -7,13 +7,26 @@
 
         <div class="images">
             <img [src]="mediaUrlService.getFullUrl(user.coverPicUrl)"
-            (click)="openUploadDialog(user.id, 'cover')"
-            alt="cover picture" class="cover-pic" [class.my-pic]="isMypage()">
+            [matMenuTriggerFor]="isMypage() ? actionMenu : null"
+            (menuOpened)="currentImageType = 'cover'"
+            (click)="isMypage() ? null : openDisplayContentDialog('cover')"
+            alt="cover picture" class="cover-pic">
 
             <img [src]="mediaUrlService.getFullUrl(user.profilePicUrl)"
-            (click)="openUploadDialog(user.id, 'profile')"
-            alt="profile" class="profile-pic" [class.my-pic]="isMypage()">
+            [matMenuTriggerFor]="isMypage() ? actionMenu : null"
+            (menuOpened)="currentImageType = 'profile'"
+            (click)="isMypage() ? null : openDisplayContentDialog('profile')"
+            alt="profile picture" class="profile-pic">
         </div>
+
+        <mat-menu #actionMenu="matMenu">
+            <button mat-menu-item (click)="openDisplayContentDialog(currentImageType)">
+                <mat-icon>visibility</mat-icon>View {{ currentImageType }} picture
+            </button>
+            <button mat-menu-item (click)="openUploadDialog(user.id, currentImageType)">
+                <mat-icon>edit</mat-icon>Edit {{ currentImageType }} picture
+            </button>
+        </mat-menu>
     
         <div class="profile-container">
 
