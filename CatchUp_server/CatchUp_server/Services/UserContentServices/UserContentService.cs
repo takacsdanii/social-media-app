@@ -127,20 +127,74 @@ namespace CatchUp_server.Services.UserContentServices
             return true;
         }
 
-        //public Post UploadPost(string userId, string? description, List<MediaContent> mediaContents)
-        //{
-        //    var post = new Post
-        //    {
-        //        Userid = userId,
-        //        Description = description,
-        //        CreatedAt = DateTime.Now,
-        //        MediaContents = mediaContents,
-        //    };
+        public IReadOnlyCollection<Post> ListPostsOfUser(string userId)
+        {
+            var user = _context.Users.SingleOrDefault(u => u.Id == userId);
+            if(user == null)
+            {
+                return null;
+            }
 
-        //    _context.Posts.Add(post);
-        //    _context.SaveChanges();
-        //    return post;
-        //}
+            return user.Posts?.ToList() ?? new List<Post>();
+        }
+
+        public PostViewModel UploadPost(UploadPostViewModel postModel, List<IFormFile> files)
+        {
+            var user = _context.Users.SingleOrDefault(u => u.Id == postModel.UserId);
+            if (user == null)
+            {
+                return null;
+            }
+
+            var post = new Post
+            {
+                Userid = postModel.UserId,
+                Description = postModel.Description,
+                Visibility = postModel.Visibility,
+                CreatedAt = DateTime.Now,
+                MediaContents = new List<MediaContent>()
+            };
+
+            _context.Posts.Add(post);
+            _context.SaveChanges();
+
+            var postViewModel = new PostViewModel
+            {
+                Id = post.Id,
+                Description = post.Description,
+                CreatedAt = post.CreatedAt,
+                Visibility = post.Visibility,
+                MediaUrls = new List<string>()
+            };
+
+            foreach (var file in files)
+            {
+                string mediaUrl = _mediaFoldersService.UploadFile(user.Id, "Posts", file);
+                var mediaContent = new MediaContent
+                {
+                    MediaUrl = mediaUrl,
+                    Type = GetMediaType(file),
+                    StoryId = null,
+                    PostId = post.Id,
+                };
+
+                _context.MediaContents.Add(mediaContent);
+                post.MediaContents.Add(mediaContent);
+
+                postViewModel.MediaUrls.Add(mediaUrl);
+            }
+
+            _context.SaveChanges();
+            return postViewModel;
+        }
+
+        private MediaType GetMediaType(IFormFile file)
+        {
+            var contentType = file.ContentType.ToLower();
+            if(contentType.Contains("image")) return MediaType.Image;
+            if(contentType.Contains("video")) return MediaType.Video;
+            return MediaType.Other;
+        }
 
         //public Post DeletePost(int postId)
         //{

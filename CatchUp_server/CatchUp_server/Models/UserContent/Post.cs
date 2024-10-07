@@ -8,6 +8,7 @@ namespace CatchUp_server.Models.UserContent
         public int Id { get; set; }
         public string Description { get; set; }
         public DateTime CreatedAt { get; set; }
+        public Visibility Visibility { get; set; }
         
         public ICollection<MediaContent> MediaContents { get; set; }
         public ICollection<Like> Likes { get; set; }

@@ -11,7 +11,7 @@ namespace CatchUp_server.Models.UserContent
         public string UserId { get; set; }
         public User User { get; set; }
 
-        public string StoryId { get; set; }
+        public int StoryId { get; set; }
         public Story Story { get; set; }
     }
 }

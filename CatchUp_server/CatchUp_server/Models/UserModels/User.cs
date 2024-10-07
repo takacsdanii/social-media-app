@@ -16,7 +16,9 @@ namespace CatchUp_server.Models.UserModels
         public string CoverPicUrl { get; set; }
         public DateTime RegisteredAt { get; set; }
 
-        //public ICollection<Post> Posts { get; set; }
-        //public ICollection<Story> Stories { get; set; }
+        public ICollection<Post> Posts { get; set; }
+        public ICollection<Story> Stories { get; set; }
+        //public ICollection<Like> Likes { get; set; }
+        //public ICollection<Comment> Comments { get; set; }
     }
 }

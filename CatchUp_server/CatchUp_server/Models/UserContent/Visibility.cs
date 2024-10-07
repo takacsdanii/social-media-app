@@ -7,6 +7,6 @@
         Followers = 2,
         Following = 3,
         Private = 4,
-        Cuustom = 5
+        Custom = 5
     }
 }

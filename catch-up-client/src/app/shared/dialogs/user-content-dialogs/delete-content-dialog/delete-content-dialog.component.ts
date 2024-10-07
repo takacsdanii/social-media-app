@@ -10,8 +10,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class DeleteContentDialogComponent implements OnInit {
   public fileName: string;
 
-  constructor(@Inject(MAT_DIALOG_DATA)
-              public data: {userId: string, type: 'cover' | 'profile', imageUrl: string},
+  constructor(@Inject(MAT_DIALOG_DATA) public data: {userId: string, type: 'cover' | 'profile', imageUrl: string},
               private userContentHttpService: UserContentHttpService,) { }
 
   public ngOnInit(): void {

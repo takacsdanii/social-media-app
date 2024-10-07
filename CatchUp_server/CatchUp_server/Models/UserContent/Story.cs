@@ -8,12 +8,12 @@ namespace CatchUp_server.Models.UserContent
         public int Id { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime ExpiresAt { get; set; }
+        public Visibility Visibility { get; set; }
 
         public ICollection<StoryViewer> StoryViewers { get; set; }
 
         public int MediaContentId { get; set; }
         public MediaContent MediaContent { get; set; }
-
 
         public string UserId { get; set; }
         public User User { get; set; }

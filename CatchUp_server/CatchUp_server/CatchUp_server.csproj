@@ -27,4 +27,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="8.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\UserMedia\8f59c59e-3740-4d74-9aa6-f66f1083c13a\Posts\" />
+  </ItemGroup>
+
 </Project>
