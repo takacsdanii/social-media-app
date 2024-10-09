@@ -19,7 +19,7 @@ namespace CatchUp_server.Services.UserServices
             _mediaFoldersService = mediaFoldersService;
         }
 
-        public UserViewModel MapUserToViewModel(User user)
+        private UserViewModel MapUserToViewModel(User user)
         {
             return new UserViewModel
             {

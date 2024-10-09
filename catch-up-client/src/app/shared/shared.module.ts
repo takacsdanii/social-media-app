@@ -15,7 +15,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { UploadDialogComponent } from './dialogs/user-content-dialogs/upload-dialog/upload-dialog.component';
 import { DisplayContentDialogComponent } from './dialogs/user-content-dialogs/display-content-dialog/display-content-dialog.component';
 import { DeleteContentDialogComponent } from './dialogs/user-content-dialogs/delete-content-dialog/delete-content-dialog.component';
-import { EditBioDialogComponent } from './dialogs/user-content-dialogs/edit-bio-dialog/edit-bio-dialog.component';
+import { EditContentDialogComponent } from './dialogs/user-content-dialogs/edit-bio-dialog/edit-content-dialog.component';
 
 
 
@@ -27,7 +27,7 @@ import { EditBioDialogComponent } from './dialogs/user-content-dialogs/edit-bio-
     UploadDialogComponent,
     DisplayContentDialogComponent,
     DeleteContentDialogComponent,
-    EditBioDialogComponent
+    EditContentDialogComponent
   ],
   imports: [
     CommonModule,

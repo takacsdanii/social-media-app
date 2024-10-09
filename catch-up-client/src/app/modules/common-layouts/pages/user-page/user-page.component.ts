@@ -14,7 +14,7 @@ import { NavigationHeaderComponent } from '../../navigation-bars/navigation-head
 import { DisplayContentDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/display-content-dialog/display-content-dialog.component';
 import { ViewportScroller } from '@angular/common';
 import { DeleteContentDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/delete-content-dialog/delete-content-dialog.component';
-import { EditBioDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/edit-bio-dialog/edit-bio-dialog.component';
+import { EditContentDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/edit-bio-dialog/edit-content-dialog.component';
 
 @Component({
   selector: 'app-user-page',
@@ -162,7 +162,7 @@ export class UserPageComponent implements OnInit {
   }
 
   public openEditBioDialog(userId: string, bio: string | null): void {
-    const dialogref = this.displayContentDialog.open(EditBioDialogComponent, {
+    const dialogref = this.displayContentDialog.open(EditContentDialogComponent, {
       width: '250px',
       data: { userId, bio }
     });

@@ -16,12 +16,12 @@ namespace CatchUp_server.Services.AuthServices
         private readonly IConfiguration _configuration;
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
-        private readonly UserContentService _userContentService;
+        private readonly UserProfileService _userContentService;
 
         private const int minAge = 14;
 
         public AuthService(IConfiguration configuration, UserManager<User> userManager,
-                            SignInManager<User> signInManager, UserContentService userContentService)
+                            SignInManager<User> signInManager, UserProfileService userContentService)
         {
             _configuration = configuration;
             _userManager = userManager;

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "VPJ6Z5+k6CR4Js+q02WCYCfSIL+t5qQ3dkKsQgdtncA=",
+  "Hash": "PwiUNfhDYJlFFEe6hRNNY/tQVLOBNlmy/uuJSzJTEGM=",
   "Source": "CatchUp_server",
   "BasePath": "_content/CatchUp_server",
   "Mode": "Default",
@@ -1309,12 +1309,12 @@
       "OriginalItemSpec": "wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\CoverPictures\\mycover.jpg"
     },
     {
-      "Identity": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\Posts\\lion.jpg",
+      "Identity": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\Posts\\22af51b6-c2df-41da-939b-f538e47a86c6_gaming.jpg",
       "SourceId": "CatchUp_server",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\",
       "BasePath": "_content/CatchUp_server",
-      "RelativePath": "UserMedia/8f59c59e-3740-4d74-9aa6-f66f1083c13a/Posts/lion.jpg",
+      "RelativePath": "UserMedia/8f59c59e-3740-4d74-9aa6-f66f1083c13a/Posts/22af51b6-c2df-41da-939b-f538e47a86c6_gaming.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1325,15 +1325,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\Posts\\lion.jpg"
+      "OriginalItemSpec": "wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\Posts\\22af51b6-c2df-41da-939b-f538e47a86c6_gaming.jpg"
     },
     {
-      "Identity": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\Posts\\panda.jpg",
+      "Identity": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\Posts\\29df9550-09cf-40f0-8969-44a38d3f9af1_gaming.jpg",
       "SourceId": "CatchUp_server",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\",
       "BasePath": "_content/CatchUp_server",
-      "RelativePath": "UserMedia/8f59c59e-3740-4d74-9aa6-f66f1083c13a/Posts/panda.jpg",
+      "RelativePath": "UserMedia/8f59c59e-3740-4d74-9aa6-f66f1083c13a/Posts/29df9550-09cf-40f0-8969-44a38d3f9af1_gaming.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1344,15 +1344,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\Posts\\panda.jpg"
+      "OriginalItemSpec": "wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\Posts\\29df9550-09cf-40f0-8969-44a38d3f9af1_gaming.jpg"
     },
     {
-      "Identity": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\Posts\\panda_v.mp4",
+      "Identity": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\Posts\\7f8f5631-440c-4f4c-b747-4afee4c30888_monkey.jpg",
       "SourceId": "CatchUp_server",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\",
       "BasePath": "_content/CatchUp_server",
-      "RelativePath": "UserMedia/8f59c59e-3740-4d74-9aa6-f66f1083c13a/Posts/panda_v.mp4",
+      "RelativePath": "UserMedia/8f59c59e-3740-4d74-9aa6-f66f1083c13a/Posts/7f8f5631-440c-4f4c-b747-4afee4c30888_monkey.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1363,15 +1363,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\Posts\\panda_v.mp4"
+      "OriginalItemSpec": "wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\Posts\\7f8f5631-440c-4f4c-b747-4afee4c30888_monkey.jpg"
     },
     {
-      "Identity": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\Posts\\penguin.jpg",
+      "Identity": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\Posts\\cac9e5ad-6b86-464e-b58c-b80494d674cc_monkey.jpg",
       "SourceId": "CatchUp_server",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\",
       "BasePath": "_content/CatchUp_server",
-      "RelativePath": "UserMedia/8f59c59e-3740-4d74-9aa6-f66f1083c13a/Posts/penguin.jpg",
+      "RelativePath": "UserMedia/8f59c59e-3740-4d74-9aa6-f66f1083c13a/Posts/cac9e5ad-6b86-464e-b58c-b80494d674cc_monkey.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1382,15 +1382,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\Posts\\penguin.jpg"
+      "OriginalItemSpec": "wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\Posts\\cac9e5ad-6b86-464e-b58c-b80494d674cc_monkey.jpg"
     },
     {
-      "Identity": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\Posts\\tiger.jpg",
+      "Identity": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\Posts\\cd6f207c-5917-4d61-b007-fec1d9124685_monkey.mp4",
       "SourceId": "CatchUp_server",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\",
       "BasePath": "_content/CatchUp_server",
-      "RelativePath": "UserMedia/8f59c59e-3740-4d74-9aa6-f66f1083c13a/Posts/tiger.jpg",
+      "RelativePath": "UserMedia/8f59c59e-3740-4d74-9aa6-f66f1083c13a/Posts/cd6f207c-5917-4d61-b007-fec1d9124685_monkey.mp4",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1401,7 +1401,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\Posts\\tiger.jpg"
+      "OriginalItemSpec": "wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\Posts\\cd6f207c-5917-4d61-b007-fec1d9124685_monkey.mp4"
     },
     {
       "Identity": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\ProfilePictures\\en.jpg",
@@ -1478,6 +1478,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\UserMedia\\b2ce7b34-2061-41dd-8412-765a5be14751\\CoverPictures\\pexels-pixabay-268941.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\UserMedia\\b2ce7b34-2061-41dd-8412-765a5be14751\\Posts\\d83dc84b-96a8-46af-a7a5-a7a496cd65da_IMG_0221.JPEG",
+      "SourceId": "CatchUp_server",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\",
+      "BasePath": "_content/CatchUp_server",
+      "RelativePath": "UserMedia/b2ce7b34-2061-41dd-8412-765a5be14751/Posts/d83dc84b-96a8-46af-a7a5-a7a496cd65da_IMG_0221.JPEG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UserMedia\\b2ce7b34-2061-41dd-8412-765a5be14751\\Posts\\d83dc84b-96a8-46af-a7a5-a7a496cd65da_IMG_0221.JPEG"
     },
     {
       "Identity": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\UserMedia\\b2ce7b34-2061-41dd-8412-765a5be14751\\ProfilePictures\\189e13a4-7dc3-479b-b33e-e7849e1f72df.jfif",

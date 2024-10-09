@@ -81,14 +81,14 @@
             </div>
         </div>
 
-        <div class="upload-container">
+        <div *ngIf="isMypage()" class="upload-container">
             <span>Here comes post upload section</span>
             <div class="left"></div>
             <div class="center"></div>
             <div class="right"></div>
         </div>
         
-        <app-posts></app-posts>
+        <app-posts [userId]="user.id"></app-posts>
     </div>
 
     <app-right-side-bar (followPressed)="onFollowUpdated()" class="sidebar" style="flex: 3;"></app-right-side-bar>

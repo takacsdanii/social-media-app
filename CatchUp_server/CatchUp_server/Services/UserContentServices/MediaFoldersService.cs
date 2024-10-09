@@ -51,9 +51,8 @@ namespace CatchUp_server.Services.UserContentServices
             }
 
             string userPath = Path.Combine(_environment.WebRootPath, "UserMedia", userId, folder);
-            //string uniqueFileName = $"{Guid.NewGuid()}_{file.FileName}";
-            //string filePath = Path.Combine(userPath, uniqueFileName);
-            string filePath = Path.Combine(userPath, file.FileName);
+            string uniqueFileName = $"{Guid.NewGuid()}_{file.FileName}";
+            string filePath = Path.Combine(userPath, uniqueFileName);
 
             CreateUserMediaFolders(userId);
 
@@ -62,7 +61,7 @@ namespace CatchUp_server.Services.UserContentServices
                 file.CopyTo(stream);
             }
 
-            string fileUrl = $"/UserMedia/{userId}/{folder}/{file.FileName}";
+            string fileUrl = $"/UserMedia/{userId}/{folder}/{uniqueFileName}";
             return fileUrl;
         }
 

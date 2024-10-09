@@ -15,9 +15,14 @@
             align-items: center;
             justify-content: space-between;
 
+            mat-icon{
+                cursor: pointer;
+            }
+
             .user-info {
                 display: flex;
                 gap: 20px;
+                cursor: pointer;
 
                 img{
                     width: 40px;
@@ -60,6 +65,7 @@
                     max-height: 500px;
                     object-fit: cover;
                     margin-top: 20px;
+                    cursor: pointer;
                 }
 
                 .controls {

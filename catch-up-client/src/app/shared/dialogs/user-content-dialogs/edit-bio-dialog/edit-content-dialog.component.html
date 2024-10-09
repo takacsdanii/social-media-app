@@ -1,0 +1,15 @@
+<h5 *ngIf="bio !== undefined">Edit bio</h5>
+<h5 *ngIf="description !== undefined">Edit description</h5>
+
+<ng-container *ngIf="bio !== undefined">
+  <textarea [(ngModel)]="bio" class="input-field" rows="5"></textarea>
+</ng-container>
+<ng-container *ngIf="description !== undefined">
+  <textarea [(ngModel)]="description" class="input-field" rows="5"></textarea>
+</ng-container>
+
+<mat-dialog-actions align="end">
+  <button *ngIf="bio != undefined" mat-raised-button matDialogClose (click)="onBioSave()" class="save-btn">Save</button>
+  <button *ngIf="description != undefined" mat-raised-button matDialogClose (click)="onDescriptionSave()" class="save-btn">Save</button>
+  <button mat-raised-button matDialogClose class="cancel-btn">Cancel</button>
+</mat-dialog-actions>

@@ -29,8 +29,9 @@ namespace CatchUp_server
             builder.Services.AddScoped<UserService>();
             builder.Services.AddScoped<EmailService>();
             builder.Services.AddScoped<FriendsService>();
-            builder.Services.AddScoped<UserContentService>();
+            builder.Services.AddScoped<UserProfileService>();
             builder.Services.AddScoped<MediaFoldersService>();
+            builder.Services.AddScoped<PostService>();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
 

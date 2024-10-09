@@ -12,5 +12,5 @@ export class DisplayContentDialogComponent implements OnInit {
   constructor(public mediaUrlService: MediaUrlService,
               @Inject(MAT_DIALOG_DATA) public data: { imageUrl: string }) { }
 
-  public ngOnInit(): void { }
+  public ngOnInit(): void { console.log(this.data.imageUrl)}
 }

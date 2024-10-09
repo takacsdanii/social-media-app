@@ -2,27 +2,36 @@
     <div class="container">
 
         <div class="user">
-            <div class="user-info">
-                <img src="assets/images/icons/icons8-gollum-50.png" alt="">
+            <div [routerLink]="['/user-page', user?.id]" class="user-info">
+                <img [src]="mediaUrlService.getFullUrl(user?.profilePicUrl)" alt="">
                 <div class="details">
-                    <!-- todo: a user oldalára vigyen a routerLink -->
-                    <span routerLink="" class="name">username</span>
-                    <span class="date">2 minutes ago</span>
+                    <span class="name">{{ user?.userName }}</span>
+                    <span class="date">{{ post?.createdAt | date: 'yyyy-MM-dd hh:mm'}}</span>
                 </div>
             </div>
-            <mat-icon>more_horiz</mat-icon>
+            <mat-icon *ngIf="isLoggedInUsersPost()" [matMenuTriggerFor]="actionMenu">more_horiz</mat-icon>
         </div>
+
+        <mat-menu #actionMenu="matMenu">
+            <button mat-menu-item (click)="openEditDialog(postId, post!.description)">
+                <mat-icon>edit</mat-icon>Change description
+            </button>
+            <button mat-menu-item>
+                <mat-icon>edit</mat-icon>Change visibility
+            </button>
+            <button mat-menu-item>
+                <mat-icon>delete</mat-icon>Delete post
+            </button>
+        </mat-menu>
     
         <div class="content">
-            <p>Description goes here</p>
-            <!-- <img src="assets/images/logos/logo5.png" alt="">
-            <img src="assets/images/other/dream.jpg" alt="">
-            <img src="assets/images/other/profile.jpg" alt=""> -->
+            <p>{{ post?.description }}</p>
             <div class="slider">
-                <img [src]="imageUrls[currentImgIdx]" alt="">
+                <img (click)="openDisplayContentDialog(post!!.mediaUrls[currentImgIdx])"
+                 [src]="mediaUrlService.getFullUrl(post!!.mediaUrls[currentImgIdx])" alt="">
                 <div class="controls">
                     <button (click)="prevImage()" [disabled]="currentImgIdx === 0">&lt;</button>
-                    <button (click)="nextImage()" [disabled]="currentImgIdx === imageUrls.length - 1">&gt;</button>
+                    <button (click)="nextImage()" [disabled]="currentImgIdx === post!!.mediaUrls.length - 1">&gt;</button>
                 </div>
             </div>
         </div>

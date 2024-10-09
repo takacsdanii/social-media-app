@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { NotificationService } from '../../../../core/services/logic/notifications/notification.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { UserContentHttpService } from '../../../../core/services/http/user-content/user-content-http.service';
+import { UserProfileHttpService } from '../../../../core/services/http/user-content/user-profile-http.service';
 
 @Component({
   selector: 'app-upload-dialog',
@@ -11,7 +11,7 @@ import { UserContentHttpService } from '../../../../core/services/http/user-cont
 export class UploadDialogComponent implements OnInit {
   public selectedFile: File;
 
-  constructor(private userContentHttpService: UserContentHttpService,
+  constructor(private userProfieHttpService: UserProfileHttpService,
               private notificationService: NotificationService,
               @Inject(MAT_DIALOG_DATA) public data: { userId: string, type: 'cover' | 'profile' }) { }
 
@@ -24,8 +24,8 @@ export class UploadDialogComponent implements OnInit {
   public onUpload(): void {
     if(this.selectedFile) {
       const uploadMethod = this.data.type === 'cover'
-        ? this.userContentHttpService.editCoverPic(this.data.userId, this.selectedFile)
-        : this.userContentHttpService.editProfilePic(this.data.userId, this.selectedFile);
+        ? this.userProfieHttpService.editCoverPic(this.data.userId, this.selectedFile)
+        : this.userProfieHttpService.editProfilePic(this.data.userId, this.selectedFile);
 
       uploadMethod.subscribe(resp => {
         this.notificationService.showSuccesSnackBar(`${this.data.type} picture saved succesfully`);
