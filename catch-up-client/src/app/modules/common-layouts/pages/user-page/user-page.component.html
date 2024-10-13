@@ -70,11 +70,11 @@
                     <mat-icon *ngIf="isMypage() || isAdmin" [matMenuTriggerFor]="moreMenu">more_vert</mat-icon>
 
                     <mat-menu #moreMenu="matMenu" class="more-menu">
+                        <button *ngIf="isMypage() || isAdmin" mat-menu-item [routerLink]="['/users', user.id]">
+                            <mat-icon>manage_accounts</mat-icon>Manage account
+                        </button>
                         <button *ngIf="isMypage()" mat-menu-item (click)="openEditBioDialog(user.id, user.bio)">
                             <mat-icon>edit</mat-icon>Edit bio
-                        </button>
-                        <button *ngIf="isAdmin" mat-menu-item [routerLink]="['/users', user.id]">
-                            <mat-icon>manage_accounts</mat-icon>Manage account
                         </button>
                     </mat-menu>
                 </div>
@@ -82,10 +82,23 @@
         </div>
 
         <div *ngIf="isMypage()" class="upload-container">
-            <span>Here comes post upload section</span>
-            <div class="left"></div>
-            <div class="center"></div>
-            <div class="right"></div>
+            <span>What's in your mind?</span>
+
+            <textarea [(ngModel)]="postDescription" rows="5" placeholder="Description"></textarea>
+            
+
+            <label for="visibility">Visibility: </label>
+            <select [(ngModel)]="postVisibility" id="visibility">
+                <option [value]="0">Public</option>
+                <option [value]="1">Friends</option>
+                <option [value]="2">Followers</option>
+                <option [value]="3">Following</option>
+                <option [value]="4">Private</option>
+                <option [value]="5">Custom</option>
+            </select>
+            <input type="file" (change)="onFilesSelected($event)" multiple>
+
+            <button (click)="uploadPost()" [disabled]="!canUpload()">Upload</button>
         </div>
         
         <app-posts [userId]="user.id"></app-posts>

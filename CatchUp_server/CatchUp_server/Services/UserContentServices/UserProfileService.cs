@@ -14,6 +14,15 @@ namespace CatchUp_server.Services.UserContentServices
         private readonly ApiDbContext _context;
         private readonly MediaFoldersService _mediaFoldersService;
 
+        private const string profilePicFolder = "ProfilePictures";
+        private const string coverPicFolder = "CoverPictures";
+
+        private const string defaultsFolder = "defaults";
+        private const string defaultMaleProfilePic = "male.png";
+        private const string defaultFemaleProfilePic = "female.png";
+        private const string defaultOtherProfilePic = "other.jpg";
+        private const string defaultCoverPic = "default-cover.jpg";
+
         public UserProfileService(ApiDbContext context, MediaFoldersService mediaFoldersService)
         {
             _context = context;
@@ -22,29 +31,29 @@ namespace CatchUp_server.Services.UserContentServices
 
         public void setDefaultProfilePic(User user)
         {
-            var baseProfilePicUrl = "/defaults/ProfilePictures";
+            var baseProfilePicUrl = $"/{defaultsFolder}/{profilePicFolder}";
             switch (user.Gender)
             {
                 case Gender.Male:
-                    user.ProfilePicUrl = $"{baseProfilePicUrl}/male.png";
+                    user.ProfilePicUrl = $"{baseProfilePicUrl}/{defaultMaleProfilePic}";
                     break;
 
                 case Gender.Female:
-                    user.ProfilePicUrl = $"{baseProfilePicUrl}/female.png";
+                    user.ProfilePicUrl = $"{baseProfilePicUrl}/{defaultFemaleProfilePic}";
                     break;
 
                 case Gender.Other:
-                    user.ProfilePicUrl = $"{baseProfilePicUrl}/other.jpg";
+                    user.ProfilePicUrl = $"{baseProfilePicUrl}/{defaultOtherProfilePic}";
                     break;
             }
         }
 
         public void setDefaultCoverPic(User user)
         {
-            user.CoverPicUrl = "/defaults/default-cover.jpg";
+            user.CoverPicUrl = $"/{defaultsFolder}/{defaultCoverPic}";
         }
 
-        public bool EditProfilePic(string userId, IFormFile file)
+        private bool EditPic(string userId, IFormFile file, string folder)
         {
             var user = _context.Users.SingleOrDefault(u => u.Id == userId);
             if (user == null)
@@ -52,66 +61,71 @@ namespace CatchUp_server.Services.UserContentServices
                 return false;
             }
 
-            // delete the original or leave it?
-            var imgUrl = _mediaFoldersService.UploadFile(userId, "ProfilePictures", file);
+            _mediaFoldersService.DeleteFolderContent(userId, folder);
+            var imgUrl = _mediaFoldersService.UploadFile(userId, folder, file);
 
-            user.ProfilePicUrl = imgUrl;
+            if (folder == profilePicFolder)
+            {
+                user.ProfilePicUrl = imgUrl;
+            }
+            else if (folder == coverPicFolder)
+            {
+                user.CoverPicUrl = imgUrl;
+            }
+            else
+            { 
+                return false;
+            }
+
+            _context.SaveChanges();
+            return true;
+        }
+
+        public bool EditProfilePic(string userId, IFormFile file)
+        {
+            return EditPic(userId, file, profilePicFolder);
+        }
+
+        public bool EditCoverPic(string userId, IFormFile file)
+        {
+            return EditPic(userId, file, coverPicFolder);
+        }
+
+        private bool DeletePic(string userId, string fileName, string folder)
+        {
+            var user = _context.Users.SingleOrDefault(u => u.Id == userId);
+            if (user == null)
+            {
+                return false;
+            }
+
+            var result = _mediaFoldersService.DeleteFile(userId, folder, fileName);
+            if (result == false)
+            {
+                return false;
+            }
+
+            if(folder == profilePicFolder)
+            {
+                setDefaultProfilePic(user);
+            }
+            else if(folder == coverPicFolder)
+            {
+                setDefaultCoverPic(user);
+            } 
+            
             _context.SaveChanges();
             return true;
         }
 
         public bool DeleteProfilePic(string userId, string fileName)
         {
-            var user = _context.Users.SingleOrDefault(u => u.Id == userId);
-            if (user == null)
-            {
-                return false;
-            }
-
-            var result = _mediaFoldersService.DeleteFile(userId, "ProfilePictures", fileName);
-            if(result == false)
-            {
-                return false;
-            }
-
-            setDefaultProfilePic(user);
-            _context.SaveChanges();
-            return true;
-        }
-
-        public bool EditCoverPic(string userId, IFormFile file)
-        {
-            var user = _context.Users.SingleOrDefault(u => u.Id == userId);
-            if (user == null)
-            {
-                return false;
-            }
-
-            // delete the original or leave it?
-            var imgUrl = _mediaFoldersService.UploadFile(userId, "CoverPictures", file);
-
-            user.CoverPicUrl = imgUrl;
-            _context.SaveChanges();
-            return true;
+            return DeletePic(userId, fileName, profilePicFolder);
         }
 
         public bool DeleteCoverPic(string userId, string fileName)
         {
-            var user = _context.Users.SingleOrDefault(u => u.Id == userId);
-            if (user == null)
-            {
-                return false;
-            }
-
-            var result = _mediaFoldersService.DeleteFile(userId, "CoverPictures", fileName);
-            if (result == false)
-            {
-                return false;
-            }
-
-            setDefaultCoverPic(user);
-            _context.SaveChanges();
-            return true;
+            return DeletePic(userId, fileName, coverPicFolder);
         }
 
         public bool EditBio(EditBioViewModel editBioViewModel)

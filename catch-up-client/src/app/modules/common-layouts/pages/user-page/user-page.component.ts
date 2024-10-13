@@ -15,6 +15,11 @@ import { DisplayContentDialogComponent } from '../../../../shared/dialogs/user-c
 import { ViewportScroller } from '@angular/common';
 import { DeleteContentDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/delete-content-dialog/delete-content-dialog.component';
 import { EditContentDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/edit-bio-dialog/edit-content-dialog.component';
+import { PostHttpService } from '../../../../core/services/http/user-content/post-http.service';
+import { VisibilityModel } from '../../../../core/models/enums/visibility.model';
+import { UploadPostModel } from '../../../../core/models/user-content/upload-post.model';
+import { PostsComponent } from '../../user-content/posts/posts.component';
+import { NotificationService } from '../../../../core/services/logic/notifications/notification.service';
 
 @Component({
   selector: 'app-user-page',
@@ -22,9 +27,14 @@ import { EditContentDialogComponent } from '../../../../shared/dialogs/user-cont
   styleUrl: './user-page.component.scss'
 })
 export class UserPageComponent implements OnInit {
+  public selectedFiles: File[] = [];
+  public postDescription: string | null = null;
+  public postVisibility: VisibilityModel = 0;
+
   @ViewChild(NavigationHeaderComponent) navigationHeaderComponent!: NavigationHeaderComponent;
   @ViewChild(RightSideBarComponent) rightSideBarComponent!: RightSideBarComponent;
   @ViewChild(LeftSideBarComponent) leftSideBarComponent!: LeftSideBarComponent;
+  @ViewChild(PostsComponent) postsComponent!: PostsComponent;
 
   public user: UserModel = new UserModel();
   public userIdFromRoute: string | null;
@@ -39,10 +49,12 @@ export class UserPageComponent implements OnInit {
               private authService: AuthService,
               private friendsHttpService: FriendsHttpService,
               private userHttpService: UserHttpService,
+              private postHttpService: PostHttpService,
               public mediaUrlService: MediaUrlService,
               private uploadDiaog: MatDialog,
               private displayContentDialog: MatDialog,
-              private viewportScroller: ViewportScroller) { }
+              private viewportScroller: ViewportScroller,
+              private notificationService: NotificationService) { }
 
   public ngOnInit(): void {
     this.isAdmin = this.authService.isAdmin();
@@ -171,4 +183,33 @@ export class UserPageComponent implements OnInit {
       this.ngOnInit();
     });
   }
+
+  public onFilesSelected(event: any): void {
+    this.selectedFiles = Array.from(event.target.files);
+    console.log(this.selectedFiles);
+  }
+
+  public uploadPost(): void {
+    if(this.postDescription === '')
+      this.postDescription = null;
+
+    var uploadModel: UploadPostModel = {
+      userId: this.user.id,
+      description: this.postDescription,
+      visibility: this.postVisibility
+    }
+
+    this.postHttpService.uploadPost(uploadModel, this.selectedFiles).subscribe(post => {
+      this.postsComponent.loadPosts();
+      this.ngOnInit();
+    });
+  }
+
+  public canUpload(): boolean {
+    return (
+      (this.postDescription != null && this.postDescription != '') ||
+      this.selectedFiles.length > 0
+    );
+  }
+
 }

@@ -16,7 +16,7 @@ namespace CatchUp_server.Services.AuthServices
         private readonly IConfiguration _configuration;
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
-        private readonly UserProfileService _userContentService;
+        private readonly UserProfileService _userProfileService;
 
         private const int minAge = 14;
 
@@ -26,7 +26,7 @@ namespace CatchUp_server.Services.AuthServices
             _configuration = configuration;
             _userManager = userManager;
             _signInManager = signInManager;
-            _userContentService = userContentService;
+            _userProfileService = userContentService;
         }
 
 
@@ -73,8 +73,8 @@ namespace CatchUp_server.Services.AuthServices
                 RegisteredAt = DateTime.Now
             };
 
-            _userContentService.setDefaultProfilePic(user);
-            _userContentService.setDefaultCoverPic(user);
+            _userProfileService.setDefaultProfilePic(user);
+            _userProfileService.setDefaultCoverPic(user);
 
             var result = await _userManager.CreateAsync(user, registerViewModel.Password);
             if (result.Succeeded)

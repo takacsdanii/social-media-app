@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { PostHttpService } from '../../../../core/services/http/user-content/post-http.service';
 import { PostModel } from '../../../../core/models/user-content/post.model';
 
@@ -21,9 +21,10 @@ export class PostsComponent implements OnInit, OnChanges {
     }
   }
 
-  private loadPosts(): void {
+  public loadPosts(): void {
     this.postHttpService.getPostsOfUser(this.userId).subscribe(results => {
       this.posts = results;
     });
   }
+
 }

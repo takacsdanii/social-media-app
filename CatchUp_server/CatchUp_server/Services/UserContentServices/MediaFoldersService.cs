@@ -6,6 +6,12 @@ namespace CatchUp_server.Services.UserContentServices
     {
         public ApiDbContext _context;
         public IWebHostEnvironment _environment;
+
+        private const string mediaFolder = "UserMedia";
+        private const string profilePicFolder = "ProfilePictures";
+        private const string coverPicFolder = "CoverPictures";
+        private const string postsFolder = "Posts";
+
         public MediaFoldersService(ApiDbContext context, IWebHostEnvironment environment)
         {
             _context = context;
@@ -14,7 +20,7 @@ namespace CatchUp_server.Services.UserContentServices
 
         private string DoUserMediaFoldersExist(string userId)
         {
-            string userRootPath = Path.Combine(_environment.WebRootPath, "UserMedia", userId);
+            string userRootPath = Path.Combine(_environment.WebRootPath, mediaFolder, userId);
             if (Directory.Exists(userRootPath))
             {
                 return userRootPath;
@@ -27,10 +33,10 @@ namespace CatchUp_server.Services.UserContentServices
             var userRootPath = DoUserMediaFoldersExist(userId);
             if (userRootPath == null)
             {
-                string rootPath = Path.Combine(_environment.WebRootPath, "UserMedia", userId);
-                Directory.CreateDirectory(Path.Combine(rootPath, "ProfilePictures"));
-                Directory.CreateDirectory(Path.Combine(rootPath, "CoverPictures"));
-                Directory.CreateDirectory(Path.Combine(rootPath, "Posts"));
+                string rootPath = Path.Combine(_environment.WebRootPath, mediaFolder, userId);
+                Directory.CreateDirectory(Path.Combine(rootPath, profilePicFolder));
+                Directory.CreateDirectory(Path.Combine(rootPath, coverPicFolder));
+                Directory.CreateDirectory(Path.Combine(rootPath, postsFolder));
             }
         }
 
@@ -50,7 +56,7 @@ namespace CatchUp_server.Services.UserContentServices
                 return null;
             }
 
-            string userPath = Path.Combine(_environment.WebRootPath, "UserMedia", userId, folder);
+            string userPath = Path.Combine(_environment.WebRootPath, mediaFolder, userId, folder);
             string uniqueFileName = $"{Guid.NewGuid()}_{file.FileName}";
             string filePath = Path.Combine(userPath, uniqueFileName);
 
@@ -61,13 +67,13 @@ namespace CatchUp_server.Services.UserContentServices
                 file.CopyTo(stream);
             }
 
-            string fileUrl = $"/UserMedia/{userId}/{folder}/{uniqueFileName}";
+            string fileUrl = $"/{mediaFolder}/{userId}/{folder}/{uniqueFileName}";
             return fileUrl;
         }
 
         public bool DeleteFile(string userId, string folder, string fileName)
         {
-            string userPath = Path.Combine(_environment.WebRootPath, "UserMedia", userId, folder);
+            string userPath = Path.Combine(_environment.WebRootPath, mediaFolder, userId, folder);
             string filePath = Path.Combine(userPath, fileName);
 
             if(!File.Exists(filePath))
@@ -77,6 +83,19 @@ namespace CatchUp_server.Services.UserContentServices
 
             File.Delete(filePath);
             return true;
+        }
+
+        public void DeleteFolderContent(string userId, string folder)
+        {
+            string path = Path.Combine(_environment.WebRootPath, mediaFolder, userId, folder) ;
+            if (Directory.Exists(path))
+            {
+                var files = Directory.GetFiles(path);
+                foreach (var file in files)
+                {
+                    File.Delete(file);
+                }
+            }
         }
     }
 }

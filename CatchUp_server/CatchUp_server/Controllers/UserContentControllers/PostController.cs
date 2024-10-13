@@ -32,16 +32,9 @@ namespace CatchUp_server.Controllers.UserContentControllers
             return (post != null) ? Ok(post) : NotFound();
         }
 
-        [HttpPost("post"), Authorize]
-        //public IActionResult UploadPost([FromBody] UploadPostViewModel postModel, [FromForm] List<IFormFile> files)
-        public IActionResult UploadPost(string userId, string description, Visibility visibility, List<IFormFile> files)
+        [HttpPost, Authorize]
+        public IActionResult UploadPost([FromForm] UploadPostViewModel postModel, [FromForm] List<IFormFile> files)
         {
-            UploadPostViewModel postModel = new UploadPostViewModel()
-            {
-                UserId = userId,
-                Description = description,
-                Visibility = visibility
-            };
             var post = _postService.UploadPost(postModel, files);
             return (post != null) ? Ok(post) : NotFound();
         }
@@ -59,6 +52,13 @@ namespace CatchUp_server.Controllers.UserContentControllers
         {
             var newVisibility = _postService.EditVisibility(postId, visibility);
             return (newVisibility != null) ? Ok(newVisibility) : NotFound();
+        }
+
+        [HttpDelete, Authorize]
+        public IActionResult Delete(int postId)
+        {
+            var result = _postService.Delete(postId);
+            return (result) ? Ok() : NotFound();
         }
     }
 }

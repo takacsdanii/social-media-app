@@ -1,5 +1,5 @@
 <div class="posts">
     <ng-container *ngFor="let post of posts">
-        <app-post [postId]="post.id"></app-post>
+        <app-post [postId]="post.id" (postDeleted)="loadPosts()"></app-post>
     </ng-container>
 </div>

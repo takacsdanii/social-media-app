@@ -9,17 +9,17 @@
                     <span class="date">{{ post?.createdAt | date: 'yyyy-MM-dd hh:mm'}}</span>
                 </div>
             </div>
-            <mat-icon *ngIf="isLoggedInUsersPost()" [matMenuTriggerFor]="actionMenu">more_horiz</mat-icon>
+            <mat-icon *ngIf="isLoggedInUsersPost() || isAdmin" [matMenuTriggerFor]="actionMenu">more_horiz</mat-icon>
         </div>
 
         <mat-menu #actionMenu="matMenu">
-            <button mat-menu-item (click)="openEditDialog(postId, post!.description)">
-                <mat-icon>edit</mat-icon>Change description
+            <button mat-menu-item *ngIf="isLoggedInUsersPost()" (click)="openEditDialog(postId, post!.description)">
+                <mat-icon>edit_note</mat-icon>Change description
             </button>
-            <button mat-menu-item>
+            <button mat-menu-item *ngIf="isLoggedInUsersPost()">
                 <mat-icon>edit</mat-icon>Change visibility
             </button>
-            <button mat-menu-item>
+            <button mat-menu-item (click)="deletePost(postId)">
                 <mat-icon>delete</mat-icon>Delete post
             </button>
         </mat-menu>

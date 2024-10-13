@@ -11,23 +11,13 @@ namespace CatchUp_server.Services.UserContentServices
         private readonly ApiDbContext _context;
         private readonly MediaFoldersService _mediaFoldersService;
 
+        private const string postsFolder = "Posts";
+
         public PostService(ApiDbContext context, MediaFoldersService mediaFoldersService)
         {
             _context = context;
             _mediaFoldersService = mediaFoldersService;
         }
-
-        //public PostViewModel MapPostToViewModel(Post post)
-        //{
-        //    return new PostViewModel
-        //    {
-        //        Id = post.Id,
-        //        Description = post.Description,
-        //        Visibility = post.Visibility,
-        //        CreatedAt = post.CreatedAt,
-        //        MediaUrls = post.MediaContents.Select(mc => mc.MediaUrl).ToList()
-        //    };
-        //}
 
         public IReadOnlyCollection<PostViewModel> GetPostsOfUser(string userId)
         {
@@ -93,7 +83,7 @@ namespace CatchUp_server.Services.UserContentServices
 
             foreach (var file in files)
             {
-                string mediaUrl = _mediaFoldersService.UploadFile(user.Id, "Posts", file);
+                string mediaUrl = _mediaFoldersService.UploadFile(user.Id, postsFolder, file);
                 var mediaContent = new MediaContent
                 {
                     MediaUrl = mediaUrl,
@@ -146,6 +136,26 @@ namespace CatchUp_server.Services.UserContentServices
             _context.SaveChanges();
 
             return post.Visibility;
+        }
+
+        public bool Delete(int postId)
+        {
+            var post = _context.Posts.Include(p => p.MediaContents).SingleOrDefault(p => p.Id == postId);
+            if (post == null)
+            {
+                return false;
+            }
+
+            foreach(var content in post.MediaContents)
+            {
+                string fileName = Path.GetFileName(content.MediaUrl);
+                _mediaFoldersService.DeleteFile(post.Userid, postsFolder, fileName);
+            }
+
+            _context.Posts.Remove(post);
+            _context.SaveChanges();
+
+            return true;
         }
     }
 }

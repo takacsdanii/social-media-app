@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { PostHttpService } from '../../../../core/services/http/user-content/post-http.service';
 import { PostModel } from '../../../../core/models/user-content/post.model';
 import { UserHttpService } from '../../../../core/services/http/user/user-http.service';
@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DisplayContentDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/display-content-dialog/display-content-dialog.component';
 import { AuthService } from '../../../../core/services/logic/auth/auth.service';
 import { EditContentDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/edit-bio-dialog/edit-content-dialog.component';
+import { NotificationService } from '../../../../core/services/logic/notifications/notification.service';
 
 @Component({
   selector: 'app-post',
@@ -24,15 +25,20 @@ export class PostComponent implements OnInit {
               public mediaUrlService: MediaUrlService,
               private displayContentDialog: MatDialog,
               private editDialog: MatDialog,
-              private authService: AuthService) { }
+              private authService: AuthService,
+              private notificationService: NotificationService) { }
 
   @Input() public postId: number;
+  @Output() public postDeleted: EventEmitter<void> = new EventEmitter<void>();
+
   public post?: PostModel;
   public user?: UserModel;
 
   public loggedInUserId: string;
+  public isAdmin: boolean;
 
   public ngOnInit(): void {
+    this.isAdmin = this.authService.isAdmin();
     this.loggedInUserId = this.authService.getUserId()!!;
 
     this.postHttpService.getPost(this.postId).subscribe(result => {
@@ -81,6 +87,13 @@ export class PostComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.ngOnInit();
+    })
+  }
+
+  public deletePost(postId: number): void {
+    this.postHttpService.delete(postId).subscribe(_ => {
+      this.notificationService.showSuccesSnackBar("Post deleted!");
+      this.postDeleted.emit();
     })
   }
 }
