@@ -1,4 +1,7 @@
 ﻿using CatchUp_server.Services.UserContentServices;
+using CatchUp_server.Services.UserServices;
+using CatchUp_server.ViewModels.UserContentViewModels;
+using CatchUp_server.ViewModels.UserViewModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -34,6 +37,25 @@ namespace CatchUp_server.Controllers.UserContentControllers
         {
             var result = _likeService.RemoveLike(id);
             return (result != null) ? Ok(result) : NotFound();
+        }
+
+        [HttpGet("likers-for-post")]
+        public IEnumerable<LikeViewModel> GetLikersForPost(int postId)
+        {
+            return _likeService.GetLikersForPost(postId);
+        }
+
+        [HttpGet("likers-for-comment")]
+        public IEnumerable<LikeViewModel> GetLikersForComment(int postId, int commentId)
+        {
+            return _likeService.GetLikersForComment(postId, commentId);
+        }
+
+        [HttpGet("has-user-liked-post")]
+        public IActionResult GetLikeIdForPost(string userId, int postId)
+        {
+            var result = _likeService.GetLikeIdForPost(userId, postId);
+            return Ok(result);
         }
     }
 }

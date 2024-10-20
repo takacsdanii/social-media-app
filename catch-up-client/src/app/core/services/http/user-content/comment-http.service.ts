@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CommentHttpService {
-  private url = 'https://localhost:7175/api/comment';
+  private url = 'https://localhost:7175/api/comments';
 
   constructor(private http: HttpClient) { }
 

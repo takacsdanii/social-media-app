@@ -186,7 +186,6 @@ export class UserPageComponent implements OnInit {
 
   public onFilesSelected(event: any): void {
     this.selectedFiles = Array.from(event.target.files);
-    console.log(this.selectedFiles);
   }
 
   public uploadPost(): void {

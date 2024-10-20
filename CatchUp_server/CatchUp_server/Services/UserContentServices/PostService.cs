@@ -1,5 +1,6 @@
 ﻿using CatchUp_server.Db;
 using CatchUp_server.Models.UserContent;
+using CatchUp_server.Models.UserModels;
 using CatchUp_server.ViewModels.UserContentViewModels;
 using CatchUp_server.ViewModels.UserViewModel;
 using Microsoft.EntityFrameworkCore;
@@ -19,61 +20,70 @@ namespace CatchUp_server.Services.UserContentServices
             _mediaFoldersService = mediaFoldersService;
         }
 
-        private PostViewModel MapPostToViewModel(Post p)
-        {
-            return new PostViewModel
-            {
-                Id = p.Id,
-                Description = p.Description,
-                Visibility = p.Visibility,
-                CreatedAt = p.CreatedAt,
-                UserId = p.Userid,
-                MediaUrls = p.MediaContents.Select(mc => mc.MediaUrl).ToList(),
-                LikeCount = p.Likes.Count,
-
-                Likers = p.Likes.Select(l => new LikeViewModel
-                {
-                    Id = l.Id,
-                    UserId = l.UserId,
-                    UserName = l.User.UserName,
-                    ProfilePicUrl = l.User.ProfilePicUrl
-                })
-                .ToList(),
-
-                Comments = p.Comments.Select(c => new CommentViewModel
-                {
-                    Id = c.Id,
-                    Text = c.Text,
-                    UserId = c.UserId,
-                    UserName = c.User.UserName,
-                    ProfilePicUrl = c.User.ProfilePicUrl,
-                    LikeCount = c.Likes.Count,
-                    Likers = c.Likes.Select(l => new LikeViewModel
-                    {
-                        Id = l.Id,
-                        UserId = l.UserId,
-                        UserName = l.User.UserName,
-                        ProfilePicUrl = l.User.ProfilePicUrl
-                    })
-                    .ToList()
-                })
-                .ToList()
-            };
-        }
+        //private PostViewModel MapPostToViewModel(Post p)
+        //{
+        //    return new PostViewModel
+        //    {
+        //        Id = p.Id,
+        //        Description = p.Description,
+        //        Visibility = p.Visibility,
+        //        CreatedAt = p.CreatedAt,
+        //        UserId = p.Userid,
+        //        MediaUrls = p.MediaContents.Select(mc => mc.MediaUrl).ToList(),
+        //        LikeCount = p.Likes.Count,
+        //        CommentCount = p.Comments.Count
+        //    };
+        //}
 
         public IReadOnlyCollection<PostViewModel> GetPostsOfUser(string userId)
         {
+            //var posts = _context.Posts
+            //    .Include(p => p.MediaContents)
+            //    .Include(p => p.Likes)
+            //    .Include(p => p.Comments)
+            //    .Where(p => p.Userid == userId).ToList();
+
+            //return posts.Select(p => MapPostToViewModel(p)).ToList();
+
             return _context.Posts
-                .Where(p => p.User.Id == userId)
-                .Select(p => MapPostToViewModel(p))
+                .Where(p => p.Userid == userId)
+                .Select(p => new PostViewModel
+                {
+                    Id = p.Id,
+                    Description = p.Description,
+                    Visibility = p.Visibility,
+                    CreatedAt = p.CreatedAt,
+                    UserId = p.Userid,
+                    MediaUrls = p.MediaContents.Select(mc => mc.MediaUrl).ToList(),
+                    LikeCount = _context.Likes.Count(l => l.PostId == p.Id && l.CommentId == null),
+                    CommentCount = _context.Comments.Count(c => c.PostId == p.Id && c.ParentCommentId == null)
+                })
                 .ToList();
         }
 
         public PostViewModel GetPost(int postId)
         {
+            //var post = _context.Posts
+            //    .Include(p => p.MediaContents)
+            //    .Include(p => p.Likes)
+            //    .Include(p => p.Comments)
+            //    .SingleOrDefault(p => p.Id == postId);
+
+            //return post != null ? MapPostToViewModel(post) : null;
+
             return _context.Posts
                 .Where(p => p.Id == postId)
-                .Select(p => MapPostToViewModel(p))
+                .Select(p => new PostViewModel
+                {
+                    Id = p.Id,
+                    Description = p.Description,
+                    Visibility = p.Visibility,
+                    CreatedAt = p.CreatedAt,
+                    UserId = p.Userid,
+                    MediaUrls = p.MediaContents.Select(mc => mc.MediaUrl).ToList(),
+                    LikeCount = _context.Likes.Count(l => l.PostId == p.Id && l.CommentId == null),
+                    CommentCount = _context.Comments.Count(c => c.PostId == p.Id && c.ParentCommentId == null)
+                })
                 .SingleOrDefault();
         }
 
@@ -107,9 +117,8 @@ namespace CatchUp_server.Services.UserContentServices
                 Visibility = post.Visibility,
                 UserId = post.Userid,
                 MediaUrls = new List<string>(),
-                Likers = new List<LikeViewModel>(),
                 LikeCount = 0,
-                Comments = new List<CommentViewModel>(),
+                CommentCount = 0
             };
 
             foreach (var file in files)

@@ -48,10 +48,14 @@ export class PostComponent implements OnInit {
 
     this.postHttpService.getPost(this.postId).subscribe(result => {
       this.post = result;
+      
       this.userHttpService.getUser(this.post.userId).subscribe(u => {
         this.user = u;
-        this.likeId = result.likers.find(liker => liker.userId == this.loggedInUserId)?.id ?? null;
-        this.likeId != null ? this.isLiked = true : this.isLiked = false;
+
+        this.likeHttpService.getLikeIdForPost(this.loggedInUserId, this.post!.id).subscribe(result => {
+          this.likeId = result ?? null;
+          result != 0 ? this.isLiked = true : this.isLiked = false;
+        });
       })
     });
   }
@@ -117,11 +121,11 @@ export class PostComponent implements OnInit {
     }
   }
 
-  public openLikersDialog(): void {
+  public openLikersDialog(postId: number): void {
     const dialogref = this.likersDialog.open(LikersDialogComponent, {
       width: '150px',
       height: '300px',
-      data: this.post?.likers
+      data: { postId }
     });
   }
 }

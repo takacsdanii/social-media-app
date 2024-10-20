@@ -41,10 +41,10 @@
                 <mat-icon (click)="likePost()" [ngClass]="{'liked': isLiked, 'not-liked': !isLiked}">
                     {{ isLiked ? 'favorite' : 'favorite_border'}}
                 </mat-icon>
-                <div (click)="openLikersDialog()">{{ post?.likeCount }} likes</div>
+                <div (click)="openLikersDialog(post!.id)">{{ post?.likeCount }} likes</div>
             </div>
             <div class="item" (click)="toggleOpenCommentSection()">
-                <mat-icon>chat</mat-icon>2 comments
+                <mat-icon>chat</mat-icon>{{ post?.commentCount }} comments
             </div>
             <div class="item">
                 <mat-icon>share</mat-icon>Share

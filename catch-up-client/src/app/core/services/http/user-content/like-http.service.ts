@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { LikeModel } from '../../../models/user-content/like.model';
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +40,23 @@ export class LikeHttpService {
     });
 
     return this.http.delete<void>(link, {headers });
+  }
+
+  public getLikersForPost(postId: number): Observable<LikeModel[]> {
+    const link = `${this.url}/likers-for-post?postId=${postId}`;
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.getToken()}`
+    });
+
+    return this.http.get<LikeModel[]>(link, {headers });
+  }
+
+  public getLikeIdForPost(userId: string, postId: number): Observable<number> {
+    const link = `${this.url}/has-user-liked-post?userId=${userId}&postId=${postId}`;
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.getToken()}`
+    });
+
+    return this.http.get<number>(link, {headers });
   }
 }

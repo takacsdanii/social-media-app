@@ -1,4 +1,5 @@
 ﻿using CatchUp_server.Services.UserContentServices;
+using CatchUp_server.ViewModels.UserContentViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -34,6 +35,18 @@ namespace CatchUp_server.Controllers.UserContentControllers
         {
             var result = _commentService.DeleteComment(id);
             return (result != null) ? Ok(result) : NotFound();
+        }
+
+        [HttpGet("comments-for-post")]
+        public IEnumerable<CommentViewModel> GetCommentsForPost(int postId)
+        {
+            return _commentService.GetCommentsForPost(postId);
+        }
+
+        [HttpGet("replies-for-comment")]
+        public IEnumerable<CommentViewModel> GetRepliesForComment(int postId, int parentCommentId)
+        {
+            return _commentService.GetRepliesForComment(postId, parentCommentId);
         }
     }
 }

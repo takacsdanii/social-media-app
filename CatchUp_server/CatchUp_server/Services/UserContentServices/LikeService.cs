@@ -92,5 +92,43 @@ namespace CatchUp_server.Services.UserContentServices
             _context.SaveChanges();
             return like.Id;
         }
+
+        public IReadOnlyCollection<LikeViewModel> GetLikersForPost(int postId)
+        {
+            return _context.Likes
+                .Where(l => l.PostId == postId && l.CommentId == null)
+                .Select(l => new LikeViewModel
+                {
+                    Id = l.Id,
+                    LikedAt = l.LikedAt,
+                    UserId = l.UserId,
+                    UserName = l.User.UserName,
+                    ProfilePicUrl = l.User.ProfilePicUrl
+                })
+                .ToList();
+        }
+
+        public IReadOnlyCollection<LikeViewModel> GetLikersForComment(int postId, int commentId)
+        {
+            return _context.Likes
+                .Where(l => l.PostId == postId && l.CommentId == commentId)
+                .Select(l => new LikeViewModel
+                {
+                    Id = l.Id,
+                    LikedAt = l.LikedAt,
+                    UserId = l.UserId,
+                    UserName = l.User.UserName,
+                    ProfilePicUrl = l.User.ProfilePicUrl
+                })
+                .ToList();
+        }
+
+        public int GetLikeIdForPost(string userId, int postId)
+        {
+            return _context.Likes
+                .Where(l => l.UserId == userId && l.PostId == postId && l.CommentId == null)
+                .Select(l => l.Id)
+                .SingleOrDefault();
+        }
     }
 }
