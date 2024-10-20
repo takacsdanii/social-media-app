@@ -211,5 +211,4 @@ export class UserPageComponent implements OnInit {
       this.selectedFiles.length > 0
     );
   }
-
 }

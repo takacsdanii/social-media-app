@@ -19,19 +19,53 @@ namespace CatchUp_server.Services.UserContentServices
             _mediaFoldersService = mediaFoldersService;
         }
 
+        private PostViewModel MapPostToViewModel(Post p)
+        {
+            return new PostViewModel
+            {
+                Id = p.Id,
+                Description = p.Description,
+                Visibility = p.Visibility,
+                CreatedAt = p.CreatedAt,
+                UserId = p.Userid,
+                MediaUrls = p.MediaContents.Select(mc => mc.MediaUrl).ToList(),
+                LikeCount = p.Likes.Count,
+
+                Likers = p.Likes.Select(l => new LikeViewModel
+                {
+                    Id = l.Id,
+                    UserId = l.UserId,
+                    UserName = l.User.UserName,
+                    ProfilePicUrl = l.User.ProfilePicUrl
+                })
+                .ToList(),
+
+                Comments = p.Comments.Select(c => new CommentViewModel
+                {
+                    Id = c.Id,
+                    Text = c.Text,
+                    UserId = c.UserId,
+                    UserName = c.User.UserName,
+                    ProfilePicUrl = c.User.ProfilePicUrl,
+                    LikeCount = c.Likes.Count,
+                    Likers = c.Likes.Select(l => new LikeViewModel
+                    {
+                        Id = l.Id,
+                        UserId = l.UserId,
+                        UserName = l.User.UserName,
+                        ProfilePicUrl = l.User.ProfilePicUrl
+                    })
+                    .ToList()
+                })
+                .ToList()
+            };
+        }
+
         public IReadOnlyCollection<PostViewModel> GetPostsOfUser(string userId)
         {
             return _context.Posts
                 .Where(p => p.User.Id == userId)
-                .Select(p => new PostViewModel
-                {
-                    Id = p.Id,
-                    Description = p.Description,
-                    Visibility = p.Visibility,
-                    CreatedAt = p.CreatedAt,
-                    UserId = p.Userid,
-                    MediaUrls = p.MediaContents.Select(mc => mc.MediaUrl).ToList()
-                })
+                .Select(p => MapPostToViewModel(p))
                 .ToList();
         }
 
@@ -39,15 +73,7 @@ namespace CatchUp_server.Services.UserContentServices
         {
             return _context.Posts
                 .Where(p => p.Id == postId)
-                .Select(p => new PostViewModel
-                {
-                    Id = p.Id,
-                    Description = p.Description,
-                    Visibility = p.Visibility,
-                    CreatedAt = p.CreatedAt,
-                    UserId = p.Userid,
-                    MediaUrls = p.MediaContents.Select(mc => mc.MediaUrl).ToList()
-                })
+                .Select(p => MapPostToViewModel(p))
                 .SingleOrDefault();
         }
 
@@ -65,7 +91,9 @@ namespace CatchUp_server.Services.UserContentServices
                 Description = postModel.Description,
                 Visibility = postModel.Visibility,
                 CreatedAt = DateTime.Now,
-                MediaContents = new List<MediaContent>()
+                MediaContents = new List<MediaContent>(),
+                Likes = new List<Like>(),
+                Comments = new List<Comment>()
             };
 
             _context.Posts.Add(post);
@@ -78,7 +106,10 @@ namespace CatchUp_server.Services.UserContentServices
                 CreatedAt = post.CreatedAt,
                 Visibility = post.Visibility,
                 UserId = post.Userid,
-                MediaUrls = new List<string>()
+                MediaUrls = new List<string>(),
+                Likers = new List<LikeViewModel>(),
+                LikeCount = 0,
+                Comments = new List<CommentViewModel>(),
             };
 
             foreach (var file in files)

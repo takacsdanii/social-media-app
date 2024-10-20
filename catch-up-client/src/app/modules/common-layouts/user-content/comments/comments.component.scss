@@ -60,5 +60,25 @@
             color: grey;
             font-size: 12px;
         }
+
+        .like {
+            flex: 1;
+            align-self: center;
+            font-size: 12px;
+            align-items: center;
+            display: flex;
+
+            span{
+                align-self: center;
+                margin-left: 5px;
+            }
+
+            mat-icon{
+                &:hover {
+                    color: red;
+                    cursor: pointer;
+                }
+            }
+        }
     }
 }

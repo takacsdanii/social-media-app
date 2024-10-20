@@ -37,8 +37,11 @@
         </div>
     
         <div class="info">
-            <div (click)="toggleLike()" class="item like-item">
-                <mat-icon [ngClass]="{'liked': isLiked, 'not-liked': !isLiked}">{{ isLiked ? 'favorite' : 'favorite_border'}}</mat-icon>12 likes
+            <div class="item like-item">
+                <mat-icon (click)="likePost()" [ngClass]="{'liked': isLiked, 'not-liked': !isLiked}">
+                    {{ isLiked ? 'favorite' : 'favorite_border'}}
+                </mat-icon>
+                <div (click)="openLikersDialog()">{{ post?.likeCount }} likes</div>
             </div>
             <div class="item" (click)="toggleOpenCommentSection()">
                 <mat-icon>chat</mat-icon>2 comments

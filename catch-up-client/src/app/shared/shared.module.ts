@@ -16,6 +16,7 @@ import { UploadDialogComponent } from './dialogs/user-content-dialogs/upload-dia
 import { DisplayContentDialogComponent } from './dialogs/user-content-dialogs/display-content-dialog/display-content-dialog.component';
 import { DeleteContentDialogComponent } from './dialogs/user-content-dialogs/delete-content-dialog/delete-content-dialog.component';
 import { EditContentDialogComponent } from './dialogs/user-content-dialogs/edit-bio-dialog/edit-content-dialog.component';
+import { LikersDialogComponent } from './dialogs/user-content-dialogs/likers-dialog/likers-dialog.component';
 
 
 
@@ -27,7 +28,8 @@ import { EditContentDialogComponent } from './dialogs/user-content-dialogs/edit-
     UploadDialogComponent,
     DisplayContentDialogComponent,
     DeleteContentDialogComponent,
-    EditContentDialogComponent
+    EditContentDialogComponent,
+    LikersDialogComponent
   ],
   imports: [
     CommonModule,

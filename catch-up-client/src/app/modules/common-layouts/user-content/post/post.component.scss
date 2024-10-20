@@ -109,15 +109,15 @@
                     color: #0056b3;
                 }
 
-                &.like-item {
-                    &:hover mat-icon {
+                mat-icon{
+                    &:hover {
                         color: red;
                     }
                 }
 
                 .liked {
                     color: red;
-                }
+                } 
             }
         }
     }

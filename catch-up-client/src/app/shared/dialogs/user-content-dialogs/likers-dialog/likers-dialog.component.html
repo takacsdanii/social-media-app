@@ -1,0 +1,9 @@
+<div class="likers">
+    <div *ngFor="let like of likes"
+         [routerLink]="['/user-page', like.userId]"
+         (click)="closeDialog()">
+
+        <img [src]="mediaUrlService.getFullUrl(like.profilePicUrl)" alt="prof-pic">
+        <span>{{ like.userName }}</span>
+    </div>
+</div>

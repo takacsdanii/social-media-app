@@ -9,6 +9,8 @@ import { DisplayContentDialogComponent } from '../../../../shared/dialogs/user-c
 import { AuthService } from '../../../../core/services/logic/auth/auth.service';
 import { EditContentDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/edit-bio-dialog/edit-content-dialog.component';
 import { NotificationService } from '../../../../core/services/logic/notifications/notification.service';
+import { LikeHttpService } from '../../../../core/services/http/user-content/like-http.service';
+import { LikersDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/likers-dialog/likers-dialog.component';
 
 @Component({
   selector: 'app-post',
@@ -17,6 +19,7 @@ import { NotificationService } from '../../../../core/services/logic/notificatio
 })
 export class PostComponent implements OnInit {
   public isLiked: boolean;
+  public likeId: number | null;
   public isCommentSectionOpen: boolean = false;
   public currentImgIdx: number = 0;
 
@@ -26,7 +29,9 @@ export class PostComponent implements OnInit {
               private displayContentDialog: MatDialog,
               private editDialog: MatDialog,
               private authService: AuthService,
-              private notificationService: NotificationService) { }
+              private likeHttpService: LikeHttpService,
+              private notificationService: NotificationService,
+              private likersDialog: MatDialog) { }
 
   @Input() public postId: number;
   @Output() public postDeleted: EventEmitter<void> = new EventEmitter<void>();
@@ -45,12 +50,10 @@ export class PostComponent implements OnInit {
       this.post = result;
       this.userHttpService.getUser(this.post.userId).subscribe(u => {
         this.user = u;
+        this.likeId = result.likers.find(liker => liker.userId == this.loggedInUserId)?.id ?? null;
+        this.likeId != null ? this.isLiked = true : this.isLiked = false;
       })
     });
-  }
-
-  public toggleLike(): void {
-    this.isLiked = ! this.isLiked;
   }
 
   public toggleOpenCommentSection(): void {
@@ -95,5 +98,30 @@ export class PostComponent implements OnInit {
       this.notificationService.showSuccesSnackBar("Post deleted!");
       this.postDeleted.emit();
     })
+  }
+
+  public likePost(): void {
+    if(!this.isLiked) {
+      this.likeHttpService.likePost(this.loggedInUserId, this.post!.id).subscribe(id => {
+        this.likeId = id;
+        this.isLiked = false;
+        this.ngOnInit();
+      });
+    }
+    else {
+      this.likeHttpService.removeLike(this.likeId!).subscribe(_ => {
+        this.likeId = null;
+        this.isLiked = true;
+        this.ngOnInit();
+      });
+    }
+  }
+
+  public openLikersDialog(): void {
+    const dialogref = this.likersDialog.open(LikersDialogComponent, {
+      width: '150px',
+      height: '300px',
+      data: this.post?.likers
+    });
   }
 }
