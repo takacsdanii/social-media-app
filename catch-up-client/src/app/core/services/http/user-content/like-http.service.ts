@@ -51,12 +51,25 @@ export class LikeHttpService {
     return this.http.get<LikeModel[]>(link, {headers });
   }
 
-  public getLikeIdForPost(userId: string, postId: number): Observable<number> {
-    const link = `${this.url}/has-user-liked-post?userId=${userId}&postId=${postId}`;
+  public getLikersForComment(postId: number, commentId: number): Observable<LikeModel[]> {
+    const link = `${this.url}/likers-for-comment?postId=${postId}&commentId=${commentId}`;
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.getToken()}`
     });
 
-    return this.http.get<number>(link, {headers });
+    return this.http.get<LikeModel[]>(link, {headers });
+  }
+
+  public getLikeIdForContent(userId: string, postId: number, commentId: number | null): Observable<number> {
+    var link = `${this.url}/has-user-liked-content?userId=${userId}&postId=${postId}`;
+    if(commentId) {
+      link = `${link}&commentId=${commentId}`
+    }
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.getToken()}`
+    });
+
+    return this.http.get<number>(link, { headers });
   }
 }

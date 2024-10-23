@@ -40,7 +40,9 @@ namespace CatchUp_server.Services.UserContentServices
             Comment comment = null; 
             if(commentId != null) 
             {
-                comment = _context.Comments.SingleOrDefault(c => c.Id == commentId);
+                comment = _context.Comments
+                    .Include(c => c.Likes)
+                    .SingleOrDefault(c => c.Id == commentId);
                 if (comment == null)
                 {
                     return null;
@@ -55,7 +57,7 @@ namespace CatchUp_server.Services.UserContentServices
                 CommentId = commentId
             };
 
-            if(commentId == null)
+            if (commentId == null)
             {
                 post.Likes.Add(like);
             }
@@ -101,6 +103,7 @@ namespace CatchUp_server.Services.UserContentServices
                 {
                     Id = l.Id,
                     LikedAt = l.LikedAt,
+                    PostId = l.PostId,
                     UserId = l.UserId,
                     UserName = l.User.UserName,
                     ProfilePicUrl = l.User.ProfilePicUrl
@@ -116,6 +119,7 @@ namespace CatchUp_server.Services.UserContentServices
                 {
                     Id = l.Id,
                     LikedAt = l.LikedAt,
+                    PostId = l.PostId,
                     UserId = l.UserId,
                     UserName = l.User.UserName,
                     ProfilePicUrl = l.User.ProfilePicUrl
@@ -123,10 +127,10 @@ namespace CatchUp_server.Services.UserContentServices
                 .ToList();
         }
 
-        public int GetLikeIdForPost(string userId, int postId)
+        public int GetLikeId(string userId, int postId, int? commentId)
         {
             return _context.Likes
-                .Where(l => l.UserId == userId && l.PostId == postId && l.CommentId == null)
+                .Where(l => l.UserId == userId && l.PostId == postId && l.CommentId == commentId)
                 .Select(l => l.Id)
                 .SingleOrDefault();
         }

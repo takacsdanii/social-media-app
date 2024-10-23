@@ -73,7 +73,7 @@ namespace CatchUp_server.Services.UserContentServices
             return AddComment(userId, postId, null, text);
         }
 
-        public int? AddCommentToComment(string userId, int postId, int parentCommentId, string text)
+        public int? AddReplyToComment(string userId, int postId, int parentCommentId, string text)
         {
             return AddComment(userId, postId, parentCommentId, text);
         }
@@ -100,6 +100,7 @@ namespace CatchUp_server.Services.UserContentServices
                     Id = c.Id,
                     Text = c.Text,
                     CreatedAt = c.CreatedAt,
+                    PostId = c.PostId,
                     UserId = c.UserId,
                     UserName = c.User.UserName,
                     ProfilePicUrl = c.User.ProfilePicUrl,
@@ -118,6 +119,7 @@ namespace CatchUp_server.Services.UserContentServices
                     Id = c.Id,
                     Text = c.Text,
                     CreatedAt = c.CreatedAt,
+                    PostId = c.PostId,
                     UserId = c.UserId,
                     UserName = c.User.UserName,
                     ProfilePicUrl = c.User.ProfilePicUrl,
@@ -125,6 +127,25 @@ namespace CatchUp_server.Services.UserContentServices
                     ReplyCount = _context.Comments.Count(r => r.PostId == postId && r.ParentCommentId == c.Id)
                 })
                 .ToList();
+        }
+
+        public CommentViewModel GetCommentById(int id)
+        {
+            return _context.Comments
+                .Where(c => c.Id == id)
+                .Select(c => new CommentViewModel
+                {
+                    Id = c.Id,
+                    Text = c.Text,
+                    CreatedAt = c.CreatedAt,
+                    PostId = c.PostId,
+                    UserId = c.UserId,
+                    UserName = c.User.UserName,
+                    ProfilePicUrl = c.User.ProfilePicUrl,
+                    LikeCount= _context.Likes.Count(l => l.CommentId == id),
+                    ReplyCount = _context.Comments.Count(c => c.ParentCommentId == id)
+                })
+                .SingleOrDefault();
         }
     }
 }

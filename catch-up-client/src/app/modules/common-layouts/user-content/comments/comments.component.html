@@ -1,34 +1,12 @@
 <div class="comments">
 
     <div class="write-comment">
-        <img src="assets/images/icons/icons8-gollum-50.png" alt="">
-        <input type="text" placeholder="Write a comment">
-        <button>send</button>
+        <img [src]="mediaUrlService.getFullUrl(loggedInUser.profilePicUrl)" alt="">
+        <input [(ngModel)]="commentText" type="text" placeholder="Write a comment">
+        <button (click)="postComment()" [disabled]="isButtonDisabled">send</button>
     </div>
 
-    <div class="comment">
-        <img src="assets/images/icons/icons8-chewbacca-50.png" alt="">
-        <div class="info">
-            <span>username</span>
-            <p>Comment description. It should be a really long text to see how it looks. It looks nice.</p>
-        </div>
-        <span class="date">1 hour ago</span>
-        <div class="like">
-            <mat-icon>favorite_border</mat-icon>
-            <span>0 likes</span>
-        </div>
-    </div>
-
-    <div class="comment">
-        <img src="assets/images/icons/icons8-mando-50.png" alt="">
-        <div class="info">
-            <span>username</span>
-            <p>Short comment</p>
-        </div>
-        <span class="date">1 hour ago</span>
-        <div class="like">
-            <mat-icon>favorite_border</mat-icon>
-            <span>0 likes</span>
-        </div>
-    </div>
+    <ng-container *ngFor="let comment of comments">
+        <app-comment [commentId]="comment.id" (commentDeleted)="deletedComment()"></app-comment>
+    </ng-container>
 </div>

@@ -192,6 +192,9 @@ namespace CatchUp_server.Services.UserContentServices
                 _mediaFoldersService.DeleteFile(post.Userid, postsFolder, fileName);
             }
 
+            var likes = _context.Likes.Where(l => l.PostId == postId);
+            _context.Likes.RemoveRange(likes);
+
             _context.Posts.Remove(post);
             _context.SaveChanges();
 

@@ -24,9 +24,9 @@ namespace CatchUp_server.Controllers.UserContentControllers
         }
 
         [HttpPost("comment-comment")]
-        public IActionResult AddCommentToComment(string userId, int postId, int parentCommentId, string text)
+        public IActionResult AddReplyToComment(string userId, int postId, int parentCommentId, string text)
         {
-            var result = _commentService.AddCommentToComment(userId, postId, parentCommentId, text);
+            var result = _commentService.AddReplyToComment(userId, postId, parentCommentId, text);
             return (result != null) ? Ok(result) : NotFound();
         }
 
@@ -47,6 +47,13 @@ namespace CatchUp_server.Controllers.UserContentControllers
         public IEnumerable<CommentViewModel> GetRepliesForComment(int postId, int parentCommentId)
         {
             return _commentService.GetRepliesForComment(postId, parentCommentId);
+        }
+
+        [HttpGet]
+        public IActionResult GetCommentById(int id)
+        {
+            var comment = _commentService.GetCommentById(id);
+            return (comment != null) ? Ok(comment) : NotFound();
         }
     }
 }

@@ -1,0 +1,15 @@
+<div class="comment">
+    <img [src]="mediaUrlService.getFullUrl(comment.profilePicUrl)" alt="">
+    <div class="info">
+        <span>{{ comment.userName }}</span>
+        <p>{{ comment.text }}</p>
+    </div>
+    <span class="date">{{ comment.createdAt | date: 'yyyy-MM-dd hh:mm' }}</span>
+    <div class="like">
+        <mat-icon (click)="likeComment()" [ngClass]="{'liked': isLiked, 'not-liked': !isLiked}">
+            {{ isLiked ? 'favorite' : 'favorite_border'}}
+        </mat-icon>
+        <span>{{ comment.likeCount }} likes</span>
+        <mat-icon *ngIf="isMyComment() || isAdmin" (click)="openDeleteDialog()">delete</mat-icon>
+    </div>
+</div>

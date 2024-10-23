@@ -1,6 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { UserProfileHttpService } from '../../../../core/services/http/user-content/user-profile-http.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { CommentHttpService } from '../../../../core/services/http/user-content/comment-http.service';
+import { PostHttpService } from '../../../../core/services/http/user-content/post-http.service';
+import { NotificationService } from '../../../../core/services/logic/notifications/notification.service';
 
 @Component({
   selector: 'app-delete-content-dialog',
@@ -10,17 +13,47 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class DeleteContentDialogComponent implements OnInit {
   public fileName: string;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: {userId: string, type: 'cover' | 'profile', imageUrl: string},
-              private userProfileHttpService: UserProfileHttpService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: {
+                  userId: string,
+                  type: 'cover' | 'profile',
+                  imageUrl: string
+                  commentId: number;
+                  postId: number;
+                },
+              private userProfileHttpService: UserProfileHttpService,
+              private commentHttpService: CommentHttpService,
+              private postHttpService: PostHttpService,
+              private notificationService: NotificationService) { }
 
   public ngOnInit(): void {
-    this.fileName = this.data.imageUrl.split('/').pop()!!;
+    if(this.data.commentId == null) {
+      this.fileName = this.data.imageUrl.split('/').pop()!!;
+    }
+  }
+
+  public get isComment(): boolean {
+    return this.data.commentId != null;
+  }
+
+  public get isPost(): boolean {
+    return this.data.postId != null; 
   }
 
   public onDelete(): void {
-    if(this.data.type === 'cover')
-      this.userProfileHttpService.deleteCoverPic(this.data.userId, this.fileName).subscribe();
-    else
-      this.userProfileHttpService.deleteProfilePic(this.data.userId, this.fileName).subscribe();
+    if(!this.isPost && !this.isComment) {
+      if(this.data.type === 'cover')
+        this.userProfileHttpService.deleteCoverPic(this.data.userId, this.fileName).subscribe();
+      else
+        this.userProfileHttpService.deleteProfilePic(this.data.userId, this.fileName).subscribe();
+    }
+
+    else if(this.isComment) {
+      this.commentHttpService.deleteComment(this.data.commentId).subscribe();
+    }
+    else {
+      this.postHttpService.delete(this.data.postId).subscribe(_ => {
+        this.notificationService.showSuccesSnackBar("Post deleted!");
+      })
+    }
   }
 }

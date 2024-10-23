@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7oq9phUYL7qqrrKVv4wZQqwrKdX7R8WlQiXHRYdNGQg=",
+  "Hash": "Qeu6b1hCB2lunJTOrfa6F+h1HDFvseihIzYQa/ljHbA=",
   "Source": "CatchUp_server",
   "BasePath": "_content/CatchUp_server",
   "Mode": "Default",
@@ -1347,6 +1347,25 @@
       "OriginalItemSpec": "wwwroot\\UserMedia\\5114fcb7-b339-4ef6-8b7c-f0e154a8d9c0\\CoverPictures\\admin-cover.jpg"
     },
     {
+      "Identity": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\UserMedia\\5114fcb7-b339-4ef6-8b7c-f0e154a8d9c0\\Posts\\b0a3e5d1-ee42-4acd-b9fd-482d66ba64ab_koala.jpg",
+      "SourceId": "CatchUp_server",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\",
+      "BasePath": "_content/CatchUp_server",
+      "RelativePath": "UserMedia/5114fcb7-b339-4ef6-8b7c-f0e154a8d9c0/Posts/b0a3e5d1-ee42-4acd-b9fd-482d66ba64ab_koala.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UserMedia\\5114fcb7-b339-4ef6-8b7c-f0e154a8d9c0\\Posts\\b0a3e5d1-ee42-4acd-b9fd-482d66ba64ab_koala.jpg"
+    },
+    {
       "Identity": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\UserMedia\\5114fcb7-b339-4ef6-8b7c-f0e154a8d9c0\\ProfilePictures\\admin-profile.png",
       "SourceId": "CatchUp_server",
       "SourceType": "Discovered",
@@ -1366,12 +1385,12 @@
       "OriginalItemSpec": "wwwroot\\UserMedia\\5114fcb7-b339-4ef6-8b7c-f0e154a8d9c0\\ProfilePictures\\admin-profile.png"
     },
     {
-      "Identity": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\CoverPictures\\26bef405-6103-4576-9047-cc4bab5edc05_mycover.jpg",
+      "Identity": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\CoverPictures\\c30ac3b7-b86e-42bb-8ff7-b58fb05f67bc_mycover.jpg",
       "SourceId": "CatchUp_server",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\",
       "BasePath": "_content/CatchUp_server",
-      "RelativePath": "UserMedia/8f59c59e-3740-4d74-9aa6-f66f1083c13a/CoverPictures/26bef405-6103-4576-9047-cc4bab5edc05_mycover.jpg",
+      "RelativePath": "UserMedia/8f59c59e-3740-4d74-9aa6-f66f1083c13a/CoverPictures/c30ac3b7-b86e-42bb-8ff7-b58fb05f67bc_mycover.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1382,7 +1401,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\CoverPictures\\26bef405-6103-4576-9047-cc4bab5edc05_mycover.jpg"
+      "OriginalItemSpec": "wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\CoverPictures\\c30ac3b7-b86e-42bb-8ff7-b58fb05f67bc_mycover.jpg"
     },
     {
       "Identity": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\Posts\\22af51b6-c2df-41da-939b-f538e47a86c6_gaming.jpg",

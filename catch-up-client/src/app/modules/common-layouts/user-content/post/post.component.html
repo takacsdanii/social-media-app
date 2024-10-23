@@ -19,7 +19,7 @@
             <button mat-menu-item *ngIf="isLoggedInUsersPost()">
                 <mat-icon>edit</mat-icon>Change visibility
             </button>
-            <button mat-menu-item (click)="deletePost(postId)">
+            <button mat-menu-item (click)="openDeleteDialog()">
                 <mat-icon>delete</mat-icon>Delete post
             </button>
         </mat-menu>
@@ -50,6 +50,6 @@
                 <mat-icon>share</mat-icon>Share
             </div>
         </div>
-        <app-comments *ngIf="isCommentSectionOpen"></app-comments>
+        <app-comments *ngIf="isCommentSectionOpen" [postId]="post!.id" (commentAddedOrDeleted)="ngOnInit()"></app-comments>
     </div>
 </div>

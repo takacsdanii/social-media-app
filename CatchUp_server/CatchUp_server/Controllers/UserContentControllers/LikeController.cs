@@ -51,10 +51,10 @@ namespace CatchUp_server.Controllers.UserContentControllers
             return _likeService.GetLikersForComment(postId, commentId);
         }
 
-        [HttpGet("has-user-liked-post")]
-        public IActionResult GetLikeIdForPost(string userId, int postId)
+        [HttpGet("has-user-liked-content")]
+        public IActionResult GetLikeIdForPost(string userId, int postId, int? commentId)
         {
-            var result = _likeService.GetLikeIdForPost(userId, postId);
+            var result = _likeService.GetLikeId(userId, postId, commentId);
             return Ok(result);
         }
     }

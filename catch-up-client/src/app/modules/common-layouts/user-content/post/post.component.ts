@@ -11,6 +11,7 @@ import { EditContentDialogComponent } from '../../../../shared/dialogs/user-cont
 import { NotificationService } from '../../../../core/services/logic/notifications/notification.service';
 import { LikeHttpService } from '../../../../core/services/http/user-content/like-http.service';
 import { LikersDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/likers-dialog/likers-dialog.component';
+import { DeleteContentDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/delete-content-dialog/delete-content-dialog.component';
 
 @Component({
   selector: 'app-post',
@@ -31,7 +32,8 @@ export class PostComponent implements OnInit {
               private authService: AuthService,
               private likeHttpService: LikeHttpService,
               private notificationService: NotificationService,
-              private likersDialog: MatDialog) { }
+              private likersDialog: MatDialog,
+              private deleteDialog: MatDialog) { }
 
   @Input() public postId: number;
   @Output() public postDeleted: EventEmitter<void> = new EventEmitter<void>();
@@ -52,9 +54,9 @@ export class PostComponent implements OnInit {
       this.userHttpService.getUser(this.post.userId).subscribe(u => {
         this.user = u;
 
-        this.likeHttpService.getLikeIdForPost(this.loggedInUserId, this.post!.id).subscribe(result => {
-          this.likeId = result ?? null;
-          result != 0 ? this.isLiked = true : this.isLiked = false;
+        this.likeHttpService.getLikeIdForContent(this.loggedInUserId, this.post!.id, null).subscribe(id => {
+          this.likeId = id ?? null;
+          this.isLiked = id != 0;
         });
       })
     });
@@ -97,9 +99,14 @@ export class PostComponent implements OnInit {
     })
   }
 
-  public deletePost(postId: number): void {
-    this.postHttpService.delete(postId).subscribe(_ => {
-      this.notificationService.showSuccesSnackBar("Post deleted!");
+  public openDeleteDialog(): void {
+    const dialogRef =this.deleteDialog.open(DeleteContentDialogComponent, {
+      height: '250px',
+      width: '450px',
+      data: { postId: this.post?.id }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
       this.postDeleted.emit();
     })
   }

@@ -16,6 +16,7 @@ import { UserPageComponent } from './pages/user-page/user-page.component';
 import { PostComponent } from './user-content/post/post.component';
 import { CommentsComponent } from './user-content/comments/comments.component';
 import { FormsModule } from '@angular/forms';
+import { CommentComponent } from './user-content/comment/comment.component';
 
 
 
@@ -29,7 +30,8 @@ import { FormsModule } from '@angular/forms';
     HomePageComponent,
     UserPageComponent,
     PostComponent,
-    CommentsComponent
+    CommentsComponent,
+    CommentComponent
   ],
   
   exports: [
