@@ -47,6 +47,7 @@ namespace CatchUp_server.Services.UserContentServices
 
             return _context.Posts
                 .Where(p => p.Userid == userId)
+                .OrderByDescending(p => p.CreatedAt)
                 .Select(p => new PostViewModel
                 {
                     Id = p.Id,

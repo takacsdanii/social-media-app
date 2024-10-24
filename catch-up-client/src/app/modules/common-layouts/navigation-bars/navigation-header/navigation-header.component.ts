@@ -4,7 +4,7 @@ import { NotificationService } from '../../../../core/services/logic/notificatio
 import { UserHttpService } from '../../../../core/services/http/user/user-http.service';
 import { SearchUserModel } from '../../../../core/models/search-user.model';
 import { UserModel } from '../../../../core/models/user.model';
-import { MediaUrlService } from '../../../../core/services/logic/media-urls/media-url.service';
+import { MediaUrlService } from '../../../../core/services/logic/helpers/media-url.service';
 
 @Component({
   selector: 'app-navigation-header',

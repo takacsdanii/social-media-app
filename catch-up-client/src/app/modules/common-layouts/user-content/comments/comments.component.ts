@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AuthService } from '../../../../core/services/logic/auth/auth.service';
 import { UserModel } from '../../../../core/models/user.model';
 import { UserHttpService } from '../../../../core/services/http/user/user-http.service';
-import { MediaUrlService } from '../../../../core/services/logic/media-urls/media-url.service';
+import { MediaUrlService } from '../../../../core/services/logic/helpers/media-url.service';
 import { CommentModel } from '../../../../core/models/user-content/comment.model';
 import { CommentHttpService } from '../../../../core/services/http/user-content/comment-http.service';
 

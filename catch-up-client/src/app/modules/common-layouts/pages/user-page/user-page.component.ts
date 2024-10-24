@@ -6,7 +6,7 @@ import { GenderModel } from '../../../../core/models/enums/gender.model';
 import { AuthService } from '../../../../core/services/logic/auth/auth.service';
 import { FriendsHttpService } from '../../../../core/services/http/friends/friends-http.service';
 import { RightSideBarComponent } from '../../navigation-bars/right-side-bar/right-side-bar.component';
-import { MediaUrlService } from '../../../../core/services/logic/media-urls/media-url.service';
+import { MediaUrlService } from '../../../../core/services/logic/helpers/media-url.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UploadDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/upload-dialog/upload-dialog.component';
 import { LeftSideBarComponent } from '../../navigation-bars/left-side-bar/left-side-bar.component';
@@ -188,7 +188,7 @@ export class UserPageComponent implements OnInit {
     this.selectedFiles = Array.from(event.target.files);
   }
 
-  public uploadPost(): void {
+  public uploadPost(fileInput: HTMLInputElement): void {
     if(this.postDescription === '')
       this.postDescription = null;
 
@@ -201,6 +201,8 @@ export class UserPageComponent implements OnInit {
     this.postHttpService.uploadPost(uploadModel, this.selectedFiles).subscribe(post => {
       this.postsComponent.loadPosts();
       this.ngOnInit();
+      fileInput.value = ''; 
+      this.selectedFiles = [];
     });
   }
 

@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { LikeModel } from '../../../../core/models/user-content/like.model';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { LoginModel } from '../../../../core/models/auth-models/login.model';
-import { MediaUrlService } from '../../../../core/services/logic/media-urls/media-url.service';
+import { MediaUrlService } from '../../../../core/services/logic/helpers/media-url.service';
 import { LikeHttpService } from '../../../../core/services/http/user-content/like-http.service';
 
 @Component({

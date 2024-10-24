@@ -5,7 +5,7 @@ import { AuthService } from '../../../../core/services/logic/auth/auth.service';
 import { FriendsHttpService } from '../../../../core/services/http/friends/friends-http.service';
 import { UserPreviewModel } from '../../../../core/models/user-preview.model';
 import { map, switchMap } from 'rxjs';
-import { MediaUrlService } from '../../../../core/services/logic/media-urls/media-url.service';
+import { MediaUrlService } from '../../../../core/services/logic/helpers/media-url.service';
 
 @Component({
   selector: 'app-right-side-bar',

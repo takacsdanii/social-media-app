@@ -3,7 +3,7 @@ import { PostHttpService } from '../../../../core/services/http/user-content/pos
 import { PostModel } from '../../../../core/models/user-content/post.model';
 import { UserHttpService } from '../../../../core/services/http/user/user-http.service';
 import { UserModel } from '../../../../core/models/user.model';
-import { MediaUrlService } from '../../../../core/services/logic/media-urls/media-url.service';
+import { MediaUrlService } from '../../../../core/services/logic/helpers/media-url.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DisplayContentDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/display-content-dialog/display-content-dialog.component';
 import { AuthService } from '../../../../core/services/logic/auth/auth.service';
@@ -12,6 +12,7 @@ import { NotificationService } from '../../../../core/services/logic/notificatio
 import { LikeHttpService } from '../../../../core/services/http/user-content/like-http.service';
 import { LikersDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/likers-dialog/likers-dialog.component';
 import { DeleteContentDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/delete-content-dialog/delete-content-dialog.component';
+import { TimeFormatterService } from '../../../../core/services/logic/helpers/time-formatter.service';
 
 @Component({
   selector: 'app-post',
@@ -26,14 +27,15 @@ export class PostComponent implements OnInit {
 
   constructor(private postHttpService: PostHttpService,
               private userHttpService: UserHttpService,
-              public mediaUrlService: MediaUrlService,
               private displayContentDialog: MatDialog,
               private editDialog: MatDialog,
               private authService: AuthService,
               private likeHttpService: LikeHttpService,
               private notificationService: NotificationService,
               private likersDialog: MatDialog,
-              private deleteDialog: MatDialog) { }
+              private deleteDialog: MatDialog,
+              public mediaUrlService: MediaUrlService,
+              public timeFormatterService: TimeFormatterService) { }
 
   @Input() public postId: number;
   @Output() public postDeleted: EventEmitter<void> = new EventEmitter<void>();
@@ -78,8 +80,8 @@ export class PostComponent implements OnInit {
 
   public openDisplayContentDialog(imageUrl: string): void {
     this.displayContentDialog.open(DisplayContentDialogComponent, {
-      width: 'auto',
-      height: '100%',
+      width: '99%',
+      height: 'auto',
       data: { imageUrl }
     });
   }

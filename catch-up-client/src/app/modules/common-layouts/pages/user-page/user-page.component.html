@@ -96,9 +96,9 @@
                 <option [value]="4">Private</option>
                 <option [value]="5">Custom</option>
             </select>
-            <input type="file" (change)="onFilesSelected($event)" multiple>
+            <input #fileInput type="file" (change)="onFilesSelected($event)" multiple>
 
-            <button (click)="uploadPost()" [disabled]="!canUpload()">Upload</button>
+            <button (click)="uploadPost(fileInput)" [disabled]="!canUpload()">Upload</button>
         </div>
         
         <app-posts [userId]="user.id"></app-posts>

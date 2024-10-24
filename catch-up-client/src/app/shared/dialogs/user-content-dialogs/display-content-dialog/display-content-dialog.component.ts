@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MediaUrlService } from '../../../../core/services/logic/media-urls/media-url.service';
+import { MediaUrlService } from '../../../../core/services/logic/helpers/media-url.service';
 
 @Component({
   selector: 'app-display-content-dialog',
@@ -12,5 +12,5 @@ export class DisplayContentDialogComponent implements OnInit {
   constructor(public mediaUrlService: MediaUrlService,
               @Inject(MAT_DIALOG_DATA) public data: { imageUrl: string }) { }
 
-  public ngOnInit(): void { console.log(this.data.imageUrl)}
+  public ngOnInit(): void { }
 }

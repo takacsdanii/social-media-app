@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../../core/services/logic/auth/auth.service';
 import { UserHttpService } from '../../../../core/services/http/user/user-http.service';
 import { UserModel } from '../../../../core/models/user.model';
-import { MediaUrlService } from '../../../../core/services/logic/media-urls/media-url.service';
+import { MediaUrlService } from '../../../../core/services/logic/helpers/media-url.service';
 
 @Component({
   selector: 'app-left-side-bar',
