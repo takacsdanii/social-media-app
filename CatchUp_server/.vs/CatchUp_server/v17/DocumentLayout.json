@@ -240,8 +240,7 @@
               "RelativeToolTip": "CatchUp_server\\ViewModels\\UserContentViewModels\\CommentViewModel.cs",
               "ViewState": "AQIAAAUAAAAAAAAAAAAzwAcAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T19:49:31.823Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-03T19:49:31.823Z"
             },
             {
               "$type": "Document",
@@ -261,9 +260,9 @@
               "Title": "PostService.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\UserContentServices\\PostService.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Services\\UserContentServices\\PostService.cs",
-              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\UserContentServices\\PostService.cs*",
-              "RelativeToolTip": "CatchUp_server\\Services\\UserContentServices\\PostService.cs*",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAUwDEAAAA0AAAA",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\UserContentServices\\PostService.cs",
+              "RelativeToolTip": "CatchUp_server\\Services\\UserContentServices\\PostService.cs",
+              "ViewState": "AQIAADAAAAAAAAAAAAAUwDEAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-08T19:21:34.95Z",
               "EditorCaption": ""

@@ -7,6 +7,7 @@ import { DeleteContentDialogComponent } from '../../../../shared/dialogs/user-co
 import { MatDialog } from '@angular/material/dialog';
 import { LikeHttpService } from '../../../../core/services/http/user-content/like-http.service';
 import { switchMap } from 'rxjs';
+import { TimeFormatterService } from '../../../../core/services/logic/helpers/time-formatter.service';
 
 @Component({
   selector: 'app-comment',
@@ -23,7 +24,8 @@ export class CommentComponent implements OnInit {
               private authService: AuthService,
               private commentHttpService: CommentHttpService,
               private deleteDialog: MatDialog,
-              public mediaUrlService: MediaUrlService) { }
+              public mediaUrlService: MediaUrlService,
+              public timeFormatterService: TimeFormatterService) { }
 
   @Input() public commentId: number;
   @Output() public commentDeleted: EventEmitter<void> = new EventEmitter<void>(); 
