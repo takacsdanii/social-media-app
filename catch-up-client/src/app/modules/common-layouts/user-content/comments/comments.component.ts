@@ -26,6 +26,7 @@ export class CommentsComponent implements OnInit {
   public commentText: string | null;
   public replyText: string | null;
   public replySectionOpenId: number | null;
+  public replies: CommentModel[];
 
   public ngOnInit(): void {
       this.loggedInUserId = this.authService.getUserId()!;
@@ -42,6 +43,12 @@ export class CommentsComponent implements OnInit {
     });
   }
 
+  private loadReplies(commentId: number): void {
+    this.commentHttpService.getRepliesForComment(this.postId, commentId).subscribe(replies => {
+      this.replies = replies;
+    });
+  }
+
   public postComment(): void {
     this.commentHttpService.addCommentToPost(this.loggedInUserId, this.postId, this.commentText!)
       .subscribe(_ => {
@@ -54,7 +61,9 @@ export class CommentsComponent implements OnInit {
   public postReply(parentCommentId: number): void {
     this.commentHttpService.addReplyToComment(this.loggedInUserId, this.postId, parentCommentId, this.replyText!)
       .subscribe(_ => {
-        
+        this.loadReplies(parentCommentId);
+        this.commentAddedOrDeleted.emit();
+        this.replyText = null;
       });
   }
 
@@ -76,6 +85,13 @@ export class CommentsComponent implements OnInit {
   }
 
   public showHideReplySection(isReplySectionOpen: boolean, commentId: number): void {
-    this.replySectionOpenId = isReplySectionOpen ? commentId : null;
+    if(isReplySectionOpen) {
+      this.replySectionOpenId = commentId;
+      this.loadReplies(commentId);
+    }
+    else {
+      this.replySectionOpenId = null;
+      this.replies = [];
+    }
   }
 }

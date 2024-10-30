@@ -4,7 +4,7 @@
         <span>{{ comment.userName }}</span>
         <p>{{ comment.text }}</p>
     </div>
-    <div (click)="toggleReplySection()" class="reply">
+    <div *ngIf="!isReply" (click)="toggleReplySection()" class="reply">
         <mat-icon>reply</mat-icon>
         <span>reply</span>
     </div>

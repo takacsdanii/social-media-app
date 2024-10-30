@@ -49,6 +49,13 @@ export class CommentComponent implements OnInit {
     return this.comment ? this.mediaUrlService.getFullUrl(this.comment.profilePicUrl) : null;
   }
 
+  public get isReply(): boolean {
+    if(this.comment) {
+      return this.comment.parentCommentId != null ? true : false;
+    }
+    return false;
+  }
+
   public getComment(): void {
     this.commentHttpService.getCommentById(this.commentId).pipe(
       switchMap(comm => {

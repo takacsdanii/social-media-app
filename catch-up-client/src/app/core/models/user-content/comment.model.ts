@@ -3,6 +3,7 @@ export class CommentModel {
     public text: string;
     public createdAt: Date;
     public postId: number;
+    public parentCommentId: number | null;
     public userId: string;
     public userName: string;
     public profilePicUrl: string

@@ -35,7 +35,10 @@ namespace CatchUp_server.Services.UserContentServices
             Comment parentComment = null;
             if(parentCommentId != null)
             {
-                parentComment = _context.Comments.SingleOrDefault(c => c.Id == parentCommentId);
+                parentComment = _context.Comments
+                    .Include(c => c.Replies)
+                    .SingleOrDefault(c => c.Id == parentCommentId);
+
                 if (parentComment == null)
                 {
                     return null;
@@ -101,6 +104,7 @@ namespace CatchUp_server.Services.UserContentServices
                     Text = c.Text,
                     CreatedAt = c.CreatedAt,
                     PostId = c.PostId,
+                    ParentCommentId = c.ParentCommentId,
                     UserId = c.UserId,
                     UserName = c.User.UserName,
                     ProfilePicUrl = c.User.ProfilePicUrl,
@@ -120,6 +124,7 @@ namespace CatchUp_server.Services.UserContentServices
                     Text = c.Text,
                     CreatedAt = c.CreatedAt,
                     PostId = c.PostId,
+                    ParentCommentId = c.ParentCommentId,
                     UserId = c.UserId,
                     UserName = c.User.UserName,
                     ProfilePicUrl = c.User.ProfilePicUrl,
@@ -139,6 +144,7 @@ namespace CatchUp_server.Services.UserContentServices
                     Text = c.Text,
                     CreatedAt = c.CreatedAt,
                     PostId = c.PostId,
+                    ParentCommentId = c.ParentCommentId,
                     UserId = c.UserId,
                     UserName = c.User.UserName,
                     ProfilePicUrl = c.User.ProfilePicUrl,
