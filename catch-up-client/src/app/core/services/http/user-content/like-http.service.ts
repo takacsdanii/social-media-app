@@ -21,7 +21,7 @@ export class LikeHttpService {
       Authorization: `Bearer ${this.getToken()}`
     });
 
-    return this.http.post<number>(link, { headers });
+    return this.http.post<number>(link, null, { headers });
   }
 
   public likeComment(userId: string, postId: number, commentId: number): Observable<number> {
@@ -30,7 +30,7 @@ export class LikeHttpService {
       Authorization: `Bearer ${this.getToken()}`
     });
 
-    return this.http.post<number>(link, { headers });
+    return this.http.post<number>(link, null, { headers });
   }
 
   public removeLike(id: number):Observable<void> {

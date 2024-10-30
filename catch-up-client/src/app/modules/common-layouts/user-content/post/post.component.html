@@ -3,10 +3,10 @@
 
         <div class="user">
             <div [routerLink]="['/user-page', user?.id]" class="user-info">
-                <img [src]="mediaUrlService.getFullUrl(user?.profilePicUrl)" alt="">
+                <img [src]="profilePicUrl" alt="">
                 <div class="details">
                     <span class="name">{{ user?.userName }}</span>
-                    <span class="date">{{ timeFormatterService.getTimeAgo(post!.createdAt) }}</span>
+                    <span class="date">{{ timeAgo }}</span>
                     <!-- <span class="date">{{ post?.createdAt | date: 'yyyy-MM-dd hh:mm'}}</span> -->
                 </div>
             </div>
@@ -28,11 +28,11 @@
         <div class="content">
             <p>{{ post?.description }}</p>
             <div class="slider">
-                <img (click)="openDisplayContentDialog(post!!.mediaUrls[currentImgIdx])"
-                 [src]="mediaUrlService.getFullUrl(post!!.mediaUrls[currentImgIdx])" alt="">
+                <img (click)="openDisplayContentDialog(post?.mediaUrls?.[currentImgIdx])"
+                 [src]="mediaUrl" alt="">
                 <div class="controls">
                     <button (click)="prevImage()" [disabled]="currentImgIdx === 0">&lt;</button>
-                    <button (click)="nextImage()" [disabled]="currentImgIdx === post!!.mediaUrls.length - 1">&gt;</button>
+                    <button (click)="nextImage()" [disabled]="currentImgIdx === (post?.mediaUrls?.length || 0) - 1">&gt;</button>
                 </div>
             </div>
         </div>

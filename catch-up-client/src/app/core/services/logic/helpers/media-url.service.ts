@@ -8,7 +8,8 @@ export class MediaUrlService {
 
   constructor() { }
 
-  public getFullUrl(url: string | null | undefined): string {
-    return `${this.baseUrl}${url}`;
+  public getFullUrl(url: string | null | undefined): string | null {
+    if(url) return `${this.baseUrl}${url}`;
+    else return null;
   }
 }

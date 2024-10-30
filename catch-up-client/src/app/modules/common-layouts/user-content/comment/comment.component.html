@@ -1,11 +1,16 @@
-<div class="comment">
-    <img [src]="mediaUrlService.getFullUrl(comment.profilePicUrl)" alt="">
+<div *ngIf="comment" class="comment">
+    <img [src]="profilePicUrl" alt="prof-pic">
     <div class="info">
         <span>{{ comment.userName }}</span>
         <p>{{ comment.text }}</p>
     </div>
-    <!-- <span class="date">{{ comment.createdAt | date: 'yyyy-MM-dd hh:mm' }}</span> -->
-    <span class="date">{{ timeFormatterService.getTimeAgo(comment.createdAt) }}</span>
+    <div (click)="toggleReplySection()" class="reply">
+        <mat-icon>reply</mat-icon>
+        <span>reply</span>
+    </div>
+    <span class="date">
+        {{ timeAgo }}
+    </span>
     <div class="like">
         <mat-icon (click)="likeComment()" [ngClass]="{'liked': isLiked, 'not-liked': !isLiked}">
             {{ isLiked ? 'favorite' : 'favorite_border'}}

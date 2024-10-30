@@ -24,6 +24,8 @@ export class CommentsComponent implements OnInit {
   @Output() public commentAddedOrDeleted: EventEmitter<void> = new EventEmitter<void>();
   public comments: CommentModel[];
   public commentText: string | null;
+  public replyText: string | null;
+  public replySectionOpenId: number | null;
 
   public ngOnInit(): void {
       this.loggedInUserId = this.authService.getUserId()!;
@@ -41,19 +43,39 @@ export class CommentsComponent implements OnInit {
   }
 
   public postComment(): void {
-    this.commentHttpService.addCommentToPost(this.loggedInUserId, this.postId, this.commentText!).subscribe(_ => {
-      this.loadComments();
-      this.commentAddedOrDeleted.emit();
-      this.commentText = null;
-    });
+    this.commentHttpService.addCommentToPost(this.loggedInUserId, this.postId, this.commentText!)
+      .subscribe(_ => {
+        this.loadComments();
+        this.commentAddedOrDeleted.emit();
+        this.commentText = null;
+      });
+  }
+
+  public postReply(parentCommentId: number): void {
+    this.commentHttpService.addReplyToComment(this.loggedInUserId, this.postId, parentCommentId, this.replyText!)
+      .subscribe(_ => {
+        
+      });
   }
 
   public get isButtonDisabled(): boolean {
     return this.commentText == null || this.commentText == '';
   }
 
+  public get isReplyButtonDisabled(): boolean {
+    return this.replyText == null || this.replyText == '';
+  }
+
+  public get profilePicUrl(): string | null {
+    return this.loggedInUser ? this.mediaUrlService.getFullUrl(this.loggedInUser.profilePicUrl) : null;
+  }
+
   public deletedComment(): void {
     this.ngOnInit();
     this.commentAddedOrDeleted.emit();
+  }
+
+  public showHideReplySection(isReplySectionOpen: boolean, commentId: number): void {
+    this.replySectionOpenId = isReplySectionOpen ? commentId : null;
   }
 }

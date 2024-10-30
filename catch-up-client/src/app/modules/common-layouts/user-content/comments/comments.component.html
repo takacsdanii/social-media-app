@@ -1,12 +1,21 @@
 <div class="comments">
-
     <div class="write-comment">
-        <img [src]="mediaUrlService.getFullUrl(loggedInUser.profilePicUrl)" alt="">
+        <img [src]="profilePicUrl" alt="prof-pic">
         <input [(ngModel)]="commentText" type="text" placeholder="Write a comment">
         <button (click)="postComment()" [disabled]="isButtonDisabled">send</button>
     </div>
 
     <ng-container *ngFor="let comment of comments">
-        <app-comment [commentId]="comment.id" (commentDeleted)="deletedComment()"></app-comment>
+        <app-comment
+            [commentId]="comment.id"
+            (commentDeleted)="deletedComment()"
+            (replySectionOpened)="showHideReplySection($event, comment.id)">
+        </app-comment>
+
+        <div *ngIf="replySectionOpenId == comment.id" class="write-reply">
+            <img [src]="profilePicUrl" alt="prof-pic">
+            <input [(ngModel)]="replyText" type="text" placeholder="Write a reply">
+            <button (click)="postReply(comment.id)" [disabled]="isReplyButtonDisabled">send</button>
+        </div>
     </ng-container>
 </div>

@@ -1,4 +1,7 @@
 <form (ngSubmit)="loginToAccount()" #loginForm="ngForm" class="login-form">
+    <div class="title">
+      <span>CatchUP</span>
+    </div>
     <section>
       <div class="form-group">
         <input type="text" id="userName" name="userName" [(ngModel)]="loginModel.userNameOrEmail" placeholder="Username or email" required class="form-control">

@@ -21,7 +21,7 @@ export class CommentHttpService {
       Authorization: `Bearer ${this.getToken()}`
     });
 
-    return this.http.post<void>(link, { headers });
+    return this.http.post<void>(link, null, { headers });
   }
 
   public addReplyToComment(userId: string, postId: number, parentCommentId: number, text: string): Observable<number> {
@@ -30,7 +30,7 @@ export class CommentHttpService {
       Authorization: `Bearer ${this.getToken()}`
     });
 
-    return this.http.post<number>(link, { headers });
+    return this.http.post<number>(link, null, { headers });
   }
 
   public deleteComment(id: number): Observable<void> {

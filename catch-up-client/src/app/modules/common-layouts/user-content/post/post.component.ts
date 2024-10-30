@@ -34,8 +34,8 @@ export class PostComponent implements OnInit {
               private notificationService: NotificationService,
               private likersDialog: MatDialog,
               private deleteDialog: MatDialog,
-              public mediaUrlService: MediaUrlService,
-              public timeFormatterService: TimeFormatterService) { }
+              private mediaUrlService: MediaUrlService,
+              private timeFormatterService: TimeFormatterService) { }
 
   @Input() public postId: number;
   @Output() public postDeleted: EventEmitter<void> = new EventEmitter<void>();
@@ -74,11 +74,11 @@ export class PostComponent implements OnInit {
   }
 
   public nextImage(): void {
-    if(this.currentImgIdx < this.post!!.mediaUrls.length - 1)
+    if(this.post && this.currentImgIdx < this.post?.mediaUrls.length - 1)
       this.currentImgIdx++;
   }
 
-  public openDisplayContentDialog(imageUrl: string): void {
+  public openDisplayContentDialog(imageUrl: string | undefined): void {
     this.displayContentDialog.open(DisplayContentDialogComponent, {
       width: '99%',
       height: 'auto',
@@ -136,5 +136,17 @@ export class PostComponent implements OnInit {
       height: '300px',
       data: { postId }
     });
+  }
+
+  public get timeAgo(): string {
+    return this.timeFormatterService.getTimeAgo(this.post?.createdAt);
+  }
+
+  public get mediaUrl(): string | null{
+    return this.mediaUrlService.getFullUrl(this.post?.mediaUrls[this.currentImgIdx]);
+  }
+
+  public get profilePicUrl(): string | null {
+    return this.mediaUrlService.getFullUrl(this.user?.profilePicUrl);
   }
 }

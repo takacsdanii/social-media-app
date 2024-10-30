@@ -19,16 +19,18 @@ export class CommentComponent implements OnInit {
   public loggedInUserId: string;
   public isLiked: boolean;
   public likeId: number | null;
+  private isReplySectionOpen: boolean = false;
 
   constructor(private likeHttpService: LikeHttpService,
               private authService: AuthService,
               private commentHttpService: CommentHttpService,
               private deleteDialog: MatDialog,
-              public mediaUrlService: MediaUrlService,
-              public timeFormatterService: TimeFormatterService) { }
+              private mediaUrlService: MediaUrlService,
+              private timeFormatterService: TimeFormatterService) { }
 
   @Input() public commentId: number;
   @Output() public commentDeleted: EventEmitter<void> = new EventEmitter<void>(); 
+  @Output() public replySectionOpened: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   public ngOnInit(): void {
     this.loggedInUserId = this.authService.getUserId()!;
@@ -37,6 +39,14 @@ export class CommentComponent implements OnInit {
 
   public get isAdmin(): boolean {
     return this.authService.isAdmin();
+  }
+
+  public get timeAgo(): string | null {
+    return this.comment ? this.timeFormatterService.getTimeAgo(this.comment.createdAt) : null;
+  }
+
+  public get profilePicUrl(): string | null {
+    return this.comment ? this.mediaUrlService.getFullUrl(this.comment.profilePicUrl) : null;
   }
 
   public getComment(): void {
@@ -52,7 +62,7 @@ export class CommentComponent implements OnInit {
   }
 
   public isMyComment(): boolean {
-    return this.comment.userId == this.loggedInUserId;
+    return this.comment ? this.comment.userId == this.loggedInUserId : false;
   }
 
   public openDeleteDialog(): void {
@@ -82,5 +92,10 @@ export class CommentComponent implements OnInit {
         this.ngOnInit();
       });
     }
+  }
+
+  public toggleReplySection(): void {
+    this.isReplySectionOpen = !this.isReplySectionOpen;
+    this.replySectionOpened.emit(this.isReplySectionOpen);
   }
 }

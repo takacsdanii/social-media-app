@@ -7,7 +7,8 @@ export class TimeFormatterService {
 
   constructor() { }
 
-  public getTimeAgo(date: Date | string): string {
+  public getTimeAgo(date: Date | string | undefined): string {
+    if(!date) { return ''; }
     const actionDate = typeof date === 'string' ? new Date(date) : date;
     const now = new Date();
     const diffInMs= now.getTime() - actionDate.getTime();
