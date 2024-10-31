@@ -7,7 +7,6 @@
                 <div class="details">
                     <span class="name">{{ user?.userName }}</span>
                     <span class="date">{{ timeAgo }}</span>
-                    <!-- <span class="date">{{ post?.createdAt | date: 'yyyy-MM-dd hh:mm'}}</span> -->
                 </div>
             </div>
             <mat-icon *ngIf="isLoggedInUsersPost() || isAdmin" [matMenuTriggerFor]="actionMenu">more_horiz</mat-icon>

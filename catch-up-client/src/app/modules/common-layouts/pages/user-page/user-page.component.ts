@@ -20,6 +20,7 @@ import { VisibilityModel } from '../../../../core/models/enums/visibility.model'
 import { UploadPostModel } from '../../../../core/models/user-content/upload-post.model';
 import { PostsComponent } from '../../user-content/posts/posts.component';
 import { NotificationService } from '../../../../core/services/logic/notifications/notification.service';
+import { TimeFormatterService } from '../../../../core/services/logic/helpers/time-formatter.service';
 
 @Component({
   selector: 'app-user-page',
@@ -54,7 +55,7 @@ export class UserPageComponent implements OnInit {
               private uploadDiaog: MatDialog,
               private displayContentDialog: MatDialog,
               private viewportScroller: ViewportScroller,
-              private notificationService: NotificationService) { }
+              private timeFormatterService: TimeFormatterService) { }
 
   public ngOnInit(): void {
     this.isAdmin = this.authService.isAdmin();
@@ -211,5 +212,9 @@ export class UserPageComponent implements OnInit {
       (this.postDescription != null && this.postDescription != '') ||
       this.selectedFiles.length > 0
     );
+  }
+
+  public get timeAgo(): string {
+    return this.timeFormatterService.getTimeAgo(this.user.registeredAt);
   }
 }

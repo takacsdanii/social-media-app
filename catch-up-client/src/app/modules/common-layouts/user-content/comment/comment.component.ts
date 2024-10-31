@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { LikeHttpService } from '../../../../core/services/http/user-content/like-http.service';
 import { switchMap } from 'rxjs';
 import { TimeFormatterService } from '../../../../core/services/logic/helpers/time-formatter.service';
+import { LikersDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/likers-dialog/likers-dialog.component';
 
 @Component({
   selector: 'app-comment',
@@ -25,6 +26,7 @@ export class CommentComponent implements OnInit {
               private authService: AuthService,
               private commentHttpService: CommentHttpService,
               private deleteDialog: MatDialog,
+              private likersDialog: MatDialog,
               private mediaUrlService: MediaUrlService,
               private timeFormatterService: TimeFormatterService) { }
 
@@ -84,6 +86,14 @@ export class CommentComponent implements OnInit {
     });
   }
 
+  public openLikersDialog(postId: number, commentId: number): void {
+    const dialogref = this.likersDialog.open(LikersDialogComponent, {
+      width: '150px',
+      height: '300px',
+      data: { postId, commentId }
+    });
+  }
+
   public likeComment(): void {
     if(!this.isLiked) {
       this.likeHttpService.likeComment(this.loggedInUserId, this.comment.postId, this.comment.id).subscribe(id => {
@@ -104,5 +114,9 @@ export class CommentComponent implements OnInit {
   public toggleReplySection(): void {
     this.isReplySectionOpen = !this.isReplySectionOpen;
     this.replySectionOpened.emit(this.isReplySectionOpen);
+  }
+
+  public get hasReplies(): boolean {
+    return this.comment ? this.comment.replyCount > 0 : false;
   }
 }

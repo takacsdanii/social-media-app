@@ -7,6 +7,7 @@
     <div *ngIf="!isReply" (click)="toggleReplySection()" class="reply">
         <mat-icon>reply</mat-icon>
         <span>reply</span>
+        <div *ngIf="hasReplies" class="reply-cnt">{{ comment.replyCount }} replies</div>
     </div>
     <span class="date">
         {{ timeAgo }}
@@ -15,7 +16,7 @@
         <mat-icon (click)="likeComment()" [ngClass]="{'liked': isLiked, 'not-liked': !isLiked}">
             {{ isLiked ? 'favorite' : 'favorite_border'}}
         </mat-icon>
-        <span>{{ comment.likeCount }}</span>
+        <span (click)="openLikersDialog(comment.postId, comment.id)">{{ comment.likeCount }}</span>
         <mat-icon *ngIf="isMyComment() || isAdmin" (click)="openDeleteDialog()">delete</mat-icon>
     </div>
 </div>

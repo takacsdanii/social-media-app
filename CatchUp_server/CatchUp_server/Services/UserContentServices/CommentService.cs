@@ -83,12 +83,15 @@ namespace CatchUp_server.Services.UserContentServices
 
         public int? DeleteComment(int commentId)
         {
-            var comment = _context.Comments.SingleOrDefault(c => c.Id == commentId);
+            var comment = _context.Comments
+                .Include(c => c.Replies)
+                .SingleOrDefault(c => c.Id == commentId);
             if (comment == null)
             {
                 return null;
             }
 
+            _context.Comments.RemoveRange(comment.Replies);
             _context.Comments.Remove(comment);
             _context.SaveChanges();
             return comment.Id;
