@@ -3,20 +3,56 @@
   "WorkspaceRootPath": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\services\\usercontentservices\\commentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\services\\usercontentservices\\commentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\services\\usercontentservices\\storyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\services\\usercontentservices\\storyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\viewmodels\\usercontentviewmodels\\commentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\viewmodels\\usercontentviewmodels\\commentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\viewmodels\\usercontentviewmodels\\uploadpostviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\viewmodels\\usercontentviewmodels\\uploadpostviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\models\\usercontent\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\models\\usercontent\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\models\\usercontent\\story.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\models\\usercontent\\story.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\services\\usercontentservices\\postservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\services\\usercontentservices\\postservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\viewmodels\\usercontentviewmodels\\uploadstoryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\viewmodels\\usercontentviewmodels\\uploadstoryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\viewmodels\\usercontentviewmodels\\postviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\viewmodels\\usercontentviewmodels\\postviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\services\\usercontentservices\\mediafoldersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\services\\usercontentservices\\mediafoldersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\viewmodels\\usercontentviewmodels\\storyviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\viewmodels\\usercontentviewmodels\\storyviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\models\\usercontent\\storyviewer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\models\\usercontent\\storyviewer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\services\\usercontentservices\\likeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\services\\usercontentservices\\likeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\services\\usercontentservices\\commentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\services\\usercontentservices\\commentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\viewmodels\\usercontentviewmodels\\commentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\viewmodels\\usercontentviewmodels\\commentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\controllers\\usercontentcontrollers\\likecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -29,10 +65,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\models\\usercontent\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\models\\usercontent\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\services\\usercontentservices\\likeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\services\\usercontentservices\\likeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\viewmodels\\usercontentviewmodels\\likeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -51,16 +83,8 @@
       "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\services\\userservices\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\models\\usercontent\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\models\\usercontent\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\controllers\\usercontentcontrollers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\controllers\\usercontentcontrollers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\viewmodels\\usercontentviewmodels\\uploadpostviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\viewmodels\\usercontentviewmodels\\uploadpostviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -77,10 +101,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\models\\usercontent\\mediacontent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\models\\usercontent\\mediacontent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\services\\usercontentservices\\mediafoldersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\services\\usercontentservices\\mediafoldersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\services\\usercontentservices\\userprofileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -113,14 +133,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\db\\apidbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\db\\apidbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\models\\usercontent\\story.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\models\\usercontent\\story.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\models\\usercontent\\storyviewer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|solutionrelative:catchup_server\\models\\usercontent\\storyviewer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{69CFA0ED-6059-4148-961A-560649AF9C5F}|CatchUp_server\\CatchUp_server.csproj|c:\\users\\latix\\desktop\\egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\catchup_server\\catchup_server\\models\\usermodels\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -220,7 +232,137 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UploadStoryViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\ViewModels\\UserContentViewModels\\UploadStoryViewModel.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\ViewModels\\UserContentViewModels\\UploadStoryViewModel.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\ViewModels\\UserContentViewModels\\UploadStoryViewModel.cs",
+              "RelativeToolTip": "CatchUp_server\\ViewModels\\UserContentViewModels\\UploadStoryViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-01T13:45:56.846Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StoryService.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\UserContentServices\\StoryService.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\Services\\UserContentServices\\StoryService.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\UserContentServices\\StoryService.cs",
+              "RelativeToolTip": "CatchUp_server\\Services\\UserContentServices\\StoryService.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAADwvxQAAABMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-01T13:24:18.168Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Story.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Models\\UserContent\\Story.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\Models\\UserContent\\Story.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Models\\UserContent\\Story.cs",
+              "RelativeToolTip": "CatchUp_server\\Models\\UserContent\\Story.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAYwAwAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T12:09:48.066Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "PostService.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\UserContentServices\\PostService.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\Services\\UserContentServices\\PostService.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\UserContentServices\\PostService.cs",
+              "RelativeToolTip": "CatchUp_server\\Services\\UserContentServices\\PostService.cs",
+              "ViewState": "AQIAAEAAAAAAAAAAAAAkwD0AAABVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-08T19:21:34.95Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UploadPostViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\ViewModels\\UserContentViewModels\\UploadPostViewModel.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\ViewModels\\UserContentViewModels\\UploadPostViewModel.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\ViewModels\\UserContentViewModels\\UploadPostViewModel.cs",
+              "RelativeToolTip": "CatchUp_server\\ViewModels\\UserContentViewModels\\UploadPostViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T21:21:00.38Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Post.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Models\\UserContent\\Post.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\Models\\UserContent\\Post.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Models\\UserContent\\Post.cs",
+              "RelativeToolTip": "CatchUp_server\\Models\\UserContent\\Post.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAwwBIAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T11:58:20.281Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PostViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\ViewModels\\UserContentViewModels\\PostViewModel.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\ViewModels\\UserContentViewModels\\PostViewModel.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\ViewModels\\UserContentViewModels\\PostViewModel.cs",
+              "RelativeToolTip": "CatchUp_server\\ViewModels\\UserContentViewModels\\PostViewModel.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAxwAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T22:50:08.466Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "StoryViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\ViewModels\\UserContentViewModels\\StoryViewModel.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\ViewModels\\UserContentViewModels\\StoryViewModel.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\ViewModels\\UserContentViewModels\\StoryViewModel.cs",
+              "RelativeToolTip": "CatchUp_server\\ViewModels\\UserContentViewModels\\StoryViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-01T13:09:55.828Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MediaFoldersService.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\UserContentServices\\MediaFoldersService.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\Services\\UserContentServices\\MediaFoldersService.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\UserContentServices\\MediaFoldersService.cs",
+              "RelativeToolTip": "CatchUp_server\\Services\\UserContentServices\\MediaFoldersService.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAgwCwAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-04T12:00:18.105Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "LikeService.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\UserContentServices\\LikeService.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\Services\\UserContentServices\\LikeService.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\UserContentServices\\LikeService.cs",
+              "RelativeToolTip": "CatchUp_server\\Services\\UserContentServices\\LikeService.cs",
+              "ViewState": "AQIAAGUAAAAAAAAAAAAawIMAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T12:26:36.945Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "LikeController.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Controllers\\UserContentControllers\\LikeController.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Controllers\\UserContentControllers\\LikeController.cs",
@@ -232,20 +374,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CommentService.cs",
-              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\UserContentServices\\CommentService.cs",
-              "RelativeDocumentMoniker": "CatchUp_server\\Services\\UserContentServices\\CommentService.cs",
-              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\UserContentServices\\CommentService.cs",
-              "RelativeToolTip": "CatchUp_server\\Services\\UserContentServices\\CommentService.cs",
-              "ViewState": "AQIAAGgAAAAAAAAAAAAswF0AAAA5AAAA",
+              "DocumentIndex": 9,
+              "Title": "StoryViewer.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Models\\UserContent\\StoryViewer.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\Models\\UserContent\\StoryViewer.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Models\\UserContent\\StoryViewer.cs",
+              "RelativeToolTip": "CatchUp_server\\Models\\UserContent\\StoryViewer.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAxwAUAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T12:26:50.185Z",
+              "WhenOpened": "2024-10-01T09:52:26.482Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 12,
               "Title": "CommentViewModel.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\ViewModels\\UserContentViewModels\\CommentViewModel.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\ViewModels\\UserContentViewModels\\CommentViewModel.cs",
@@ -253,38 +395,24 @@
               "RelativeToolTip": "CatchUp_server\\ViewModels\\UserContentViewModels\\CommentViewModel.cs",
               "ViewState": "AQIAAAUAAAAAAAAAAAA8wAgAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T19:49:31.823Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-03T19:49:31.823Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PostViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\ViewModels\\UserContentViewModels\\PostViewModel.cs",
-              "RelativeDocumentMoniker": "CatchUp_server\\ViewModels\\UserContentViewModels\\PostViewModel.cs",
-              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\ViewModels\\UserContentViewModels\\PostViewModel.cs",
-              "RelativeToolTip": "CatchUp_server\\ViewModels\\UserContentViewModels\\PostViewModel.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAqwAwAAAAAAAAA",
+              "DocumentIndex": 11,
+              "Title": "CommentService.cs",
+              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\UserContentServices\\CommentService.cs",
+              "RelativeDocumentMoniker": "CatchUp_server\\Services\\UserContentServices\\CommentService.cs",
+              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\UserContentServices\\CommentService.cs",
+              "RelativeToolTip": "CatchUp_server\\Services\\UserContentServices\\CommentService.cs",
+              "ViewState": "AQIAAGMAAAAAAAAAAAAowF0AAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T22:50:08.466Z",
+              "WhenOpened": "2024-10-16T12:26:50.185Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PostService.cs",
-              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\UserContentServices\\PostService.cs",
-              "RelativeDocumentMoniker": "CatchUp_server\\Services\\UserContentServices\\PostService.cs",
-              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\UserContentServices\\PostService.cs",
-              "RelativeToolTip": "CatchUp_server\\Services\\UserContentServices\\PostService.cs",
-              "ViewState": "AQIAAEwAAAAAAAAAAAAkwCQAAABQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T19:21:34.95Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 15,
               "Title": "Comment.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Models\\UserContent\\Comment.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Models\\UserContent\\Comment.cs",
@@ -296,7 +424,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 14,
               "Title": "CommentController.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Controllers\\UserContentControllers\\CommentController.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Controllers\\UserContentControllers\\CommentController.cs",
@@ -308,19 +436,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "LikeService.cs",
-              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\UserContentServices\\LikeService.cs",
-              "RelativeDocumentMoniker": "CatchUp_server\\Services\\UserContentServices\\LikeService.cs",
-              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\UserContentServices\\LikeService.cs",
-              "RelativeToolTip": "CatchUp_server\\Services\\UserContentServices\\LikeService.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAAAmwF0AAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T12:26:36.945Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 16,
               "Title": "LikeViewModel.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\ViewModels\\UserContentViewModels\\LikeViewModel.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\ViewModels\\UserContentViewModels\\LikeViewModel.cs",
@@ -332,7 +448,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 17,
               "Title": "Like.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Models\\UserContent\\Like.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Models\\UserContent\\Like.cs",
@@ -344,7 +460,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 18,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Controllers\\UserController.cs",
@@ -356,7 +472,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 19,
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\UserServices\\UserService.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Services\\UserServices\\UserService.cs",
@@ -368,19 +484,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Post.cs",
-              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Models\\UserContent\\Post.cs",
-              "RelativeDocumentMoniker": "CatchUp_server\\Models\\UserContent\\Post.cs",
-              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Models\\UserContent\\Post.cs",
-              "RelativeToolTip": "CatchUp_server\\Models\\UserContent\\Post.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAAABIAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-30T11:58:20.281Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 21,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Program.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Program.cs",
@@ -392,7 +496,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 20,
               "Title": "PostController.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Controllers\\UserContentControllers\\PostController.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Controllers\\UserContentControllers\\PostController.cs",
@@ -404,19 +508,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "UploadPostViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\ViewModels\\UserContentViewModels\\UploadPostViewModel.cs",
-              "RelativeDocumentMoniker": "CatchUp_server\\ViewModels\\UserContentViewModels\\UploadPostViewModel.cs",
-              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\ViewModels\\UserContentViewModels\\UploadPostViewModel.cs",
-              "RelativeToolTip": "CatchUp_server\\ViewModels\\UserContentViewModels\\UploadPostViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T21:21:00.38Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 22,
               "Title": "AuthService.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\AuthServices\\AuthService.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Services\\AuthServices\\AuthService.cs",
@@ -428,7 +520,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 23,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\appsettings.json",
               "RelativeDocumentMoniker": "CatchUp_server\\appsettings.json",
@@ -440,7 +532,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 26,
               "Title": "UserProfileController.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Controllers\\UserContentControllers\\UserProfileController.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Controllers\\UserContentControllers\\UserProfileController.cs",
@@ -452,7 +544,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 24,
               "Title": "MediaContent.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Models\\UserContent\\MediaContent.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Models\\UserContent\\MediaContent.cs",
@@ -464,19 +556,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "MediaFoldersService.cs",
-              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\UserContentServices\\MediaFoldersService.cs",
-              "RelativeDocumentMoniker": "CatchUp_server\\Services\\UserContentServices\\MediaFoldersService.cs",
-              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\UserContentServices\\MediaFoldersService.cs",
-              "RelativeToolTip": "CatchUp_server\\Services\\UserContentServices\\MediaFoldersService.cs",
-              "ViewState": "AQIAAEUAAAAAAAAAAAAowAoAAABCAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T12:00:18.105Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 25,
               "Title": "UserProfileService.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\UserContentServices\\UserProfileService.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Services\\UserContentServices\\UserProfileService.cs",
@@ -488,7 +568,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 27,
               "Title": "Visibility.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Models\\UserContent\\Visibility.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Models\\UserContent\\Visibility.cs",
@@ -500,7 +580,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 28,
               "Title": "SearchUserViewModel.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\ViewModels\\UserViewModels\\SearchUserViewModel.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\ViewModels\\UserViewModels\\SearchUserViewModel.cs",
@@ -512,7 +592,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 29,
               "Title": "MediaType.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Models\\UserContent\\MediaType.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Models\\UserContent\\MediaType.cs",
@@ -524,7 +604,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 31,
               "Title": "LoginViewModel.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\ViewModels\\AuthViewModels\\LoginViewModel.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\ViewModels\\AuthViewModels\\LoginViewModel.cs",
@@ -536,7 +616,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 30,
               "Title": "ResetPasswordViewModel.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\ViewModels\\AuthViewModels\\ResetPasswordViewModel.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\ViewModels\\AuthViewModels\\ResetPasswordViewModel.cs",
@@ -548,7 +628,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 32,
               "Title": "ApiDbContext.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Db\\ApiDbContext.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Db\\ApiDbContext.cs",
@@ -560,31 +640,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "Story.cs",
-              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Models\\UserContent\\Story.cs",
-              "RelativeDocumentMoniker": "CatchUp_server\\Models\\UserContent\\Story.cs",
-              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Models\\UserContent\\Story.cs",
-              "RelativeToolTip": "CatchUp_server\\Models\\UserContent\\Story.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAkwAcAAAAhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-30T12:09:48.066Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "StoryViewer.cs",
-              "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Models\\UserContent\\StoryViewer.cs",
-              "RelativeDocumentMoniker": "CatchUp_server\\Models\\UserContent\\StoryViewer.cs",
-              "ToolTip": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Models\\UserContent\\StoryViewer.cs",
-              "RelativeToolTip": "CatchUp_server\\Models\\UserContent\\StoryViewer.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAqwAwAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-01T09:52:26.482Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 52,
               "Title": "20241007004813_database-models.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Migrations\\20241007004813_database-models.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Migrations\\20241007004813_database-models.cs",
@@ -596,7 +652,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 33,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Models\\UserModels\\User.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Models\\UserModels\\User.cs",
@@ -608,7 +664,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 34,
               "Title": "FriendShip.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Models\\UserModels\\FriendShip.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Models\\UserModels\\FriendShip.cs",
@@ -620,7 +676,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 35,
               "Title": "Gender.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Models\\UserModels\\Gender.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Models\\UserModels\\Gender.cs",
@@ -632,7 +688,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 36,
               "Title": "EditBioViewModel.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\ViewModels\\UserContentViewModels\\EditBioViewModel.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\ViewModels\\UserContentViewModels\\EditBioViewModel.cs",
@@ -644,7 +700,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 37,
               "Title": "FriendsService.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\FriendsService\\FriendsService.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Services\\FriendsService\\FriendsService.cs",
@@ -656,7 +712,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 38,
               "Title": "UserPreviewViewModel.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\ViewModels\\UserViewModels\\UserPreviewViewModel.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\ViewModels\\UserViewModels\\UserPreviewViewModel.cs",
@@ -668,7 +724,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 39,
               "Title": "FriendsController.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Controllers\\FriendsController.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Controllers\\FriendsController.cs",
@@ -680,7 +736,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 40,
               "Title": "UserViewModel.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\ViewModels\\UserViewModels\\UserViewModel.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\ViewModels\\UserViewModels\\UserViewModel.cs",
@@ -692,7 +748,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 51,
               "Title": "20241001131127_init.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Migrations\\20241001131127_init.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Migrations\\20241001131127_init.cs",
@@ -704,7 +760,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 41,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Controllers\\AuthController.cs",
@@ -716,7 +772,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 42,
               "Title": "20240930231422_created_models.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Migrations\\20240930231422_created_models.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Migrations\\20240930231422_created_models.cs",
@@ -728,7 +784,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 43,
               "Title": "20240930231141_created_models.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Migrations\\20240930231141_created_models.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Migrations\\20240930231141_created_models.cs",
@@ -740,7 +796,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 44,
               "Title": "EmailService.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Services\\EmailService.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\Services\\EmailService.cs",
@@ -752,7 +808,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 45,
               "Title": "ChangePasswordViewModel.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\ViewModels\\AuthViewModels\\ChangePasswordViewModel.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\ViewModels\\AuthViewModels\\ChangePasswordViewModel.cs",
@@ -764,7 +820,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 46,
               "Title": "RegisterViewModel.cs",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\ViewModels\\AuthViewModels\\RegisterViewModel.cs",
               "RelativeDocumentMoniker": "CatchUp_server\\ViewModels\\AuthViewModels\\RegisterViewModel.cs",
@@ -776,7 +832,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 47,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "CatchUp_server\\Properties\\launchSettings.json",
@@ -788,7 +844,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 48,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\Users\\latix\\Desktop\\Egyetem\\7. f\u00E9l\u00E9v\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\appsettings.Development.json",
               "RelativeDocumentMoniker": "CatchUp_server\\appsettings.Development.json",
@@ -800,7 +856,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 49,
               "Title": "dbo.AspNetRoles [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/catch_up_database/True/SqlTable/dbo.AspNetRoles.sql",
               "ToolTip": "dbo.AspNetRoles [Data]",
@@ -809,7 +865,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 50,
               "Title": "dbo.AspNetUserRoles [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/catch_up_database/True/SqlTable/dbo.AspNetUserRoles.sql",
               "ToolTip": "dbo.AspNetUserRoles [Data]",

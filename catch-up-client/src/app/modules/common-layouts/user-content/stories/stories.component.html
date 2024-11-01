@@ -6,7 +6,7 @@
         <span>takacsdanii</span>
         <button matTooltip="Add a story">+</button>
     </div>
-    <div class="story">
+    <!-- <div class="story">
         <img src="assets/images/logos/logo3.png" alt="">
         <span>username2</span>
     </div>
@@ -21,5 +21,11 @@
     <div class="story">
         <img src="assets/images/logos/logo4.png" alt="">
         <span>test username</span>
-    </div>
+    </div> -->
+</div>
+
+<div class="stories">
+    <ng-container *ngFor="let story of stories">
+        <app-story [postId]="story.id"></app-story>
+    </ng-container>
 </div>

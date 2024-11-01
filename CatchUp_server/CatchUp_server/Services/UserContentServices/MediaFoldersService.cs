@@ -11,6 +11,7 @@ namespace CatchUp_server.Services.UserContentServices
         private const string profilePicFolder = "ProfilePictures";
         private const string coverPicFolder = "CoverPictures";
         private const string postsFolder = "Posts";
+        private const string storiesFolder = "Stories";
 
         public MediaFoldersService(ApiDbContext context, IWebHostEnvironment environment)
         {
@@ -37,6 +38,7 @@ namespace CatchUp_server.Services.UserContentServices
                 Directory.CreateDirectory(Path.Combine(rootPath, profilePicFolder));
                 Directory.CreateDirectory(Path.Combine(rootPath, coverPicFolder));
                 Directory.CreateDirectory(Path.Combine(rootPath, postsFolder));
+                Directory.CreateDirectory(Path.Combine(rootPath, storiesFolder));
             }
         }
 
