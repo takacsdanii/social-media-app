@@ -10,8 +10,5 @@ namespace CatchUp_server.Models.UserContent
 
         public int? PostId { get; set; }
         public Post Post { get; set; }
-
-        public int? StoryId { get; set; }
-        public Story Story { get; set; }
     }
 }

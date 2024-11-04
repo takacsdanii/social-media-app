@@ -88,7 +88,7 @@ namespace CatchUp_server.Db
             // MediaContents & Stories
             builder.Entity<Story>()
                 .HasOne(s => s.MediaContent)
-                .WithOne(mc => mc.Story)
+                .WithOne(/*mc => mc.Story*/)
                 .HasForeignKey<Story>(s => s.MediaContentId)
                 .OnDelete(DeleteBehavior.Restrict);
 

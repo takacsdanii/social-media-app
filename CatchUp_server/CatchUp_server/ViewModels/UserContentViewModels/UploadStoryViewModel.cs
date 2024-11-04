@@ -6,5 +6,6 @@ namespace CatchUp_server.ViewModels.UserContentViewModels
     {
         public string UserId { get; set; }
         public Visibility Visibility { get; set; }
+        public IFormFile File { get; set; }
     }
 }

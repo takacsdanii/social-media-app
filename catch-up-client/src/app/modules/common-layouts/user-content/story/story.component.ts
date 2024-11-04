@@ -1,10 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { UserModel } from '../../../../core/models/user.model';
+import { StoryHttpService } from '../../../../core/services/http/user-content/story-http.service';
+import { UserHttpService } from '../../../../core/services/http/user/user-http.service';
+import { MediaUrlService } from '../../../../core/services/logic/helpers/media-url.service';
+import { StoryModel } from '../../../../core/models/user-content/story.model';
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-story',
   templateUrl: './story.component.html',
   styleUrl: './story.component.scss'
 })
-export class StoryComponent {
+export class StoryComponent implements OnInit {
+  @Input() public storyId: number;
+  public story: StoryModel;
+  public user: UserModel;
 
+  constructor(private storyHttpService: StoryHttpService,
+              private userHttpService: UserHttpService,
+              private mediaUrlService: MediaUrlService) { }
+
+  public ngOnInit(): void {
+    this.storyHttpService.getStory(this.storyId).pipe(
+      switchMap(resp => {
+        this.story = resp;
+        return this.userHttpService.getUser(this.story.userId);
+      })
+    ).subscribe(resp => {
+      this.user = resp;
+    });
+  }
+
+  public get profilePicUrl(): string | null {
+    return this.mediaUrlService.getFullUrl(this.user?.profilePicUrl);
+  }
+
+  public get storyUrl(): string | null {
+    return this.mediaUrlService.getFullUrl(this.story.mediaUrl)
+  }
 }

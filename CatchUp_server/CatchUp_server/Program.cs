@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using CatchUp_server.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using System.Net;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 using Microsoft.IdentityModel.Tokens;
@@ -34,6 +33,7 @@ namespace CatchUp_server
             builder.Services.AddScoped<PostService>();
             builder.Services.AddScoped<LikeService>();
             builder.Services.AddScoped<CommentService>();
+            builder.Services.AddScoped<StoryService>();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
 

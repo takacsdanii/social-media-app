@@ -1,4 +1,5 @@
 ﻿using CatchUp_server.Db;
+using CatchUp_server.Models.UserContent;
 
 namespace CatchUp_server.Services.UserContentServices
 {
@@ -29,18 +30,35 @@ namespace CatchUp_server.Services.UserContentServices
             return null;
         }
 
+        private string CreateMediaFolder(string userId, string subFolder)
+        {
+            string folderPath = Path.Combine(_environment.WebRootPath, mediaFolder, userId, subFolder);
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+            return folderPath;
+        }
         private void CreateUserMediaFolders(string userId)
         {
-            var userRootPath = DoUserMediaFoldersExist(userId);
-            if (userRootPath == null)
-            {
-                string rootPath = Path.Combine(_environment.WebRootPath, mediaFolder, userId);
-                Directory.CreateDirectory(Path.Combine(rootPath, profilePicFolder));
-                Directory.CreateDirectory(Path.Combine(rootPath, coverPicFolder));
-                Directory.CreateDirectory(Path.Combine(rootPath, postsFolder));
-                Directory.CreateDirectory(Path.Combine(rootPath, storiesFolder));
-            }
+            CreateMediaFolder(userId, profilePicFolder);
+            CreateMediaFolder(userId, coverPicFolder);
+            CreateMediaFolder(userId, postsFolder);
+            CreateMediaFolder(userId, storiesFolder);
         }
+
+        //private void CreateUserMediaFolders(string userId)
+        //{
+        //    var userRootPath = DoUserMediaFoldersExist(userId);
+        //    if (userRootPath == null)
+        //    {
+        //        string rootPath = Path.Combine(_environment.WebRootPath, mediaFolder, userId);
+        //        Directory.CreateDirectory(Path.Combine(rootPath, profilePicFolder));
+        //        Directory.CreateDirectory(Path.Combine(rootPath, coverPicFolder));
+        //        Directory.CreateDirectory(Path.Combine(rootPath, postsFolder));
+        //        Directory.CreateDirectory(Path.Combine(rootPath, storiesFolder));
+        //    }
+        //}
 
         public void DeleteUserMediaFolders(string userId)
         {
@@ -98,6 +116,14 @@ namespace CatchUp_server.Services.UserContentServices
                     File.Delete(file);
                 }
             }
+        }
+
+        public MediaType GetMediaType(IFormFile file)
+        {
+            var contentType = file.ContentType.ToLower();
+            if (contentType.Contains("image")) return MediaType.Image;
+            if (contentType.Contains("video")) return MediaType.Video;
+            return MediaType.Other;
         }
     }
 }

@@ -97,8 +97,7 @@ namespace CatchUp_server.Services.UserContentServices
                 var mediaContent = new MediaContent
                 {
                     MediaUrl = mediaUrl,
-                    Type = GetMediaType(file),
-                    StoryId = null,
+                    Type = _mediaFoldersService.GetMediaType(file),
                     PostId = post.Id,
                 };
 
@@ -110,14 +109,6 @@ namespace CatchUp_server.Services.UserContentServices
 
             _context.SaveChanges();
             return postViewModel;
-        }
-
-        private MediaType GetMediaType(IFormFile file)
-        {
-            var contentType = file.ContentType.ToLower();
-            if (contentType.Contains("image")) return MediaType.Image;
-            if (contentType.Contains("video")) return MediaType.Video;
-            return MediaType.Other;
         }
 
         public string EditDescription(int postId, string? description)

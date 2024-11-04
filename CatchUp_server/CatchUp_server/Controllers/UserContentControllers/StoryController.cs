@@ -1,0 +1,69 @@
+﻿using CatchUp_server.Models.UserContent;
+using CatchUp_server.Services.UserContentServices;
+using CatchUp_server.ViewModels.UserContentViewModels;
+using CatchUp_server.ViewModels.UserViewModels;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace CatchUp_server.Controllers.UserContentControllers
+{
+    [Route("api/user-content/story")]
+    [ApiController]
+    public class StoryController : ControllerBase
+    {
+        private readonly StoryService _storyService;
+
+        public StoryController(StoryService storyService)
+        {
+            _storyService = storyService;
+        }
+
+        [HttpGet("get-stories-of-user")]
+        public IEnumerable<StoryViewModel> GetStoriesOfUser(string userId)
+        {
+            return _storyService.GetStoriesOfUser(userId);
+        }
+
+        [HttpGet("story-by-id")]
+        public IActionResult GetStory(int storyId)
+        {
+            var story = _storyService.GetStory(storyId);
+            return (story != null) ? Ok(story) : NotFound();
+        }
+
+        [HttpPost]
+        public IActionResult UploadStory([FromForm] UploadStoryViewModel request)
+        {
+            var story = _storyService.UploadStory(request);
+            return (story != null) ? Ok(story) : NotFound();
+        }
+
+        [HttpPut("visibility")]
+        public IActionResult EditVisibility(int storyId, Visibility visibility)
+        {
+            var newVisibility = _storyService.EditVisibility(storyId, visibility);
+            return (newVisibility != null) ? Ok(newVisibility) : NotFound();
+        }
+
+        [HttpDelete]
+        public IActionResult Delete(int storyId)
+        {
+            var result = _storyService.Delete(storyId);
+            return (result) ? Ok() : NotFound();
+        }
+
+        [HttpGet("viewers")]
+        public IEnumerable<UserPreviewViewModel> GetStoryViewers(int storyId)
+        {
+            return _storyService.GetStoryViewers(storyId);
+        }
+
+        [HttpPost("add-viewer-to-story")]
+        public IActionResult AddViewerToStory(string userId, int storyId)
+        {
+            var viewer = _storyService.AddViewerToStory(userId, storyId);
+            return (viewer != null) ? Ok(viewer) : NotFound();
+        }
+    }
+}
