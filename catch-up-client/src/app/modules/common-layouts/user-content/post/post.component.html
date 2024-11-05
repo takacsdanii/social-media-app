@@ -27,11 +27,18 @@
         <div class="content">
             <p>{{ post?.description }}</p>
             <div class="slider">
-                <img (click)="openDisplayContentDialog(post?.mediaUrls?.[currentImgIdx])"
-                 [src]="mediaUrl" alt="">
+                 <img *ngIf="!isVideo"
+                    (click)="openDisplayContentDialog(post?.mediaContents?.[currentImgIdx]?.mediaUrl)"
+                    [src]="mediaUrl" alt="">
+
+                <video *ngIf="isVideo" controls>
+                    <source [src]="mediaUrl" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
                 <div class="controls">
                     <button (click)="prevImage()" [disabled]="currentImgIdx === 0">&lt;</button>
-                    <button (click)="nextImage()" [disabled]="currentImgIdx === (post?.mediaUrls?.length || 0) - 1">&gt;</button>
+                    <button (click)="nextImage()" [disabled]="currentImgIdx === (post?.mediaContents?.length || 0) - 1">&gt;</button>
                 </div>
             </div>
         </div>

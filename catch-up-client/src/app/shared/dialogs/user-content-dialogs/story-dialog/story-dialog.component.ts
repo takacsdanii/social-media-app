@@ -7,6 +7,7 @@ import { StoryViewersDialogComponent } from '../story-viewers-dialog/story-viewe
 import { DeleteContentDialogComponent } from '../delete-content-dialog/delete-content-dialog.component';
 import { AuthService } from '../../../../core/services/logic/auth/auth.service';
 import { UserHttpService } from '../../../../core/services/http/user/user-http.service';
+import { MediaTypeModel } from '../../../../core/models/enums/media-type.model';
 
 @Component({
   selector: 'app-story-dialog',
@@ -70,21 +71,27 @@ export class StoryDialogComponent implements OnInit, OnDestroy {
     if(this.currentIndex < this.stories.length - 1) {
       this.currentIndex++;
       this.addViewerToStory();
+      this.restartStoryInterval();
     }
     else {
-      this.currentIndex = 0;
+      this.storyDialogRef.close();
     }
-    this.restartStoryInterval();
   }
 
-  public getMediaUrl(story: StoryModel): string | null {
-    return this.mediaUrlService.getFullUrl(story.mediaUrl);
+  public get mediaUrl(): string | null {
+    return this.mediaUrlService.getFullUrl(this.stories[this.currentIndex].mediaContent.mediaUrl);
+  }
+
+  public get isVideo(): boolean {
+    return this.stories[this.currentIndex].mediaContent.type == MediaTypeModel.Video;
   }
 
   private startStoryInterval(): void {
-    this.intervalId = setInterval(() => {
-      this.showNextStory();
-    }, 5000);
+    if(!this.isVideo) {
+      this.intervalId = setInterval(() => {
+        this.showNextStory();
+      }, 5000);
+    }
   }
 
   private stopStoryInterval(): void {

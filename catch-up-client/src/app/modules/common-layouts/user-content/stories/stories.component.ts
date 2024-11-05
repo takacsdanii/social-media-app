@@ -9,6 +9,7 @@ import { AuthService } from '../../../../core/services/logic/auth/auth.service';
 import { UploadDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/upload-dialog/upload-dialog.component';
 import { UploadStoryDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/upload-story-dialog/upload-story-dialog.component';
 import { StoryDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/story-dialog/story-dialog.component';
+import { MediaTypeModel } from '../../../../core/models/enums/media-type.model';
 
 @Component({
   selector: 'app-stories',
@@ -59,11 +60,15 @@ export class StoriesComponent implements OnInit {
 
   public get defaultStoryUrl(): string | null {
     if(this.isStoryUploaded && this.myFirstStory) {
-      return this.mediaUrlService.getFullUrl(this.myFirstStory?.mediaUrl);
+      return this.mediaUrlService.getFullUrl(this.myFirstStory?.mediaContent.mediaUrl);
     }
     else {
       return this.mediaUrlService.getFullUrl(this.user?.profilePicUrl);
     }
+  }
+
+  public get isVideo(): boolean {
+    return this.myFirstStory?.mediaContent.type == MediaTypeModel.Video;
   }
 
   public openUploadStoryDialog(userId: string): void {

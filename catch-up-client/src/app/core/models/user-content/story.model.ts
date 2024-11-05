@@ -1,3 +1,4 @@
+import { MediaTypeModel } from "../enums/media-type.model";
 import { VisibilityModel } from "../enums/visibility.model";
 
 export class StoryModel {
@@ -6,6 +7,7 @@ export class StoryModel {
     public expiresAt: Date;
     public visibility: VisibilityModel;
     public userId: string;
-    public mediaUrl: string;
+    // public mediaUrl: string;
+    public mediaContent: { type: MediaTypeModel; mediaUrl: string };
     public viewCount: number;
 }

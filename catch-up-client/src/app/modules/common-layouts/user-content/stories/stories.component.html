@@ -1,6 +1,12 @@
 <div class="stories">
     <div class="story">
-        <img [src]="defaultStoryUrl" (click)="openStoryDialog(myUserId)" alt="prof-pic">
+        <img *ngIf="!isVideo" [src]="defaultStoryUrl" (click)="openStoryDialog(myUserId)" alt="prof-pic">
+
+        <video *ngIf="isVideo" (click)="openStoryDialog(myUserId)" autoplay loop>
+            <source [src]="defaultStoryUrl" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
         <span>{{ user?.userName }}</span>
         <button (click)="openUploadStoryDialog(myUserId)" matTooltip="Add a story">+</button>
     </div>

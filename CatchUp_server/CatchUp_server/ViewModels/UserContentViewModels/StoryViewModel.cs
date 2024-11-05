@@ -11,7 +11,8 @@ namespace CatchUp_server.ViewModels.UserContentViewModels
         public Visibility Visibility { get; set; }
 
         public string UserId { get; set; }
-        public string MediaUrl { get; set; }
+        //public string MediaUrl { get; set; }
+        public MediaContent MediaContent { get; set; }
         public int ViewCount { get; set; }
     }
 }

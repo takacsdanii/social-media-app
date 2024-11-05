@@ -1,7 +1,13 @@
 <div *ngIf="stories" class="container">
-    <img [src]="getMediaUrl(stories[currentIndex])"
+    <img *ngIf="!isVideo"
+        [src]="mediaUrl"
         (click)="showNextStory()"
         alt="story">
+
+    <video *ngIf="isVideo" (click)="showNextStory()" (ended)="showNextStory()" autoplay>
+        <source [src]="mediaUrl" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
     <div *ngIf="isMyStory && hasViewers" (click)="openViewersDialog(stories[currentIndex].id)" class="viewers">
         <mat-icon class="viewers-icon">visibility</mat-icon>

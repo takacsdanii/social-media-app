@@ -7,6 +7,7 @@ import { StoryModel } from '../../../../core/models/user-content/story.model';
 import { switchMap } from 'rxjs';
 import { StoryDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/story-dialog/story-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MediaTypeModel } from '../../../../core/models/enums/media-type.model';
 
 @Component({
   selector: 'app-story',
@@ -39,7 +40,11 @@ export class StoryComponent implements OnInit {
   }
 
   public get storyUrl(): string | null {
-    return this.mediaUrlService.getFullUrl(this.story?.mediaUrl)
+    return this.mediaUrlService.getFullUrl(this.story?.mediaContent.mediaUrl)
+  }
+
+  public get isVideo(): boolean {
+    return this.story?.mediaContent.type == MediaTypeModel.Video;
   }
 
   public openStoryDialog(userId: string): void {

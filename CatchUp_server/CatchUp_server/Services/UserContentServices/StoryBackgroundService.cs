@@ -16,26 +16,28 @@ namespace CatchUp_server.Services.UserContentServices
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                await CleanUpExpiredStories();
-                await Task.Delay(_checkInterval, stoppingToken); // Wait for the interval before checking again
+                DeleteExpiredStories();
+                await Task.Delay(_checkInterval, stoppingToken);
             }
         }
 
-        private async Task CleanUpExpiredStories()
+        private async Task DeleteExpiredStories()
         {
             using (var scope = _serviceProvider.CreateScope())
             {
-                var storyService = scope.ServiceProvider.GetRequiredService<StoryService>();
                 var context = scope.ServiceProvider.GetRequiredService<ApiDbContext>();
+                var storyService = scope.ServiceProvider.GetRequiredService<StoryService>();
 
-                var expiredStories = context.Stories
+                var stories = context.Stories
                     .Where(s => s.ExpiresAt <= DateTime.Now)
                     .ToList();
 
-                foreach (var story in expiredStories)
+                foreach (var story in stories)
                 {
                     storyService.Delete(story.Id);
                 }
+
+                await context.SaveChangesAsync();
             }
         }
     }

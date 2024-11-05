@@ -214,7 +214,8 @@ export class UserPageComponent implements OnInit {
     this.postHttpService.uploadPost(uploadModel, this.selectedFiles).subscribe(post => {
       this.postsComponent.loadPosts();
       this.ngOnInit();
-      fileInput.value = ''; 
+      fileInput.value = '';
+      this.postDescription = null;
       this.selectedFiles = [];
     });
   }

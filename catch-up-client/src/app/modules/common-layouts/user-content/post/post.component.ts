@@ -13,6 +13,7 @@ import { LikeHttpService } from '../../../../core/services/http/user-content/lik
 import { LikersDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/likers-dialog/likers-dialog.component';
 import { DeleteContentDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/delete-content-dialog/delete-content-dialog.component';
 import { TimeFormatterService } from '../../../../core/services/logic/helpers/time-formatter.service';
+import { MediaTypeModel } from '../../../../core/models/enums/media-type.model';
 
 @Component({
   selector: 'app-post',
@@ -52,6 +53,7 @@ export class PostComponent implements OnInit {
 
     this.postHttpService.getPost(this.postId).subscribe(result => {
       this.post = result;
+      this.post.mediaContents = result.mediaContents || [];
       
       this.userHttpService.getUser(this.post.userId).subscribe(u => {
         this.user = u;
@@ -74,7 +76,7 @@ export class PostComponent implements OnInit {
   }
 
   public nextImage(): void {
-    if(this.post && this.currentImgIdx < this.post?.mediaUrls.length - 1)
+    if(this.post && this.currentImgIdx < this.post.mediaContents.length - 1)
       this.currentImgIdx++;
   }
 
@@ -142,8 +144,13 @@ export class PostComponent implements OnInit {
     return this.timeFormatterService.getTimeAgo(this.post?.createdAt);
   }
 
-  public get mediaUrl(): string | null{
-    return this.mediaUrlService.getFullUrl(this.post?.mediaUrls[this.currentImgIdx]);
+  public get mediaUrl(): string | null {
+    const currentMediaContent = this.post?.mediaContents?.[this.currentImgIdx];
+    return currentMediaContent ? this.mediaUrlService.getFullUrl(currentMediaContent.mediaUrl) : null;
+  }
+
+  public get isVideo(): boolean {
+    return this.post?.mediaContents?.[this.currentImgIdx]?.type == MediaTypeModel.Video;
   }
 
   public get profilePicUrl(): string | null {

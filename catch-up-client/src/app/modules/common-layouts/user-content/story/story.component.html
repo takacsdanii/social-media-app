@@ -1,4 +1,12 @@
 <div class="story" *ngIf="story">
-    <img [src]="storyUrl" (click)="openStoryDialog(story.userId)" alt="story">
+    <img *ngIf="!isVideo"
+        [src]="storyUrl"
+        (click)="openStoryDialog(story.userId)"
+        alt="story">
+
+    <video *ngIf="isVideo" (click)="openStoryDialog(story.userId)" autoplay loop>
+        <source [src]="storyUrl" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
     <span>{{ user?.userName }}</span>
 </div>

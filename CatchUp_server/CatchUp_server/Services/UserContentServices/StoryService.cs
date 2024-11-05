@@ -35,7 +35,8 @@ namespace CatchUp_server.Services.UserContentServices
                     ExpiresAt = s.ExpiresAt,
                     Visibility = s.Visibility,
                     UserId = s.UserId,
-                    MediaUrl = s.MediaContent.MediaUrl,
+                    //MediaUrl = s.MediaContent.MediaUrl,
+                    MediaContent = s.MediaContent,
                     ViewCount = s.StoryViewers.Count()
                 })
                 .ToList();
@@ -53,7 +54,7 @@ namespace CatchUp_server.Services.UserContentServices
                     ExpiresAt = s.ExpiresAt,
                     Visibility = s.Visibility,
                     UserId = s.UserId,
-                    MediaUrl = s.MediaContent.MediaUrl,
+                    MediaContent = s.MediaContent,
                     ViewCount = s.StoryViewers.Count()
                 })
                 .SingleOrDefault();
@@ -103,7 +104,7 @@ namespace CatchUp_server.Services.UserContentServices
                 ExpiresAt= story.ExpiresAt,
                 Visibility = story.Visibility,
                 UserId = story.UserId,
-                MediaUrl = mediaUrl,
+                MediaContent = mediaContent,
                 ViewCount = 0
             };
 
@@ -210,7 +211,7 @@ namespace CatchUp_server.Services.UserContentServices
                     ExpiresAt = s.ExpiresAt,
                     Visibility = s.Visibility,
                     UserId = s.UserId,
-                    MediaUrl = s.MediaContent.MediaUrl,
+                    MediaContent = s.MediaContent,
                     ViewCount = s.StoryViewers.Count()
                 })
                 .ToList();
@@ -225,7 +226,7 @@ namespace CatchUp_server.Services.UserContentServices
                    ExpiresAt = s.ExpiresAt,
                    Visibility = s.Visibility,
                    UserId = s.UserId,
-                   MediaUrl = s.MediaUrl,
+                   MediaContent = s.MediaContent,
                    ViewCount = s.ViewCount
                })
                .ToList();

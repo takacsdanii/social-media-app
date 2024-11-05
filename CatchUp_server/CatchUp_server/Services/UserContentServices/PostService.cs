@@ -1,9 +1,7 @@
 ﻿using CatchUp_server.Db;
 using CatchUp_server.Models.UserContent;
-using CatchUp_server.Models.UserModels;
 using CatchUp_server.Services.FriendsServices;
 using CatchUp_server.ViewModels.UserContentViewModels;
-using CatchUp_server.ViewModels.UserViewModel;
 using Microsoft.EntityFrameworkCore;
 
 namespace CatchUp_server.Services.UserContentServices
@@ -35,7 +33,8 @@ namespace CatchUp_server.Services.UserContentServices
                     Visibility = p.Visibility,
                     CreatedAt = p.CreatedAt,
                     UserId = p.Userid,
-                    MediaUrls = p.MediaContents.Select(mc => mc.MediaUrl).ToList(),
+                    //MediaUrls = p.MediaContents.Select(mc => mc.MediaUrl).ToList(),
+                    MediaContents = p.MediaContents,
                     LikeCount = _context.Likes.Count(l => l.PostId == p.Id && l.CommentId == null),
                     CommentCount = _context.Comments.Count(c => c.PostId == p.Id)
                 })
@@ -53,7 +52,7 @@ namespace CatchUp_server.Services.UserContentServices
                     Visibility = p.Visibility,
                     CreatedAt = p.CreatedAt,
                     UserId = p.Userid,
-                    MediaUrls = p.MediaContents.Select(mc => mc.MediaUrl).ToList(),
+                    MediaContents = p.MediaContents,
                     LikeCount = _context.Likes.Count(l => l.PostId == p.Id && l.CommentId == null),
                     CommentCount = _context.Comments.Count(c => c.PostId == p.Id)
                 })
@@ -89,7 +88,7 @@ namespace CatchUp_server.Services.UserContentServices
                 CreatedAt = post.CreatedAt,
                 Visibility = post.Visibility,
                 UserId = post.Userid,
-                MediaUrls = new List<string>(),
+                MediaContents = new List<MediaContent>(),
                 LikeCount = 0,
                 CommentCount = 0
             };
@@ -107,7 +106,7 @@ namespace CatchUp_server.Services.UserContentServices
                 _context.MediaContents.Add(mediaContent);
                 post.MediaContents.Add(mediaContent);
 
-                postViewModel.MediaUrls.Add(mediaUrl);
+                postViewModel.MediaContents.Add(mediaContent);
             }
 
             _context.SaveChanges();
@@ -180,7 +179,7 @@ namespace CatchUp_server.Services.UserContentServices
                     Visibility = p.Visibility,
                     CreatedAt = p.CreatedAt,
                     UserId = p.Userid,
-                    MediaUrls = p.MediaContents.Select(mc => mc.MediaUrl).ToList(),
+                    MediaContents = p.MediaContents,
                     LikeCount = _context.Likes.Count(l => l.PostId == p.Id && l.CommentId == null),
                     CommentCount = _context.Comments.Count(c => c.PostId == p.Id)
                 })
