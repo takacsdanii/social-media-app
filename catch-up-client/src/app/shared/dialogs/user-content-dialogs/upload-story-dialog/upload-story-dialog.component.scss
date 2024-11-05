@@ -1,0 +1,79 @@
+h5 {
+    margin-top: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+input {
+    margin-top: auto;
+    display: block;
+    margin-left: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+mat-button-toggle-group{
+    border-radius: 10px;
+}
+
+label{
+    margin-left: 10px;
+}
+
+select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #fff;
+    outline: none;
+    transition: border 0.3s;
+    margin-bottom: 10px;
+  
+    &:focus {
+      border-color: #3f51b5;
+    }
+  }
+
+.toggle-buttons {
+    margin-left: 10px;
+    margin-bottom: 20px;
+    width: 250px;
+    align-items: center;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+
+    button {
+        font-size: 20px;
+        margin-left: 10px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+
+        &.upload-button {
+            background-color: #0056b3;
+
+            &:disabled {
+                background-color: #ccc;
+                color: #888;
+                cursor: not-allowed; 
+            }
+        }
+
+        &.cancel-button {
+            background-color: rgb(176, 36, 36);
+        }
+
+        &:hover {
+            cursor: pointer;
+            opacity: 1.2;
+        }
+    }
+}

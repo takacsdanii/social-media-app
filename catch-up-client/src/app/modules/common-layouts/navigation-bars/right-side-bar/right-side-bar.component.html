@@ -5,7 +5,7 @@
             <span>Following you</span>
             <div *ngFor="let user of displayedOneWayFollowers" class="user">
                 <div class="userinfo">
-                    <img [src]="mediaUrlService.getFullUrl(user.profilePicUrl)" alt="profile picture">
+                    <img [src]="getProfilePicUrl(user)" alt="profile picture">
                     <span [routerLink]="['/user-page', user.id]">{{ user.userName }}</span>
                 </div>
                 <div class="buttons">
@@ -21,7 +21,7 @@
             <span>Latest Activities</span>
             <div *ngFor="let user of users | slice:0:displayedUsers" class="user">
                 <div class="userinfo">
-                    <img [routerLink]="['/user-page', user.id]" [src]="mediaUrlService.getFullUrl(user.profilePicUrl)" alt="profile picture">
+                    <img [routerLink]="['/user-page', user.id]" [src]="getUserProfilePicUrl(user)" alt="profile picture">
                     <div class="details">
                         <span [routerLink]="['/user-page', user.id]">{{ user.userName }}</span>
                         <!-- TODO: ide majd az action jön, amit csinált és hogy mikor -->
@@ -42,7 +42,7 @@
             <span>Your friends</span>
             <div *ngFor="let friend of friends" class="user">
                 <div [routerLink]="['/user-page', friend.id]" class="userinfo">
-                    <img [src]="mediaUrlService.getFullUrl(friend.profilePicUrl)" alt="profile picture">
+                    <img [src]="getProfilePicUrl(friend)" alt="profile picture">
                     <div class="online"></div>
                     <span>{{ friend.userName }}</span>
                 </div>

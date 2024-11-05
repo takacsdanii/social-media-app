@@ -83,4 +83,13 @@ export class PostHttpService {
 
     return this.http.delete<void>(link, { headers });
   }
+
+  public getPostsOfFollowedUsers(userId: string): Observable<PostModel[]> {
+    const link = `${this.url}/posts-of-followed-users?userId=${userId}`;
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.getToken()}`
+    });
+
+    return this.http.get<PostModel[]>(link, { headers });
+  }
 }

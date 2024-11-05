@@ -37,18 +37,31 @@
             cursor: pointer;
         }
 
-        .profile-pic {
+        .profile-pic-container {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 180px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        
+            &.story-border {
+              border: 8px solid #0056b3;
+            }
+          }
+        
+          .profile-pic {
             width: 200px;
             height: 200px;
             border-radius: 50%;
             object-fit: cover;
-            position: absolute;
-            left: 0;
-            right: 0;
-            margin: auto;
-            top: 180px;
             cursor: pointer;
-        }
+          }
     }
     
     .profile-container {

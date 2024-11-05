@@ -6,29 +6,39 @@
     <div class="profile" style="flex: 6;">
 
         <div class="images">
-            <img [src]="mediaUrlService.getFullUrl(user.coverPicUrl)"
+            <img [src]="coverPicUrl"
             [matMenuTriggerFor]="isMypage() ? actionMenu : null"
             (menuOpened)="currentImageType = 'cover'"
             (click)="isMypage() ? null : openDisplayContentDialog('cover')"
             alt="cover picture" class="cover-pic">
 
-            <img [src]="mediaUrlService.getFullUrl(user.profilePicUrl)"
-            [matMenuTriggerFor]="isMypage() ? actionMenu : null"
-            (menuOpened)="currentImageType = 'profile'"
-            (click)="isMypage() ? null : openDisplayContentDialog('profile')"
-            alt="profile picture" class="profile-pic">
+            <div [ngClass]="{ 'story-border': isStoryUploaded }" class="profile-pic-container">
+                <img [src]="profilePicUrl"
+                [matMenuTriggerFor]="isMypage() || isStoryUploaded ? actionMenu : null"
+                (menuOpened)="currentImageType = 'profile'"
+                (click)="isMypage() || isStoryUploaded ? null : openDisplayContentDialog('profile')"
+                alt="profile picture" class="profile-pic">
+            </div>
         </div>
 
         <mat-menu #actionMenu="matMenu">
             <button mat-menu-item (click)="openDisplayContentDialog(currentImageType)">
                 <mat-icon>visibility</mat-icon>View {{ currentImageType }} picture
             </button>
-            <button mat-menu-item (click)="openUploadDialog(user.id, currentImageType)">
+            <button *ngIf="isStoryUploaded && currentImageType === 'profile'" mat-menu-item (click)="openStoryDialog(user.id)">
+                <mat-icon>visibility</mat-icon>View story
+            </button>
+            <button *ngIf="isMypage() && currentImageType === 'profile'" mat-menu-item (click)="openUploadStoryDialog(user.id)">
+                <mat-icon>upload</mat-icon>Add new story
+            </button>
+            <button *ngIf="isMypage()" mat-menu-item (click)="openUploadDialog(user.id, currentImageType)">
                 <mat-icon>edit</mat-icon>Change {{ currentImageType }} picture
             </button>
-            <button *ngIf="currentImageType === 'profile' ? hasProfilePic() : hasCoverPic()" mat-menu-item (click)="openDeletePictureDialog(user.id, currentImageType)">
-                <mat-icon>delete</mat-icon>Delete {{ currentImageType }} picture
-            </button>
+            <div *ngIf="isMypage()">
+                <button *ngIf="currentImageType === 'profile' ?  hasProfilePic() : hasCoverPic()" mat-menu-item (click)="openDeletePictureDialog(user.id, currentImageType)">
+                    <mat-icon>delete</mat-icon>Delete {{ currentImageType }} picture
+                </button>
+            </div>
         </mat-menu>
     
         <div class="profile-container">
@@ -89,7 +99,6 @@
                 <option [value]="2">Followers</option>
                 <option [value]="3">Following</option>
                 <option [value]="4">Private</option>
-                <option [value]="5">Custom</option>
             </select>
             <input #fileInput type="file" (change)="onFilesSelected($event)" multiple>
 

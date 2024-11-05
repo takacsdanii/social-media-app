@@ -17,8 +17,6 @@ export class NavigationHeaderComponent implements OnInit {
   public isAdmin: boolean = false;
   public userId: string;
 
-  public isDarkModeOn: boolean;
-
   public searchString: string;
   public filteredUsers: SearchUserModel[] = [];
 
@@ -38,18 +36,12 @@ export class NavigationHeaderComponent implements OnInit {
     });
 
     const storedValue = localStorage.getItem('isDarkModeOn');
-    this.isDarkModeOn = storedValue ? JSON.parse(storedValue) : false;
   }
 
   public logOut(): void {
     this.authService.logOut();
     this.isLoggedIn = false;
     this.notificationService.showSuccesSnackBar("Logged out successfuy!");
-  }
-
-  public toggleDarkMode(): void {
-    this.isDarkModeOn = !this.isDarkModeOn;
-    localStorage.setItem('isDarkModeOn', JSON.stringify(this.isDarkModeOn));
   }
 
   public onSearchChange(): void {

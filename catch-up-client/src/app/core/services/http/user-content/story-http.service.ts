@@ -49,15 +49,6 @@ export class StoryHttpService {
     return this.http.post<StoryModel>(this.url, formData, { headers });
   }
 
-  public editVisibility(storyId: number, visibility: VisibilityModel): Observable<void> {
-    const link = `${this.url}/visibility?storyId=${storyId}&visibility=${visibility}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-
-    return this.http.put<void>(link, null, { headers });
-  }
-
   public delete(storyId: number): Observable<void> {
     const link = `${this.url}?storyId=${storyId}`;
     const headers = new HttpHeaders({
@@ -82,6 +73,15 @@ export class StoryHttpService {
       Authorization: `Bearer ${this.getToken()}`
     });
 
-    return this.http.post<void>(this.url, null, { headers });
+    return this.http.post<void>(link, null, { headers });
+  }
+
+  public hasUserUploadedStory(userId: string): Observable<{ result: boolean}> {
+    const link = `${this.url}/has-user-uploaded-story?userId=${userId}`;
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.getToken()}`
+    });
+
+    return this.http.get<{ result: boolean }>(link, { headers });
   }
 }

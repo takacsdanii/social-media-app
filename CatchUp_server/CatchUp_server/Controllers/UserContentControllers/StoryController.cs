@@ -19,51 +19,51 @@ namespace CatchUp_server.Controllers.UserContentControllers
             _storyService = storyService;
         }
 
-        [HttpGet("get-stories-of-user")]
+        [HttpGet("get-stories-of-user"), Authorize]
         public IEnumerable<StoryViewModel> GetStoriesOfUser(string userId)
         {
             return _storyService.GetStoriesOfUser(userId);
         }
 
-        [HttpGet("story-by-id")]
+        [HttpGet("story-by-id"), Authorize]
         public IActionResult GetStory(int storyId)
         {
             var story = _storyService.GetStory(storyId);
             return (story != null) ? Ok(story) : NotFound();
         }
 
-        [HttpPost]
+        [HttpPost, Authorize]
         public IActionResult UploadStory([FromForm] UploadStoryViewModel request)
         {
             var story = _storyService.UploadStory(request);
             return (story != null) ? Ok(story) : NotFound();
         }
 
-        [HttpPut("visibility")]
-        public IActionResult EditVisibility(int storyId, Visibility visibility)
-        {
-            var newVisibility = _storyService.EditVisibility(storyId, visibility);
-            return (newVisibility != null) ? Ok(newVisibility) : NotFound();
-        }
-
-        [HttpDelete]
+        [HttpDelete, Authorize]
         public IActionResult Delete(int storyId)
         {
             var result = _storyService.Delete(storyId);
             return (result) ? Ok() : NotFound();
         }
 
-        [HttpGet("viewers")]
+        [HttpGet("viewers"), Authorize]
         public IEnumerable<UserPreviewViewModel> GetStoryViewers(int storyId)
         {
             return _storyService.GetStoryViewers(storyId);
         }
 
-        [HttpPost("add-viewer-to-story")]
+        [HttpPost("add-viewer-to-story"), Authorize]
         public IActionResult AddViewerToStory(string userId, int storyId)
         {
             var viewer = _storyService.AddViewerToStory(userId, storyId);
             return (viewer != null) ? Ok(viewer) : NotFound();
+        }
+
+        [HttpGet("has-user-uploaded-story"), Authorize]
+        public IActionResult HasUserUploadedStory(string userId)
+        {
+            var result = _storyService.HasUserUploadedStory(userId);
+            return Ok(new { result });
         }
     }
 }

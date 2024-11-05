@@ -27,7 +27,7 @@ export class RightSideBarComponent implements OnInit {
   constructor(private userHttpService: UserHttpService,
               private authService: AuthService,
               private friendsHttpService: FriendsHttpService,
-              public mediaUrlService: MediaUrlService) { }
+              private mediaUrlService: MediaUrlService) { }
 
   public ngOnInit(): void {
     this.loggedInUserId = this.authService.getUserId()!!;
@@ -106,5 +106,13 @@ export class RightSideBarComponent implements OnInit {
   public displayedUsers: number = 3;
   public loadMore(): void {
     this.displayedUsers += 3; 
+  }
+
+  public getProfilePicUrl(user: UserPreviewModel): string | null {
+    return this.mediaUrlService.getFullUrl(user.profilePicUrl);
+  }
+
+  public getUserProfilePicUrl(user: UserModel): string | null {
+    return this.mediaUrlService.getFullUrl(user.profilePicUrl);
   }
 }

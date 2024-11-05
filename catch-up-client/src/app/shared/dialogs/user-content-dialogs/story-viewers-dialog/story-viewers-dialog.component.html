@@ -1,0 +1,8 @@
+<div class="viewers">
+    <div *ngFor="let viewer of viewers"
+         [routerLink]="['/user-page', viewer.id]">
+
+        <img [src]="getProfilePicUrl(viewer)" alt="prof-pic">
+        <span>{{ viewer.userName }}</span>
+    </div>
+</div>

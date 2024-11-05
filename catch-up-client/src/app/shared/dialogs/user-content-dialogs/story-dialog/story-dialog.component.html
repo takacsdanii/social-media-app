@@ -1,0 +1,17 @@
+<div *ngIf="stories" class="container">
+    <img [src]="getMediaUrl(stories[currentIndex])"
+        (click)="showNextStory()"
+        alt="story">
+
+    <div *ngIf="isMyStory && hasViewers" (click)="openViewersDialog(stories[currentIndex].id)" class="viewers">
+        <mat-icon class="viewers-icon">visibility</mat-icon>
+        <span>{{ stories[currentIndex].viewCount }}</span>
+    </div>
+
+    <mat-icon
+        *ngIf="isMyStory"
+        (click)="openDeleteStoryDialog(stories[currentIndex].id)"
+        class="delete-icon">
+        delete
+    </mat-icon>
+</div>

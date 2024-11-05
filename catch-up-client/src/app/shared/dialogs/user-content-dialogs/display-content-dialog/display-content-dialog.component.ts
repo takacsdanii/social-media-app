@@ -9,8 +9,12 @@ import { MediaUrlService } from '../../../../core/services/logic/helpers/media-u
 })
 export class DisplayContentDialogComponent implements OnInit {
 
-  constructor(public mediaUrlService: MediaUrlService,
+  constructor(private mediaUrlService: MediaUrlService,
               @Inject(MAT_DIALOG_DATA) public data: { imageUrl: string }) { }
 
   public ngOnInit(): void { }
+
+  public get imageUrl(): string | null {
+    return this.mediaUrlService.getFullUrl(this.data.imageUrl);
+  }
 }

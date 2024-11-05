@@ -37,12 +37,6 @@
             <button mat-menu-item *ngIf="isAdmin" routerLink="/users">
                 <mat-icon>person_search</mat-icon>Manage accounts
             </button>
-            <button mat-menu-item *ngIf="!isDarkModeOn" (click)="toggleDarkMode()">
-                <mat-icon>dark_mode</mat-icon>Dark mode
-            </button>
-            <button mat-menu-item *ngIf="isDarkModeOn" (click)="toggleDarkMode()">
-                <mat-icon>light_mode</mat-icon>Light mode
-            </button>
             <button mat-menu-item routerLink="" (click)="logOut()">
                 <mat-icon>logout</mat-icon>Logout
             </button>

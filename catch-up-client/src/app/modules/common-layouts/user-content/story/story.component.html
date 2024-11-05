@@ -1,4 +1,4 @@
 <div class="story">
-    <img [src]="storyUrl" alt="">
+    <img [src]="storyUrl" (click)="openStoryDialog(story.userId)" alt="story">
     <span>{{ user.userName }}</span>
 </div>

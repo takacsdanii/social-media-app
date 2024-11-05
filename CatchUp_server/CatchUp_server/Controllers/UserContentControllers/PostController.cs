@@ -60,5 +60,11 @@ namespace CatchUp_server.Controllers.UserContentControllers
             var result = _postService.Delete(postId);
             return (result) ? Ok() : NotFound();
         }
+
+        [HttpGet("posts-of-followed-users")]
+        public IEnumerable<PostViewModel> GetPostsOfFollowedUsers(string userId)
+        {
+            return _postService.GetPostsOfFollowedUsers(userId);
+        }
     }
 }

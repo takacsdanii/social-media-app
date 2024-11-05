@@ -1,6 +1,7 @@
 ﻿using CatchUp_server.Db;
 using CatchUp_server.Models.UserContent;
 using CatchUp_server.Models.UserModels;
+using CatchUp_server.Services.FriendsServices;
 using CatchUp_server.ViewModels.UserContentViewModels;
 using CatchUp_server.ViewModels.UserViewModel;
 using Microsoft.EntityFrameworkCore;
@@ -11,13 +12,15 @@ namespace CatchUp_server.Services.UserContentServices
     {
         private readonly ApiDbContext _context;
         private readonly MediaFoldersService _mediaFoldersService;
+        private readonly FriendsService _friendsServie;
 
         private const string postsFolder = "Posts";
 
-        public PostService(ApiDbContext context, MediaFoldersService mediaFoldersService)
+        public PostService(ApiDbContext context, MediaFoldersService mediaFoldersService, FriendsService friendsService)
         {
             _context = context;
             _mediaFoldersService = mediaFoldersService;
+            _friendsServie = friendsService;
         }
 
         public IReadOnlyCollection<PostViewModel> GetPostsOfUser(string userId)
@@ -160,6 +163,27 @@ namespace CatchUp_server.Services.UserContentServices
             _context.SaveChanges();
 
             return true;
+        }
+
+        public IReadOnlyCollection<PostViewModel> GetPostsOfFollowedUsers(string userId)
+        {
+            var followings = _friendsServie.GetFollowing(userId);
+            var userIds = followings.Select(f => f.Id).ToList();
+
+            return _context.Posts
+                .Where(p => userIds.Contains(p.Userid))
+                .Select(p => new PostViewModel
+                {
+                    Id = p.Id,
+                    Description = p.Description,
+                    Visibility = p.Visibility,
+                    CreatedAt = p.CreatedAt,
+                    UserId = p.Userid,
+                    MediaUrls = p.MediaContents.Select(mc => mc.MediaUrl).ToList(),
+                    LikeCount = _context.Likes.Count(l => l.PostId == p.Id && l.CommentId == null),
+                    CommentCount = _context.Comments.Count(c => c.PostId == p.Id)
+                })
+                .ToList();
         }
     }
 }

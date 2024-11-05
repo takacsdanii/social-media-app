@@ -5,6 +5,8 @@ import { UserHttpService } from '../../../../core/services/http/user/user-http.s
 import { MediaUrlService } from '../../../../core/services/logic/helpers/media-url.service';
 import { StoryModel } from '../../../../core/models/user-content/story.model';
 import { switchMap } from 'rxjs';
+import { StoryDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/story-dialog/story-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-story',
@@ -18,6 +20,7 @@ export class StoryComponent implements OnInit {
 
   constructor(private storyHttpService: StoryHttpService,
               private userHttpService: UserHttpService,
+              private displayContentDialog: MatDialog,
               private mediaUrlService: MediaUrlService) { }
 
   public ngOnInit(): void {
@@ -37,5 +40,17 @@ export class StoryComponent implements OnInit {
 
   public get storyUrl(): string | null {
     return this.mediaUrlService.getFullUrl(this.story.mediaUrl)
+  }
+
+  public openStoryDialog(userId: string): void {
+    const dialogRef = this.displayContentDialog.open(StoryDialogComponent, {
+      width: '400px',
+      height: '100%',
+      data: { userId }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.ngOnInit();
+    });
   }
 }

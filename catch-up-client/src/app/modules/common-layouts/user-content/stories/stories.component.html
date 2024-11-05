@@ -1,8 +1,8 @@
 <div class="stories">
-    <div class="my-story">
-        <img [src]="profilePicUrl" alt="prof-pic">
-        <span>{{ user.userName }}</span>
-        <button matTooltip="Add a story">+</button>
+    <div class="story">
+        <img [src]="defaultStoryUrl" (click)="openStoryDialog(myUserId)" alt="prof-pic">
+        <span>{{ user?.userName }}</span>
+        <button (click)="openUploadStoryDialog(myUserId)" matTooltip="Add a story">+</button>
     </div>
 
     <ng-container *ngFor="let story of stories">

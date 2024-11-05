@@ -131,7 +131,7 @@ export class PostComponent implements OnInit {
   }
 
   public openLikersDialog(postId: number): void {
-    const dialogref = this.likersDialog.open(LikersDialogComponent, {
+    this.likersDialog.open(LikersDialogComponent, {
       width: '150px',
       height: '300px',
       data: { postId }

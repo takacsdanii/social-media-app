@@ -107,20 +107,6 @@ namespace CatchUp_server.Services.UserContentServices
             return storyViewModel;
         }
 
-        public Visibility? EditVisibility(int storyId, Visibility visibility)
-        {
-            var story = _context.Stories.SingleOrDefault(s => s.Id == storyId);
-            if (story == null)
-            {
-                return null;
-            }
-
-            story.Visibility = visibility;
-            _context.SaveChanges();
-
-            return story.Visibility;
-        }
-
         public bool Delete(int storyId)
         {
             var story = _context.Stories
@@ -171,9 +157,13 @@ namespace CatchUp_server.Services.UserContentServices
                 return null;
             }
 
-            if(story.UserId == userId)
+            if (story.UserId == userId)
             {
-                return null;
+                return new StoryViewer
+                {
+                    UserId = userId,
+                    StoryId = storyId,
+                };
             }
 
             var viewer = _context.StoriesViewer
@@ -196,5 +186,12 @@ namespace CatchUp_server.Services.UserContentServices
 
             return newViewer;
         }
+
+        public bool HasUserUploadedStory(string userId)
+        {
+            return _context.Stories.Any(s => s.UserId == userId);
+        }
+
+        
     }
 }

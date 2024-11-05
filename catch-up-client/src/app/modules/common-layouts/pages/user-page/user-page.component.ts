@@ -19,8 +19,10 @@ import { PostHttpService } from '../../../../core/services/http/user-content/pos
 import { VisibilityModel } from '../../../../core/models/enums/visibility.model';
 import { UploadPostModel } from '../../../../core/models/user-content/upload-post.model';
 import { PostsComponent } from '../../user-content/posts/posts.component';
-import { NotificationService } from '../../../../core/services/logic/notifications/notification.service';
 import { TimeFormatterService } from '../../../../core/services/logic/helpers/time-formatter.service';
+import { StoryHttpService } from '../../../../core/services/http/user-content/story-http.service';
+import { StoryDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/story-dialog/story-dialog.component';
+import { UploadStoryDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/upload-story-dialog/upload-story-dialog.component';
 
 @Component({
   selector: 'app-user-page',
@@ -40,6 +42,7 @@ export class UserPageComponent implements OnInit {
   public user: UserModel = new UserModel();
   public userIdFromRoute: string | null;
   public following: boolean;
+  public isStoryUploaded: boolean;
 
   public isAdmin: boolean;
   private myUserId: string
@@ -51,8 +54,10 @@ export class UserPageComponent implements OnInit {
               private friendsHttpService: FriendsHttpService,
               private userHttpService: UserHttpService,
               private postHttpService: PostHttpService,
-              public mediaUrlService: MediaUrlService,
-              private uploadDiaog: MatDialog,
+              private storyHttpService: StoryHttpService,
+              private mediaUrlService: MediaUrlService,
+              private uploadDialog: MatDialog,
+              private uploadStoryDialog: MatDialog,
               private displayContentDialog: MatDialog,
               private viewportScroller: ViewportScroller,
               private timeFormatterService: TimeFormatterService) { }
@@ -67,6 +72,7 @@ export class UserPageComponent implements OnInit {
         this.setUser(this.userIdFromRoute);
         this.checkIfIFollowUser();
         this.viewportScroller.scrollToPosition([0, 0]);
+        this.hasUserUploadedStory(this.userIdFromRoute);
       }
     });
   }
@@ -79,6 +85,12 @@ export class UserPageComponent implements OnInit {
 
   public isMypage(): boolean {
     return this.user.id === this.myUserId;
+  }
+
+  private hasUserUploadedStory(userId: string): void {
+    this.storyHttpService.hasUserUploadedStory(userId).subscribe(resp => {
+      this.isStoryUploaded = resp.result;
+    });
   }
 
   public checkIfIFollowUser(): void {
@@ -113,7 +125,7 @@ export class UserPageComponent implements OnInit {
 
   public openUploadDialog(userId: string, type: 'cover' | 'profile'): void {
     if(this.isMypage()) {
-      const dialogref = this.uploadDiaog.open(UploadDialogComponent, {
+      const dialogref = this.uploadDialog.open(UploadDialogComponent, {
         height: '250px',
         width: '450px',
         data: { userId, type }
@@ -216,5 +228,39 @@ export class UserPageComponent implements OnInit {
 
   public get timeAgo(): string {
     return this.timeFormatterService.getTimeAgo(this.user.registeredAt);
+  }
+
+  public get profilePicUrl(): string | null{
+    return this.mediaUrlService.getFullUrl(this.user.profilePicUrl);
+  }
+
+  public get coverPicUrl(): string | null {
+    return this.mediaUrlService.getFullUrl(this.user.coverPicUrl);
+  }
+
+  public openStoryDialog(userId: string): void {
+    const dialogRef = this.displayContentDialog.open(StoryDialogComponent, {
+      width: '400px',
+      height: '100%',
+      data: { userId }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.ngOnInit();
+    });
+  }
+
+  public openUploadStoryDialog(userId: string): void {
+    if(this.isMypage()) {
+      const dialogRef = this.uploadStoryDialog.open(UploadStoryDialogComponent, {
+        height: '250px',
+        width: '450px',
+        data: { userId }
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        this.ngOnInit();
+      });
+    }
   }
 }

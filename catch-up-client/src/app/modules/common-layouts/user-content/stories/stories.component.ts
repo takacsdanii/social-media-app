@@ -4,6 +4,11 @@ import { StoryModel } from '../../../../core/models/user-content/story.model';
 import { MediaUrlService } from '../../../../core/services/logic/helpers/media-url.service';
 import { UserModel } from '../../../../core/models/user.model';
 import { UserHttpService } from '../../../../core/services/http/user/user-http.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AuthService } from '../../../../core/services/logic/auth/auth.service';
+import { UploadDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/upload-dialog/upload-dialog.component';
+import { UploadStoryDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/upload-story-dialog/upload-story-dialog.component';
+import { StoryDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/story-dialog/story-dialog.component';
 
 @Component({
   selector: 'app-stories',
@@ -11,39 +16,73 @@ import { UserHttpService } from '../../../../core/services/http/user/user-http.s
   styleUrl: './stories.component.scss'
 })
 export class StoriesComponent implements OnInit {
-  @Input() public userId: string;
-  public user: UserModel;
+  public user?: UserModel;
+  public myUserId: string;
   public stories: StoryModel[];
+  public isStoryUploaded: boolean;
+  public myFirstStory?: StoryModel;
   
   constructor(private storyHttpService: StoryHttpService,
               private userHttpService: UserHttpService,
-              private mediaUrlService: MediaUrlService) { }
+              private authService: AuthService,
+              private mediaUrlService: MediaUrlService,
+              private uploadDiaog: MatDialog,
+              private displayContentDialog: MatDialog) { }
 
   public ngOnInit(): void {
-    console.log(this.userId)
-    this.userId = '8f59c59e-3740-4d74-9aa6-f66f1083c13a';
+    this.myUserId = this.authService.getUserId()!;
     this.getUser();
     this.loadStories();
+    this.hasUserUploadedStory();
   }
 
   public getUser(): void {
-    if(this.userId) {
-      this.userHttpService.getUser(this.userId).subscribe(resp => {
-        this.user = resp;
-      });
-    }
+    this.userHttpService.getUser(this.myUserId).subscribe(resp => {
+      this.user = resp;
+    });
   }
 
   public loadStories(): void {
-    if(this.userId) {
-      this.storyHttpService.getStoriesOfUser(this.userId).subscribe(results => {
-        this.stories = results;
+    this.storyHttpService.getStoriesOfUser(this.myUserId).subscribe(results => {
+      this.stories = results;
+    });
+  }
+
+  private hasUserUploadedStory(): void {
+    this.storyHttpService.hasUserUploadedStory(this.myUserId).subscribe(resp => {
+      this.isStoryUploaded = resp.result;
+      this.storyHttpService.getStoriesOfUser(this.myUserId).subscribe(stories => {
+        this.myFirstStory = stories[0];
       });
+    });
+  }
+
+  public get defaultStoryUrl(): string | null {
+    if(this.isStoryUploaded && this.myFirstStory) {
+      return this.mediaUrlService.getFullUrl(this.myFirstStory?.mediaUrl);
+    }
+    else {
+      return this.mediaUrlService.getFullUrl(this.user?.profilePicUrl);
     }
   }
 
-  public get profilePicUrl(): string | null {
-    return this.mediaUrlService.getFullUrl(this.user?.profilePicUrl);
+  public openUploadStoryDialog(userId: string): void {
+    this.uploadDiaog.open(UploadStoryDialogComponent, {
+      height: '250px',
+      width: '450px',
+      data: { userId }
+    });
   }
 
+  public openStoryDialog(userId: string): void {
+    const dialogRef = this.displayContentDialog.open(StoryDialogComponent, {
+      width: '400px',
+      height: '100%',
+      data: { userId }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.ngOnInit();
+    });
+  }
 }
