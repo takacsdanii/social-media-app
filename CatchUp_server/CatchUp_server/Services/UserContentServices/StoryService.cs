@@ -1,5 +1,6 @@
 ﻿using CatchUp_server.Db;
 using CatchUp_server.Models.UserContent;
+using CatchUp_server.Services.FriendsServices;
 using CatchUp_server.ViewModels.UserContentViewModels;
 using CatchUp_server.ViewModels.UserViewModels;
 using Microsoft.EntityFrameworkCore;
@@ -10,13 +11,15 @@ namespace CatchUp_server.Services.UserContentServices
     {
         private readonly ApiDbContext _context;
         private readonly MediaFoldersService _mediaFoldersService;
+        private readonly FriendsService _friendsService;
 
         private const string storiesFolder = "Stories";
 
-        public StoryService(ApiDbContext context, MediaFoldersService mediaFoldersService)
+        public StoryService(ApiDbContext context, MediaFoldersService mediaFoldersService, FriendsService friendsService)
         {
             _context = context;
             _mediaFoldersService = mediaFoldersService;
+            _friendsService = friendsService;
         }
 
         public IReadOnlyCollection<StoryViewModel> GetStoriesOfUser(string userId)
@@ -192,6 +195,42 @@ namespace CatchUp_server.Services.UserContentServices
             return _context.Stories.Any(s => s.UserId == userId);
         }
 
-        
+        public IReadOnlyCollection<StoryViewModel> GetFirstStoriesOfFollowedUsers(string userId)
+        {
+            var followings = _friendsService.GetFollowing(userId);
+            var userIds = followings.Select(f => f.Id).ToList();
+
+            var stories = _context.Stories
+                .Where(s => userIds.Contains(s.UserId))
+                .OrderBy(s => s.CreatedAt)
+                .Select(s => new StoryViewModel
+                {
+                    Id = s.Id,
+                    CreatedAt = s.CreatedAt,
+                    ExpiresAt = s.ExpiresAt,
+                    Visibility = s.Visibility,
+                    UserId = s.UserId,
+                    MediaUrl = s.MediaContent.MediaUrl,
+                    ViewCount = s.StoryViewers.Count()
+                })
+                .ToList();
+
+            var distinctStories = stories
+               .GroupBy(s => s.UserId)
+               .Select(g => g.First())
+               .Select(s => new StoryViewModel
+               {
+                   Id = s.Id,
+                   CreatedAt = s.CreatedAt,
+                   ExpiresAt = s.ExpiresAt,
+                   Visibility = s.Visibility,
+                   UserId = s.UserId,
+                   MediaUrl = s.MediaUrl,
+                   ViewCount = s.ViewCount
+               })
+               .ToList();
+
+            return distinctStories;
+        }
     }
 }

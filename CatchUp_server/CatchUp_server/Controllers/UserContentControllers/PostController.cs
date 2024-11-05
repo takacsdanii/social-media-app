@@ -61,7 +61,7 @@ namespace CatchUp_server.Controllers.UserContentControllers
             return (result) ? Ok() : NotFound();
         }
 
-        [HttpGet("posts-of-followed-users")]
+        [HttpGet("posts-of-followed-users"), Authorize]
         public IEnumerable<PostViewModel> GetPostsOfFollowedUsers(string userId)
         {
             return _postService.GetPostsOfFollowedUsers(userId);

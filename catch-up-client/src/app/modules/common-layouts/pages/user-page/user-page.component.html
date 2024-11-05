@@ -105,7 +105,7 @@
             <button (click)="uploadPost(fileInput)" [disabled]="!canUpload()">Upload</button>
         </div>
         
-        <app-posts [userId]="user.id"></app-posts>
+        <app-posts [userId]="user.id" [isHomePage]="false"></app-posts>
     </div>
 
     <app-right-side-bar (followPressed)="onFollowUpdated()" class="sidebar" style="flex: 3;"></app-right-side-bar>

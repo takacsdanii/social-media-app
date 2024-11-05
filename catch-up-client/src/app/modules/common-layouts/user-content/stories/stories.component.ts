@@ -43,7 +43,7 @@ export class StoriesComponent implements OnInit {
   }
 
   public loadStories(): void {
-    this.storyHttpService.getStoriesOfUser(this.myUserId).subscribe(results => {
+    this.storyHttpService.getFirstStoriesOfFollowedUsers(this.myUserId).subscribe(results => {
       this.stories = results;
     });
   }

@@ -1,4 +1,4 @@
-<div class="story">
+<div class="story" *ngIf="story">
     <img [src]="storyUrl" (click)="openStoryDialog(story.userId)" alt="story">
-    <span>{{ user.userName }}</span>
+    <span>{{ user?.userName }}</span>
 </div>

@@ -9,6 +9,7 @@ import { PostModel } from '../../../../core/models/user-content/post.model';
 })
 export class PostsComponent implements OnInit, OnChanges {
   @Input() public userId: string;
+  @Input() public isHomePage: boolean;
   public posts: PostModel[];
 
   constructor(private postHttpService: PostHttpService) { }
@@ -22,9 +23,16 @@ export class PostsComponent implements OnInit, OnChanges {
   }
 
   public loadPosts(): void {
-    this.postHttpService.getPostsOfUser(this.userId).subscribe(results => {
-      this.posts = results;
-    });
+    if(!this.isHomePage) {
+      this.postHttpService.getPostsOfUser(this.userId).subscribe(results => {
+        this.posts = results;
+      });
+    }
+    else {
+      this.postHttpService.getPostsOfFollowedUsers(this.userId).subscribe(results => {
+        this.posts = results;
+      });
+    }
   }
 
 }

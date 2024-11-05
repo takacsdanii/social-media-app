@@ -84,4 +84,13 @@ export class StoryHttpService {
 
     return this.http.get<{ result: boolean }>(link, { headers });
   }
+
+  public getFirstStoriesOfFollowedUsers(userId: string): Observable<StoryModel[]> {
+    const link = `${this.url}/first-stories-of-followed-users?userId=${userId}`;
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.getToken()}`
+    });
+
+    return this.http.get<StoryModel[]>(link, { headers });
+  }
 }

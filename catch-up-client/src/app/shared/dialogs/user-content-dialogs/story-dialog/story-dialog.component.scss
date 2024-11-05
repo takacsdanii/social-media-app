@@ -22,7 +22,7 @@ img {
     font-size: 24px; 
 }
 
-span {
+.viewers span {
     position: absolute;
     right: 10px;
     top: 15px;
@@ -39,7 +39,17 @@ span {
     cursor: pointer;
     font-size: 24px; 
 
-    &:hover{
+    &:hover {
         color: red;
     }
+}
+
+.username {
+    position: absolute;
+    left: 50%;
+    bottom: 15px;
+    transform: translateX(-50%);
+    color: white;
+    cursor: pointer;
+    font-size: 24px; 
 }

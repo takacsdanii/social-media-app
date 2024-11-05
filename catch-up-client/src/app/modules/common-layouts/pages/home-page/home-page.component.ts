@@ -16,14 +16,15 @@ export class HomePageComponent implements OnInit {
   public posts: PostModel[];
 
   constructor(private route: ActivatedRoute,
-              private postHttpService: PostHttpService,
-              private userHttpService: UserHttpService) { }
+              private userHttpService: UserHttpService,
+              private viewportScroller: ViewportScroller) { }
 
   public ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       const userIdFromRoute = params.get('id');
       if (userIdFromRoute) {
         this.setUser(userIdFromRoute);
+        this.viewportScroller.scrollToPosition([0, 0]);
       }
     });
   }
@@ -31,10 +32,6 @@ export class HomePageComponent implements OnInit {
   public setUser(userId: string): void {
     this.userHttpService.getUser(userId).subscribe(_user => {
       this.user = _user;
-      this.postHttpService.getPostsOfFollowedUsers(userId).subscribe(results => {
-        this.posts = results;
-        console.log(this.posts);
-      })
     });
   }
 }

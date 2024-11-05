@@ -172,6 +172,7 @@ namespace CatchUp_server.Services.UserContentServices
 
             return _context.Posts
                 .Where(p => userIds.Contains(p.Userid))
+                .OrderByDescending(p => p.CreatedAt)
                 .Select(p => new PostViewModel
                 {
                     Id = p.Id,

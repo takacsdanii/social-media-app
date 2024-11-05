@@ -6,6 +6,7 @@ import { MediaUrlService } from '../../../../core/services/logic/helpers/media-u
 import { StoryViewersDialogComponent } from '../story-viewers-dialog/story-viewers-dialog.component';
 import { DeleteContentDialogComponent } from '../delete-content-dialog/delete-content-dialog.component';
 import { AuthService } from '../../../../core/services/logic/auth/auth.service';
+import { UserHttpService } from '../../../../core/services/http/user/user-http.service';
 
 @Component({
   selector: 'app-story-dialog',
@@ -17,8 +18,10 @@ export class StoryDialogComponent implements OnInit, OnDestroy {
   public currentIndex: number = 0;
   private intervalId: any;
   private myUserId: string;
+  public userName: string;
 
   constructor(private storyHttpService: StoryHttpService,
+              private userHttpService: UserHttpService,
               private authService: AuthService,
               private mediaUrlService: MediaUrlService,
               private viewersDialog: MatDialog,
@@ -28,7 +31,14 @@ export class StoryDialogComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.myUserId = this.authService.getUserId()!;
+    this.getUsername();
     this.getStoriesOfUser();
+  }
+
+  private getUsername(): void {
+    this.userHttpService.getUser(this.data.userId).subscribe(user => {
+      this.userName = user.userName;
+    });
   }
 
   public addViewerToStory(): void {

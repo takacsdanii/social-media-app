@@ -15,8 +15,8 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class StoryComponent implements OnInit {
   @Input() public storyId: number;
-  public story: StoryModel;
-  public user: UserModel;
+  public story?: StoryModel;
+  public user?: UserModel;
 
   constructor(private storyHttpService: StoryHttpService,
               private userHttpService: UserHttpService,
@@ -39,7 +39,7 @@ export class StoryComponent implements OnInit {
   }
 
   public get storyUrl(): string | null {
-    return this.mediaUrlService.getFullUrl(this.story.mediaUrl)
+    return this.mediaUrlService.getFullUrl(this.story?.mediaUrl)
   }
 
   public openStoryDialog(userId: string): void {

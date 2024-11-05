@@ -65,5 +65,11 @@ namespace CatchUp_server.Controllers.UserContentControllers
             var result = _storyService.HasUserUploadedStory(userId);
             return Ok(new { result });
         }
+
+        [HttpGet("first-stories-of-followed-users"), Authorize]
+        public IEnumerable<StoryViewModel> GetFirstStoriesOfFollowedUsers(string userId)
+        {
+            return _storyService.GetFirstStoriesOfFollowedUsers(userId);
+        }
     }
 }
