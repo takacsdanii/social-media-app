@@ -24,16 +24,16 @@ export class StoryComponent implements OnInit {
               private displayContentDialog: MatDialog,
               private mediaUrlService: MediaUrlService) { }
 
-              public ngOnInit(): void {
-                this.storyHttpService.getStory(this.storyId).pipe(
-                  switchMap(resp => {
-                    this.story = resp;
-                    return this.userHttpService.getUser(this.story.userId);
-                  })
-                ).subscribe(resp => {
-                  this.user = resp;
-                });
-              }
+  public ngOnInit(): void {
+    this.storyHttpService.getStory(this.storyId).pipe(
+      switchMap(resp => {
+        this.story = resp;
+        return this.userHttpService.getUser(this.story.userId);
+      })
+    ).subscribe(resp => {
+      this.user = resp;
+    });
+  }
 
   public get profilePicUrl(): string | null {
     return this.mediaUrlService.getFullUrl(this.user?.profilePicUrl);

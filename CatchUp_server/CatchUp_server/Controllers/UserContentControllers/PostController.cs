@@ -25,6 +25,12 @@ namespace CatchUp_server.Controllers.UserContentControllers
             return _postService.GetPostsOfUser(userId);
         }
 
+        [HttpGet("get-visible-posts-of-user"), Authorize]
+        public IEnumerable<PostViewModel> GetPostsOfUser(string postOwnerId, string loggedInUserId)
+        {
+            return _postService.GetPostsOfUser(postOwnerId, loggedInUserId);
+        }
+
         [HttpGet("post-by-id"), Authorize]
         public IActionResult GetPost(int postId)
         {

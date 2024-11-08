@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rgvep/n6GugAYDDOIz3X81Q2n00X295IjCzAr6Yl+P8=",
+  "Hash": "CeVN0jDsrXACheMp4wySR+3wc8TCuuTEnVLaKDdlV7o=",
   "Source": "CatchUp_server",
   "BasePath": "_content/CatchUp_server",
   "Mode": "Default",
@@ -1993,12 +1993,12 @@
       "OriginalItemSpec": "wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\ProfilePictures\\59b014ce-0367-4335-aba7-b45391b9ec50_profile.jpg"
     },
     {
-      "Identity": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\Stories\\d5348d89-92f9-4587-b26e-6ced99fe3f60_6F5ABAA8-18ED-4178-B777-620641A74600-5693-0000030D70E60E02.mov",
+      "Identity": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\Stories\\5d9d8744-3e8d-4e1f-85bd-369b050b1c55_lion.jpg",
       "SourceId": "CatchUp_server",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\",
       "BasePath": "_content/CatchUp_server",
-      "RelativePath": "UserMedia/8f59c59e-3740-4d74-9aa6-f66f1083c13a/Stories/d5348d89-92f9-4587-b26e-6ced99fe3f60_6F5ABAA8-18ED-4178-B777-620641A74600-5693-0000030D70E60E02.mov",
+      "RelativePath": "UserMedia/8f59c59e-3740-4d74-9aa6-f66f1083c13a/Stories/5d9d8744-3e8d-4e1f-85bd-369b050b1c55_lion.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2009,7 +2009,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\Stories\\d5348d89-92f9-4587-b26e-6ced99fe3f60_6F5ABAA8-18ED-4178-B777-620641A74600-5693-0000030D70E60E02.mov"
+      "OriginalItemSpec": "wwwroot\\UserMedia\\8f59c59e-3740-4d74-9aa6-f66f1083c13a\\Stories\\5d9d8744-3e8d-4e1f-85bd-369b050b1c55_lion.jpg"
     },
     {
       "Identity": "C:\\Users\\latix\\Desktop\\Egyetem\\7. félév\\szakdoga\\social-media-app\\CatchUp_server\\CatchUp_server\\wwwroot\\UserMedia\\bba7a382-07e8-4858-bf88-9ff63bf71866\\CoverPictures\\b2771a03-6207-4330-b980-e6e9bcbd0332_dream.jpg",

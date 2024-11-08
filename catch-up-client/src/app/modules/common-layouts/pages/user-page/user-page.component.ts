@@ -110,6 +110,7 @@ export class UserPageComponent implements OnInit {
     this.friendsHttpService.followUser(this.myUserId, targetUserId).subscribe(_ => {
       this.checkIfIFollowUser();
       this.rightSideBarComponent.ngOnInit();
+      this.postsComponent.loadPosts();
     });
   }
 
@@ -117,6 +118,7 @@ export class UserPageComponent implements OnInit {
     this.friendsHttpService.unFollowUser(this.myUserId, targetUserId).subscribe(_ => {
       this.checkIfIFollowUser();
       this.rightSideBarComponent.ngOnInit();
+      this.postsComponent.loadPosts();
     });
   }
 

@@ -26,6 +26,15 @@ export class PostHttpService {
     return this.http.get<PostModel[]>(link, { headers });
   }
 
+  public getVisiblePostsOfUser(postOwnerId: string, loggedInUserId: string): Observable<PostModel[]> {
+    const link = `${this.url}/get-visible-posts-of-user?postOwnerId=${postOwnerId}&loggedInUserId=${loggedInUserId}`;
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.getToken()}`
+    });
+
+    return this.http.get<PostModel[]>(link, { headers });
+  }
+
   public getPost(postId: number): Observable<PostModel> {
     const link = `${this.url}/post-by-id?postId=${postId}`;
     const headers = new HttpHeaders({

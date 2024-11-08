@@ -21,6 +21,24 @@ namespace CatchUp_server.Services.UserContentServices
             _friendsService = friendsService;
         }
 
+        public PostViewModel GetPost(int postId)
+        {
+            return _context.Posts
+                .Where(p => p.Id == postId)
+                .Select(p => new PostViewModel
+                {
+                    Id = p.Id,
+                    Description = p.Description,
+                    Visibility = p.Visibility,
+                    CreatedAt = p.CreatedAt,
+                    UserId = p.Userid,
+                    MediaContents = p.MediaContents,
+                    LikeCount = _context.Likes.Count(l => l.PostId == p.Id && l.CommentId == null),
+                    CommentCount = _context.Comments.Count(c => c.PostId == p.Id)
+                })
+                .SingleOrDefault();
+        }
+
         public IReadOnlyCollection<PostViewModel> GetPostsOfUser(string userId)
         {
             return _context.Posts
@@ -41,22 +59,25 @@ namespace CatchUp_server.Services.UserContentServices
                 .ToList();
         }
 
-        public PostViewModel GetPost(int postId)
+        public IReadOnlyCollection<PostViewModel> GetPostsOfUser(string postOwnerId, string loggedInUserId)
         {
-            return _context.Posts
-                .Where(p => p.Id == postId)
-                .Select(p => new PostViewModel
-                {
-                    Id = p.Id,
-                    Description = p.Description,
-                    Visibility = p.Visibility,
-                    CreatedAt = p.CreatedAt,
-                    UserId = p.Userid,
-                    MediaContents = p.MediaContents,
-                    LikeCount = _context.Likes.Count(l => l.PostId == p.Id && l.CommentId == null),
-                    CommentCount = _context.Comments.Count(c => c.PostId == p.Id)
-                })
-                .SingleOrDefault();
+            var posts = GetPostsOfUser(postOwnerId);
+            if (loggedInUserId == postOwnerId)
+            {
+                return posts;
+            }
+
+            var doesLoggedInUserFollowStoryOwner = _friendsService.doesUserFollowTargetUser(loggedInUserId, postOwnerId) ?? false;
+            var doesStoryOwnerFollowLoggedInUser = _friendsService.doesUserFollowTargetUser(postOwnerId, loggedInUserId) ?? false;
+
+            return posts
+                .Where(
+                    p => p.Visibility == Visibility.Public
+                    || (doesLoggedInUserFollowStoryOwner && doesStoryOwnerFollowLoggedInUser && p.Visibility == Visibility.Friends)
+                    || (doesLoggedInUserFollowStoryOwner && p.Visibility == Visibility.Followers)
+                    || (doesStoryOwnerFollowLoggedInUser && p.Visibility == Visibility.Following)
+                )
+                .ToList();
         }
 
         public PostViewModel UploadPost(UploadPostViewModel postModel, List<IFormFile> files)

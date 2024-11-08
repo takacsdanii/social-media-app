@@ -12,12 +12,10 @@ import { FriendsHttpService } from '../../../../core/services/http/friends/frien
 export class PostsComponent implements OnInit, OnChanges {
   @Input() public userId: string;
   @Input() public isHomePage: boolean;
-
   public myUserId: string;
   public posts: PostModel[];
 
   constructor(private postHttpService: PostHttpService,
-              private friendsHttpService: FriendsHttpService,
               private authService: AuthService) { }
 
   public ngOnInit(): void {
@@ -32,7 +30,7 @@ export class PostsComponent implements OnInit, OnChanges {
 
   public loadPosts(): void {
     if(!this.isHomePage) {
-      this.postHttpService.getPostsOfUser(this.userId).subscribe(results => {
+      this.postHttpService.getVisiblePostsOfUser(this.userId, this.myUserId).subscribe(results => {
         this.posts = results;
       });
     }

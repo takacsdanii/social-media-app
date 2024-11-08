@@ -23,6 +23,24 @@ namespace CatchUp_server.Services.UserContentServices
             _friendsService = friendsService;
         }
 
+        public StoryViewModel GetStory(int id)
+        {
+            return _context.Stories
+                .Where(s => s.Id == id)
+                .Include(s => s.MediaContent)
+                .Select(s => new StoryViewModel
+                {
+                    Id = s.Id,
+                    CreatedAt = s.CreatedAt,
+                    ExpiresAt = s.ExpiresAt,
+                    Visibility = s.Visibility,
+                    UserId = s.UserId,
+                    MediaContent = s.MediaContent,
+                    ViewCount = s.StoryViewers.Count()
+                })
+            .SingleOrDefault();
+        }
+
         public IReadOnlyCollection<StoryViewModel> GetStoriesOfUser(string userId)
         {
             return _context.Stories
@@ -41,24 +59,6 @@ namespace CatchUp_server.Services.UserContentServices
                     ViewCount = s.StoryViewers.Count()
                 })
                 .ToList();
-        }
-
-        public StoryViewModel GetStory(int id)
-        {
-            return _context.Stories
-                .Where(s => s.Id == id)
-                .Include(s => s.MediaContent)
-                .Select(s => new StoryViewModel
-                {
-                    Id = s.Id,
-                    CreatedAt = s.CreatedAt,
-                    ExpiresAt = s.ExpiresAt,
-                    Visibility = s.Visibility,
-                    UserId = s.UserId,
-                    MediaContent = s.MediaContent,
-                    ViewCount = s.StoryViewers.Count()
-                })
-            .SingleOrDefault();
         }
 
         public IReadOnlyCollection<StoryViewModel> GetStoriesOfUser(string storyOwnerId, string loggedInUserId)

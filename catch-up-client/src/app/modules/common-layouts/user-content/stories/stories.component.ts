@@ -82,12 +82,17 @@ export class StoriesComponent implements OnInit {
   }
 
   public openStoryDialog(userId: string): void {
-    const dialogRef = this.displayContentDialog.open(StoryDialogComponent, {
-      width: '400px',
-      height: '100%',
-      data: { userId }
-    });
+    if(this.isStoryUploaded) {
+      const dialogRef = this.displayContentDialog.open(StoryDialogComponent, {
+        width: '400px',
+        height: '100%',
+        data: { userId }
+      });
 
-    dialogRef.afterClosed().subscribe(result => this.ngOnInit());
+      dialogRef.afterClosed().subscribe(result => this.ngOnInit());
+    }
+    else {
+      this.openUploadStoryDialog(userId);
+    }
   }
 }

@@ -20,7 +20,8 @@ export class RightSideBarComponent implements OnInit {
   public following: UserPreviewModel[] = [];
   public friends: UserPreviewModel[] = [];
 
-  public displayedOneWayFollowers: UserPreviewModel[] = [];
+  public followersNotFollowedBack: UserPreviewModel[] = [];
+  public followingNotFollowedBack: UserPreviewModel[] = [];
 
   @Output() followPressed: EventEmitter<void> = new EventEmitter<void>();
 
@@ -33,18 +34,6 @@ export class RightSideBarComponent implements OnInit {
     this.loggedInUserId = this.authService.getUserId()!!;
     this.getFollowersAndFollowing();
     this.getFriends();
-    this.refreshUsers();
-  }
-
-  private refreshUsers(): void {
-    this.getUsers();
-  }
-
-  // TODO: valszeg törölhető, ha megvan minden
-  private getUsers(): void {
-    this.userHttpService.listUsers().subscribe(users => {
-      this.users = users.filter(user => user.id != this.loggedInUserId);
-    });
   }
 
   private getFollowersAndFollowing(): void {
@@ -56,7 +45,8 @@ export class RightSideBarComponent implements OnInit {
       }),
       map(following => {
         this.following = following;
-        this.getOneWayFollowers(dismissedUsers);
+        this.getFollowersNotFollowedBack(dismissedUsers);
+        this.getFollowingNotFollowedBack();
       })
     ).subscribe();
   }
@@ -64,24 +54,33 @@ export class RightSideBarComponent implements OnInit {
   private getFriends(): void {
     this.friendsHttpService.getFriends(this.loggedInUserId).subscribe(friends => {
       this.friends = friends;
+      this.shuffleArray(this.friends);
     });
   }
 
-  private getOneWayFollowers(dismissedUsers: string[]): void {
-    this.displayedOneWayFollowers = this.followers.filter(follower =>
+  private getFollowersNotFollowedBack(dismissedUsers: string[]): void {
+    this.followersNotFollowedBack = this.followers.filter(follower =>
       !this.following.some(followed => followed.id === follower.id) &&
       !dismissedUsers.includes(follower.id)
     );
+    this.shuffleArray(this.followersNotFollowedBack);
   }
 
-  private getDisplayedOneWayFollowers(userId: string): void {
-    this.displayedOneWayFollowers = this.displayedOneWayFollowers.filter(
+  private getFollowingNotFollowedBack(): void {
+    this.followingNotFollowedBack = this.following.filter(followed =>
+      !this.followers.some(follower => follower.id === followed.id)
+    );
+    this.shuffleArray(this.followingNotFollowedBack);
+  }
+
+  private getDisplayedFollowersNotFollowedBack(userId: string): void {
+    this.followersNotFollowedBack = this.followersNotFollowedBack.filter(
       follower => follower.id !== userId
     );
   }
 
   public onDismissPressed(userId: string): void {
-    this.getDisplayedOneWayFollowers(userId);
+    this.getDisplayedFollowersNotFollowedBack(userId);
     this.saveDismissedUsersToLocalStorage(userId);
   }
 
@@ -98,14 +97,9 @@ export class RightSideBarComponent implements OnInit {
   public onFollowPressed(targetUserId: string): void {
     this.friendsHttpService.followUser(this.loggedInUserId, targetUserId).subscribe(_ => {
       this.followPressed.emit();
-      this.getDisplayedOneWayFollowers(targetUserId);
+      this.getDisplayedFollowersNotFollowedBack(targetUserId);
       this.getFriends();
     });
-  }
-
-  public displayedUsers: number = 3;
-  public loadMore(): void {
-    this.displayedUsers += 3; 
   }
 
   public getProfilePicUrl(user: UserPreviewModel): string | null {
@@ -114,5 +108,12 @@ export class RightSideBarComponent implements OnInit {
 
   public getUserProfilePicUrl(user: UserModel): string | null {
     return this.mediaUrlService.getFullUrl(user.profilePicUrl);
+  }
+
+  private shuffleArray(array: UserPreviewModel[]): void {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1)); 
+      [array[i], array[j]] = [array[j], array[i]];
+    }
   }
 }

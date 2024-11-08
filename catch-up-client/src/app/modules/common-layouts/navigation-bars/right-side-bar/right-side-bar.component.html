@@ -1,45 +1,37 @@
 <div class="sidebar">
     <div class="container">
 
+        <span>Following you</span>
         <div class=item>
-            <span>Following you</span>
-            <div *ngFor="let user of displayedOneWayFollowers" class="user">
+            <!-- <span>Following you</span> -->
+            <div *ngFor="let user of followersNotFollowedBack" class="user">
                 <div class="userinfo">
                     <img [src]="getProfilePicUrl(user)" alt="profile picture">
                     <span [routerLink]="['/user-page', user.id]">{{ user.userName }}</span>
                 </div>
                 <div class="buttons">
-                    <!-- ? esetleg jöhetne ide inkább ikon-->
-                    <!-- <img src="assets/images/icons/icons8-add-friend-48.png" alt=""> -->
                     <button (click)="onFollowPressed(user.id)">Follow</button>
                     <button (click)="onDismissPressed(user.id)">Dismiss</button>
                 </div>
             </div>
         </div>
 
+        <span>Who don't care to follow you back</span>
         <div class="item">
-            <span>Latest Activities</span>
-            <div *ngFor="let user of users | slice:0:displayedUsers" class="user">
+            <!-- <span>Who don't care to follow you back</span> -->
+            <div *ngFor="let user of followingNotFollowedBack" class="user">
                 <div class="userinfo">
-                    <img [routerLink]="['/user-page', user.id]" [src]="getUserProfilePicUrl(user)" alt="profile picture">
+                    <img [routerLink]="['/user-page', user.id]" [src]="getProfilePicUrl(user)" alt="profile picture">
                     <div class="details">
                         <span [routerLink]="['/user-page', user.id]">{{ user.userName }}</span>
-                        <!-- TODO: ide majd az action jön, amit csinált és hogy mikor -->
-                        <!-- ? klikkelésre itt majd egy postra vigyen külön dialogon -->
-                        <div class="actions">
-                            <span>Liked your post</span>
-                            <span>2m ago</span>
-                        </div>
                     </div>
                 </div>
             </div>
-            <div class="scroll-more" *ngIf="users.length > 3">
-                <span (click)="loadMore()" class="load-more">Load more...</span>
-            </div>
         </div>
 
+        <span>Your friends</span>
         <div class="item">
-            <span>Your friends</span>
+            <!-- <span>Your friends</span> -->
             <div *ngFor="let friend of friends" class="user">
                 <div [routerLink]="['/user-page', friend.id]" class="userinfo">
                     <img [src]="getProfilePicUrl(friend)" alt="profile picture">
