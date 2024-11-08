@@ -60,7 +60,7 @@ export class StoryDialogComponent implements OnInit, OnDestroy {
   }
 
   public getStoriesOfUser(): void {
-    this.storyHttpService.getStoriesOfUser(this.data.userId).subscribe(resp => {
+    this.storyHttpService.getVisibleStoriesOfUser(this.data.userId, this.myUserId).subscribe(resp => {
       this.stories = resp;
       this.startStoryInterval();
       this.addViewerToStory();

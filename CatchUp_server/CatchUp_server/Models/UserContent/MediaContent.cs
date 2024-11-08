@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace CatchUp_server.Models.UserContent
 {
@@ -8,7 +9,8 @@ namespace CatchUp_server.Models.UserContent
         public MediaType Type { get; set; }
         public string MediaUrl { get; set; }
 
-        public int? PostId { get; set; }
+        [JsonIgnore]
         public Post Post { get; set; }
+        public int? PostId { get; set; }
     }
 }

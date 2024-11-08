@@ -25,6 +25,12 @@ namespace CatchUp_server.Controllers.UserContentControllers
             return _storyService.GetStoriesOfUser(userId);
         }
 
+        [HttpGet("get-visible-stories-of-user")]
+        public IEnumerable<StoryViewModel> GetStoriesOfUser(string storyOwnerId, string loggedInUserId)
+        {
+            return _storyService.GetStoriesOfUser(storyOwnerId, loggedInUserId);
+        }
+
         [HttpGet("story-by-id"), Authorize]
         public IActionResult GetStory(int storyId)
         {

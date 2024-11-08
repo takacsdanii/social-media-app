@@ -27,6 +27,15 @@ export class StoryHttpService {
     return this.http.get<StoryModel[]>(link, { headers });
   }
 
+  public getVisibleStoriesOfUser(storyOwnerId: string, loggedInUserId: string): Observable<StoryModel[]> {
+    const link = `${this.url}/get-visible-stories-of-user?storyOwnerId=${storyOwnerId}&loggedInUserId=${loggedInUserId}`;
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.getToken()}`
+    });
+
+    return this.http.get<StoryModel[]>(link, { headers });
+  }
+
   public getStory(storyId: number): Observable<StoryModel> {
     const link = `${this.url}/story-by-id?storyId=${storyId}`;
     const headers = new HttpHeaders({

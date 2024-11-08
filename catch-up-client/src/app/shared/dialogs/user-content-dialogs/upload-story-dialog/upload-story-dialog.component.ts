@@ -34,8 +34,17 @@ export class UploadStoryDialogComponent implements OnInit{
       file: this.selectedFile,
     }
 
-    this.storyHttpService.uploadStory(uploadModel).subscribe(resp => {
-      this.notificationService.showSuccesSnackBar('Story is uploaded successfully!');
-    });
+    this.storyHttpService.uploadStory(uploadModel).subscribe(
+      next => {
+        this.notificationService.showSuccesSnackBar('Story is uploaded successfully!');
+      },
+      error => {
+        if (error.status === 400) {
+          this.notificationService.showErrorSnackBar('Upload failed: File size exceeds the limit or invalid data.');
+        } else {
+          this.notificationService.showErrorSnackBar('An unexpected error occurred. Please try again.');
+        }
+      }
+    );
   }
 }

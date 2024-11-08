@@ -23,6 +23,7 @@ import { TimeFormatterService } from '../../../../core/services/logic/helpers/ti
 import { StoryHttpService } from '../../../../core/services/http/user-content/story-http.service';
 import { StoryDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/story-dialog/story-dialog.component';
 import { UploadStoryDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/upload-story-dialog/upload-story-dialog.component';
+import { NotificationService } from '../../../../core/services/logic/notifications/notification.service';
 
 @Component({
   selector: 'app-user-page',
@@ -32,7 +33,7 @@ import { UploadStoryDialogComponent } from '../../../../shared/dialogs/user-cont
 export class UserPageComponent implements OnInit {
   public selectedFiles: File[] = [];
   public postDescription: string | null = null;
-  public postVisibility: VisibilityModel = 0;
+  public postVisibility: VisibilityModel = VisibilityModel.Public;
 
   @ViewChild(NavigationHeaderComponent) navigationHeaderComponent!: NavigationHeaderComponent;
   @ViewChild(RightSideBarComponent) rightSideBarComponent!: RightSideBarComponent;
@@ -60,7 +61,8 @@ export class UserPageComponent implements OnInit {
               private uploadStoryDialog: MatDialog,
               private displayContentDialog: MatDialog,
               private viewportScroller: ViewportScroller,
-              private timeFormatterService: TimeFormatterService) { }
+              private timeFormatterService: TimeFormatterService,
+              private notificationService: NotificationService) { }
 
   public ngOnInit(): void {
     this.isAdmin = this.authService.isAdmin();
@@ -211,13 +213,24 @@ export class UserPageComponent implements OnInit {
       visibility: this.postVisibility
     }
 
-    this.postHttpService.uploadPost(uploadModel, this.selectedFiles).subscribe(post => {
-      this.postsComponent.loadPosts();
-      this.ngOnInit();
-      fileInput.value = '';
-      this.postDescription = null;
-      this.selectedFiles = [];
-    });
+    this.postHttpService.uploadPost(uploadModel, this.selectedFiles).subscribe(
+      post => {
+        this.postsComponent.loadPosts();
+        this.notificationService.showSuccesSnackBar('Successfully uploaded!');
+        this.ngOnInit();
+        fileInput.value = '';
+        this.postDescription = null;
+        this.postVisibility = VisibilityModel.Public;
+        this.selectedFiles = [];
+      },
+      error => {
+        if (error.status === 400) {
+          this.notificationService.showErrorSnackBar('Upload failed: File size exceeds the limit or invalid data.');
+        } else {
+          this.notificationService.showErrorSnackBar('An unexpected error occurred. Please try again.');
+        }
+      }
+    );
   }
 
   public canUpload(): boolean {

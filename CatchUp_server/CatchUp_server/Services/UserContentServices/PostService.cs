@@ -10,7 +10,7 @@ namespace CatchUp_server.Services.UserContentServices
     {
         private readonly ApiDbContext _context;
         private readonly MediaFoldersService _mediaFoldersService;
-        private readonly FriendsService _friendsServie;
+        private readonly FriendsService _friendsService;
 
         private const string postsFolder = "Posts";
 
@@ -18,7 +18,7 @@ namespace CatchUp_server.Services.UserContentServices
         {
             _context = context;
             _mediaFoldersService = mediaFoldersService;
-            _friendsServie = friendsService;
+            _friendsService = friendsService;
         }
 
         public IReadOnlyCollection<PostViewModel> GetPostsOfUser(string userId)
@@ -166,11 +166,31 @@ namespace CatchUp_server.Services.UserContentServices
 
         public IReadOnlyCollection<PostViewModel> GetPostsOfFollowedUsers(string userId)
         {
-            var followings = _friendsServie.GetFollowing(userId);
+            var followings = _friendsService.GetFollowing(userId);
             var userIds = followings.Select(f => f.Id).ToList();
 
+            var friends = _friendsService.GetFriends(userId);
+            var friendIds = friends.Select(f => f.Id).ToList();
+
             return _context.Posts
-                .Where(p => userIds.Contains(p.Userid))
+                .Where
+                (
+                    p => userIds.Contains(p.Userid)
+                    &&
+                    (
+                        p.Visibility == Visibility.Public ||
+                        p.Visibility == Visibility.Followers
+                        ||
+                        (
+                            friendIds.Contains(p.Userid)
+                            &&
+                            (
+                                p.Visibility == Visibility.Friends ||
+                                p.Visibility == Visibility.Following
+                            )
+                        )
+                    )
+                )
                 .OrderByDescending(p => p.CreatedAt)
                 .Select(p => new PostViewModel
                 {

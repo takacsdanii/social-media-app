@@ -1,5 +1,6 @@
 ﻿using CatchUp_server.Db;
 using CatchUp_server.Models.UserContent;
+using CatchUp_server.Models.UserModels;
 using CatchUp_server.Services.FriendsServices;
 using CatchUp_server.ViewModels.UserContentViewModels;
 using CatchUp_server.ViewModels.UserViewModels;
@@ -57,7 +58,28 @@ namespace CatchUp_server.Services.UserContentServices
                     MediaContent = s.MediaContent,
                     ViewCount = s.StoryViewers.Count()
                 })
-                .SingleOrDefault();
+            .SingleOrDefault();
+        }
+
+        public IReadOnlyCollection<StoryViewModel> GetStoriesOfUser(string storyOwnerId, string loggedInUserId)
+        {
+            var stories = GetStoriesOfUser(storyOwnerId);
+            if (loggedInUserId == storyOwnerId)
+            {
+                return stories;
+            }
+
+            var doesLoggedInUserFollowStoryOwner = _friendsService.doesUserFollowTargetUser(loggedInUserId, storyOwnerId) ?? false;
+            var doesStoryOwnerFollowLoggedInUser = _friendsService.doesUserFollowTargetUser(storyOwnerId, loggedInUserId) ?? false;
+
+            return stories
+                .Where(
+                    s => s.Visibility == Visibility.Public
+                    || (doesLoggedInUserFollowStoryOwner && doesStoryOwnerFollowLoggedInUser && s.Visibility == Visibility.Friends)
+                    || (doesLoggedInUserFollowStoryOwner && s.Visibility == Visibility.Followers)
+                    || (doesStoryOwnerFollowLoggedInUser && s.Visibility == Visibility.Following)
+                )
+                .ToList();
         }
 
         public StoryViewModel UploadStory(UploadStoryViewModel uploadModel)
@@ -117,6 +139,7 @@ namespace CatchUp_server.Services.UserContentServices
                 .Include(s => s.MediaContent)
                 .Include(s => s.StoryViewers)
                 .SingleOrDefault(s => s.Id == storyId);
+
             if (story == null)
             {
                 return false;
@@ -201,8 +224,28 @@ namespace CatchUp_server.Services.UserContentServices
             var followings = _friendsService.GetFollowing(userId);
             var userIds = followings.Select(f => f.Id).ToList();
 
+            var friends = _friendsService.GetFriends(userId);
+            var friendIds = friends.Select(f => f.Id).ToList();
+
             var stories = _context.Stories
-                .Where(s => userIds.Contains(s.UserId))
+                .Where
+                (
+                    s => userIds.Contains(s.UserId)
+                    &&
+                    (
+                        s.Visibility == Visibility.Public ||
+                        s.Visibility == Visibility.Followers
+                        ||
+                        (
+                            friendIds.Contains(s.UserId)
+                            &&
+                            (
+                                s.Visibility == Visibility.Friends ||
+                                s.Visibility == Visibility.Following
+                            )
+                        )
+                    )
+                )
                 .OrderBy(s => s.CreatedAt)
                 .Select(s => new StoryViewModel
                 {

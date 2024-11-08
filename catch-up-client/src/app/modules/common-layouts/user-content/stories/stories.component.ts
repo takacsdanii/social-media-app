@@ -72,11 +72,13 @@ export class StoriesComponent implements OnInit {
   }
 
   public openUploadStoryDialog(userId: string): void {
-    this.uploadDiaog.open(UploadStoryDialogComponent, {
+    const dialogRef = this.uploadDiaog.open(UploadStoryDialogComponent, {
       height: '250px',
       width: '450px',
       data: { userId }
     });
+
+    dialogRef.afterClosed().subscribe(result => this.ngOnInit());
   }
 
   public openStoryDialog(userId: string): void {
@@ -86,8 +88,6 @@ export class StoriesComponent implements OnInit {
       data: { userId }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      this.ngOnInit();
-    });
+    dialogRef.afterClosed().subscribe(result => this.ngOnInit());
   }
 }

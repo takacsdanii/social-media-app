@@ -35,6 +35,17 @@ namespace CatchUp_server.Controllers.UserContentControllers
         [HttpPost, Authorize]
         public IActionResult UploadPost([FromForm] UploadPostViewModel postModel, [FromForm] List<IFormFile> files)
         {
+            const long maxFileSize = 15 * 1024 * 1024; 
+
+            foreach (var file in files)
+            {
+                if (file.Length > maxFileSize)
+                {
+                    var errors = $"File size exceeds the 15 MB limit: {file.FileName}";
+                    return BadRequest(new { errors });
+                }
+            }
+
             var post = _postService.UploadPost(postModel, files);
             return (post != null) ? Ok(post) : NotFound();
         }

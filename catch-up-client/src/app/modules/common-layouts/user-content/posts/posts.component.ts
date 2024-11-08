@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { PostHttpService } from '../../../../core/services/http/user-content/post-http.service';
 import { PostModel } from '../../../../core/models/user-content/post.model';
+import { AuthService } from '../../../../core/services/logic/auth/auth.service';
+import { FriendsHttpService } from '../../../../core/services/http/friends/friends-http.service';
 
 @Component({
   selector: 'app-posts',
@@ -10,11 +12,17 @@ import { PostModel } from '../../../../core/models/user-content/post.model';
 export class PostsComponent implements OnInit, OnChanges {
   @Input() public userId: string;
   @Input() public isHomePage: boolean;
+
+  public myUserId: string;
   public posts: PostModel[];
 
-  constructor(private postHttpService: PostHttpService) { }
+  constructor(private postHttpService: PostHttpService,
+              private friendsHttpService: FriendsHttpService,
+              private authService: AuthService) { }
 
-  public ngOnInit(): void { }
+  public ngOnInit(): void {
+    this.myUserId = this.authService.getUserId()!;
+  }
 
   public ngOnChanges(changes: SimpleChanges): void {
     if (changes['userId'] && this.userId) {

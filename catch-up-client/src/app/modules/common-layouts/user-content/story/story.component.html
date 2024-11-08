@@ -4,9 +4,9 @@
         (click)="openStoryDialog(story.userId)"
         alt="story">
 
-    <video *ngIf="isVideo" (click)="openStoryDialog(story.userId)" autoplay loop>
+    <video *ngIf="isVideo" (click)="openStoryDialog(story.userId)" autoplay loop [muted]="true">
         <source [src]="storyUrl" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <span>{{ user?.userName }}</span>
+    <span [routerLink]="['/user-page', user?.id]">{{ user?.userName }}</span>
 </div>
