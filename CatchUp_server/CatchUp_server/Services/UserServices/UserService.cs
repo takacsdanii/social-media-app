@@ -1,5 +1,6 @@
 ﻿using CatchUp_server.Db;
 using CatchUp_server.Models.UserModels;
+using CatchUp_server.Services.FriendsServices;
 using CatchUp_server.Services.UserContentServices;
 using CatchUp_server.ViewModels.UserViewModel;
 using CatchUp_server.ViewModels.UserViewModels;
@@ -12,11 +13,13 @@ namespace CatchUp_server.Services.UserServices
     {
         private readonly ApiDbContext _context;
         private readonly MediaFoldersService _mediaFoldersService;
+        private readonly FriendsService _friendsService;
 
-        public UserService(ApiDbContext context, MediaFoldersService mediaFoldersService)
+        public UserService(ApiDbContext context, MediaFoldersService mediaFoldersService, FriendsService friendsService)
         {
             _context = context;
             _mediaFoldersService = mediaFoldersService;
+            _friendsService = friendsService;
         }
 
         private UserViewModel MapUserToViewModel(User user)
@@ -33,7 +36,9 @@ namespace CatchUp_server.Services.UserServices
                 Bio = user.Bio,
                 ProfilePicUrl = user.ProfilePicUrl,
                 CoverPicUrl = user.CoverPicUrl,
-                RegisteredAt = user.RegisteredAt
+                RegisteredAt = user.RegisteredAt,
+                FollowersCount = _context.FriendShips.Where(f => f.FollowerUserId == user.Id).Count(),
+                FollowingCount = _context.FriendShips.Where(f => f.FollowedUserId == user.Id).Count()
             };
         }
 
