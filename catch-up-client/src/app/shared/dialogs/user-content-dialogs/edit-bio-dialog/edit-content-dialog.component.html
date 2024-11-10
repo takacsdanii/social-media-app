@@ -1,15 +1,26 @@
-<h5 *ngIf="bio !== undefined">Edit bio</h5>
-<h5 *ngIf="description !== undefined">Edit description</h5>
+<h5 *ngIf="bio !== undefined && visibility == null">Edit bio</h5>
+<h5 *ngIf="description !== undefined && visibility == null">Edit description</h5>
+<h5 *ngIf="visibility != null">Edit visibility</h5>
 
-<ng-container *ngIf="bio !== undefined">
+<ng-container *ngIf="bio !== undefined && visibility == null">
   <textarea [(ngModel)]="bio" class="input-field" rows="5"></textarea>
 </ng-container>
-<ng-container *ngIf="description !== undefined">
+<ng-container *ngIf="description !== undefined && visibility == null">
   <textarea [(ngModel)]="description" class="input-field" rows="5"></textarea>
+</ng-container>
+<ng-container *ngIf="visibility != null">
+  <select [(ngModel)]="visibility" id="visibility">
+    <option [value]="0">Public</option>
+    <option [value]="1">Friends</option>
+    <option [value]="2">Followers</option>
+    <option [value]="3">Following</option>
+    <option [value]="4">Private</option>
+  </select>
 </ng-container>
 
 <mat-dialog-actions align="end">
   <button *ngIf="bio != undefined" mat-raised-button matDialogClose (click)="onBioSave()" class="save-btn">Save</button>
   <button *ngIf="description != undefined" mat-raised-button matDialogClose (click)="onDescriptionSave()" class="save-btn">Save</button>
+  <button *ngIf="visibility != null" mat-raised-button matDialogClose (click)="onVisibilitySave()" class="save-btn">Save</button>
   <button mat-raised-button matDialogClose class="cancel-btn">Cancel</button>
 </mat-dialog-actions>

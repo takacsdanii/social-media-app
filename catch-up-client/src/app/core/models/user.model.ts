@@ -13,4 +13,7 @@ export class UserModel {
     public profilePicUrl: string;
     public coverPicUrl: string;
     public registeredAt: Date;
+
+    public followersCount: number;
+    public followingCount: number;
 }

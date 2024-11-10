@@ -37,8 +37,8 @@ namespace CatchUp_server.Services.UserServices
                 ProfilePicUrl = user.ProfilePicUrl,
                 CoverPicUrl = user.CoverPicUrl,
                 RegisteredAt = user.RegisteredAt,
-                FollowersCount = _context.FriendShips.Where(f => f.FollowerUserId == user.Id).Count(),
-                FollowingCount = _context.FriendShips.Where(f => f.FollowedUserId == user.Id).Count()
+                FollowersCount = _context.FriendShips.Where(f => f.FollowedUserId == user.Id).Count(),
+                FollowingCount = _context.FriendShips.Where(f => f.FollowerUserId == user.Id).Count()
             };
         }
 

@@ -1,0 +1,9 @@
+<div class="users">
+    <div *ngFor="let user of users"
+         [routerLink]="['/user-page', user.id]"
+         (click)="closeDialog()">
+
+        <img [src]="getProfilePicUrl(user)" alt="prof-pic">
+        <span>{{ user.userName }}</span>
+    </div>
+</div>

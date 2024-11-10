@@ -24,6 +24,7 @@ import { StoryHttpService } from '../../../../core/services/http/user-content/st
 import { StoryDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/story-dialog/story-dialog.component';
 import { UploadStoryDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/upload-story-dialog/upload-story-dialog.component';
 import { NotificationService } from '../../../../core/services/logic/notifications/notification.service';
+import { FollowersDialogComponent } from '../../../../shared/dialogs/followers-dialog/followers-dialog.component';
 
 @Component({
   selector: 'app-user-page',
@@ -60,6 +61,7 @@ export class UserPageComponent implements OnInit {
               private uploadDialog: MatDialog,
               private uploadStoryDialog: MatDialog,
               private displayContentDialog: MatDialog,
+              private followersDialog: MatDialog,
               private viewportScroller: ViewportScroller,
               private timeFormatterService: TimeFormatterService,
               private notificationService: NotificationService) { }
@@ -111,6 +113,8 @@ export class UserPageComponent implements OnInit {
       this.checkIfIFollowUser();
       this.rightSideBarComponent.ngOnInit();
       this.postsComponent.loadPosts();
+      // this.ngOnInit();
+      this.setUser(this.userIdFromRoute!);
     });
   }
 
@@ -119,12 +123,15 @@ export class UserPageComponent implements OnInit {
       this.checkIfIFollowUser();
       this.rightSideBarComponent.ngOnInit();
       this.postsComponent.loadPosts();
+      // this.ngOnInit();
+      this.setUser(this.userIdFromRoute!);
     });
   }
 
   public onFollowUpdated(): void {
-    this.setUser(this.userIdFromRoute!!);
+    this.setUser(this.userIdFromRoute!);
     this.checkIfIFollowUser();
+    this.postsComponent.loadPosts();
   }
 
   public openUploadDialog(userId: string, type: 'cover' | 'profile'): void {
@@ -278,5 +285,13 @@ export class UserPageComponent implements OnInit {
         this.ngOnInit();
       });
     }
+  }
+
+  public openFollowersDialog(userId: string, isFollowersList: boolean): void {
+    this.followersDialog.open(FollowersDialogComponent, {
+      width: '150px',
+      height: '300px',
+      data: { userId, isFollowersList }
+    });
   }
 }

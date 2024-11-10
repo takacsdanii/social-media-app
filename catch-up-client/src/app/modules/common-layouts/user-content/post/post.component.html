@@ -13,10 +13,10 @@
         </div>
 
         <mat-menu #actionMenu="matMenu">
-            <button mat-menu-item *ngIf="isLoggedInUsersPost()" (click)="openEditDialog(postId, post!.description)">
+            <button mat-menu-item *ngIf="isLoggedInUsersPost()" (click)="openEditDialog(postId, post!.description, null)">
                 <mat-icon>edit_note</mat-icon>Change description
             </button>
-            <button mat-menu-item *ngIf="isLoggedInUsersPost()">
+            <button mat-menu-item *ngIf="isLoggedInUsersPost()" (click)="openEditDialog(postId, null, post!.visibility)">
                 <mat-icon>edit</mat-icon>Change visibility
             </button>
             <button mat-menu-item (click)="openDeleteDialog()">

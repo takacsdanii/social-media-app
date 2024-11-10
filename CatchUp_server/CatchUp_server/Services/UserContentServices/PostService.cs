@@ -1,5 +1,6 @@
 ﻿using CatchUp_server.Db;
 using CatchUp_server.Models.UserContent;
+using CatchUp_server.Services.AuthServices;
 using CatchUp_server.Services.FriendsServices;
 using CatchUp_server.ViewModels.UserContentViewModels;
 using Microsoft.EntityFrameworkCore;
@@ -11,14 +12,16 @@ namespace CatchUp_server.Services.UserContentServices
         private readonly ApiDbContext _context;
         private readonly MediaFoldersService _mediaFoldersService;
         private readonly FriendsService _friendsService;
+        private readonly AuthService _authService;
 
         private const string postsFolder = "Posts";
 
-        public PostService(ApiDbContext context, MediaFoldersService mediaFoldersService, FriendsService friendsService)
+        public PostService(ApiDbContext context, MediaFoldersService mediaFoldersService, FriendsService friendsService, AuthService authService)
         {
             _context = context;
             _mediaFoldersService = mediaFoldersService;
             _friendsService = friendsService;
+            _authService = authService;
         }
 
         public PostViewModel GetPost(int postId)

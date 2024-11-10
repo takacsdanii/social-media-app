@@ -20,6 +20,7 @@ export class StoryDialogComponent implements OnInit, OnDestroy {
   private intervalId: any;
   private myUserId: string;
   public userName: string;
+  public isAdmin: boolean;
 
   constructor(private storyHttpService: StoryHttpService,
               private userHttpService: UserHttpService,
@@ -32,6 +33,7 @@ export class StoryDialogComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.myUserId = this.authService.getUserId()!;
+    this.isAdmin = this.authService.isAdmin();
     this.getUsername();
     this.getStoriesOfUser();
   }
@@ -60,11 +62,20 @@ export class StoryDialogComponent implements OnInit, OnDestroy {
   }
 
   public getStoriesOfUser(): void {
-    this.storyHttpService.getVisibleStoriesOfUser(this.data.userId, this.myUserId).subscribe(resp => {
-      this.stories = resp;
-      this.startStoryInterval();
-      this.addViewerToStory();
-    });
+    if(!this.isAdmin) {
+      this.storyHttpService.getVisibleStoriesOfUser(this.data.userId, this.myUserId).subscribe(resp => {
+        this.stories = resp;
+        this.startStoryInterval();
+        this.addViewerToStory();
+      });
+    }
+    else {
+      this.storyHttpService.getStoriesOfUser(this.data.userId).subscribe(resp => {
+        this.stories = resp;
+        this.startStoryInterval();
+        this.addViewerToStory();
+      });
+    }
   }
 
   public showNextStory(): void {

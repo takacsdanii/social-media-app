@@ -31,4 +31,19 @@ button{
     background-color: red;
   }
 }
-  
+ 
+select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #333;
+  background-color: #fff;
+  outline: none;
+  transition: border 0.3s;
+  margin-bottom: 10px;
+
+  &:focus {
+    border-color: #3f51b5;
+  }
+}
