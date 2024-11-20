@@ -9,6 +9,7 @@
         height: 30px;
         border-radius: 50%;
         object-fit: cover;
+        cursor: pointer;
     }
 
     .info {
@@ -20,6 +21,7 @@
 
         span{
             font-weight: 500;
+            cursor: pointer;
         }
 
         p{

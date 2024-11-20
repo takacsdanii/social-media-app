@@ -57,6 +57,11 @@
                 <mat-icon>share</mat-icon>Share
             </div>
         </div>
-        <app-comments *ngIf="isCommentSectionOpen" [postId]="post!.id" (commentAddedOrDeleted)="ngOnInit()"></app-comments>
+        <app-comments
+            *ngIf="isCommentSectionOpen"
+            [postId]="post!.id"
+            [isMyPost]="isLoggedInUsersPost()"
+            (commentAddedOrDeleted)="ngOnInit()">
+        </app-comments>
     </div>
 </div>

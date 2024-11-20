@@ -58,7 +58,12 @@ namespace CatchUp_server.Services.UserServices
                     .Where(f => f.FollowerUserId == userId || f.FollowedUserId == userId)
                     .ToList();
 
+                var comments = _context.Comments.Where(c => c.UserId == userId).ToList();
+                var likes = _context.Likes.Where(l => l.UserId == userId).ToList();
+
                 _context.FriendShips.RemoveRange(usersFriendShips);
+                _context.Likes.RemoveRange(likes);
+                _context.Comments.RemoveRange(comments);
                 _context.Users.Remove(user);
                 _context.SaveChanges();
             }

@@ -21,7 +21,9 @@ export class CommentsComponent implements OnInit {
               public mediaUrlService: MediaUrlService) { }
 
   @Input() public postId: number;
+  @Input() public isMyPost: boolean;
   @Output() public commentAddedOrDeleted: EventEmitter<void> = new EventEmitter<void>();
+  
   public comments: CommentModel[];
   public commentText: string | null;
   public replyText: string | null;
