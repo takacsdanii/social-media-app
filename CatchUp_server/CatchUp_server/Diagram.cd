@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CatchUp_server.Services.AuthServices.AuthService" Collapsed="true">
+    <Position X="14.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABQAAAAAAgAAAAABACgEAAAABAAAAAAEQgABACAA=</HashCode>
+      <FileName>Services\AuthServices\AuthService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_userProfileService" />
+      <Field Name="_signInManager" />
+      <Field Name="_userManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CatchUp_server.Services.FriendsServices.FriendsService" Collapsed="true">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABABAAABAAgACAAAAABAAAAAAAIAAAAA=</HashCode>
+      <FileName>Services\FriendsService\FriendsService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CatchUp_server.Services.UserContentServices.CommentService" Collapsed="true">
+    <Position X="9" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAIAAIABAQAAAAAAAAAAAAAAAEAAAAAAAAASAA=</HashCode>
+      <FileName>Services\UserContentServices\CommentService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CatchUp_server.Services.UserContentServices.LikeService" Collapsed="true">
+    <Position X="6.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAFAAACAAAAAAgAAAAAAAAAAgBAgAAAAA=</HashCode>
+      <FileName>Services\UserContentServices\LikeService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CatchUp_server.Services.UserContentServices.MediaFoldersService" Collapsed="true">
+    <Position X="7.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gCAABIAIAAAIBCAAQAAAAABAAAAAIIAggAEAAAAAAAA=</HashCode>
+      <FileName>Services\UserContentServices\MediaFoldersService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CatchUp_server.Services.UserContentServices.PostService" Collapsed="true">
+    <Position X="10.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAEAAgBAAAAAAAAARAAAEAiAAAAAACAAAAABA=</HashCode>
+      <FileName>Services\UserContentServices\PostService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_mediaFoldersService" />
+      <Field Name="_friendsService" />
+      <Field Name="_context" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CatchUp_server.Services.UserContentServices.StoryBackgroundService" Collapsed="true">
+    <Position X="14.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAABAEA=</HashCode>
+      <FileName>Services\UserContentServices\StoryBackgroundService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_serviceProvider" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CatchUp_server.Services.UserContentServices.StoryService" Collapsed="true">
+    <Position X="4.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAIAAgQhAAAAAAACAAAAAEQiAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Services\UserContentServices\StoryService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_friendsService" />
+      <Field Name="_mediaFoldersService" />
+      <Field Name="_context" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CatchUp_server.Services.UserContentServices.UserProfileService" Collapsed="true">
+    <Position X="12" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAUAAIBAAAIAABEQEAAAAACBgAgAAAAECACAA=</HashCode>
+      <FileName>Services\UserContentServices\UserProfileService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_mediaFoldersService" />
+      <Field Name="_context" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CatchUp_server.Services.UserServices.UserService" Collapsed="true">
+    <Position X="4.75" Y="3.25" Width="1.5" />
+    <AssociationLine Name="_context" Type="CatchUp_server.Db.ApiDbContext" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.25" Y="3.75" />
+        <Point X="6.625" Y="3.75" />
+        <Point X="6.625" Y="6.463" />
+        <Point X="7.75" Y="6.463" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAABIAEgAAAAABAAQAACBAAEAAAAAAAAAI=</HashCode>
+      <FileName>Services\UserServices\UserService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_mediaFoldersService" />
+      <Field Name="_context" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CatchUp_server.Services.EmailService" Collapsed="true">
+    <Position X="16.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAQAAAAA=</HashCode>
+      <FileName>Services\EmailService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CatchUp_server.Db.ApiDbContext" Collapsed="true">
+    <Position X="7.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAIABAAAAAAAEAAAAAACAAAAAAAAICA=</HashCode>
+      <FileName>Db\ApiDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CatchUp_server.Controllers.UserContentControllers.PostController" Collapsed="true">
+    <Position X="11.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAEAAgAAAAAAAAAAQAAAEAAAAAAAACAAAAIBA=</HashCode>
+      <FileName>Controllers\UserContentControllers\PostController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_postService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CatchUp_server.Controllers.FriendsController" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAABAAgACAAAAgBAAAAAAAIAAAAA=</HashCode>
+      <FileName>Controllers\FriendsController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_friendsService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CatchUp_server.Controllers.UserContentControllers.StoryController" Collapsed="true">
+    <Position X="3.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAgAAAgQgAAAAAAACAAAAAEQAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Controllers\UserContentControllers\StoryController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_storyService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CatchUp_server.Controllers.UserContentControllers.CommentController" Collapsed="true">
+    <Position X="9" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAIAAAQAAAAAAAAAAAAgAAEAAAAAAAAASAA=</HashCode>
+      <FileName>Controllers\UserContentControllers\CommentController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_commentService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CatchUp_server.Controllers.UserContentControllers.LikeController" Collapsed="true">
+    <Position X="6.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAACAAAAAAgAAAAQAAAAACBAgAAAAA=</HashCode>
+      <FileName>Controllers\UserContentControllers\LikeController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_likeService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CatchUp_server.Controllers.AuthController" Collapsed="true">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAgAAAAAAAAAAwAAABIAAAAAEQgAAAAAA=</HashCode>
+      <FileName>Controllers\AuthController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_authService" />
+      <Field Name="_emailService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Microsoft.AspNetCore.Identity.SignInManager&lt;TUser&gt;" Collapsed="true">
+    <Position X="16" Y="5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Microsoft.AspNetCore.Identity.UserManager&lt;TUser&gt;" Collapsed="true">
+    <Position X="16.75" Y="4" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="CatchUp_server.Controllers.UserContentControllers.UserProfileController" Collapsed="true">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAIAAAAAAAACQAAAAAAAAAAAAAAAACACAA=</HashCode>
+      <FileName>Controllers\UserContentControllers\UserProfileController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_userProfileService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CatchUp_server.Controllers.UserController" Collapsed="true">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAIAEgAAAAABAAQAAAAAAEAAEAAAAAAI=</HashCode>
+      <FileName>Controllers\UserController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_userService" />
+    </ShowAsAssociation>
+  </Class>
+  <Interface Name="System.IServiceProvider" Collapsed="true">
+    <Position X="14.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

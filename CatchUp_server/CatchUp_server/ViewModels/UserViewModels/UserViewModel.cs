@@ -16,5 +16,8 @@ namespace CatchUp_server.ViewModels.UserViewModel
         public string? ProfilePicUrl { get; set; }
         public string? CoverPicUrl { get; set; }
         public DateTime RegisteredAt { get; set; }
+
+        public int FollowersCount { get; set; }
+        public int FollowingCount { get; set; }
     }
 }

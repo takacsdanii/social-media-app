@@ -46,7 +46,7 @@ namespace CatchUp_server.Services.UserContentServices
             return _context.Stories
                 .Where(s => s.UserId == userId)
                 .OrderBy(s => s.CreatedAt)
-                .Include(s => s.MediaContent)
+                //.Include(s => s.MediaContent)
                 .Select(s => new StoryViewModel
                 {
                     Id = s.Id,
@@ -63,22 +63,34 @@ namespace CatchUp_server.Services.UserContentServices
 
         public IReadOnlyCollection<StoryViewModel> GetStoriesOfUser(string storyOwnerId, string loggedInUserId)
         {
-            var stories = GetStoriesOfUser(storyOwnerId);
             if (loggedInUserId == storyOwnerId)
             {
-                return stories;
+                return GetStoriesOfUser(storyOwnerId);
             }
 
             var doesLoggedInUserFollowStoryOwner = _friendsService.doesUserFollowTargetUser(loggedInUserId, storyOwnerId) ?? false;
             var doesStoryOwnerFollowLoggedInUser = _friendsService.doesUserFollowTargetUser(storyOwnerId, loggedInUserId) ?? false;
 
-            return stories
+            return _context.Stories
                 .Where(
-                    s => s.Visibility == Visibility.Public
+                    s => s.UserId == storyOwnerId
+                    &&
+                    (s.Visibility == Visibility.Public
                     || (doesLoggedInUserFollowStoryOwner && doesStoryOwnerFollowLoggedInUser && s.Visibility == Visibility.Friends)
                     || (doesLoggedInUserFollowStoryOwner && s.Visibility == Visibility.Followers)
-                    || (doesStoryOwnerFollowLoggedInUser && s.Visibility == Visibility.Following)
+                    || (doesStoryOwnerFollowLoggedInUser && s.Visibility == Visibility.Following))
                 )
+                .OrderBy(s => s.CreatedAt)
+                .Select(s => new StoryViewModel
+                {
+                    Id = s.Id,
+                    CreatedAt = s.CreatedAt,
+                    ExpiresAt = s.ExpiresAt,
+                    Visibility = s.Visibility,
+                    UserId = s.UserId,
+                    MediaContent = s.MediaContent,
+                    ViewCount = s.StoryViewers.Count()
+                })
                 .ToList();
         }
 
@@ -214,9 +226,10 @@ namespace CatchUp_server.Services.UserContentServices
             return newViewer;
         }
 
-        public bool HasUserUploadedStory(string userId)
+        public bool HasUserUploadedVisibleStoryForLoggedInUser(string storyOwnerId, string loggedInUserId)
         {
-            return _context.Stories.Any(s => s.UserId == userId);
+            var stories = GetStoriesOfUser(storyOwnerId, loggedInUserId);
+            return stories.Any();
         }
 
         public IReadOnlyCollection<StoryViewModel> GetFirstStoriesOfFollowedUsers(string userId)
@@ -228,22 +241,15 @@ namespace CatchUp_server.Services.UserContentServices
             var friendIds = friends.Select(f => f.Id).ToList();
 
             var stories = _context.Stories
-                .Where
-                (
+                .Where(
                     s => userIds.Contains(s.UserId)
                     &&
-                    (
-                        s.Visibility == Visibility.Public ||
-                        s.Visibility == Visibility.Followers
-                        ||
-                        (
-                            friendIds.Contains(s.UserId)
-                            &&
-                            (
-                                s.Visibility == Visibility.Friends ||
-                                s.Visibility == Visibility.Following
-                            )
-                        )
+                    (s.Visibility == Visibility.Public
+                    || s.Visibility == Visibility.Followers
+                    || (friendIds.Contains(s.UserId)
+                       &&
+                       (s.Visibility == Visibility.Friends
+                       || s.Visibility == Visibility.Following))
                     )
                 )
                 .OrderBy(s => s.CreatedAt)
@@ -259,22 +265,10 @@ namespace CatchUp_server.Services.UserContentServices
                 })
                 .ToList();
 
-            var distinctStories = stories
+            return stories
                .GroupBy(s => s.UserId)
                .Select(g => g.First())
-               .Select(s => new StoryViewModel
-               {
-                   Id = s.Id,
-                   CreatedAt = s.CreatedAt,
-                   ExpiresAt = s.ExpiresAt,
-                   Visibility = s.Visibility,
-                   UserId = s.UserId,
-                   MediaContent = s.MediaContent,
-                   ViewCount = s.ViewCount
-               })
                .ToList();
-
-            return distinctStories;
         }
     }
 }

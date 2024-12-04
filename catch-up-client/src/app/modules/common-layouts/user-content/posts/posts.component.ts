@@ -14,12 +14,14 @@ export class PostsComponent implements OnInit, OnChanges {
   @Input() public isHomePage: boolean;
   public myUserId: string;
   public posts: PostModel[];
+  public isAdmin: boolean;
 
   constructor(private postHttpService: PostHttpService,
               private authService: AuthService) { }
 
   public ngOnInit(): void {
     this.myUserId = this.authService.getUserId()!;
+    this.isAdmin = this.authService.isAdmin();
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
@@ -30,9 +32,16 @@ export class PostsComponent implements OnInit, OnChanges {
 
   public loadPosts(): void {
     if(!this.isHomePage) {
-      this.postHttpService.getVisiblePostsOfUser(this.userId, this.myUserId).subscribe(results => {
-        this.posts = results;
-      });
+      if(!this.isAdmin) {
+        this.postHttpService.getVisiblePostsOfUser(this.userId, this.myUserId).subscribe(results => {
+          this.posts = results;
+        });
+      }
+      else {
+        this.postHttpService.getPostsOfUser(this.userId).subscribe(results => {
+          this.posts = results;
+        });
+      }
     }
     else {
       this.postHttpService.getPostsOfFollowedUsers(this.userId).subscribe(results => {

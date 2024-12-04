@@ -15,7 +15,7 @@
     </div>
 
     <mat-icon
-        *ngIf="isMyStory"
+        *ngIf="isMyStory || isAdmin"
         (click)="openDeleteStoryDialog(stories[currentIndex].id)"
         class="delete-icon">
         delete

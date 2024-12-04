@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UserModel } from '../../../../core/models/user.model';
 import { StoryHttpService } from '../../../../core/services/http/user-content/story-http.service';
 import { UserHttpService } from '../../../../core/services/http/user/user-http.service';
@@ -16,6 +16,7 @@ import { MediaTypeModel } from '../../../../core/models/enums/media-type.model';
 })
 export class StoryComponent implements OnInit {
   @Input() public storyId: number;
+  @Output() public storyViewed: EventEmitter<void> = new EventEmitter<void>();
   public story?: StoryModel;
   public user?: UserModel;
 
@@ -56,6 +57,7 @@ export class StoryComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.ngOnInit();
+      this.storyViewed.emit();
     });
   }
 }

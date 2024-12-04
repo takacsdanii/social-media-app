@@ -33,7 +33,9 @@ namespace CatchUp_server.Services.UserServices
                 Bio = user.Bio,
                 ProfilePicUrl = user.ProfilePicUrl,
                 CoverPicUrl = user.CoverPicUrl,
-                RegisteredAt = user.RegisteredAt
+                RegisteredAt = user.RegisteredAt,
+                FollowersCount = _context.FriendShips.Where(f => f.FollowedUserId == user.Id).Count(),
+                FollowingCount = _context.FriendShips.Where(f => f.FollowerUserId == user.Id).Count()
             };
         }
 
@@ -53,7 +55,12 @@ namespace CatchUp_server.Services.UserServices
                     .Where(f => f.FollowerUserId == userId || f.FollowedUserId == userId)
                     .ToList();
 
+                var comments = _context.Comments.Where(c => c.UserId == userId).ToList();
+                var likes = _context.Likes.Where(l => l.UserId == userId).ToList();
+
                 _context.FriendShips.RemoveRange(usersFriendShips);
+                _context.Likes.RemoveRange(likes);
+                _context.Comments.RemoveRange(comments);
                 _context.Users.Remove(user);
                 _context.SaveChanges();
             }

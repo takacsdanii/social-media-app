@@ -50,7 +50,7 @@ export class StoriesComponent implements OnInit {
   }
 
   private hasUserUploadedStory(): void {
-    this.storyHttpService.hasUserUploadedStory(this.myUserId).subscribe(resp => {
+    this.storyHttpService.hasUserUploadedVisibleStoryForLoggedInUser(this.myUserId, this.myUserId).subscribe(resp => {
       this.isStoryUploaded = resp.result;
       this.storyHttpService.getStoriesOfUser(this.myUserId).subscribe(stories => {
         this.myFirstStory = stories[0];
@@ -93,6 +93,14 @@ export class StoriesComponent implements OnInit {
     }
     else {
       this.openUploadStoryDialog(userId);
+    }
+  }
+
+  public addStoryToViewed(id: number): void {
+    const index = this.stories.findIndex(story => story.id === id);
+    if (index !== -1) {
+      const [story] = this.stories.splice(index, 1); 
+      this.stories.push(story);
     }
   }
 }

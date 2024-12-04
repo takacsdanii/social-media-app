@@ -8,6 +8,7 @@
     <ng-container *ngFor="let comment of comments">
         <app-comment
             [commentId]="comment.id"
+            [isMyPost]="isMyPost"
             (commentDeleted)="deletedComment()"
             (replySectionOpened)="showHideReplySection($event, comment.id)">
         </app-comment>
@@ -22,6 +23,7 @@
             <ng-container *ngFor="let reply of replies">
                 <app-comment
                     [commentId]="reply.id"
+                    [isMyPost]="isMyPost"
                     (commentDeleted)="deletedComment()"
                     (replySectionOpened)="showHideReplySection($event, comment.id)">
                 </app-comment>

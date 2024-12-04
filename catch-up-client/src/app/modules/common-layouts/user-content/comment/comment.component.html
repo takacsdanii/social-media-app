@@ -1,7 +1,7 @@
 <div *ngIf="comment" class="comment">
-    <img [src]="profilePicUrl" alt="prof-pic">
+    <img [routerLink]="['/user-page', comment.userId]" [src]="profilePicUrl" alt="prof-pic">
     <div class="info">
-        <span>{{ comment.userName }}</span>
+        <span [routerLink]="['/user-page', comment.userId]">{{ comment.userName }}</span>
         <p>{{ comment.text }}</p>
     </div>
     <div *ngIf="!isReply" (click)="toggleReplySection()" class="reply">
@@ -17,6 +17,6 @@
             {{ isLiked ? 'favorite' : 'favorite_border'}}
         </mat-icon>
         <span (click)="openLikersDialog(comment.postId, comment.id)">{{ comment.likeCount }}</span>
-        <mat-icon *ngIf="isMyComment() || isAdmin" (click)="openDeleteDialog()">delete</mat-icon>
+        <mat-icon *ngIf="isMyComment() || isMyPost || isAdmin" (click)="openDeleteDialog()">delete</mat-icon>
     </div>
 </div>

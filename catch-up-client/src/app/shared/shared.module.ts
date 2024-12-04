@@ -20,6 +20,7 @@ import { LikersDialogComponent } from './dialogs/user-content-dialogs/likers-dia
 import { UploadStoryDialogComponent } from './dialogs/user-content-dialogs/upload-story-dialog/upload-story-dialog.component';
 import { StoryDialogComponent } from './dialogs/user-content-dialogs/story-dialog/story-dialog.component';
 import { StoryViewersDialogComponent } from './dialogs/user-content-dialogs/story-viewers-dialog/story-viewers-dialog.component';
+import { FollowersDialogComponent } from './dialogs/followers-dialog/followers-dialog.component';
 
 
 
@@ -35,7 +36,8 @@ import { StoryViewersDialogComponent } from './dialogs/user-content-dialogs/stor
     LikersDialogComponent,
     UploadStoryDialogComponent,
     StoryDialogComponent,
-    StoryViewersDialogComponent
+    StoryViewersDialogComponent,
+    FollowersDialogComponent
   ],
   imports: [
     CommonModule,

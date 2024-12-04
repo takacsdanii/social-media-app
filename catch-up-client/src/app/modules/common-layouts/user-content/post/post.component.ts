@@ -14,6 +14,7 @@ import { LikersDialogComponent } from '../../../../shared/dialogs/user-content-d
 import { DeleteContentDialogComponent } from '../../../../shared/dialogs/user-content-dialogs/delete-content-dialog/delete-content-dialog.component';
 import { TimeFormatterService } from '../../../../core/services/logic/helpers/time-formatter.service';
 import { MediaTypeModel } from '../../../../core/models/enums/media-type.model';
+import { VisibilityModel } from '../../../../core/models/enums/visibility.model';
 
 @Component({
   selector: 'app-post',
@@ -32,7 +33,6 @@ export class PostComponent implements OnInit {
               private editDialog: MatDialog,
               private authService: AuthService,
               private likeHttpService: LikeHttpService,
-              private notificationService: NotificationService,
               private likersDialog: MatDialog,
               private deleteDialog: MatDialog,
               private mediaUrlService: MediaUrlService,
@@ -92,10 +92,10 @@ export class PostComponent implements OnInit {
     return this.loggedInUserId == this.post?.userId;
   }
 
-  public openEditDialog(postId: number, description: string | null): void {
+  public openEditDialog(postId: number, description: string | null, visibility: VisibilityModel | null): void {
     const dialogRef =this.editDialog.open(EditContentDialogComponent, {
       width: '250px',
-      data: { postId, description }
+      data: { postId, description, visibility }
     });
 
     dialogRef.afterClosed().subscribe(result => {

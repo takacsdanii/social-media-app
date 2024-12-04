@@ -13,35 +13,19 @@ export class PostHttpService {
 
   constructor(private http: HttpClient) { }
 
-  private getToken(): string | null {
-    return localStorage.getItem('token');
-  }
-
   public getPostsOfUser(userId: string): Observable<PostModel[]> {
     const link = `${this.url}/get-posts-of-user?userId=${userId}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-
-    return this.http.get<PostModel[]>(link, { headers });
+    return this.http.get<PostModel[]>(link);
   }
 
   public getVisiblePostsOfUser(postOwnerId: string, loggedInUserId: string): Observable<PostModel[]> {
     const link = `${this.url}/get-visible-posts-of-user?postOwnerId=${postOwnerId}&loggedInUserId=${loggedInUserId}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-
-    return this.http.get<PostModel[]>(link, { headers });
+    return this.http.get<PostModel[]>(link);
   }
 
   public getPost(postId: number): Observable<PostModel> {
     const link = `${this.url}/post-by-id?postId=${postId}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-
-    return this.http.get<PostModel>(link, { headers });
+    return this.http.get<PostModel>(link);
   }
 
   public uploadPost(postModel: UploadPostModel, files: File[]): Observable<PostModel> {
@@ -56,49 +40,29 @@ export class PostHttpService {
     for(let file of files) {
       formData.append('files', file); 
     }
-
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
     
-    return this.http.post<PostModel>(this.url, formData, { headers });
+    return this.http.post<PostModel>(this.url, formData);
   }
 
   public editDescription(postId: number, description: string | null): Observable<void> {
     var link = `${this.url}/description?postId=${postId}`;
     if(description != null) link = `${link}&description=${description}`;
-    
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
 
-    return this.http.put<void>(link, null, { headers });
+    return this.http.put<void>(link, null);
   }
 
   public editVisibility(postId: number, visibility: VisibilityModel): Observable<void> {
     const link = `${this.url}/visibility?postId=${postId}&visibility=${visibility}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-
-    return this.http.put<void>(link, null, { headers });
+    return this.http.put<void>(link, null);
   }
 
   public delete(postId: number): Observable<void> {
     const link = `${this.url}?postId=${postId}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-
-    return this.http.delete<void>(link, { headers });
+    return this.http.delete<void>(link);
   }
 
   public getPostsOfFollowedUsers(userId: string): Observable<PostModel[]> {
     const link = `${this.url}/posts-of-followed-users?userId=${userId}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-
-    return this.http.get<PostModel[]>(link, { headers });
+    return this.http.get<PostModel[]>(link);
   }
 }

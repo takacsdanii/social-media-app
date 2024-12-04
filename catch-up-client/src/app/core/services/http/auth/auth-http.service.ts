@@ -15,10 +15,6 @@ export class AuthHttpService {
 
   constructor(private http: HttpClient) { }
 
-  private getToken(): string | null {
-    return localStorage.getItem('token');
-  }
-
   public register(registerModel: RegisterModel): Observable<void> {
     const link = `${this.url}/register`;
     return this.http.post<void>(link, registerModel);
@@ -36,11 +32,7 @@ export class AuthHttpService {
 
   public changePassword(changePassworModel: ChangePasswordModel): Observable<void> {
     const link = `${this.url}/change-password`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-
-    return this.http.post<void>(link, changePassworModel, { headers });
+    return this.http.post<void>(link, changePassworModel);
   }
 
   public resetPassword(resetPasswordModel: ResetPasswordModel): Observable<{password: string}> {

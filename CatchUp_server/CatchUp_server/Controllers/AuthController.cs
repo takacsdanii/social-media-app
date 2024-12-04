@@ -18,13 +18,11 @@ namespace CatchUp_server.Controllers
     {
         private readonly AuthService _authService;
         private readonly EmailService _emailService;
-        private readonly UserService _userService;
 
-        public AuthController(AuthService authService, EmailService emailService, UserService userService)
+        public AuthController(AuthService authService, EmailService emailService)
         {
             _authService = authService;
             _emailService = emailService;
-            _userService = userService;
         }
         
         private async Task<IActionResult> Register(RegisterViewModel registerViewModel, string role)

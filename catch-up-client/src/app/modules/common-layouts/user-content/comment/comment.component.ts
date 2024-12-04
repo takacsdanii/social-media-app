@@ -31,6 +31,7 @@ export class CommentComponent implements OnInit {
               private timeFormatterService: TimeFormatterService) { }
 
   @Input() public commentId: number;
+  @Input() public isMyPost: boolean;
   @Output() public commentDeleted: EventEmitter<void> = new EventEmitter<void>(); 
   @Output() public replySectionOpened: EventEmitter<boolean> = new EventEmitter<boolean>();
 

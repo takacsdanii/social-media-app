@@ -34,8 +34,6 @@ export class NavigationHeaderComponent implements OnInit {
     this.userHttpService.getUser(this.userId).subscribe(user => {
       this.user = user;
     });
-
-    const storedValue = localStorage.getItem('isDarkModeOn');
   }
 
   public logOut(): void {
