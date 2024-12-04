@@ -1,9 +1,7 @@
-﻿using CatchUp_server.Models.UserContent;
-using CatchUp_server.Services.UserContentServices;
+﻿using CatchUp_server.Interfaces.UserContentServices;
+using CatchUp_server.Models.UserContent;
 using CatchUp_server.ViewModels.UserContentViewModels;
-using CatchUp_server.ViewModels.UserViewModel;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CatchUp_server.Controllers.UserContentControllers
@@ -12,9 +10,9 @@ namespace CatchUp_server.Controllers.UserContentControllers
     [ApiController]
     public class PostController : ControllerBase
     {
-        private readonly PostService _postService;
+        private readonly IPostService _postService;
 
-        public PostController(PostService postService)
+        public PostController(IPostService postService)
         {
             _postService = postService;
         }

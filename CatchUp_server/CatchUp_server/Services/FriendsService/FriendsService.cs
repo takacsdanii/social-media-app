@@ -1,11 +1,11 @@
 ﻿using CatchUp_server.Db;
+using CatchUp_server.Interfaces;
 using CatchUp_server.Models.UserModels;
-using CatchUp_server.ViewModels.UserViewModel;
 using CatchUp_server.ViewModels.UserViewModels;
 
 namespace CatchUp_server.Services.FriendsServices
 {
-    public class FriendsService
+    public class FriendsService : IFriendsService
     {
         private readonly ApiDbContext _context;
 

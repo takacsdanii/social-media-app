@@ -1,9 +1,6 @@
-﻿using CatchUp_server.Services.UserContentServices;
-using CatchUp_server.Services.UserServices;
+﻿using CatchUp_server.Interfaces.UserContentServices;
 using CatchUp_server.ViewModels.UserContentViewModels;
-using CatchUp_server.ViewModels.UserViewModel;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CatchUp_server.Controllers.UserContentControllers
@@ -12,9 +9,9 @@ namespace CatchUp_server.Controllers.UserContentControllers
     [ApiController]
     public class LikeController : ControllerBase
     {
-        private readonly LikeService _likeService;
+        private readonly ILikeService _likeService;
 
-        public LikeController(LikeService likeService)
+        public LikeController(ILikeService likeService)
         {
             _likeService = likeService;
         }

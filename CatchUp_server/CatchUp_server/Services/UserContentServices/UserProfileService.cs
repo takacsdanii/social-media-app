@@ -1,18 +1,14 @@
 ﻿using CatchUp_server.Db;
-using CatchUp_server.Models.UserContent;
+using CatchUp_server.Interfaces.UserContentServices;
 using CatchUp_server.Models.UserModels;
 using CatchUp_server.ViewModels.UserContentViewModels;
-using CatchUp_server.ViewModels.UserViewModel;
-using Microsoft.Extensions.FileProviders;
-using System.ComponentModel.Design;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace CatchUp_server.Services.UserContentServices
 {
-    public class UserProfileService
+    public class UserProfileService : IUserProfileService
     {
         private readonly ApiDbContext _context;
-        private readonly MediaFoldersService _mediaFoldersService;
+        private readonly IMediaFoldersService _mediaFoldersService;
 
         private const string profilePicFolder = "ProfilePictures";
         private const string coverPicFolder = "CoverPictures";
@@ -23,7 +19,7 @@ namespace CatchUp_server.Services.UserContentServices
         private const string defaultOtherProfilePic = "other.jpg";
         private const string defaultCoverPic = "default-cover.jpg";
 
-        public UserProfileService(ApiDbContext context, MediaFoldersService mediaFoldersService)
+        public UserProfileService(ApiDbContext context, IMediaFoldersService mediaFoldersService)
         {
             _context = context;
             _mediaFoldersService = mediaFoldersService;

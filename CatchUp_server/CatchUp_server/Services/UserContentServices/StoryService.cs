@@ -1,22 +1,22 @@
 ﻿using CatchUp_server.Db;
+using CatchUp_server.Interfaces;
+using CatchUp_server.Interfaces.UserContentServices;
 using CatchUp_server.Models.UserContent;
-using CatchUp_server.Models.UserModels;
-using CatchUp_server.Services.FriendsServices;
 using CatchUp_server.ViewModels.UserContentViewModels;
 using CatchUp_server.ViewModels.UserViewModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace CatchUp_server.Services.UserContentServices
 {
-    public class StoryService
+    public class StoryService : IStoryService
     {
         private readonly ApiDbContext _context;
-        private readonly MediaFoldersService _mediaFoldersService;
-        private readonly FriendsService _friendsService;
+        private readonly IMediaFoldersService _mediaFoldersService;
+        private readonly IFriendsService _friendsService;
 
         private const string storiesFolder = "Stories";
 
-        public StoryService(ApiDbContext context, MediaFoldersService mediaFoldersService, FriendsService friendsService)
+        public StoryService(ApiDbContext context, IMediaFoldersService mediaFoldersService, IFriendsService friendsService)
         {
             _context = context;
             _mediaFoldersService = mediaFoldersService;

@@ -1,12 +1,6 @@
-﻿using CatchUp_server.Services;
-using CatchUp_server.Services.AuthServices;
-using CatchUp_server.Services.UserServices;
+﻿using CatchUp_server.Interfaces;
 using CatchUp_server.ViewModels.AuthViewModels;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -16,10 +10,10 @@ namespace CatchUp_server.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly AuthService _authService;
-        private readonly EmailService _emailService;
+        private readonly IAuthService _authService;
+        private readonly IEmailService _emailService;
 
-        public AuthController(AuthService authService, EmailService emailService)
+        public AuthController(IAuthService authService, IEmailService emailService)
         {
             _authService = authService;
             _emailService = emailService;

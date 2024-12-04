@@ -1,13 +1,12 @@
 ﻿using CatchUp_server.Db;
+using CatchUp_server.Interfaces.UserContentServices;
 using CatchUp_server.Models.UserContent;
 using CatchUp_server.ViewModels.UserContentViewModels;
 using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.Design;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace CatchUp_server.Services.UserContentServices
 {
-    public class CommentService
+    public class CommentService : ICommentService
     {
         private readonly ApiDbContext _context;
 

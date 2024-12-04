@@ -1,10 +1,7 @@
-﻿using CatchUp_server.Models.UserContent;
-using CatchUp_server.Services.UserContentServices;
+﻿using CatchUp_server.Interfaces.UserContentServices;
 using CatchUp_server.ViewModels.UserContentViewModels;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel.DataAnnotations;
 
 namespace CatchUp_server.Controllers.UserContentControllers
 {
@@ -12,9 +9,9 @@ namespace CatchUp_server.Controllers.UserContentControllers
     [ApiController]
     public class UserProfileController : ControllerBase
     {
-        private readonly UserProfileService _userProfileService;
+        private readonly IUserProfileService _userProfileService;
 
-        public UserProfileController(UserProfileService userContentService)
+        public UserProfileController(IUserProfileService userContentService)
         {
             _userProfileService = userContentService;
         }

@@ -1,12 +1,13 @@
 ﻿using CatchUp_server.Db;
+using CatchUp_server.Interfaces.UserContentServices;
 using CatchUp_server.Models.UserContent;
 
 namespace CatchUp_server.Services.UserContentServices
 {
-    public class MediaFoldersService
+    public class MediaFoldersService : IMediaFoldersService
     {
-        public ApiDbContext _context;
-        public IWebHostEnvironment _environment;
+        private readonly ApiDbContext _context;
+        private IWebHostEnvironment _environment;
 
         private const string mediaFolder = "UserMedia";
         private const string profilePicFolder = "ProfilePictures";

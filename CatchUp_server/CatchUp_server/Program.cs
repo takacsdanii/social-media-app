@@ -12,6 +12,8 @@ using CatchUp_server.Services.AuthServices;
 using CatchUp_server.Services.UserServices;
 using CatchUp_server.Services.FriendsServices;
 using CatchUp_server.Services.UserContentServices;
+using CatchUp_server.Interfaces;
+using CatchUp_server.Interfaces.UserContentServices;
 
 namespace CatchUp_server
 {
@@ -22,18 +24,17 @@ namespace CatchUp_server
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
             builder.Services.AddControllers();
-            builder.Services.AddScoped<AuthService>();
-            builder.Services.AddScoped<UserService>();
-            builder.Services.AddScoped<EmailService>();
-            builder.Services.AddScoped<FriendsService>();
-            builder.Services.AddScoped<UserProfileService>();
-            builder.Services.AddScoped<MediaFoldersService>();
-            builder.Services.AddScoped<PostService>();
-            builder.Services.AddScoped<LikeService>();
-            builder.Services.AddScoped<CommentService>();
-            builder.Services.AddScoped<StoryService>();
+            builder.Services.AddScoped<IAuthService, AuthService>();
+            builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<IEmailService, EmailService>();
+            builder.Services.AddScoped<IFriendsService, FriendsService>();
+            builder.Services.AddScoped<IUserProfileService, UserProfileService>();
+            builder.Services.AddScoped<IMediaFoldersService, MediaFoldersService>();
+            builder.Services.AddScoped<IPostService, PostService>();
+            builder.Services.AddScoped<ILikeService, LikeService>();
+            builder.Services.AddScoped<ICommentService, CommentService>();
+            builder.Services.AddScoped<IStoryService, StoryService>();
             builder.Services.AddHostedService<StoryBackgroundService>();
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

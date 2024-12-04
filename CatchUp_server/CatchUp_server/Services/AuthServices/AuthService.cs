@@ -1,32 +1,31 @@
-﻿using CatchUp_server.Db;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using Microsoft.AspNetCore.Identity.Data;
 using CatchUp_server.Models.UserModels;
 using CatchUp_server.ViewModels.AuthViewModels;
-using CatchUp_server.Services.UserContentServices;
+using CatchUp_server.Interfaces;
+using CatchUp_server.Interfaces.UserContentServices;
 
 namespace CatchUp_server.Services.AuthServices
 {
-    public class AuthService
+    public class AuthService : IAuthService
     {
         private readonly IConfiguration _configuration;
+        private readonly IUserProfileService _userProfileService;
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
-        private readonly UserProfileService _userProfileService;
 
         private const int minAge = 14;
 
-        public AuthService(IConfiguration configuration, UserManager<User> userManager,
-                            SignInManager<User> signInManager, UserProfileService userContentService)
+        public AuthService(IConfiguration configuration, IUserProfileService userContentService,
+                            UserManager<User> userManager, SignInManager<User> signInManager)
         {
             _configuration = configuration;
+            _userProfileService = userContentService;
             _userManager = userManager;
             _signInManager = signInManager;
-            _userProfileService = userContentService;
         }
 
 

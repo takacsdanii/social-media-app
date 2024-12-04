@@ -1,9 +1,10 @@
-﻿using System.Net;
+﻿using CatchUp_server.Interfaces;
+using System.Net;
 using System.Net.Mail;
 
 namespace CatchUp_server.Services
 {
-    public class EmailService
+    public class EmailService : IEmailService
     {
         private readonly SmtpClient _smtpClient;
 

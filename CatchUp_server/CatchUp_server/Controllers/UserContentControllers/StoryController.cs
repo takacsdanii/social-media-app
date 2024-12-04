@@ -1,9 +1,7 @@
-﻿using CatchUp_server.Models.UserContent;
-using CatchUp_server.Services.UserContentServices;
+﻿using CatchUp_server.Interfaces.UserContentServices;
 using CatchUp_server.ViewModels.UserContentViewModels;
 using CatchUp_server.ViewModels.UserViewModels;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CatchUp_server.Controllers.UserContentControllers
@@ -12,9 +10,9 @@ namespace CatchUp_server.Controllers.UserContentControllers
     [ApiController]
     public class StoryController : ControllerBase
     {
-        private readonly StoryService _storyService;
+        private readonly IStoryService _storyService;
 
-        public StoryController(StoryService storyService)
+        public StoryController(IStoryService storyService)
         {
             _storyService = storyService;
         }

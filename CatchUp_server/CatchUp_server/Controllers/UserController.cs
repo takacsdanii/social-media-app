@@ -1,10 +1,8 @@
-﻿using CatchUp_server.Models.UserModels;
-using CatchUp_server.Services.UserServices;
+﻿using CatchUp_server.Interfaces;
+using CatchUp_server.Models.UserModels;
 using CatchUp_server.ViewModels.UserViewModel;
 using CatchUp_server.ViewModels.UserViewModels;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CatchUp_server.Controllers
@@ -13,9 +11,9 @@ namespace CatchUp_server.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly UserService _userService;
+        private readonly IUserService _userService;
 
-        public UserController(UserService userService)
+        public UserController(IUserService userService)
         {
             _userService = userService;
         }
@@ -31,13 +29,6 @@ namespace CatchUp_server.Controllers
         {
             var user = _userService.GetUser(id);
             return (user != null) ? Ok(user) : NotFound();
-        }
-
-        [HttpGet("users-by-name"), Authorize]
-        public IEnumerable<UserViewModel> GetUsers(string name)
-        {
-            return _userService.GetUsers(name);
-
         }
 
         [HttpDelete, Authorize]

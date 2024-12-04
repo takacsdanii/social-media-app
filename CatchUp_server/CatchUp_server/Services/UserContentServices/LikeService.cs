@@ -1,12 +1,12 @@
 ﻿using CatchUp_server.Db;
+using CatchUp_server.Interfaces.UserContentServices;
 using CatchUp_server.Models.UserContent;
-using CatchUp_server.Models.UserModels;
 using CatchUp_server.ViewModels.UserContentViewModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace CatchUp_server.Services.UserContentServices
 {
-    public class LikeService
+    public class LikeService : ILikeService
     {
         private readonly ApiDbContext _context;
 

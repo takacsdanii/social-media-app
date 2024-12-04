@@ -1,7 +1,6 @@
-﻿using CatchUp_server.Services.UserContentServices;
+﻿using CatchUp_server.Interfaces.UserContentServices;
 using CatchUp_server.ViewModels.UserContentViewModels;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CatchUp_server.Controllers.UserContentControllers
@@ -10,9 +9,9 @@ namespace CatchUp_server.Controllers.UserContentControllers
     [ApiController]
     public class CommentController : ControllerBase
     {
-        private readonly CommentService _commentService;
+        private readonly ICommentService _commentService;
 
-        public CommentController(CommentService commentService)
+        public CommentController(ICommentService commentService)
         {
             _commentService = commentService;
         }

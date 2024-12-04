@@ -1,21 +1,21 @@
 ﻿using CatchUp_server.Db;
+using CatchUp_server.Interfaces;
+using CatchUp_server.Interfaces.UserContentServices;
 using CatchUp_server.Models.UserContent;
-using CatchUp_server.Services.AuthServices;
-using CatchUp_server.Services.FriendsServices;
 using CatchUp_server.ViewModels.UserContentViewModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace CatchUp_server.Services.UserContentServices
 {
-    public class PostService
+    public class PostService : IPostService
     {
         private readonly ApiDbContext _context;
-        private readonly MediaFoldersService _mediaFoldersService;
-        private readonly FriendsService _friendsService;
+        private readonly IMediaFoldersService _mediaFoldersService;
+        private readonly IFriendsService _friendsService;
 
         private const string postsFolder = "Posts";
 
-        public PostService(ApiDbContext context, MediaFoldersService mediaFoldersService, FriendsService friendsService, AuthService authService)
+        public PostService(ApiDbContext context, IMediaFoldersService mediaFoldersService, IFriendsService friendsService)
         {
             _context = context;
             _mediaFoldersService = mediaFoldersService;

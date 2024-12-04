@@ -1,6 +1,5 @@
-﻿using CatchUp_server.Services.FriendsServices;
+﻿using CatchUp_server.Interfaces;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CatchUp_server.Controllers
@@ -9,9 +8,9 @@ namespace CatchUp_server.Controllers
     [ApiController]
     public class FriendsController : ControllerBase
     {
-        private readonly FriendsService _friendsService;
+        private readonly IFriendsService _friendsService;
 
-        public FriendsController(FriendsService friendsService)
+        public FriendsController(IFriendsService friendsService)
         {
             _friendsService = friendsService;
         }

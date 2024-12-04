@@ -1,19 +1,19 @@
 ﻿using CatchUp_server.Db;
+using CatchUp_server.Interfaces;
+using CatchUp_server.Interfaces.UserContentServices;
 using CatchUp_server.Models.UserModels;
-using CatchUp_server.Services.UserContentServices;
 using CatchUp_server.ViewModels.UserViewModel;
 using CatchUp_server.ViewModels.UserViewModels;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 
 namespace CatchUp_server.Services.UserServices
 {
-    public class UserService
+    public class UserService : IUserService
     {
         private readonly ApiDbContext _context;
-        private readonly MediaFoldersService _mediaFoldersService;
+        private readonly IMediaFoldersService _mediaFoldersService;
 
-        public UserService(ApiDbContext context, MediaFoldersService mediaFoldersService)
+        public UserService(ApiDbContext context, IMediaFoldersService mediaFoldersService)
         {
             _context = context;
             _mediaFoldersService = mediaFoldersService;
@@ -74,15 +74,6 @@ namespace CatchUp_server.Services.UserServices
         {
             var user = _context.Users.SingleOrDefault(u => id == u.Id);
             return user != null ? MapUserToViewModel(user) : null;
-        }
-
-        public IReadOnlyCollection<UserViewModel> GetUsers(string name)
-        {
-            var users = _context.Users
-                .Where(u => u.FirstName.Contains(name) || u.LastName.Contains(name) || u.UserName.Contains(name))
-                .Select(u => MapUserToViewModel(u))
-                .ToList();
-            return users;
         }
 
         public UserViewModel GetUserByEmail(string email)
