@@ -85,6 +85,7 @@ export class StoryDialogComponent implements OnInit, OnDestroy {
       this.restartStoryInterval();
     }
     else {
+      this.stopStoryInterval();
       this.storyDialogRef.close();
     }
   }

@@ -12,6 +12,6 @@
     </div>
 
     <ng-container *ngFor="let story of stories">
-        <app-story [storyId]="story.id"></app-story>
+        <app-story [storyId]="story.id" (storyViewed)="addStoryToViewed(story.id)"></app-story>
     </ng-container>
 </div>

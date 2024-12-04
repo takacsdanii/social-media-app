@@ -13,57 +13,38 @@ export class UserProfileHttpService {
 
   constructor(private http: HttpClient) { }
 
-  private getToken(): string | null {
-    return localStorage.getItem('token');
-  }
-
   public editProfilePic(userId: string, file: File): Observable<void> {
     const link = `${this.url}/profile-picture?userId=${userId}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
 
     const formData = new FormData();
     formData.append('file', file); 
     
-    return this.http.put<void>(link, formData, { headers });
+    return this.http.put<void>(link, formData);
   }
 
   public editCoverPic(userId: string, file: File): Observable<void> {
     const link = `${this.url}/cover-picture?userId=${userId}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
 
     const formData = new FormData();
     formData.append('file', file); 
 
-    return this.http.put<void>(link, formData, { headers });
+    return this.http.put<void>(link, formData);
   }
 
   public deleteProfilePic(userId: string, fileName: string): Observable<void> {
     const link = `${this.url}/profile-picture?userId=${userId}&fileName=${fileName}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-    return this.http.delete<void>(link, { headers });
+    return this.http.delete<void>(link);
   }
 
   public deleteCoverPic(userId: string, fileName: string): Observable<void> {
     const link = `${this.url}/cover-picture?userId=${userId}&fileName=${fileName}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-    return this.http.delete<void>(link, { headers });
+    return this.http.delete<void>(link);
   }
 
   public editBio(userId: string, bio: string | null): Observable<void> {
     const link = `${this.url}/bio`;
     const body = { 'userId': userId, 'bio': bio };
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-    return this.http.put<void>(link, body, { headers });
+    return this.http.put<void>(link, body);
   }
 
 }

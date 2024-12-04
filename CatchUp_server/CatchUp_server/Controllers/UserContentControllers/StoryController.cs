@@ -66,9 +66,9 @@ namespace CatchUp_server.Controllers.UserContentControllers
         }
 
         [HttpGet("has-user-uploaded-story"), Authorize]
-        public IActionResult HasUserUploadedStory(string userId)
+        public IActionResult HasUserUploadedVisibleStoryForLoggedInUser(string storyOwnerId, string loggedInUserId)
         {
-            var result = _storyService.HasUserUploadedStory(userId);
+            var result = _storyService.HasUserUploadedVisibleStoryForLoggedInUser(storyOwnerId, loggedInUserId);
             return Ok(new { result });
         }
 

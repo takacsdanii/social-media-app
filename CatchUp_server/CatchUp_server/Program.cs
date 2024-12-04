@@ -34,8 +34,8 @@ namespace CatchUp_server
             builder.Services.AddScoped<LikeService>();
             builder.Services.AddScoped<CommentService>();
             builder.Services.AddScoped<StoryService>();
-
             builder.Services.AddHostedService<StoryBackgroundService>();
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
 

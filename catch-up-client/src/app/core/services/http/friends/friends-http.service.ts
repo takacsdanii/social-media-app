@@ -11,55 +11,33 @@ export class FriendsHttpService {
 
   constructor(private http: HttpClient) { }
 
-  private getToken(): string | null {
-    return localStorage.getItem('token');
-  }
-
   public getFollowers(userId: string): Observable<UserPreviewModel[]> {
     const link = `${this.url}/followers?userId=${userId}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-    return this.http.get<UserPreviewModel[]>(link, { headers });
+    return this.http.get<UserPreviewModel[]>(link);
   }
 
   public getFollowing(userId: string): Observable<UserPreviewModel[]> {
     const link = `${this.url}/following?userId=${userId}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-    return this.http.get<UserPreviewModel[]>(link, { headers });
+    return this.http.get<UserPreviewModel[]>(link);
   }
 
   public getFriends(userId: string): Observable<UserPreviewModel[]> {
     const link = `${this.url}/friends?userId=${userId}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-    return this.http.get<UserPreviewModel[]>(link, { headers });
+    return this.http.get<UserPreviewModel[]>(link);
   }
 
   public doesUserFollowTargetUser(userId: string, targetUserId: string): Observable<{result: boolean}> {
     const link = `${this.url}/following-given-user?userId=${userId}&targetUserId=${targetUserId}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-    return this.http.get<{result: boolean}>(link, { headers });
+    return this.http.get<{result: boolean}>(link);
   }
 
   public followUser(userId: string, targetUserId: string): Observable<void> {
     const link = `${this.url}?userId=${userId}&targetUserId=${targetUserId}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-    return this.http.post<void>(link, null, { headers });
+    return this.http.post<void>(link, null);
   }
 
   public unFollowUser(userId: string, targetUserId: string): Observable<void> {
     const link = `${this.url}?userId=${userId}&targetUserId=${targetUserId}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-    return this.http.delete<void>(link, { headers });
+    return this.http.delete<void>(link);
   }
 }

@@ -92,7 +92,7 @@ export class UserPageComponent implements OnInit {
   }
 
   private hasUserUploadedStory(userId: string): void {
-    this.storyHttpService.hasUserUploadedStory(userId).subscribe(resp => {
+    this.storyHttpService.hasUserUploadedVisibleStoryForLoggedInUser(userId, this.myUserId).subscribe(resp => {
       this.isStoryUploaded = resp.result;
     });
   }
@@ -115,6 +115,7 @@ export class UserPageComponent implements OnInit {
       this.postsComponent.loadPosts();
       // this.ngOnInit();
       this.setUser(this.userIdFromRoute!);
+      this.hasUserUploadedStory(this.userIdFromRoute!);
     });
   }
 
@@ -125,6 +126,7 @@ export class UserPageComponent implements OnInit {
       this.postsComponent.loadPosts();
       // this.ngOnInit();
       this.setUser(this.userIdFromRoute!);
+      this.hasUserUploadedStory(this.userIdFromRoute!);
     });
   }
 

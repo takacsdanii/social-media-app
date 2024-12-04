@@ -14,43 +14,23 @@ export class UserHttpService {
 
   constructor(private http: HttpClient) { }
 
-  private getToken(): string | null {
-    return localStorage.getItem('token');
-  }
-
   public listUsers(): Observable<UserModel[]> {
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-
-    return this.http.get<UserModel[]>(this.url, { headers });
+    return this.http.get<UserModel[]>(this.url);
   }
 
   public getUser(id: string): Observable<UserModel> {
     const link = `${this.url}/user-by-id?id=${id}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-
-    return this.http.get<UserModel>(link, { headers });
+    return this.http.get<UserModel>(link);
   }
 
   public getUsersByName(name: string): Observable<UserModel[]> {
     const link = `${this.url}/users-by-name?name=${name}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-
-    return this.http.get<UserModel[]>(link, { headers });
+    return this.http.get<UserModel[]>(link);
   } 
 
   public deleteUser(id: string): Observable<void> {
     const link = `${this.url}?id=${id}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-
-    return this.http.delete<void>(link, { headers });
+    return this.http.delete<void>(link);
   }
 
   public getUserByEmail(email: string) : Observable<UserModel> {
@@ -59,27 +39,16 @@ export class UserHttpService {
   }
 
   public updateUser(user: UserModel): Observable<UserModel> {
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-    return this.http.put<UserModel>(this.url, user, { headers });
+    return this.http.put<UserModel>(this.url, user);
   }
 
   public updateGender(userId: string, gender: GenderModel): Observable<void> {
     const link = `${this.url}/update-gender?userId=${userId}&gender=${gender}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-
-    return this.http.put<void>(link, null, { headers });
+    return this.http.put<void>(link, null);
   }
 
   public searchUsers(searchString: string): Observable<SearchUserModel[]> {
     const link = `${this.url}/search-users?searchString=${searchString}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-
-    return this.http.get<SearchUserModel[]>(link, { headers });
+    return this.http.get<SearchUserModel[]>(link);
   }
 }

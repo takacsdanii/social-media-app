@@ -39,6 +39,7 @@ namespace CatchUp_server.Services.UserContentServices
             }
             return folderPath;
         }
+
         private void CreateUserMediaFolders(string userId)
         {
             CreateMediaFolder(userId, profilePicFolder);

@@ -12,7 +12,6 @@ namespace CatchUp_server.Services.UserContentServices
         private readonly ApiDbContext _context;
         private readonly MediaFoldersService _mediaFoldersService;
         private readonly FriendsService _friendsService;
-        private readonly AuthService _authService;
 
         private const string postsFolder = "Posts";
 
@@ -21,7 +20,6 @@ namespace CatchUp_server.Services.UserContentServices
             _context = context;
             _mediaFoldersService = mediaFoldersService;
             _friendsService = friendsService;
-            _authService = authService;
         }
 
         public PostViewModel GetPost(int postId)
@@ -64,22 +62,37 @@ namespace CatchUp_server.Services.UserContentServices
 
         public IReadOnlyCollection<PostViewModel> GetPostsOfUser(string postOwnerId, string loggedInUserId)
         {
-            var posts = GetPostsOfUser(postOwnerId);
+            //var posts = GetPostsOfUser(postOwnerId);
             if (loggedInUserId == postOwnerId)
             {
-                return posts;
+                return GetPostsOfUser(postOwnerId); //posts;
             }
 
-            var doesLoggedInUserFollowStoryOwner = _friendsService.doesUserFollowTargetUser(loggedInUserId, postOwnerId) ?? false;
-            var doesStoryOwnerFollowLoggedInUser = _friendsService.doesUserFollowTargetUser(postOwnerId, loggedInUserId) ?? false;
+            var doesLoggedInUserFollowPostOwner = _friendsService.doesUserFollowTargetUser(loggedInUserId, postOwnerId) ?? false;
+            var doesPostOwnerFollowLoggedInUser = _friendsService.doesUserFollowTargetUser(postOwnerId, loggedInUserId) ?? false;
 
-            return posts
+            //return posts
+            return _context.Posts
                 .Where(
-                    p => p.Visibility == Visibility.Public
-                    || (doesLoggedInUserFollowStoryOwner && doesStoryOwnerFollowLoggedInUser && p.Visibility == Visibility.Friends)
-                    || (doesLoggedInUserFollowStoryOwner && p.Visibility == Visibility.Followers)
-                    || (doesStoryOwnerFollowLoggedInUser && p.Visibility == Visibility.Following)
+                    p => p.Userid == postOwnerId
+                    && 
+                    (p.Visibility == Visibility.Public
+                    || (doesLoggedInUserFollowPostOwner && doesPostOwnerFollowLoggedInUser && p.Visibility == Visibility.Friends)
+                    || (doesLoggedInUserFollowPostOwner && p.Visibility == Visibility.Followers)
+                    || (doesPostOwnerFollowLoggedInUser && p.Visibility == Visibility.Following))
                 )
+                .OrderByDescending(p => p.CreatedAt)
+                .Select(p => new PostViewModel
+                {
+                    Id = p.Id,
+                    Description = p.Description,
+                    Visibility = p.Visibility,
+                    CreatedAt = p.CreatedAt,
+                    UserId = p.Userid,
+                    MediaContents = p.MediaContents,
+                    LikeCount = _context.Likes.Count(l => l.PostId == p.Id && l.CommentId == null),
+                    CommentCount = _context.Comments.Count(c => c.PostId == p.Id)
+                })
                 .ToList();
         }
 
@@ -197,22 +210,15 @@ namespace CatchUp_server.Services.UserContentServices
             var friendIds = friends.Select(f => f.Id).ToList();
 
             return _context.Posts
-                .Where
-                (
+                .Where(
                     p => userIds.Contains(p.Userid)
                     &&
-                    (
-                        p.Visibility == Visibility.Public ||
-                        p.Visibility == Visibility.Followers
-                        ||
-                        (
-                            friendIds.Contains(p.Userid)
-                            &&
-                            (
-                                p.Visibility == Visibility.Friends ||
-                                p.Visibility == Visibility.Following
-                            )
-                        )
+                    (p.Visibility == Visibility.Public
+                    || p.Visibility == Visibility.Followers
+                    || (friendIds.Contains(p.Userid)
+                       &&
+                       (p.Visibility == Visibility.Friends
+                       || p.Visibility == Visibility.Following))
                     )
                 )
                 .OrderByDescending(p => p.CreatedAt)

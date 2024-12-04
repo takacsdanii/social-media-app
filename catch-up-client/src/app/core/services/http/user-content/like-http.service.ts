@@ -11,53 +11,29 @@ export class LikeHttpService {
 
   constructor(private http: HttpClient) { }
 
-  private getToken(): string | null {
-    return localStorage.getItem('token');
-  }
-
   public likePost(userId: string, postId: number): Observable<number> {
     const link = `${this.url}/like-post?userId=${userId}&postId=${postId}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-
-    return this.http.post<number>(link, null, { headers });
+    return this.http.post<number>(link, null);
   }
 
   public likeComment(userId: string, postId: number, commentId: number): Observable<number> {
     const link = `${this.url}/like-comment?userId=${userId}&postId=${postId}&commentId=${commentId}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-
-    return this.http.post<number>(link, null, { headers });
+    return this.http.post<number>(link, null);
   }
 
   public removeLike(id: number):Observable<void> {
     const link = `${this.url}?id=${id}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-
-    return this.http.delete<void>(link, {headers });
+    return this.http.delete<void>(link);
   }
 
   public getLikersForPost(postId: number): Observable<LikeModel[]> {
     const link = `${this.url}/likers-for-post?postId=${postId}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-
-    return this.http.get<LikeModel[]>(link, {headers });
+    return this.http.get<LikeModel[]>(link);
   }
 
   public getLikersForComment(postId: number, commentId: number): Observable<LikeModel[]> {
     const link = `${this.url}/likers-for-comment?postId=${postId}&commentId=${commentId}`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-
-    return this.http.get<LikeModel[]>(link, {headers });
+    return this.http.get<LikeModel[]>(link);
   }
 
   public getLikeIdForContent(userId: string, postId: number, commentId: number | null): Observable<number> {
@@ -66,10 +42,6 @@ export class LikeHttpService {
       link = `${link}&commentId=${commentId}`
     }
 
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
-
-    return this.http.get<number>(link, { headers });
+    return this.http.get<number>(link);
   }
 }
