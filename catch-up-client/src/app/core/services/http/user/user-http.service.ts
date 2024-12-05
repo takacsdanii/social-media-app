@@ -1,8 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserModel } from '../../../models/user.model';
-import jwtDecode from 'jwt-decode';
 import { GenderModel } from '../../../models/enums/gender.model';
 import { SearchUserModel } from '../../../models/search-user.model';
 
@@ -22,11 +21,6 @@ export class UserHttpService {
     const link = `${this.url}/user-by-id?id=${id}`;
     return this.http.get<UserModel>(link);
   }
-
-  public getUsersByName(name: string): Observable<UserModel[]> {
-    const link = `${this.url}/users-by-name?name=${name}`;
-    return this.http.get<UserModel[]>(link);
-  } 
 
   public deleteUser(id: string): Observable<void> {
     const link = `${this.url}?id=${id}`;

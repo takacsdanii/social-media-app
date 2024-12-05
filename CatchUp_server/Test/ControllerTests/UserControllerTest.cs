@@ -7,6 +7,7 @@ using CatchUp_server.Models.UserModels;
 using CatchUp_server.ViewModels.UserViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
 
 namespace CatchUp_Test.ControllerTests
 {
@@ -45,7 +46,13 @@ namespace CatchUp_Test.ControllerTests
 
         private void MockUser()
         {
-            fakeUser = new UserViewModel { Id = "user1", UserName = "BilboBaggins" };
+            fakeUser = new UserViewModel 
+            { 
+                Id = "user1", 
+                UserName = "BilboBaggins", 
+                Email = "bilbobaggins@gmai.com" ,
+                Gender = Gender.Male,
+            };
         }
 
         [Fact]
@@ -60,7 +67,7 @@ namespace CatchUp_Test.ControllerTests
 
             // Assert
             result.Should().NotBeNullOrEmpty();
-            result.Should().HaveCount(6);
+            result.Should().HaveCount(fakeUsers.Count);
             result.Should().BeEquivalentTo(fakeUsers);
             A.CallTo(() => _fakeService.List()).MustHaveHappenedOnceExactly();
         }
@@ -106,11 +113,12 @@ namespace CatchUp_Test.ControllerTests
             // Act
             var result = _controller.GetUser(fakeUser.Id);
 
-            // Arrange
+            // Assert
             result.Should().NotBeNull();
             result.Should().BeOfType<OkObjectResult>();
             var okResult = result as OkObjectResult;
             okResult?.Value.Should().BeEquivalentTo(fakeUser);
+
             A.CallTo(() => _fakeService.GetUser(fakeUser.Id)).MustHaveHappenedOnceExactly();
         }
 
@@ -125,9 +133,10 @@ namespace CatchUp_Test.ControllerTests
             // Act
             var result = _controller.GetUser(userId);
 
-            // Arrange
+            // Assert
             result.Should().NotBeNull();
             result.Should().BeOfType<NotFoundResult>();
+
             A.CallTo(() => _fakeService.GetUser(userId)).MustHaveHappenedOnceExactly();
         }
 
@@ -142,11 +151,12 @@ namespace CatchUp_Test.ControllerTests
             // Act
             var result = _controller.DeleteUser(user.Id);
 
-            // Arrange
+            // Assert
             result.Should().NotBeNull();
             result.Should().BeOfType<OkObjectResult>();
             var okResult = result as OkObjectResult;
             okResult?.Value.Should().BeEquivalentTo(user);
+
             A.CallTo(() => _fakeService.DeleteUser(user.Id)).MustHaveHappenedOnceExactly();
         }
 
@@ -161,30 +171,168 @@ namespace CatchUp_Test.ControllerTests
             // Act
             var result = _controller.DeleteUser(userId);
 
-            // Arrange
+            // Assert
             result.Should().NotBeNull();
             result.Should().BeOfType<NotFoundResult>();
+
             A.CallTo(() => _fakeService.DeleteUser(userId)).MustHaveHappenedOnceExactly();
         }
-        
-        //public void DeleteUser(string id)
-        //{
-        //}
 
-        //public void GetUserByEmail(string email)
-        //{
-        //}
+        [Fact]
+        public void GetUserByEmail_ShouldReturnOk_WhenUserExists()
+        {
+            // Arrange
+            A.CallTo(() => _fakeService.GetUserByEmail(fakeUser.Email))
+                .Returns(fakeUser);
 
-        //public void UpdateUser([FromBody] UserViewModel userModel)
-        //{
-        //}
+            // Act
+            var result = _controller.GetUserByEmail(fakeUser.Email);
 
-        //public void UpdateGender(string userId, Gender gender)
-        //{
-        //}
+            // Assert
+            result.Should().NotBeNull();
+            result.Should().BeOfType<OkObjectResult>();
+            var okResult = result as OkObjectResult;
+            okResult?.Value.Should().BeEquivalentTo(fakeUser);
 
-        //public void SearchUsers(string searchString)
-        //{
-        //}
+            A.CallTo(() => _fakeService.GetUserByEmail(fakeUser.Email)).MustHaveHappenedOnceExactly();
+        }
+
+        [Fact]
+        public void GetUserByEmail_ShouldReturnNotFound_WhenUserDoesntExist()
+        {
+            // Arrange
+            var email = "a@email.com";
+            A.CallTo(() => _fakeService.GetUserByEmail(email))
+                .Returns(null);
+
+            // Act
+            var result = _controller.GetUserByEmail(email);
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Should().BeOfType<NotFoundResult>();
+
+            A.CallTo(() => _fakeService.GetUserByEmail(email)).MustHaveHappenedOnceExactly();
+        }
+
+        [Fact]
+        public void UpdateUser_ShouldSucceed()
+        {
+            // Arrange
+            A.CallTo(() => _fakeService.UpdateUser(fakeUser))
+                .Returns(IdentityResult.Success);
+
+            // Act
+            var result = _controller.UpdateUser(fakeUser);
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Should().BeOfType<OkObjectResult>();
+            var okResult = result as OkObjectResult;
+            okResult?.Value.Should().BeEquivalentTo(fakeUser);
+
+            A.CallTo(() => _fakeService.UpdateUser(fakeUser)).MustHaveHappenedOnceExactly();
+        }
+
+        [Fact]
+        public void UpdateUser_ShouldNotSucceed()
+        {
+            // Arrange
+            var fakeErrors = new[] { new IdentityError { Description = "ERROR" } };
+            A.CallTo(() => _fakeService.UpdateUser(fakeUser))
+                .Returns(IdentityResult.Failed(fakeErrors));
+
+            // Act
+            var result = _controller.UpdateUser(fakeUser);
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Should().BeOfType<BadRequestObjectResult>();
+            var badrequest = result as BadRequestObjectResult;
+            badrequest?.Value.Should().BeEquivalentTo(new { errors = fakeErrors.Select(e => e.Description).ToList() });
+
+            A.CallTo(() => _fakeService.UpdateUser(fakeUser)).MustHaveHappenedOnceExactly();
+        }
+
+        [Fact]
+        public void UpdateGender_ShouldReturnOk_WhenGenderIsUpdated()
+        {
+            // Arrange
+            A.CallTo(() => _fakeService.UpdateGender(fakeUser.Id, fakeUser.Gender))
+                .Returns(fakeUser.Gender);
+
+            // Act
+            var result = _controller.UpdateGender(fakeUser.Id, fakeUser.Gender);
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Should().BeOfType<OkObjectResult>();
+            var okResult = result as OkObjectResult;
+            okResult?.Value.Should().Be(fakeUser.Gender);
+
+            A.CallTo(() => _fakeService.UpdateGender(fakeUser.Id, fakeUser.Gender)).MustHaveHappenedOnceExactly();
+        }
+
+        [Fact]
+        public void UpdateGender_ShouldReturnNotFound_WhenUserDoesNotExist()
+        {
+            // Arrange
+            A.CallTo(() => _fakeService.UpdateGender(fakeUser.Id, fakeUser.Gender))
+                .Returns(null);
+
+            // Act
+            var result = _controller.UpdateGender(fakeUser.Id, fakeUser.Gender);
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Should().BeOfType<NotFoundResult>();
+
+            A.CallTo(() => _fakeService.UpdateGender(fakeUser.Id, fakeUser.Gender)).MustHaveHappenedOnceExactly();
+        }
+
+        [Fact]
+        public void SearchUsers_ShouldReturnAll_WhenListIsNotEmpty()
+        {
+            // Arrange
+            var searchString = "ame";
+            var users = new List<SearchUserViewModel>()
+            {
+                new SearchUserViewModel { Id = "id1", UserName = "name1" },
+                new SearchUserViewModel { Id = "id4", UserName = "game2" }
+            };
+            A.CallTo(() => _fakeService.SearchUsers(searchString))
+                .Returns(users);
+
+            // Act
+            var result = _controller.SearchUsers(searchString);
+
+            // Assert
+            result.Should().NotBeNullOrEmpty();
+            result.Should().HaveCount(2);
+            result.Should().BeEquivalentTo(users);
+            A.CallTo(() => _fakeService.SearchUsers(searchString)).MustHaveHappenedOnceExactly();
+        }
+
+        [Fact]
+        public void SearchUsers_ShouldReturnEmptyList_WhenListIsEmpty()
+        {
+            // Arrange
+            var searchString = "man";
+            var users = new List<SearchUserViewModel>()
+            {
+                new SearchUserViewModel { Id = "id1", UserName = "name1" },
+                new SearchUserViewModel { Id = "id4", UserName = "game2" }
+            };
+            A.CallTo(() => _fakeService.SearchUsers(searchString))
+                .Returns(new List<SearchUserViewModel>());
+
+            // Act
+            var result = _controller.SearchUsers(searchString);
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Should().BeEmpty();
+            A.CallTo(() => _fakeService.SearchUsers(searchString)).MustHaveHappenedOnceExactly();
+        }
     }
 }

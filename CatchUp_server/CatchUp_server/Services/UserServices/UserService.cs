@@ -63,9 +63,9 @@ namespace CatchUp_server.Services.UserServices
                 _context.Comments.RemoveRange(comments);
                 _context.Users.Remove(user);
                 _context.SaveChanges();
-            }
 
-            _mediaFoldersService.DeleteUserMediaFolders(userId);
+                _mediaFoldersService.DeleteUserMediaFolders(userId);
+            }
 
             return user;
         }
@@ -78,6 +78,11 @@ namespace CatchUp_server.Services.UserServices
 
         public UserViewModel GetUserByEmail(string email)
         {
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                return null;
+            }
+
             var user = _context.Users.SingleOrDefault(u => u.Email == email);
             return user != null ? MapUserToViewModel(user) : null;
         }
